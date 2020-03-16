@@ -11,7 +11,6 @@ Two Modifications of Mean-Variance Portfolio Theory
 
 .. contents:: :depth: 2
 
-**Authors:** Daniel Csaba, Thomas J. Sargent and Balint Szoke
 
 Overview
 =========
@@ -552,8 +551,7 @@ which defines the *information contract curve* between
 .. math::
   :label: info-curve
 
-  \vec r_e = (\Sigma^{-1} + \lambda (\tau \Sigma)^{-1})^{-1} (\Sigma^{-1} \mu_{BL}
-  + \lambda (\tau \Sigma)^{-1}\hat \mu )
+  \vec r_e = (\Sigma^{-1} + \lambda (\tau \Sigma)^{-1})^{-1} (\Sigma^{-1} \mu_{BL} + \lambda (\tau \Sigma)^{-1}\hat \mu )
 
 Note that if :math:`\lambda = 1`, :eq:`info-curve` is equivalent with :eq:`mix-views` and it
 identifies one point on the information contract curve.
