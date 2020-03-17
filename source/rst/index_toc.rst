@@ -23,6 +23,7 @@
     :titlesonly:
 
     about_lectures
+    index_tools_and_techniques
     index_intro_dynam
     index_dynamic_programming
     index_lq_control
