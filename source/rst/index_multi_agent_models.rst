@@ -19,7 +19,6 @@ equilibrium concepts.
 .. toctree::
     :maxdepth: 2
 
-    rational_expectations
     rob_markov_perf
     arellano
     matsuyama
