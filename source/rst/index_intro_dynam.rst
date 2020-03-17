@@ -22,5 +22,4 @@ agents as given.  Later we will look at full equilibrium problems.
     :maxdepth: 2
 
     stationary_densities
-    cass_koopmans
     muth_kalman
