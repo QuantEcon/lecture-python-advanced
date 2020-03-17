@@ -462,16 +462,16 @@ jupyter_pdf_author = "Thomas J. Sargent and John Stachurski"
 jupyter_pdf_excludepatterns = ["404", "index", "references"]
 
 # Set urlpath for html links in documents
-jupyter_pdf_urlpath = "https://python-programming.quantecon.org/"
+jupyter_pdf_urlpath = "https://python-advanced.quantecon.org/"
 
 # make book
 jupyter_pdf_book = False
 
 # book title
-jupyter_pdf_book_title = "Python for Quantitative Economics"
+jupyter_pdf_book_title = "Advanced Quantitative Economics with Python"
 
 # pdf book name
-jupyter_pdf_book_name = "python_for_quantitative_economics"
+jupyter_pdf_book_name = "advanced_quantitative_economics_with_python"
 
 # pdf toc file
 jupyter_pdf_book_index = "index_toc"
