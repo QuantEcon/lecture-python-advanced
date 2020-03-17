@@ -20,7 +20,6 @@ equilibrium concepts.
     :maxdepth: 2
 
     rational_expectations
-    re_with_feedback
     rob_markov_perf
     arellano
     matsuyama
