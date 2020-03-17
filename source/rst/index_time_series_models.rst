@@ -16,6 +16,8 @@ These lectures look at important concepts in time series that are used in econom
 .. toctree::
     :maxdepth: 2
 
+    arma
+    estspec
     additive_functionals
     lu_tricks
     classical_filtering
