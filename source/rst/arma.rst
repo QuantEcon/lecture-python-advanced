@@ -37,7 +37,7 @@ We will focus much of our attention on linear covariance stationary models with 
 
 In particular, we will study stationary ARMA processes, which form a cornerstone of the standard theory of time series analysis.
 
-Every ARMA process can be represented in :doc:`linear state space <linear_models>` form.
+Every ARMA process can be represented in `linear state space <https://python-intro.quantecon.org/linear_models.html>`__ form.
 
 However, ARMA processes have some important structure that makes it valuable to study them separately.
 
@@ -976,7 +976,7 @@ such as ``arma.phi = (0.5, 0.2)`` or ``arma.theta = (0, -0.1)``.
 
 then ``ma_poly`` and ``ar_poly`` should update automatically to reflect these new parameters.
 
-This is achieved in our implementation by using :ref:`descriptors<descriptors>`.
+This is achieved in our implementation by using `descriptors<https://python-programming.quantecon.org/python_advanced_features.html#descriptors>`__.
 
 
 
