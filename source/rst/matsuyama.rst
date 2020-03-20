@@ -369,7 +369,7 @@ conditions is not trivial.
 
 In order to make our code fast, we will use just in time compiled functions that will get called and handled by our class.
 
-These are the ``@jit`` statements that you see below (review :doc:`this lecture <numba>` if you don't recall how to use JIT compilation).
+These are the ``@jit`` statements that you see below (review `this lecture <https://python-programming.quantecon.org/numba.html>`__ if you don't recall how to use JIT compilation).
 
 
 
