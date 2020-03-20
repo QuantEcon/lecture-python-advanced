@@ -74,7 +74,7 @@ Thus, we can convert  the consumption-smoothing models in lecture :doc:`smoothin
 collections, :math:`\{G_t\}` is an exogenous government expenditures
 process, and :math:`a_t` is the government's holdings of one-period risk-free bonds coming maturing at the due at the beginning of time :math:`t`.
 
-For elaborations on this theme, please see :doc:`perm_income_cons` and later parts of this lecture.
+For elaborations on this theme, please see `Optimal Savings II: LQ Techniques <https://python-intro.quantecon.org/perm_income_cons.html>`__ and later parts of this lecture.
 
 
 We'll spend most of this lecture studying acquire finite-state Markov specification, 
