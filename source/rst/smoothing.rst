@@ -82,7 +82,7 @@ Let's start with some imports:
 Relationship to Other Lectures
 ------------------------------
 
-This lecture can be viewed as a followup to :doc:`perm_income_cons` 
+This lecture can be viewed as a followup to `Optimal Savings II: LQ Techniques <https://python-intro.quantecon.org/perm_income_cons.html>`__ 
 
 This lecture is also a prologomenon to a lecture on tax-smoothing :doc:`smoothing_tax`
 
@@ -123,13 +123,13 @@ one-period return :math:`\beta^{-1}`.
 Linear State Space Version of Complete Markets Model
 ====================================================
 
-Now we'll study a complete markets model adapted to  a setting with a continuous Markov state like that in the :doc:`first lecture on the permanent income model <perm_income>`.
+Now we'll study a complete markets model adapted to  a setting with a continuous Markov state like that in the `first lecture on the permanent income model <https://python-intro.quantecon.org/perm_income.html>`__.
 
 In that model, there are
 
 * incomplete markets: the consumer can trade only a single risk-free one-period bond bearing gross one-period risk-free interest rate equal to :math:`\beta^{-1}`.
 
-* the consumer's exogenous nonfinancial income is governed by a linear state space model driven by Gaussian shocks, the kind of model studied in an earlier lecture about :doc:`linear state space models <linear_models>`.
+* the consumer's exogenous nonfinancial income is governed by a linear state space model driven by Gaussian shocks, the kind of model studied in an earlier lecture about `linear state space models <https://python-intro.quantecon.org/linear_models.html>`__.
 
 Let's write down a complete markets counterpart of that model.
 
@@ -270,7 +270,7 @@ and the consumer's debt is the fixed function of
 the state :math:`x_t` described by :eq:`cs_15`.
 
 
-Please recall that in the LQ permanent income model studied in first lecture on the :doc:`permanent income model <perm_income>`, the state is 
+Please recall that in the LQ permanent income model studied in first lecture on the `permanent income model <https://python-intro.quantecon.org/perm_income.html>`__, the state is 
 :math:`x_t, b_t`, where :math:`b_t` is a complicated function of past state vectors :math:`x_{t-j}`.
 
 Notice that in contrast to that incomplete markets model, at time :math:`t` the state vector is :math:`x_t` alone  in our complete markets model.
@@ -380,8 +380,8 @@ Incomplete Markets Version
 
 
 The incomplete markets version of the model with nonfinancial income being governed by a linear state space system
-is described in the first lecture on the :doc:`permanent income model <perm_income>` and the followup
-lecture on  the :doc:`permanent income model <perm_income_cons>`.
+is described in the first lecture on the `permanent income model <https://python-intro.quantecon.org/perm_income.html>`__ and the followup
+lecture on  the `permanent income model <https://python-intro.quantecon.org/perm_income_cons.html>`__.
 
 In that incomplete markerts setting, consumption follows a random walk and the consumer's debt follows a process with a unit root.
 
@@ -846,7 +846,7 @@ For our assumed quadratic utility function this implies
 
 which for our finite-state Markov setting is Hall's (1978) conclusion that consumption follows a random walk.
 
-As we saw in our first lecture on the :doc:`permanent income model <perm_income>`, this leads to
+As we saw in our first lecture on the `permanent income model <https://python-intro.quantecon.org/perm_income.html>`__, this leads to
 
 .. math::
     :label: cs_9
