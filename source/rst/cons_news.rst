@@ -23,7 +23,7 @@ Overview
 This lecture studies two consumers who have exactly the same
 nonfinancial income process and who both conform to the linear-quadratic
 permanent income of consumption smoothing model described in the
-:doc:`quantecon lecture<perm_income_cons>`.
+`quantecon lecture <https://python-intro.quantecon.org/perm_income_cons.html>`__.
 
 The two consumers  have different information about 
 future nonfinancial incomes.
@@ -56,7 +56,7 @@ We compare behaviors of our two consumers as a way to learn about
 -  operating characteristics of the linear-quadratic permanent income
    model
 
--  how the Kalman filter introduced in :doc:`this lecture<kalman>`
+-  how the Kalman filter introduced in `this lecture <https://python-intro.quantecon.org/kalman.html>`__
    and/or the theory of optimal 
    forecasting introduced in :doc:`this lecture<classical_filtering>`
    embody lessons
@@ -388,7 +388,7 @@ Permanent Income Consumption-Smoothing Model
 
 When we computed optimal consumption-saving policies for the two
 representations using formulas obtained with the difference equation
-approach described in the :doc:`quantecon lecture<perm_income_cons>`,
+approach described in the `quantecon lecture <https://python-intro.quantecon.org/perm_income_cons.html>`__,
 we obtain:
 
 **for a consumer having the information assumed in the news
@@ -463,7 +463,7 @@ univariate standardized normal random variables.
 
 These two alternative income processes are ready to be used in the
 framework presented in the section “Comparison with the Difference
-Equation Approach” in the :doc:`quantecon  lecture<perm_income_cons>`.
+Equation Approach” in the `quantecon  lecture <https://python-intro.quantecon.org/perm_income_cons.html>`__.
 
 
 All the code that we shall use below is presented in that lecture.
@@ -475,11 +475,11 @@ We shall use Python to form **both** of the above two state-space
 representations, using the following parameter values
 :math:`\sigma_\epsilon = 1, \sigma_a = \beta^{-1} \sigma_\epsilon = \beta^{-1}`
 where :math:`\beta` is the **same** value as the discount factor in the
-household’s problem in the LQ savings problem in the :doc:`lecture<perm_income_cons>`.
+household’s problem in the LQ savings problem in the `lecture <https://python-intro.quantecon.org/perm_income_cons.html>`__.
 
 
 For these two representations, we use the code in the
-:doc:`lecture<perm_income_cons>` to
+`lecture <https://python-intro.quantecon.org/perm_income_cons.html>`__ to
 
 -  compute optimal decision rules for :math:`c_t, b_t` for the two types
    of consumers associated with our two representations of nonfinancial
