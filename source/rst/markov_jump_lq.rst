@@ -23,7 +23,7 @@ In addition to what's in Anaconda, this lecture will need the following librarie
 Overview
 ========
 
-This lecture describes **Markov jump linear quadratic dynamic programming**, an extension of the method described in the :doc:`first LQ control lecture <lqcontrol>`.
+This lecture describes **Markov jump linear quadratic dynamic programming**, an extension of the method described in the `first LQ control lecture <https://python-intro.quantecon.org/lqcontrol.html>`__.
 
 Markov jump linear quadratic dynamic programming is described and analyzed in :cite:`do1999solutions` and the references cited there.
 
