@@ -82,7 +82,7 @@ tools that Muth used.
 Rather than using those classical tools, in this lecture we apply the
 Kalman filter to express the heart of Muth’s analysis concisely.
 
-The lecture :doc:`First Look at Kalman Filter<kalman>` describes the Kalman filter.
+The lecture `First Look at Kalman Filter <https://python-intro.quantecon.org/kalman.html>`__ describes the Kalman filter.
 
 We'll use limiting versions of the Kalman filter corresponding to what are called **stationary values** in that lecture.
 
