@@ -99,7 +99,7 @@ Computation
 
 As before, we will store the primitives of the optimal growth model in a class.
 
-But now we are going to use :doc:`Numba's <numba>` ``@jitclass`` decorator to
+But now we are going to use `Numba's <https://python-programming.quantecon.org/numba.html>`__ ``@jitclass`` decorator to
 target our class for JIT compilation.
 
 Because we are going to use Numba to compile our class, we need to specify the
