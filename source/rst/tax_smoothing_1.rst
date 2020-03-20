@@ -183,7 +183,7 @@ Barro (1979) Model
 We begin by solving a version of the Barro (1979) :cite:`Barro1979` model by mapping it
 into the original LQ framework.
 
-As mentioned :doc:`in this lecture <perm_income_cons>`, the
+As mentioned `in this lecture <https://python-intro.quantecon.org/perm_income_cons.html>`__, the
 Barro model is mathematically isomorphic with the LQ permanent income
 model.
 
