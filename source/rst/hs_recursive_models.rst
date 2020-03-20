@@ -107,7 +107,7 @@ case of the analysis of trade under certainty**.
 
 The :cite:`HS2013` class of models specify the commodity space, preferences, technologies, stochastic shocks and information flows in ways
 that allow the models to be analyzed completely using only the tools of linear time series models and linear-quadratic optimal control described
-in the two lectures  :doc:`Linear State Space Models<linear_models>` and :doc:`Linear Quadratic Control<lqcontrol>`.
+in the two lectures  `Linear State Space Models <https://python-intro.quantecon.org/linear_models.html>`__ and `Linear Quadratic Control <https://python-intro.quantecon.org/lqcontrol.html>`__.
 
 There are costs and benefits associated with the simplifications and specializations needed to make a particular model fit within the
 :cite:`HS2013` class
