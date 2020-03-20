@@ -137,7 +137,7 @@ random variables is also independently and identically distributed (IID).
 
 But the observer does not know which of the two distributions generated the sequence.
 
-For reasons explained  :doc:`Exchangeability and Bayesian Updating<exchangeable>`, this means that the sequence is not 
+For reasons explained  `Exchangeability and Bayesian Updating <https://python-intro.quantecon.org/exchangeable.html>`__, this means that the sequence is not 
 IID and that the observer has something to learn, even though he knows both :math:`f_0` and :math:`f_1`.
 
 After a number of draws, also to be determined, he makes a decision about
@@ -1009,5 +1009,5 @@ Here is how Wald introduces the notion of a sequential test
 .. rubric:: Footnotes
 
 .. [#f1] The decision maker acts as if he believes that the sequence of random variables
-    :math:`[z_{0}, z_{1}, \ldots]` is *exchangeable*.  See :doc:`Exchangeability and Bayesian Updating<exchangeable>` and 
+    :math:`[z_{0}, z_{1}, \ldots]` is *exchangeable*.  See `Exchangeability and Bayesian Updating <https://python-intro.quantecon.org/exchangeable.html>`__ and 
     :cite:`Kreps88` chapter 11, for  discussions of exchangeability.
