@@ -23,7 +23,7 @@ In addition to what's in Anaconda, this lecture will need the following librarie
 Overview
 ========
 
-In a :doc:`previous lecture <finite_markov>`, we learned about finite Markov chains, a relatively elementary class of stochastic dynamic models.
+In a `previous lecture <https://python-intro.quantecon.org/finite_markov.html>`__, we learned about finite Markov chains, a relatively elementary class of stochastic dynamic models.
 
 The present lecture extends this analysis to continuous (i.e., uncountable) state Markov chains.
 
@@ -95,7 +95,7 @@ Once we've built some intuition we'll cover the general case.
 Definitions and Basic Properties
 --------------------------------
 
-In our :doc:`lecture on finite Markov chains <finite_markov>`, we studied discrete-time Markov chains that evolve on a finite state space :math:`S`.
+In our `lecture on finite Markov chains <https://python-intro.quantecon.org/finite_markov.html>`__, we studied discrete-time Markov chains that evolve on a finite state space :math:`S`.
 
 In this setting, the dynamics of the model are described by a stochastic matrix --- a nonnegative square matrix :math:`P = P[i, j]` such that each row :math:`P[i, \cdot]` sums to one.
 
@@ -293,7 +293,7 @@ where :math:`\phi` is the density of :math:`A_{t+1}`.
 Distribution Dynamics
 ---------------------
 
-In :ref:`this section <mc_md>` of our lecture on **finite** Markov chains, we
+In `this section <https://python-intro.quantecon.org/finite_markov.html#mc_md>`__ of our lecture on **finite** Markov chains, we
 asked the following question: If
 
 #. :math:`\{X_t\}` is a Markov chain with stochastic matrix :math:`P`
@@ -302,7 +302,7 @@ asked the following question: If
 then what is the distribution of :math:`X_{t+1}`?
 
 Letting :math:`\psi_{t+1}` denote the distribution of :math:`X_{t+1}`, the
-answer :ref:`we gave <mc_fdd>` was that
+answer `we gave <https://python-intro.quantecon.org/finite_markov.html#mc_fdd>`__ was that
 
 .. math::
 
@@ -345,7 +345,7 @@ This operator is usually called the *Markov operator* corresponding to :math:`p`
     Unlike most operators, we write :math:`P` to the right of its argument,
     instead of to the left (i.e., :math:`\psi P` instead of :math:`P \psi`).
     This is a common convention, with the intention being to maintain the
-    parallel with the finite case --- see :ref:`here <mc_fddv>`
+    parallel with the finite case --- see `here <https://python-intro.quantecon.org/finite_markov.html#mc_fddv>`__
 
 With this notation, we can write :eq:`statd_fdd` more succinctly as :math:`\psi_{t+1}(y) = (\psi_t P)(y)` for all :math:`y`, or, dropping the :math:`y` and letting ":math:`=`" indicate equality of functions,
 
@@ -431,7 +431,7 @@ where :math:`p` is the growth model stochastic kernel in :eq:`statd_sssk`.
 
 What is the justification for this slightly surprising estimator?
 
-The idea is that, by the strong :ref:`law of large numbers <lln_ksl>`,
+The idea is that, by the strong `law of large numbers <https://python-intro.quantecon.org/lln_clt.html#lln-ksl>`__,
 
 .. math::
 
@@ -473,7 +473,7 @@ A class called ``LAE`` for estimating densities by this technique can be found i
 
 
 
-Given our use of the ``__call__`` method, an instance  of ``LAE`` acts as a callable object, which is essentially a function that can store its own data  (see :ref:`this discussion <call_method>`).
+Given our use of the ``__call__`` method, an instance  of ``LAE`` acts as a callable object, which is essentially a function that can store its own data  (see `this discussion <https://python-programming.quantecon.org/python_oop.html#call-method>`__).
 
 
 
@@ -558,7 +558,7 @@ Notice that the sequence of densities shown in the figure seems to be
 converging --- more on this in just a moment.
 
 Another quick comment is that each of these distributions could be interpreted
-as a cross-sectional distribution (recall :ref:`this discussion <mc_eg1-1>`).
+as a cross-sectional distribution (recall `this discussion <https://python-intro.quantecon.org/finite_markov.html#mc_eg1-1>`__).
 
 
 
@@ -655,7 +655,7 @@ One good option is simulation as before, combined with the `empirical distributi
 Stability
 =========
 
-In our :doc:`lecture <finite_markov>` on finite Markov chains, we also studied stationarity, stability and ergodicity.
+In our `lecture <https://python-intro.quantecon.org/finite_markov.html>`__ on finite Markov chains, we also studied stationarity, stability and ergodicity.
 
 Here we will cover the same topics for the continuous case.
 
@@ -668,7 +668,7 @@ The general case is relatively similar --- references are given below.
 Theoretical Results
 -------------------
 
-Analogous to :ref:`the finite case <mc_stat_dd>`, given a stochastic kernel :math:`p` and corresponding Markov operator as
+Analogous to `the finite case <https://python-intro.quantecon.org/finite_markov.html#mc_stat_dd>`__, given a stochastic kernel :math:`p` and corresponding Markov operator as
 defined in :eq:`def_dmo`, a density :math:`\psi^*` on :math:`S` is called
 *stationary* for :math:`P` if it is a fixed point of the operator :math:`P`.
 
