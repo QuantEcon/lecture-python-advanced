@@ -393,8 +393,7 @@ The output process is discretized using `Tauchen's quadrature method <https://gi
 As we have in other places, we will accelerate our code using Numba. 
 
 We start by defining the data structure that will help us compile the class
-(for more information on why we do this, see the :doc:`lecture on numba
-<numba>`.)
+(for more information on why we do this, see the `lecture on numba <https://python-programming.quantecon.org/numba.html>`__.)
 
 
 .. code-block:: python3
