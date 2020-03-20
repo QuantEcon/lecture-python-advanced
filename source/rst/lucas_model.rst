@@ -25,17 +25,17 @@ In addition to what's in Anaconda, this lecture will need the following librarie
 Overview
 ========
 
-As stated in an :doc:`earlier lecture <markov_asset>`, an asset is a claim on a stream of prospective payments.
+As stated in an `earlier lecture <https://python-intro.quantecon.org/markov_asset.html>`__, an asset is a claim on a stream of prospective payments.
 
 What is the correct price to pay for such a claim?
 
 The elegant asset pricing model of Lucas :cite:`Lucas1978` attempts to answer this question in an equilibrium setting with risk-averse agents.
 
-While we mentioned some consequences of Lucas' model :ref:`earlier <mass_pra>`, it is now time to work through the model more carefully and try to understand where the fundamental asset pricing equation comes from.
+While we mentioned some consequences of Lucas' model `earlier <https://python-intro.quantecon.org/markov_asset.html#mass_pra>`__, it is now time to work through the model more carefully and try to understand where the fundamental asset pricing equation comes from.
 
 A side benefit of studying Lucas' model is that it provides a beautiful illustration of model building in general and equilibrium pricing in competitive models in particular.
 
-Another difference to our :doc:`first asset pricing lecture <markov_asset>` is that the state space and shock will be continuous rather than discrete.
+Another difference to our `first asset pricing lecture <https://python-intro.quantecon.org/markov_asset.html>`__ is that the state space and shock will be continuous rather than discrete.
 
 Let's start with some imports:
 
