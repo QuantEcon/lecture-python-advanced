@@ -33,7 +33,7 @@ We  focus on special settings with
 
 These specifications simplify calculations and allow us to give a simple example that illustrates basic forces.
 
-This lecture is based on ideas described in chapter 15 of  :cite:`HansenSargent2008` and in :doc:`Markov perfect equilibrium<markov_perf>`
+This lecture is based on ideas described in chapter 15 of  :cite:`HansenSargent2008` and in `Markov perfect equilibrium <https://python-intro.quantecon.org/markov_perf.html>`__
 and :doc:`Robustness<robustness>`.
 
 Let's start with some standard imports:
@@ -52,7 +52,7 @@ Basic Setup
 Decisions of two agents affect the motion of a  state vector
 that appears as an argument of   payoff functions of both agents.
 
-As described in :doc:`Markov perfect equilibrium<markov_perf>`, when decision-makers have no concerns about the robustness of their decision rules
+As described in `Markov perfect equilibrium <https://python-intro.quantecon.org/markov_perf.html>`__, when decision-makers have no concerns about the robustness of their decision rules
 to misspecifications of the state dynamics, a Markov perfect equilibrium  can be computed via
 backward recursion  on  two sets of equations
 
@@ -80,7 +80,7 @@ A Markov perfect equilibrium with robust agents will be characterized by
 
 
 Below, we'll construct a robust firms version of the classic duopoly model with
-adjustment costs analyzed in :doc:`Markov perfect equilibrium<markov_perf>`.
+adjustment costs analyzed in `Markov perfect equilibrium <https://python-intro.quantecon.org/markov_perf.html>`__.
 
 
 
@@ -91,7 +91,7 @@ Linear Markov Perfect Equilibria with Robust Agents
 .. index::
     single: Linear Markov Perfect Equilibria
 
-As we saw in  :doc:`Markov perfect equilibrium<markov_perf>`, the study of Markov perfect equilibria in dynamic games with two players
+As we saw in `Markov perfect equilibrium <https://python-intro.quantecon.org/markov_perf.html>`__, the study of Markov perfect equilibria in dynamic games with two players
 leads us to an interrelated pair of Bellman equations.
 
 In linear quadratic dynamic games, these "stacked Bellman equations" become "stacked Riccati equations" with a tractable mathematical structure.
@@ -282,7 +282,7 @@ we need to solve these :math:`k_1 + k_2` equations simultaneously.
 Key Insight
 -----------
 
-As in :doc:`Markov perfect equilibrium<markov_perf>`, a key insight here  is that  equations  :eq:`rmp-orig-3` and :eq:`rmp-orig-5` are linear in :math:`F_{1t}` and :math:`F_{2t}`.
+As in `Markov perfect equilibrium <https://python-intro.quantecon.org/markov_perf.html>`__, a key insight here  is that  equations  :eq:`rmp-orig-3` and :eq:`rmp-orig-5` are linear in :math:`F_{1t}` and :math:`F_{2t}`.
 
 After these equations have been solved, we can take  :math:`F_{it}` and solve for :math:`P_{it}` in :eq:`rmp-orig-4` and :eq:`rmp-orig-6`.
 
@@ -341,7 +341,7 @@ Application
 A Duopoly Model
 ---------------
 
-Without concerns for robustness, the model is identical to the duopoly model from the :doc:`Markov perfect equilibrium<markov_perf>` lecture.
+Without concerns for robustness, the model is identical to the duopoly model from the `Markov perfect equilibrium <https://python-intro.quantecon.org/markov_perf.html>`__ lecture.
 
 To begin, we briefly review the structure of that model.
 
