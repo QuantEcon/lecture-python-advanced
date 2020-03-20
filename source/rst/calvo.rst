@@ -59,7 +59,7 @@ Chari and Kehoe :cite:`chari1990sustainable`, Chang :cite:`chang1998credible`, a
 well as from chapter 19 of :cite:`Ljungqvist2012`.
 
 In addition, we'll use ideas from linear-quadratic dynamic programming
-described in  :doc:`Linear Quadratic Control<lqcontrol>` as applied to Ramsey problems
+described in  `Linear Quadratic Control <https://python-intro.quantecon.org/lqcontrol.html>`__ as applied to Ramsey problems
 in :doc:`Stackelberg problems<dyn_stack>`.
 
 In particular, we have specified the model in a way that allows us to use
@@ -181,7 +181,7 @@ or
      x_{t+1} = A x_t + B \mu_t
 
 We write the model in the state-space form :eq:`eq_old4` even though :math:`\theta_0` is to be determined and so is not an initial condition
-as it ordinarily would be in the state-space model described in :doc:`Linear Quadratic Control<lqcontrol>`.
+as it ordinarily would be in the state-space model described in `Linear Quadratic Control <https://python-intro.quantecon.org/lqcontrol.html>`__.
 
 We write the model in the form :eq:`eq_old4` because we want to apply an approach described in  :doc:`Stackelberg problems<dyn_stack>`.
 
@@ -517,7 +517,7 @@ government policymakers, the time :math:`t` representative of which
 chooses :math:`\mu_t` and expects all future governments to set
 :math:`\mu_{t+j} = \bar \mu`.
 
-This assumption mirrors an assumption made in a different setting  :doc:`Markov Perfect Equilibrium<markov_perf>`.
+This assumption mirrors an assumption made in a different setting `Markov Perfect Equilibrium <https://python-intro.quantecon.org/markov_perf.html>`__.
 
 
 
