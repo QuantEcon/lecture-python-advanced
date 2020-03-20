@@ -31,8 +31,8 @@ The model is a version of the standard one sector infinite horizon growth model 
 The technique we use to solve the model is dynamic programming.
 
 Our treatment of dynamic programming follows on from earlier
-treatments in our lectures on :doc:`shortest paths <short_path>` and
-:doc:`job search <mccall_model>`.
+treatments in our lectures on `shortest paths <https://python-intro.quantecon.org/short_path.html>`__ and
+`job search <https://python-intro.quantecon.org/mccall_model.html>`__.
 
 We'll discuss some of the technical details of dynamic programming as we
 go along.
@@ -488,7 +488,7 @@ Computation
 Let's now look at computing the value function and the optimal policy.
 
 We will use fitted value function iteration, which was described in detail in
-a :doc:`previous lecture <mccall_fitted_vfi>`.
+a `previous lecture <https://python-intro.quantecon.org/mccall_fitted_vfi.html>`__.
 
 The algorithm will be
 
