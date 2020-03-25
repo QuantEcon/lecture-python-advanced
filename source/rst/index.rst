@@ -18,8 +18,7 @@ Advanced Quantitative Economics with Python
         <div class="home-detail">
             <div class="home-blurb">
                 <p>This website presents a set of advanced lectures on quantitative economic modeling, designed and written by <a href="http://www.tomsargent.com" target="_blank">Thomas J. Sargent</a> and <a href="http://johnstachurski.net" target="_blank">John Stachurski</a>.</p>
-                <p>Last compiled: <span id="compiled_date"></span><br><a href="https://github.com/QuantEcon/
-                    lecture-python-advanced/commits/">View commits</a> | <a href="https://github.com/QuantEcon/lecture-python-advanced/graphs/contributors">See all contributors</a></p>
+                <p>Last compiled: <span id="compiled_date"></span><br><a href="https://github.com/QuantEcon/lecture-python-advanced/commits/">View commits</a> | <a href="https://github.com/QuantEcon/lecture-python-advanced/graphs/contributors">See all contributors</a></p>
             </div>
             <div class="web-version">
                 <a href="/index_toc.html">
