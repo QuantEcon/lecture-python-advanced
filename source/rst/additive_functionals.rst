@@ -136,7 +136,7 @@ systematic but random *arithmetic growth*.
 Linear State-Space Representation
 ----------------------------------
 
-A convenient way to represent our additive functional is to use a :doc:`linear state space system <linear_models>`.
+A convenient way to represent our additive functional is to use a `linear state space system <https://python-intro.quantecon.org/linear_models.html>`__.
 
 To do this, we set up state and observation vectors
 
@@ -794,7 +794,7 @@ It is convenient for us to introduce the following notation:
 
 We want to characterize and simulate components :math:`\tau_t, m_t, s_t` of the decomposition.
 
-A convenient way to do this is to construct an appropriate instance of a :doc:`linear state space system <linear_models>` by using `LinearStateSpace <https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/lss.py>`_ from `QuantEcon.py <http://quantecon.org/quantecon-py>`_.
+A convenient way to do this is to construct an appropriate instance of a `linear state space system <lhttps://python-intro.quantecon.org/linear_models.html>`__ by using `LinearStateSpace <https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/lss.py>`_ from `QuantEcon.py <http://quantecon.org/quantecon-py>`_.
 
 This will allow us to use the routines in `LinearStateSpace <https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/lss.py>`_ to study dynamics.
 
