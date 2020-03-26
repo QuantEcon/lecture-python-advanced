@@ -243,7 +243,7 @@ with an initial condition for :math:`y_0`.
 
 While :eq:`ftaf` is not a first order system like :eq:`old1_additive_functionals`, we know that it can be mapped  into a first order system.
 
-* For an example of such a mapping, see :ref:`this example <lss_sode>`.
+* For an example of such a mapping, see `this example <https://python.quantecon.org/linear_models.html#lss-sode>`__.
 
 
 In fact, this whole model can be mapped into the additive functional system definition in :eq:`old1_additive_functionals` -- :eq:`old2_additive_functionals`  by appropriate selection of the matrices :math:`A, B, D, F`.
@@ -794,7 +794,7 @@ It is convenient for us to introduce the following notation:
 
 We want to characterize and simulate components :math:`\tau_t, m_t, s_t` of the decomposition.
 
-A convenient way to do this is to construct an appropriate instance of a `linear state space system <lhttps://python-intro.quantecon.org/linear_models.html>`__ by using `LinearStateSpace <https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/lss.py>`_ from `QuantEcon.py <http://quantecon.org/quantecon-py>`_.
+A convenient way to do this is to construct an appropriate instance of a `linear state space system <https://python-intro.quantecon.org/linear_models.html>`__ by using `LinearStateSpace <https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/lss.py>`_ from `QuantEcon.py <http://quantecon.org/quantecon-py>`_.
 
 This will allow us to use the routines in `LinearStateSpace <https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/lss.py>`_ to study dynamics.
 
