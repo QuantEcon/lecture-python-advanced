@@ -976,7 +976,7 @@ such as ``arma.phi = (0.5, 0.2)`` or ``arma.theta = (0, -0.1)``.
 
 then ``ma_poly`` and ``ar_poly`` should update automatically to reflect these new parameters.
 
-This is achieved in our implementation by using `descriptors<https://python-programming.quantecon.org/python_advanced_features.html#descriptors>`__.
+This is achieved in our implementation by using `descriptors <https://python-programming.quantecon.org/python_advanced_features.html#descriptors>`__.
 
 
 
