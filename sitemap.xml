@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://python-advanced.quantecon.org/</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/index_toc.html</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/advanced_quantitative_economics_with_python.pdf</loc>
+  <lastmod>2020-03-26T23:55:46+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/about_lectures.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/index_tools_and_techniques.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/orth_proj.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/index_intro_dynam.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/stationary_densities.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/muth_kalman.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/index_dynamic_programming.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/odu.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/career.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/jv.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/wald_friedman.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/optgrowth.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/optgrowth_fast.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/coleman_policy_iter.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/egm_policy_iter.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/ifp.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/discrete_dp.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/index_lq_control.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/cons_news.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/smoothing.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/smoothing_tax.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/robustness.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/markov_jump_lq.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/tax_smoothing_1.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/tax_smoothing_2.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/tax_smoothing_3.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/lqramsey.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/index_multi_agent_models.html</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/rob_markov_perf.html</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/arellano.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/matsuyama.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/coase.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/index_hs_recursive_models.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/hs_recursive_models.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/growth_in_dles.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/lucas_asset_pricing_dles.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/irfs_in_hall_model.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/permanent_income_dles.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/rosen_schooling_model.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/cattle_cycles.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/hs_invertibility_example.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/index_classic_linear_models.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/von_neumann_model.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/index_time_series_models.html</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/arma.html</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/estspec.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/additive_functionals.html</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/lu_tricks.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/classical_filtering.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/index_asset_pricing.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/lucas_model.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/black_litterman.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/index_dynamic_programming_squared.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/dyn_stack.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/calvo.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/opt_tax_recur.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/amss.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/amss2.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/amss3.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/chang_ramsey.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/chang_credible.html</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/zreferences.html</loc>
+  <lastmod>2020-03-26T11:38:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/about_lectures.pdf</loc>
+  <lastmod>2020-03-26T23:55:46+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/troubleshooting.html</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/orth_proj.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/stationary_densities.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_static/lecture_specific/stationary_densities/ECTA6180.pdf</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/muth_kalman.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/odu.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/career.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/jv.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/wald_friedman.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/optgrowth.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/optgrowth_fast.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/coleman_policy_iter.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/egm_policy_iter.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/ifp.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_static/lecture_specific/ifp/pi2.pdf</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/discrete_dp.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/cons_news.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/smoothing.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/smoothing_tax.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/robustness.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/markov_jump_lq.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/tax_smoothing_1.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/tax_smoothing_2.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/tax_smoothing_3.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/lqramsey.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_static/lecture_specific/lqramsey/firenze.pdf</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/rob_markov_perf.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/arellano.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/matsuyama.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/coase.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/hs_recursive_models.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/growth_in_dles.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/lucas_asset_pricing_dles.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/irfs_in_hall_model.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/permanent_income_dles.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/rosen_schooling_model.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/cattle_cycles.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/hs_invertibility_example.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/von_neumann_model.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/arma.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_static/lecture_specific/arma/time_series_book.pdf</loc>
+  <lastmod>2020-03-26T11:38:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/estspec.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/additive_functionals.pdf</loc>
+  <lastmod>2020-03-26T23:55:46+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/lu_tricks.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/classical_filtering.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/lucas_model.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/black_litterman.pdf</loc>
+  <lastmod>2020-03-26T23:55:46+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/dyn_stack.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/calvo.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/opt_tax_recur.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/amss.pdf</loc>
+  <lastmod>2020-03-26T23:55:46+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/amss2.pdf</loc>
+  <lastmod>2020-03-26T23:55:46+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/amss3.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/chang_ramsey.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/chang_credible.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://python-advanced.quantecon.org/_downloads/pdf/troubleshooting.pdf</loc>
+  <lastmod>2020-03-26T23:55:47+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+
+
+</urlset>
