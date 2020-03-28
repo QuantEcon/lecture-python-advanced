@@ -17,3 +17,6 @@ Tools and Techniques
     :maxdepth: 2
 
     orth_proj
+    stationary_densities
+    muth_kalman
+    discrete_dp
