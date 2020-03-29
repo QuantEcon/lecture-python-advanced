@@ -79,8 +79,6 @@ We use dynamic programming many applied lectures, such as
 
 * The `McCall search model lecture <https://python-intro.quantecon.org/mccall_model.html>`__
 
-* The :doc:`optimal growth lecture <optgrowth>`
-
 The objective of this lecture is to provide a more systematic and theoretical treatment, including algorithms and implementation while focusing on the discrete case.
 
 
@@ -787,8 +785,7 @@ For larger problems, you might need to write this code more efficiently by vecto
 Exercises
 =============
 
-In the stochastic optimal growth lecture :doc:`dynamic programming lecture <optgrowth>`, we solve a
-:ref:`benchmark model <benchmark_growth_mod>` that has an analytical solution to check we could replicate it numerically.
+In the `stochastic optimal growth lecture <https://python-intro.quantecon.org/optgrowth.html>`__ from our introductory lecture series, we solve a benchmark model that has an analytical solution.
 
 The exercise is to replicate this solution using ``DiscreteDP``.
 
@@ -796,17 +793,13 @@ The exercise is to replicate this solution using ``DiscreteDP``.
 Solutions
 ==========
 
-
-
-
-
 Setup
 -----
 
-Details of the model can be found in :doc:`the lecture on optimal growth <optgrowth>`.
+Details of the model can be found in `the lecture on optimal growth <https://python-intro.quantecon.org/optgrowth.html>`__.
 
-As in the lecture, we let :math:`f(k) = k^{\alpha}` with :math:`\alpha = 0.65`,
-:math:`u(c) = \log c`, and :math:`\beta = 0.95`
+We let :math:`f(k) = k^{\alpha}` with :math:`\alpha = 0.65`, :math:`u(c) =
+\log c`, and :math:`\beta = 0.95`
 
 .. code-block:: python3
 

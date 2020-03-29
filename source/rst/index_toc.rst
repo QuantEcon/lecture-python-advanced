@@ -16,8 +16,6 @@
 
     about_lectures
     index_tools_and_techniques
-    index_intro_dynam
-    index_dynamic_programming
     index_lq_control
     index_multi_agent_models
     index_hs_recursive_models

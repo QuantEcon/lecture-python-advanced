@@ -459,11 +459,9 @@ In particular, we can
 #. iterate with :math:`T` until :math:`T^n p` has converged to :math:`p^*`, and
 #. recover firm choices via the choice function :eq:`coase_deft`
 
-As we step between iterates, we will use linear interpolation of functions, as
-we did in our :doc:`lecture on optimal growth <optgrowth>` and several other
-places.
+At each iterate, we will use continuous piecewise linear interpolation of functions.
 
-To begin, here's a class to store primitives and a grid
+To begin, here's a class to store primitives and a grid:
 
 .. code-block:: python3
 
