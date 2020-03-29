@@ -170,7 +170,7 @@ For simplicity, we present ideas in the context of a class of problems with line
 
 To fit in with `our earlier lecture on LQ control <https://python-intro.quantecon.org/lqcontrol.html>`__, we will treat loss minimization rather than value maximization.
 
-To begin, recall the `infinite horizon LQ problem <https://python-intro.quantecon.org/lqcontrol.html#lq_ih>`__, where an agent chooses a sequence of controls :math:`\{u_t\}` to minimize
+To begin, recall the `infinite horizon LQ problem <https://python-intro.quantecon.org/lqcontrol.html#Infinite-Horizon>`__, where an agent chooses a sequence of controls :math:`\{u_t\}` to minimize
 
 .. math::
     :label: rob_sih
@@ -329,7 +329,7 @@ where :math:`\mathcal D` is the operator defined in :eq:`rb_d` and
 
 
 The operator :math:`\mathcal B` is the standard (i.e., non-robust) LQ Bellman operator, and :math:`P = \mathcal B(P)` is the standard matrix Riccati equation coming from the
-Bellman equation --- see `this discussion <https://python-intro.quantecon.org/lqcontrol.html#lq_ih>`__.
+Bellman equation --- see `this discussion <https://python-intro.quantecon.org/lqcontrol.html#Infinite-Horizon>`__.
 
 Under some regularity conditions (see :cite:`HansenSargent2008`), the operator :math:`\mathcal B \circ \mathcal D`
 has a unique positive definite fixed point, which we denote below by :math:`\hat P`.
@@ -471,7 +471,7 @@ subject to :eq:`rob_lomf`.
 
 What's striking about this optimization problem is that it is once again an LQ discounted dynamic programming problem, with :math:`\mathbf w = \{ w_t \}` as the sequence of controls.
 
-The expression for the optimal policy can be found by applying the usual LQ formula (`see here <https://python-intro.quantecon.org/lqcontrol.html#lq_ih>`__).
+The expression for the optimal policy can be found by applying the usual LQ formula (`see here <https://python-intro.quantecon.org/lqcontrol.html#Infinite-Horizon>`__).
 
 We denote it by :math:`K(F, \theta)`, with the interpretation :math:`w_{t+1} = K(F, \theta) x_t`.
 
@@ -659,7 +659,7 @@ subject to
     x_{t+1} = (A + C K) x_t + B u_t
 
 
-Once again, the expression for the optimal policy can be found `here <https://python-intro.quantecon.org/lqcontrol.html#lq_ih>`__ --- we denote
+Once again, the expression for the optimal policy can be found `here <https://python-intro.quantecon.org/lqcontrol.html#Infinite-Horizon>`__ --- we denote
 it by :math:`\tilde F`.
 
 
@@ -1246,7 +1246,7 @@ This is the content of the next lemma.
     \beta (A - B \hat F)' \tilde P (A - B \hat F)
 
 
-(revisit `this discussion <https://python-intro.quantecon.org/lqcontrol.html#lq_ih>`__ if you don't know where :eq:`rb_a2be` comes from) and the optimal policy is
+(revisit `this discussion <https://python-intro.quantecon.org/lqcontrol.html#Infinite-Horizon>`__ if you don't know where :eq:`rb_a2be` comes from) and the optimal policy is
 
 .. math::
 
