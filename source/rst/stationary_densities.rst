@@ -293,7 +293,7 @@ where :math:`\phi` is the density of :math:`A_{t+1}`.
 Distribution Dynamics
 ---------------------
 
-In `this section <https://python-intro.quantecon.org/finite_markov.html#mc_md>`__ of our lecture on **finite** Markov chains, we
+In `this section <https://python-intro.quantecon.org/finite_markov.html#Marginal-Distributions>`__ of our lecture on **finite** Markov chains, we
 asked the following question: If
 
 #. :math:`\{X_t\}` is a Markov chain with stochastic matrix :math:`P`
@@ -558,7 +558,7 @@ Notice that the sequence of densities shown in the figure seems to be
 converging --- more on this in just a moment.
 
 Another quick comment is that each of these distributions could be interpreted
-as a cross-sectional distribution (recall `this discussion <https://python-intro.quantecon.org/finite_markov.html#mc_eg1-1>`__).
+as a cross-sectional distribution (recall `this discussion <https://python-intro.quantecon.org/finite_markov.html#Example-2:-Cross-Sectional-Distributions>`__).
 
 
 
