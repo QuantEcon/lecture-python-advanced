@@ -292,7 +292,7 @@ problems of which our duopoly model is an instance.
 
 We use the optimal linear regulator (a.k.a. the linear-quadratic dynamic
 programming problem described in `LQ Dynamic Programming
-problems <https://lectures.quantecon.org/py/lqcontrol.html>`__) to
+problems <https://python-intro.quantecon.org/lqcontrol.html>`__) to
 represent a Stackelberg leader's problem recursively.
 
 Let :math:`z_t` be an :math:`n_z \times 1` vector of **natural
@@ -496,7 +496,7 @@ Substituting :math:`v(y) = - y'P y` into Bellman equation :eq:`bellman-stack` gi
 
    -y' P y = {\rm max}_{  u, y^*} \left\{ -  y' R y -   u'Q     u - \beta y^{* \prime} P y^* \right\}
 
-which as in lecture `linear regulator <https://lectures.quantecon.org/py/lqcontrol.html>`__ gives
+which as in lecture `linear regulator <https://python-intro.quantecon.org/lqcontrol.html>`__ gives
 rise to the algebraic matrix Riccati equation
 
 .. math::
@@ -777,7 +777,7 @@ Recursive Formulation of a Follower’s Problem
 ----------------------------------------------
 
 We now use what amounts to another “Big :math:`K`, little :math:`k`” trick (see
-`rational expectations equilibrium <https://lectures.quantecon.org/py/rational_expectations.html>`__)
+`rational expectations equilibrium <https://python-intro.quantecon.org/rational_expectations.html>`__)
 to formulate a recursive version of a follower’s problem cast in terms
 of an ordinary Bellman equation.
 
