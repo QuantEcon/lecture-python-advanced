@@ -243,7 +243,7 @@ with an initial condition for :math:`y_0`.
 
 While :eq:`ftaf` is not a first order system like :eq:`old1_additive_functionals`, we know that it can be mapped  into a first order system.
 
-* For an example of such a mapping, see `this example <https://python.quantecon.org/linear_models.html#lss-sode>`__.
+* For an example of such a mapping, see `this example <https://python-intro.quantecon.org/linear_models.html#Second-order-Difference-Equation>`__.
 
 
 In fact, this whole model can be mapped into the additive functional system definition in :eq:`old1_additive_functionals` -- :eq:`old2_additive_functionals`  by appropriate selection of the matrices :math:`A, B, D, F`.
