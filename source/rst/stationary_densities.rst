@@ -293,7 +293,7 @@ where :math:`\phi` is the density of :math:`A_{t+1}`.
 Distribution Dynamics
 ---------------------
 
-In `this section <https://python-intro.quantecon.org/finite_markov.html#mc_md>`__ of our lecture on **finite** Markov chains, we
+In `this section <https://python-intro.quantecon.org/finite_markov.html#Marginal-Distributions>`__ of our lecture on **finite** Markov chains, we
 asked the following question: If
 
 #. :math:`\{X_t\}` is a Markov chain with stochastic matrix :math:`P`
@@ -302,7 +302,7 @@ asked the following question: If
 then what is the distribution of :math:`X_{t+1}`?
 
 Letting :math:`\psi_{t+1}` denote the distribution of :math:`X_{t+1}`, the
-answer `we gave <https://python-intro.quantecon.org/finite_markov.html#mc_fdd>`__ was that
+answer `we gave <https://python-intro.quantecon.org/finite_markov.html#Marginal-Distributions>`__ was that
 
 .. math::
 
@@ -345,7 +345,7 @@ This operator is usually called the *Markov operator* corresponding to :math:`p`
     Unlike most operators, we write :math:`P` to the right of its argument,
     instead of to the left (i.e., :math:`\psi P` instead of :math:`P \psi`).
     This is a common convention, with the intention being to maintain the
-    parallel with the finite case --- see `here <https://python-intro.quantecon.org/finite_markov.html#mc_fddv>`__
+    parallel with the finite case --- see `here <https://python-intro.quantecon.org/finite_markov.html#Marginal-Distributions>`__
 
 With this notation, we can write :eq:`statd_fdd` more succinctly as :math:`\psi_{t+1}(y) = (\psi_t P)(y)` for all :math:`y`, or, dropping the :math:`y` and letting ":math:`=`" indicate equality of functions,
 
@@ -558,7 +558,7 @@ Notice that the sequence of densities shown in the figure seems to be
 converging --- more on this in just a moment.
 
 Another quick comment is that each of these distributions could be interpreted
-as a cross-sectional distribution (recall `this discussion <https://python-intro.quantecon.org/finite_markov.html#mc_eg1-1>`__).
+as a cross-sectional distribution (recall `this discussion <https://python-intro.quantecon.org/finite_markov.html#Example-2:-Cross-Sectional-Distributions>`__).
 
 
 
@@ -668,7 +668,7 @@ The general case is relatively similar --- references are given below.
 Theoretical Results
 -------------------
 
-Analogous to `the finite case <https://python-intro.quantecon.org/finite_markov.html#mc_stat_dd>`__, given a stochastic kernel :math:`p` and corresponding Markov operator as
+Analogous to `the finite case <https://python-intro.quantecon.org/finite_markov.html#Stationary-Distributions>`__, given a stochastic kernel :math:`p` and corresponding Markov operator as
 defined in :eq:`def_dmo`, a density :math:`\psi^*` on :math:`S` is called
 *stationary* for :math:`P` if it is a fixed point of the operator :math:`P`.
 
