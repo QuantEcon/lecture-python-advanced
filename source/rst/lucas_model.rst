@@ -31,7 +31,7 @@ What is the correct price to pay for such a claim?
 
 The elegant asset pricing model of Lucas :cite:`Lucas1978` attempts to answer this question in an equilibrium setting with risk-averse agents.
 
-While we mentioned some consequences of Lucas' model `earlier <https://python-intro.quantecon.org/markov_asset.html#mass_pra>`__, it is now time to work through the model more carefully and try to understand where the fundamental asset pricing equation comes from.
+While we mentioned some consequences of Lucas' model `earlier <https://python-intro.quantecon.org/markov_asset.html#Risk-Neutral-Pricing>`__, it is now time to work through the model more carefully and try to understand where the fundamental asset pricing equation comes from.
 
 A side benefit of studying Lucas' model is that it provides a beautiful illustration of model building in general and equilibrium pricing in competitive models in particular.
 
