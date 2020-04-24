@@ -26,7 +26,7 @@ jobs:
         with:
           repository: QuantEcon/lecture-python-advanced.theme
           token: ${{ secrets.ACTIONS_PAT }}
-          path: theme/lecture-python-intro.advanced
+          path: theme/lecture-python-advanced.advanced
       - name: Build website files
         shell: bash -l {0}
         run: | 
