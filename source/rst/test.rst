@@ -1,4 +1,4 @@
-.. _test:;
+.. _test:
 
 
 Test
