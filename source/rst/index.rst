@@ -8,7 +8,6 @@ Advanced Quantitative Economics with Python
     :hidden:
 
     index_toc
-    test
 
 
 .. raw:: html
