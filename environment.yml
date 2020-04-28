@@ -15,8 +15,10 @@ dependencies:
   - matplotlib
   - networkx
   - sphinx=2.4.4
+  - interpolation
+  - seaborn
   - pip:
-    - sphinxcontrib-jupyter 
-    - sphinxcontrib-bibtex 
-    - quantecon 
+    - sphinxcontrib-jupyter
+    - sphinxcontrib-bibtex
+    - quantecon
     - joblib
