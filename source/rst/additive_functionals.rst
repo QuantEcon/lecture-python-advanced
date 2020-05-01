@@ -1364,10 +1364,10 @@ These probability density functions help us understand mechanics underlying the 
 Multiplicative Martingale as Likelihood Ratio Process
 --------------------------------------------------------
 
-A forthcoming  lecture studies **likelihood processes** and **likelihood ratio processes**.
+:doc:`This lecture <likelihood_ratio_process>` studies **likelihood processes** and **likelihood ratio processes**.
 
-A **likelihood ratio process** is defined as a  multiplicative  martingale with mean unity.
+A **likelihood ratio process** is  a  multiplicative  martingale with mean unity.
 
-Likelihood ratio processes exhibit the peculiar property discussed here.
+Likelihood ratio processes exhibit the peculiar property that naturally also appears in :doc:`this lecture <likelihood_ratio_process>`.
 
-We'll discuss how to interpret that property in the forthcoming lecture.
+
