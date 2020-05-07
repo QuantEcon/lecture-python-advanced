@@ -159,7 +159,7 @@ Next we construct a linear system
      \begin{bmatrix}
         1 & 0 & 0  \\
         0  & A & 0 \\
-        \nu & D' &  1
+        \nu & D &  1
     \end{bmatrix}
     \begin{bmatrix}
         1 \\
@@ -167,7 +167,7 @@ Next we construct a linear system
         y_t
     \end{bmatrix} +
     \begin{bmatrix}
-        0 \\  B \\ F'
+        0 \\  B \\ F
     \end{bmatrix}
     z_{t+1}
 
@@ -763,9 +763,9 @@ functionals defined by :eq:`old1_additive_functionals` and :eq:`old2_additive_fu
 .. math::
 
     \begin{aligned}
-      H & := F + B'(I - A')^{-1} D
+      H & := F + D (I - A)^{-1} B
       \\
-      g & := D' (I - A)^{-1}
+      g & := D (I - A)^{-1}
     \end{aligned}
 
 
@@ -814,7 +814,7 @@ definitions just given,
         1 & 0 & 0 & 0 & 0 \\
         1 & 1 & 0 & 0 & 0 \\
         0 & 0 & A & 0 & 0 \\
-        \nu & 0 & D' & 1 & 0 \\
+        \nu & 0 & D & 1 & 0 \\
         0 & 0 & 0 & 0 & 1
     \end{bmatrix}
     \begin{bmatrix}
@@ -828,8 +828,8 @@ definitions just given,
         0 \\
         0 \\
         B \\
-        F' \\
-        H'
+        F \\
+        H
     \end{bmatrix}
     z_{t+1}
 
@@ -934,7 +934,7 @@ Corresponding to the additive decomposition described above we have a multiplica
 .. math::
 
     \frac{M_t}{M_0}
-    = \exp (t \nu) \exp \Bigl(\sum_{j=1}^t H \cdot Z_j \Bigr) \exp \biggl( D'(I-A)^{-1} x_0 - D'(I-A)^{-1} x_t \biggr)
+    = \exp (t \nu) \exp \Bigl(\sum_{j=1}^t H \cdot Z_j \Bigr) \exp \biggl( D(I-A)^{-1} x_0 - D(I-A)^{-1} x_t \biggr)
 
 
 or
@@ -957,7 +957,7 @@ and
 
 .. math::
 
-    \tilde e(x) = \exp[g(x)] = \exp \bigl[ D' (I - A)^{-1} x \bigr]
+    \tilde e(x) = \exp[g(x)] = \exp \bigl[ D (I - A)^{-1} x \bigr]
 
 
 An instance of class ``AMF_LSS_VAR`` (:ref:`above <amf_lss>`)  includes this associated multiplicative functional as an attribute.
@@ -1041,7 +1041,7 @@ As we  have seen, it has representation
     \widetilde M_t = \exp \biggl( \sum_{j=1}^t \biggl(H \cdot z_j -\frac{ H \cdot H }{2} \biggr) \biggr),  \quad \widetilde M_0 =1
 
 
-where :math:`H =  [F + B'(I-A')^{-1} D]`.
+where :math:`H =  [F + D(I-A)^{-1} B]`.
 
 It follows that :math:`\log {\widetilde M}_t \sim {\mathcal N} ( -\frac{t H \cdot H}{2}, t H \cdot H )` and that consequently :math:`{\widetilde M}_t` is log normal.
 
