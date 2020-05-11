@@ -473,7 +473,7 @@ To begin, here's a class to store primitives and a grid:
                c=lambda t: np.exp(10 * t) - 1):
 
            self.n, self.delta, self.c = n, delta, c
-           self.grid = np.linspace(1e-04, 1, n)
+           self.grid = np.linspace(0, 1, n)
 
 Now let's implement and iterate with :math:`T` until convergence.
 
