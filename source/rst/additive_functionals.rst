@@ -344,7 +344,7 @@ All of these objects are computed using the code below
             A3 = np.hstack([nx0c, nx0c, A, nyx0m.T, nyx0m.T])
             # Transition for y_{t+1}
             A4 = np.hstack([ν, ny0c, D, ny1m, ny0m])
-            # Transition for m_{t+1}    
+            # Transition for m_{t+1}
             A5 = np.hstack([ny0c, ny0c, nyx0m, ny0m, ny1m])
             Abar = np.vstack([A1, A2, A3, A4, A5])
 
@@ -357,7 +357,7 @@ All of these objects are computed using the code below
             G1 = np.hstack([nx0c, nx0c, np.eye(nx), nyx0m.T, nyx0m.T])
             G2 = np.hstack([ny0c, ny0c, nyx0m, ny1m, ny0m])   # Selector for y_{t}
             # Selector for martingale
-            G3 = np.hstack([ny0c, ny0c, nyx0m, ny0m, ny1m])             
+            G3 = np.hstack([ny0c, ny0c, nyx0m, ny0m, ny1m])
             G4 = np.hstack([ny0c, ny0c, -g, ny0m, ny0m])  # Selector for stationary
             G5 = np.hstack([ny0c, ν, nyx0m, ny0m, ny0m])  # Selector for trend
             Gbar = np.vstack([G1, G2, G3, G4, G5])
@@ -374,7 +374,7 @@ All of these objects are computed using the code below
 
         def additive_decomp(self):
             """
-            Return values for the martingale decomposition 
+            Return values for the martingale decomposition
                 - ν     : unconditional mean difference in Y
                 - H     : coefficient for the (linear) martingale component (κ_a)
                 - g     : coefficient for the stationary component g(x)
@@ -442,7 +442,7 @@ The code below adds some functions that generate plots for instances of the ``AM
         ax[0, 0].axhline(horline, color="k", linestyle="-.")
         ax[0, 0].set_title("One Path of All Variables")
         ax[0, 0].legend(loc="upper left")
-            
+
         # Plot Martingale Component
         ax[0, 1].plot(trange, mpath[0, :], "m")
         ax[0, 1].plot(trange, mpath.T, alpha=0.45, color="m")
@@ -502,16 +502,16 @@ The code below adds some functions that generate plots for instances of the ``AM
                 mscale = np.sqrt(yvar[nx+nm+ii, nx+nm+ii])
                 sscale = np.sqrt(yvar[nx+2*nm+ii, nx+2*nm+ii])
                 if mscale == 0.0:
-                    mscale = 1e-12   # avoids a RuntimeWarning from calculating ppf    
+                    mscale = 1e-12   # avoids a RuntimeWarning from calculating ppf
                 if sscale == 0.0:    # of normal distribution with std dev = 0.
                     sscale = 1e-12   # sets std dev to small value instead
-                
+
                 madd_dist = norm(ymeans[nx+nm+ii], mscale)
                 sadd_dist = norm(ymeans[nx+2*nm+ii], sscale)
-                
+
                 mbounds[li:ui, t] = madd_dist.ppf([0.01, .99])
                 sbounds[li:ui, t] = sadd_dist.ppf([0.01, .99])
-                
+
         # Pull out paths
         for n in range(npaths):
             x, y = amf.lss.simulate(T)
@@ -1078,14 +1078,14 @@ We'll do this by formulating the additive functional as a linear state space mod
         def __init__(self, A, B, D, F=0.0, ν=0.0):
             # Unpack required elements
             self.A, self.B, self.D, self.F, self.ν = A, B, D, F, ν
-    
+
             # Create space for additive decomposition
             self.add_decomp = None
             self.mult_decomp = None
-    
+
             # Construct BIG state space representation
             self.lss = self.construct_ss()
-    
+
         def construct_ss(self):
             """
             This creates the state space representation that can be passed
@@ -1098,7 +1098,7 @@ We'll do this by formulating the additive functional as a linear state space mod
                 ν, H, g = self.add_decomp
             else:
                 ν, H, g = self.additive_decomp()
-    
+
             # Build A matrix for LSS
             # Order of states is: [1, t, xt, yt, mt]
             A1 = np.hstack([1, 0, 0, 0, 0])       # Transition for 1
@@ -1107,10 +1107,10 @@ We'll do this by formulating the additive functional as a linear state space mod
             A4 = np.hstack([ν, 0, D, 1, 0])       # Transition for y_{t+1}
             A5 = np.hstack([0, 0, 0, 0, 1])       # Transition for m_{t+1}
             Abar = np.vstack([A1, A2, A3, A4, A5])
-    
+
             # Build B matrix for LSS
             Bbar = np.vstack([0, 0, B, F, H])
-    
+
             # Build G matrix for LSS
             # Order of observation is: [xt, yt, mt, st, tt]
             G1 = np.hstack([0, 0, 1, 0, 0])            # Selector for x_{t}
@@ -1119,18 +1119,18 @@ We'll do this by formulating the additive functional as a linear state space mod
             G4 = np.hstack([0, 0, -g, 0, 0])           # Selector for stationary
             G5 = np.hstack([0, ν, 0, 0, 0])            # Selector for trend
             Gbar = np.vstack([G1, G2, G3, G4, G5])
-    
+
             # Build H matrix for LSS
             Hbar = np.zeros((1, 1))
-    
+
             # Build LSS type
             x0 = np.hstack([1, 0, 0, 0, 0])
             S0 = np.zeros((5, 5))
             lss = qe.lss.LinearStateSpace(Abar, Bbar, Gbar, Hbar,
                                           mu_0=x0, Sigma_0=S0)
-    
+
             return lss
-    
+
         def additive_decomp(self):
             """
             Return values for the martingale decomposition (Proposition 4.3.3.)
@@ -1142,9 +1142,9 @@ We'll do this by formulating the additive functional as a linear state space mod
             A_res = 1 / (1 - self.A)
             g = self.D * A_res
             H = self.F + self.D * A_res * self.B
-    
+
             return self.ν, H, g
-    
+
         def multiplicative_decomp(self):
             """
             Return values for the multiplicative decomposition (Example 5.4.4.)
@@ -1153,9 +1153,9 @@ We'll do this by formulating the additive functional as a linear state space mod
             """
             ν, H, g = self.additive_decomp()
             ν_tilde = ν + (.5) * H**2
-    
+
             return ν_tilde, H, g
-    
+
         def loglikelihood_path(self, x, y):
             A, B, D, F = self.A, self.B, self.D, self.F
             T = y.T.size
@@ -1165,12 +1165,12 @@ We'll do this by formulating the additive functional as a linear state space mod
             obs = temp * FFinv * temp
             obssum = np.cumsum(obs)
             scalar = (np.log(FF) + np.log(2 * np.pi)) * np.arange(1, T)
-    
+
             return (-0.5) * (obssum + scalar)
-    
+
         def loglikelihood(self, x, y):
             llh = self.loglikelihood_path(x, y)
-    
+
             return llh[-1]
 
 
@@ -1364,10 +1364,10 @@ These probability density functions help us understand mechanics underlying the 
 Multiplicative Martingale as Likelihood Ratio Process
 --------------------------------------------------------
 
-:doc:`This lecture <likelihood_ratio_process>` studies **likelihood processes** and **likelihood ratio processes**.
+`This lecture <https://python.quantecon.org/likelihood_ratio_process.html>`_ studies **likelihood processes** and **likelihood ratio processes**.
 
 A **likelihood ratio process** is  a  multiplicative  martingale with mean unity.
 
-Likelihood ratio processes exhibit the peculiar property that naturally also appears in :doc:`this lecture <likelihood_ratio_process>`.
+Likelihood ratio processes exhibit the peculiar property that naturally also appears in `this lecture <https://python.quantecon.org/likelihood_ratio_process.html>`_.
 
 
