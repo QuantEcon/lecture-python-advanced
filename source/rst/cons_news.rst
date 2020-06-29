@@ -149,22 +149,22 @@ which we can also write as
 
 .. math::
 
-    a_{t+1} = \sum_{j=0}^\infty \epsilon_{t+1 -j} \equiv h(L) \epsilon_{t+1}  
+    a_{t+1} = \sum_{j=0}^\infty h_j \epsilon_{t+1 -j} \equiv h(L) \epsilon_{t+1}  
 
-where :math:`L` is the one-period lag operator, :math:`I` is the
+where :math:`L` is the one-period lag operator, :math:`h(L) = \sum_{j=0}^\infty h_j L^j`, :math:`I` is the
 identity operator, and
 
 .. math::
 
     h(L) = \frac{ I -\beta^{-1} L}{ I - \beta L} 
 
-Let :math:`c_j \equiv E z_t z_{t-j}` be the :math:`j`\ th autocovariance
+Let :math:`g_j \equiv E z_t z_{t-j}` be the :math:`j`\ th autocovariance
 of the :math:`\{y_t - y_{t-1}\}` process.
 
 Using calculations in the :doc:`quantecon lecture<classical_filtering>`, where
 :math:`z \in C` is a complex variable, the covariance generating
 function :math:`g (z) =
-\sum_{j=-\infty}^\infty c_j z^j`
+\sum_{j=-\infty}^\infty g_j z^j`
 of the :math:`\{(y_t - y_{t-1})\}` process equals
 
 .. math::
@@ -222,7 +222,7 @@ The innovations representation is
 .. math::
 
     \begin{aligned} \hat \epsilon_{t+1} & = 0 \hat \epsilon_t + K a_{t+1} \cr
-               z_{t+1} & = - \beta^{-1} a_t + a_{t+1} \end{aligned}
+               z_{t+1} & = - \beta a_t + a_{t+1} \end{aligned}
 
 By applying formulas for the steady-state Kalman filter, by hand we
 computed that
