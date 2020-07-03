@@ -17,7 +17,7 @@ In addition to what's in Anaconda, this lecture will deploy quantecon:
 .. code-block:: ipython
   :class: hide-output
 
-  !pip install --upgrade quantecon
+  !conda install -c conda-forge quantecon
 
 Reader's Guide
 ==============

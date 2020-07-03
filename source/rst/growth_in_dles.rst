@@ -21,7 +21,7 @@ In addition to what's included in  Anaconda, this lecture uses the quantecon lib
 .. code-block:: ipython
   :class: hide-output
 
-  !pip install --upgrade quantecon
+  !conda install -c conda-forge quantecon
 
 This lecture describes several complete market economies having a
 common linear-quadratic-Gaussian structure.

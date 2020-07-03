@@ -21,7 +21,7 @@ In addition to what's in Anaconda, this lecture uses the quantecon library.
 .. code-block:: ipython
   :class: hide-output
 
-  !pip install --upgrade quantecon
+  !conda install -c conda-forge quantecon
 
 This lecture uses the DLE class to construct instances of  the "Cattle Cycles" model
 of Rosen, Murphy and Scheinkman (1994) :cite:`rosen1994cattle`.

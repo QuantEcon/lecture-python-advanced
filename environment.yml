@@ -17,8 +17,8 @@ dependencies:
   - sphinx=2.4.4
   - interpolation
   - seaborn
+  - scipy
   - pip:
     - sphinxcontrib-jupyter
     - sphinxcontrib-bibtex
-    - quantecon
     - joblib
