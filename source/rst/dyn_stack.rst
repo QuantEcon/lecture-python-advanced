@@ -25,7 +25,7 @@ follower** that depend on continuation sequences of decisions made once
 and for all by the Stackelberg leader at time :math:`0`.
 
 To facilitate computation and interpretation, we formulate things in a
-context that allows us to apply linear optimal dynamic programming.
+context that allows us to apply dynamic programming for linear-quadratic models.
 
 From the beginning, we carry along a linear-quadratic model of duopoly in
 which firms face adjustment costs that make them want to forecast
@@ -425,7 +425,7 @@ We express the Stackelberg problem in terms of **two subproblems**.
 Subproblem 1 is solved by a **continuation Stackelberg leader** at each
 date :math:`t \geq 0`.
 
-Subproblem 2 is solved the **Stackelberg leader** at :math:`t=0`.
+Subproblem 2 is solved by the **Stackelberg leader** at :math:`t=0`.
 
 The two subproblems are designed
 
@@ -1029,7 +1029,7 @@ In the code below we compare two values
 -  the value of a **reborn Stackelberg leader** who inherits state
    :math:`z_t` at :math:`t` and sets :math:`x_t = - P_{22}^{-1} P_{21}`
 
-The difference between these two values is a tell-tale time of the time
+The difference between these two values is a tell-tale sign of the time
 inconsistency of the Stackelberg plan
 
 .. code-block:: python3
