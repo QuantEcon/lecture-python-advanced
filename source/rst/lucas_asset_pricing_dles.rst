@@ -21,7 +21,7 @@ In addition to what's in Anaconda, this lecture uses the quantecon library
 .. code-block:: ipython
   :class: hide-output
 
-  !conda install -c conda-forge quantecon
+  !conda install quantecon
 
 This lecture uses  the DLE class to price payout
 streams that are linear functions of the economy's state vector, as well
