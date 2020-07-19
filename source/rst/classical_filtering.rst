@@ -229,7 +229,7 @@ To proceed, it is useful to drill down and note that for :math:`t-1 \geq m \geq 
 
 Representation :eq:`eq_57`  is an orthogonal decomposition of :math:`x_t` into a part :math:`\sum^{t-1}_{j=m} L_{t, t-j}^{-1}\, \varepsilon_{t-j}`
 that lies in the space spanned by :math:`[x_{t-m},\, x_{t-m+1},\, \ldots, x_1]` and an orthogonal component
-:math:`\sum^{t-1}_{j=m} L^{-1}_{t, t-j}\, \varepsilon_{t-j}` that does not line in that space but instead in a linear space knowns as its **orthogonal complement**.
+:math:`\sum^{t-1}_{j=m} L^{-1}_{t, t-j}\, \varepsilon_{t-j}` that does not lie in that space but instead in a linear space knowns as its **orthogonal complement**.
 
 It follows that
 
