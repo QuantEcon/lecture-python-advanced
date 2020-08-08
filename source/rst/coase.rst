@@ -497,9 +497,9 @@ Recalling that our initial condition must lie in :math:`\mathcal P`, we set
        i = 0
 
        while error > tol and i < max_iter:
-           for i, s in enumerate(grid):
+           for j, s in enumerate(grid):
                Tp = lambda t: delta * interp(grid, p, t) + c(s - t)
-               new_p[i] = Tp(fminbound(Tp, 0, s))
+               new_p[j] = Tp(fminbound(Tp, 0, s))
            error = np.max(np.abs(p - new_p))
            p = new_p
            i = i + 1
