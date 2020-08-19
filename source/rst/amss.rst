@@ -10,7 +10,7 @@ Optimal Taxation without State-Contingent Debt
 
 ----
 
-**Note:** Software Requirement
+**Software Requirement:**
 
 This lecture requires the use of some older software versions to run. If
 you would like to execute this lecture please download the following
@@ -36,7 +36,7 @@ In addition to what's in Anaconda, this lecture will need the following librarie
   !pip install --upgrade quantecon
 
 Overview
-==========
+========
 
 Let's start with following imports:
 
