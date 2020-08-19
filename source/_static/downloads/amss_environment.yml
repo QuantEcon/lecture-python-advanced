@@ -1,0 +1,25 @@
+name: amss
+channels:
+  - default
+  - conda-forge
+dependencies:
+  - pip
+  - python
+  - jupyter
+  - jupyterlab
+  - nbconvert
+  - pandoc
+  - pandas
+  - numba
+  - scipy=1.4.1
+  - numpy
+  - matplotlib
+  - networkx
+  - sphinx=2.4.4
+  - interpolation
+  - seaborn
+  - pip:
+    - sphinxcontrib-jupyter
+    - sphinxcontrib-bibtex
+    - quantecon
+    - joblib
