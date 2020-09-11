@@ -19,3 +19,5 @@ Asset Pricing and Finance
 
     lucas_model
     black_litterman
+    BCG_complete_mkts
+    BCG_incomplete_mkts
