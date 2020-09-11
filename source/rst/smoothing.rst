@@ -123,13 +123,13 @@ one-period return :math:`\beta^{-1}`.
 Linear State Space Version of Complete Markets Model
 ====================================================
 
-Now we'll study a complete markets model adapted to  a setting with a continuous Markov state like that in the `first lecture on the permanent income model <https://python-intro.quantecon.org/perm_income.html>`__.
+We'll study a complete markets model adapted to  a setting with a continuous Markov state like that in the `first lecture on the permanent income model <https://python-intro.quantecon.org/perm_income.html>`__.
 
-In that model, there are
+In that model
 
-* incomplete markets: the consumer can trade only a single risk-free one-period bond bearing gross one-period risk-free interest rate equal to :math:`\beta^{-1}`.
+* a consumer can trade only a single risk-free one-period bond bearing gross one-period risk-free interest rate equal to :math:`\beta^{-1}`.
 
-* the consumer's exogenous nonfinancial income is governed by a linear state space model driven by Gaussian shocks, the kind of model studied in an earlier lecture about `linear state space models <https://python-intro.quantecon.org/linear_models.html>`__.
+* a consumer's exogenous nonfinancial income is governed by a linear state space model driven by Gaussian shocks, the kind of model studied in an earlier lecture about `linear state space models <https://python-intro.quantecon.org/linear_models.html>`__.
 
 Let's write down a complete markets counterpart of that model.
 
@@ -149,7 +149,7 @@ where :math:`x_t` is an :math:`n \times 1` vector and :math:`w_{t+1} \sim {\cal 
 We want  a natural counterpart of the Hall assumption that the one-period risk-free
 gross interest rate is :math:`\beta^{-1}`.
 
-Accordingly,  we assume that   prices
+We make the good guess that   prices
 of one-period ahead Arrow securities are described by the **pricing kernel**
 
 .. math::
@@ -163,15 +163,15 @@ distribution with mean vector :math:`\mu` and covariance matrix
 :math:`\Sigma`.
 
 With the pricing kernel :math:`q_{t+1}(x_{t+1} \,|\, x_t)` in hand, we can price claims to consumption at time :math:`t+1` consumption that pay off when
-:math:`x_{t+1} \in A` at time :math:`t+1`:
+:math:`x_{t+1} \in S` at time :math:`t+1`:
 
 .. math::
 
-    \int_A q_{t+1}(x_{t+1} \,|\, x_t) d x_{t+1} 
+    \int_S q_{t+1}(x_{t+1} \,|\, x_t) d x_{t+1} 
 
-where :math:`A` is a subset of :math:`\mathbb R^n`.
+where :math:`S` is a subset of :math:`\mathbb R^n`.
 
-The price :math:`\int_A q_{t+1}(x_{t+1} \,|\, x_t) d x_{t+1}` of such a claim depends on state :math:`x_t` because the prices of the :math:`x_{t+1}`-contingent
+The price :math:`\int_S q_{t+1}(x_{t+1} \,|\, x_t) d x_{t+1}` of such a claim depends on state :math:`x_t` because the prices of the :math:`x_{t+1}`-contingent
 securities depend on :math:`x_t` through the pricing kernel :math:`q(x_{t+1} \,|\, x_t)`.
 
 Let :math:`b(x_{t+1})` be a vector of state-contingent debt due at :math:`t+1`
@@ -197,7 +197,7 @@ Please note that
 
 .. math::
 
-    E_t b_{t+1} = \int \phi_{t+1}(x_{t+1} | x_t) b_{t+1}(x_{t+1}) d x_{t+1}
+    E_t b_{t+1} = \int \phi_{t+1}(x_{t+1} | A x_t, C C') b_{t+1}(x_{t+1}) d x_{t+1}
 
 which verifies that :math:`E_t b_{t+1}` is the **value** of time :math:`t+1` state-contingent claims on time :math:`t+1` consumption issued by the consumer at time :math:`t`
 
@@ -209,7 +209,7 @@ We can solve the time :math:`t` budget constraint forward to obtain
     b_t = \mathbb E_t  \sum_{j=0}^\infty \beta^j (y_{t+j} - c_{t+j} )
 
 
-We assume as before that the consumer cares about the expected value
+The consumer cares about the expected value
 of
 
 .. math::
@@ -270,7 +270,7 @@ and the consumer's debt is the fixed function of
 the state :math:`x_t` described by :eq:`cs_15`.
 
 
-Please recall that in the LQ permanent income model studied in first lecture on the `permanent income model <https://python-intro.quantecon.org/perm_income.html>`__, the state is 
+Please recall that in the LQ permanent income model studied in  `permanent income model <https://python-intro.quantecon.org/perm_income.html>`__, the state is 
 :math:`x_t, b_t`, where :math:`b_t` is a complicated function of past state vectors :math:`x_{t-j}`.
 
 Notice that in contrast to that incomplete markets model, at time :math:`t` the state vector is :math:`x_t` alone  in our complete markets model.
@@ -380,7 +380,7 @@ Incomplete Markets Version
 
 
 The incomplete markets version of the model with nonfinancial income being governed by a linear state space system
-is described in the first lecture on the `permanent income model <https://python-intro.quantecon.org/perm_income.html>`__ and the followup
+is described in  `permanent income model <https://python-intro.quantecon.org/perm_income.html>`__ and a followup
 lecture on  the `permanent income model <https://python-intro.quantecon.org/perm_income_cons.html>`__.
 
 In that incomplete markerts setting, consumption follows a random walk and the consumer's debt follows a process with a unit root.
@@ -392,7 +392,7 @@ Finite State Markov Income Process
 We now turn to a finite-state Markov version of the model in which the consumer's  nonfinancial income is an exact function of a Markov state that
 takes one of :math:`N` values.
 
-We'll start with a setting in which in each version of our consumption-smoothing models, nonfinancial income is governed by a two-state Markov chain
+We'll start with a setting in which in each version of our consumption-smoothing model, nonfinancial income is governed by a two-state Markov chain
 (it's easy to generalize this to an :math:`N` state Markov chain).
 
 In particular, the *state*  :math:`s_t \in \{1, 2\}`  follows
@@ -490,7 +490,7 @@ These are
 
 *  when multiplied by :math:`q(j\,|\, s_t)`, a source of time :math:`t` **revenues** for the consumer
 
-*   a source of time :math:`t+1` **expenditures** for the consumer
+*  when :math:`s_{t+1} = j`, a source of time :math:`t+1` **expenditures** for the consumer
 
 
 A natural analog of Hall's assumption that the one-period risk-free gross
