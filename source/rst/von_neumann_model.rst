@@ -12,7 +12,7 @@ Von Neumann Growth Model (and a Generalization)
 .. contents:: :depth: 2
 
 
-This notebook uses the class ``Neumann`` to calculate key objects of a
+This lecture uses the class ``Neumann`` to calculate key objects of a
 linear growth model of John von Neumann :cite:`von1937uber` that was generalized by
 Kemeny, Morgenstern and Thompson :cite:`kemeny1956generalization`.
 
@@ -22,7 +22,7 @@ prices (:math:`p`).
 
 In addition to watching how the towering mind of John von Neumann
 formulated an equilibrium model of price and quantity vectors in
-balanced growth, this notebook shows how fruitfully to employ the
+balanced growth, this lecture shows how fruitfully to employ the
 following important tools:
 
 -  a zero-sum two-player game
@@ -457,7 +457,7 @@ as a dynamic system, and study sequences
 An interesting special case holds the technology process constant and
 investigates the dynamics of quantities and prices only.
 
-Accordingly, in the rest of this notebook, we assume that
+Accordingly, in the rest of this lecture, we assume that
 :math:`(A_t,B_t)=(A,B)` for all :math:`t\geq 0`.
 
 A crucial element of the dynamic interpretation involves the timing of
