@@ -17,7 +17,7 @@ linear growth model of John von Neumann :cite:`von1937uber` that was generalized
 Kemeny, Morgenstern and Thompson :cite:`kemeny1956generalization`.
 
 Objects of interest are the maximal expansion rate (:math:`\alpha`), the
-interest factor (:math:`β`), and the optimal intensities (:math:`x`) and
+interest factor (:math:`β`), the optimal intensities (:math:`x`), and
 prices (:math:`p`).
 
 In addition to watching how the towering mind of John von Neumann
@@ -313,24 +313,29 @@ Notation
 We use the following notation.
 
 :math:`\mathbf{0}` denotes
-a vector of zeros. We call an :math:`n`-vector - positive or
-:math:`x\gg \mathbf{0}` if :math:`x_i>0` for all :math:`i=1,2,\dots,n`
-- non-negative or :math:`x\geq \mathbf{0}` if :math:`x_i\geq 0` for
-all :math:`i=1,2,\dots,n` - semi-positive or :math:`x > \mathbf{0}` if
+a vector of zeros. 
+
+We call an :math:`n`-vector  positive and write 
+:math:`x\gg \mathbf{0}` if :math:`x_i>0` for all :math:`i=1,2,\dots,n`.
+
+We call a vector  non-negative and write :math:`x\geq \mathbf{0}` if :math:`x_i\geq 0` for
+all :math:`i=1,2,\dots,n`. 
+
+We call a vector  semi-positive and written :math:`x > \mathbf{0}` if
 :math:`x\geq \mathbf{0}` and :math:`x\neq \mathbf{0}`.
 
 For two conformable vectors :math:`x` and :math:`y`, :math:`x\gg y`,
 :math:`x\geq y` and :math:`x> y` mean :math:`x-y\gg \mathbf{0}`,
-:math:`x-y \geq \mathbf{0}`, and :math:`x-y > \mathbf{0}`.
+:math:`x-y \geq \mathbf{0}`, and :math:`x-y > \mathbf{0}`, respectively.
 
-By default, all vectors are column vectors, :math:`x^{T}` denotes the
-transpose of :math:`x` (i.e. a row vector).
+We let all vectors in this lecture be column vectors; :math:`x^{T}` denotes the
+transpose of :math:`x` (i.e., a row vector).
 
 Let :math:`\iota_n` denote a
 column vector composed of :math:`n` ones, i.e.
 :math:`\iota_n = (1,1,\dots,1)^T`.
 
-Let :math:`e^i` denote the vector (of
+Let :math:`e^i` denote a vector (of
 arbitrary size) containing zeros except for the :math:`i` th position
 where it is one.
 
@@ -350,8 +355,7 @@ an economy.
 
 -  :math:`m` is the number of *activities* (or sectors)
 
--  :math:`n` is the number of *goods* (produced and/or used in the
-   economy)
+-  :math:`n` is the number of *goods* (produced and/or consumed).
 
 -  :math:`A` is called the *input matrix*; :math:`a_{i,j}` denotes the
    amount of good :math:`j` consumed by activity :math:`i`
@@ -361,7 +365,7 @@ an economy.
 
 Two key assumptions restrict economy :math:`(A,B)`:
 
-- **Assumption I:** (every good which is consumed is also produced)
+- **Assumption I:** (every good that is consumed is also produced)
 
 .. math:: b_{.,j} > \mathbf{0}\hspace{5mm}\forall j=1,2,\dots,n
 
@@ -369,8 +373,8 @@ Two key assumptions restrict economy :math:`(A,B)`:
 
 .. math:: a_{i,.} > \mathbf{0}\hspace{5mm}\forall i=1,2,\dots,m
 
-A semi-positive :math:`m`-vector:math:`x` denotes the levels at which
-activities are operated (*intensity vector*).
+A semi-positive  *intensity* :math:`m`-vector  :math:`x` denotes  levels at which
+activities are operated.
 
 Therefore,
 
@@ -392,21 +396,21 @@ The :math:`p` vector implies *cost* and *revenue* vectors
 
 -  the vector :math:`Bp` tells *revenues* from the vector of activities
 
-A property of an input-output pair :math:`(A,B)` called *irreducibility*
+Satisfaction or a property of an input-output pair :math:`(A,B)` called *irreducibility*
 (or indecomposability) determines whether an economy can be decomposed
-into multiple ‘’sub-economies’’.
+into multiple     "sub-economies".
 
-**Definition:** Given an economy :math:`(A,B)`, the set of goods
+**Definition:** For an economy :math:`(A,B)`, the set of goods
 :math:`S\subset \{1,2,\dots,n\}` is called an *independent subset* if
-it is possible to produce every good in :math:`S` without consuming any
-good outside :math:`S`. Formally, the set :math:`S` is independent if
-:math:`\exists T\subset \{1,2,\dots,m\}` (subset of activities) such
-that :math:`a_{i,j}=0`, :math:`\forall i\in T` and :math:`j\in S^c` and
-for all :math:`j\in S`, :math:`\exists i\in T`, s.t. :math:`b_{i,j}>0`.
+it is possible to produce every good in :math:`S` without consuming 
+goods from outside :math:`S`. Formally, the set :math:`S` is independent if
+:math:`\exists T\subset \{1,2,\dots,m\}` (a subset of activities) such
+that :math:`a_{i,j}=0` :math:`\forall i\in T` and :math:`j\in S^c` and
+for all :math:`j\in S`, :math:`\exists i\in T` for which  :math:`b_{i,j}>0`.
 The economy is **irreducible** if there are no proper independent
 subsets.
 
-We study two examples, both coming from Chapter 9.6 of Gale :cite:`gale1989theory`
+We study two examples, both in  Chapter 9.6 of Gale :cite:`gale1989theory`
 
 .. code-block:: python3
 
@@ -440,6 +444,7 @@ instance
     n1 = Neumann(A1, B1)
     n1
 
+Here is a second instance of a Neumann economy
 
 .. code-block:: python3
 
@@ -464,8 +469,8 @@ A crucial element of the dynamic interpretation involves the timing of
 production.
 
 We assume that production (consumption of inputs) takes place in period
-:math:`t`, while the associated output materializes in period
-:math:`t+1`, i.e. consumption of :math:`x_{t}^TA` in period :math:`t`
+:math:`t`, while the consequent output materializes in period
+:math:`t+1`, i.e., consumption of :math:`x_{t}^TA` in period :math:`t`
 results in :math:`x^T_{t}B` amounts of output in period :math:`t+1`.
 
 These timing conventions imply the following feasibility condition:
@@ -512,7 +517,7 @@ restriction on the price sequence:
 .. math:: \beta Ap_{t} \geq B p_{t} \hspace{1cm}\forall t
 
 This says that production cannot yield a return greater than that
-offered by the investment opportunity (note that we compare values in
+offered by the outside investment opportunity (here we compare values in
 period :math:`t+1`).
 
 The balanced growth assumption allows us to drop time subscripts and
@@ -523,13 +528,13 @@ conduct an analysis purely in terms of a time-invariant growth rate
 Duality
 =======
 
-The following two problems are connected by a remarkable dual
-relationship between the technological and valuation characteristics of
+Two problems are connected by a remarkable dual
+relationship between  technological and valuation characteristics of
 the economy:
 
 **Definition:** The *technological expansion problem* (TEP) for the economy
 :math:`(A,B)` is to find a semi-positive :math:`m`-vector :math:`x>0`
-and a number :math:`\alpha\in\mathbb{R}`, s.t.
+and a number :math:`\alpha\in\mathbb{R}` that satisfy
 
 .. math::
   \begin{aligned}
@@ -538,16 +543,16 @@ and a number :math:`\alpha\in\mathbb{R}`, s.t.
     \end{aligned}
 
 Theorem 9.3 of David Gale’s book :cite:`gale1989theory` asserts that if Assumptions I and II are
-both satisfied, then a maximum value of :math:`\alpha` exists and it is
+both satisfied, then a maximum value of :math:`\alpha` exists and that it is
 positive.
 
-It is called the *technological expansion rate* and is denoted
+The maximal value is called the *technological expansion rate* and is denoted
 by :math:`\alpha_0`. The associated intensity vector :math:`x_0` is the
 *optimal intensity vector*.
 
-**Definition:** The *economical expansion problem* (EEP) for
+**Definition:** The economic expansion problem* (EEP) for
 :math:`(A,B)` is to find a semi-positive :math:`n`-vector :math:`p>0`
-and a number :math:`\beta\in\mathbb{R}`, such that
+and a number :math:`\beta\in\mathbb{R}` that satisfy
 
 .. math::
   \begin{aligned}
@@ -560,30 +565,29 @@ Assumptions I and II imply existence of a minimum value
 
 The corresponding price vector :math:`p_0` is the *optimal price vector*.
 
-Evidently, the criterion functions in *technological expansion* problem
-and the *economical expansion problem* are both linearly homogeneous, so
+Because the criterion functions in the *technological expansion* problem
+and the *economical expansion problem* are both linearly homogeneous, 
 the optimality of :math:`x_0` and :math:`p_0` are defined only up to a
 positive scale factor.
 
-For simplicity (and to emphasize a close connection to zero-sum games),
-in the following, we normalize both vectors
+For convenience (and to emphasize a close connection to zero-sum games),  we normalize both vectors
 :math:`x_0` and :math:`p_0` to have unit length.
 
 A standard duality argument (see Lemma 9.4. in (Gale, 1960) :cite:`gale1989theory`) implies
 that under Assumptions I and II, :math:`\beta_0\leq \alpha_0`.
 
-But in the other direction, that is :math:`\beta_0\geq \alpha_0`,
+But to deduce that :math:`\beta_0\geq \alpha_0`,
 Assumptions I and II are not sufficient.
 
-Nevertheless, von Neumann :cite:`von1937uber` proved the following remarkable
-“duality-type” result connecting TEP and EEP.
+Therefore, von Neumann :cite:`von1937uber`  went on to prove the following remarkable
+“duality” result that connects TEP and EEP.
 
 **Theorem 1 (von Neumann):** If the economy :math:`(A,B)` satisfies
-Assumptions I and II, then there exists a set
+Assumptions I and II, then there exist 
 :math:`\left(\gamma^{*}, x_0, p_0\right)`, where
 :math:`\gamma^{*}\in[\beta_0, \alpha_0]\subset\mathbb{R}`, :math:`x_0>0`
-is an :math:`m`-vector, :math:`p_0>0` is an :math:`n`-vector and the
-following holds true
+is an :math:`m`-vector, :math:`p_0>0` is an :math:`n`-vector, and the
+following arbitrage true
 
 .. math::
 
@@ -596,31 +600,32 @@ following holds true
 ..
 
    *Proof (Sketch):* Assumption I and II imply that there exist :math:`(\alpha_0,
-   x_0)` and :math:`(\beta_0, p_0)` solving the TEP and EEP, respectively. If
+   x_0)` and :math:`(\beta_0, p_0)` that solve the TEP and EEP, respectively. If
    :math:`\gamma^*>\alpha_0`, then by definition of :math:`\alpha_0`, there cannot
    exist a semi-positive :math:`x` that satisfies :math:`x^T B \geq \gamma^{* }
    x^T A`.  Similarly, if :math:`\gamma^*<\beta_0`, there is no semi-positive
-   :math:`p` so that :math:`Bp \leq \gamma^{* } Ap`. Let :math:`\gamma^{*
+   :math:`p` for which :math:`Bp \leq \gamma^{* } Ap`. Let :math:`\gamma^{*
    }\in[\beta_0, \alpha_0]`, then :math:`x_0^T B \geq \alpha_0 x_0^T A \geq
    \gamma^{* } x_0^T A`.  Moreover, :math:`Bp_0\leq \beta_0 A p_0\leq \gamma^* A
    p_0`. These two inequalities imply :math:`x_0\left(B - \gamma^{* } A\right)p_0
    = 0`.
 
-Here the constant :math:`\gamma^{*}` is both expansion and interest
+Here the constant :math:`\gamma^{*}` is both an expansion factor  and an interest
 factor (not necessarily optimal).
 
 We have already encountered and
 discussed the first two inequalities that represent feasibility and
 no-profit conditions.
 
-Moreover, the equality compactly captures the
+Moreover, the equality :math:`x_0^T\left(B-\gamma^{* } A\right)p_0 = 0` concisely expresses the
 requirements that if any good grows at a rate larger than
 :math:`\gamma^{*}` (i.e., if it is *oversupplied*), then its price
 must be zero; and that if any activity provides negative profit, it must
 be unused.
 
-Therefore, these expressions encode all equilibrium conditions
-and Theorem I essentially states that under Assumptions I and II there
+Therefore, the conditions staed in Theorem I ex encode all equilibrium conditions.
+
+So  Theorem I essentially states that under Assumptions I and II there
 always exists an equilibrium :math:`\left(\gamma^{*}, x_0, p_0\right)`
 with balanced growth.
 
@@ -633,32 +638,33 @@ Kemeny, Morgenstern and Thomspson :cite:`kemeny1956generalization` add an extra 
 
 .. math:: x^T_0 B p_0 > 0
 
-and call the resulting equilibria *economic solutions*.
+and call the associated equilibria *economic solutions*.
 
 They show that
 this extra condition does not affect the existence result, while it
 significantly reduces the number of (relevant) solutions.
 
 
-Interpretation as a Game Theoretic Problem (Two-player Zero-sum Game)
-=====================================================================
+Interpretation as Two-player Zero-sum Game
+===========================================
 
 To compute the equilibrium :math:`(\gamma^{*}, x_0, p_0)`, we follow the
 algorithm proposed by Hamburger, Thompson and Weil (1967), building on
-the key insight that the equilibrium (with balanced growth) can be
-considered as a solution of a particular two-player zero-sum game.
-First, we introduce some notations.
+the key insight that an equilibrium (with balanced growth) can be
+solves a particular two-player zero-sum game.
+First, we introduce some notation.
 
 Consider the :math:`m\times n` matrix :math:`C` as a payoff matrix,
 with the entries representing payoffs from the **minimizing** column
 player to the **maximizing** row player and assume that the players can
-use mixed strategies: - row player chooses the :math:`m`-vector
-:math:`x > \mathbf{0}`, s.t. :math:`\iota_m^T x = 1` - column player
-chooses the :math:`n`-vector :math:`p > \mathbf{0}`,
-s.t. :math:`\iota_n^T p = 1`.
+use mixed strategies. Thus,
+
+  * the  row player chooses the :math:`m`-vector :math:`x > \mathbf{0}` subject to :math:`\iota_m^T x = 1` 
+  
+  * the column player chooses the :math:`n`-vector :math:`p > \mathbf{0}` subject to :math:`\iota_n^T p = 1`.
 
 **Definition:** The :math:`m\times n` matrix game :math:`C` has the
-*solution* :math:`(x^*, p^*, V(C))` in mixed strategies, if
+*solution* :math:`(x^*, p^*, V(C))` in mixed strategies if
 
 .. math::
   \begin{aligned}
@@ -680,7 +686,7 @@ two alternative interpretations:
   player will not get more than :math:`V(C)` (irrespective of what is the
   maximizing player’s choice)
 
-From the famous theorem of Nash (1951), it follows that there always
+A famous theorem of Nash (1951) tells us that there always
 exists a mixed strategy Nash equilibrium for any *finite* two-player
 zero-sum game.
 
@@ -694,15 +700,14 @@ Moreover, von Neumann’s Minmax Theorem :cite:`neumann1928theorie` implies that
 Connection with Linear Programming (LP)
 ---------------------------------------
 
-Finding Nash equilibria of a finite two-player zero-sum game can be
-formulated as a linear programming problem.
+Nash equilibria of a finite two-player zero-sum game solve  a linear programming problem.
 
 To see this, we introduce
-the following notation - For a fixed :math:`x`, let :math:`v` be the
-value of the minimization problem:
-:math:`v \equiv \min_p x^T C p = \min_j x^T C e^j` - For a fixed
-:math:`p`, let :math:`u` be the value of the maximization problem:
-:math:`u \equiv \max_x x^T C p = \max_i (e^i)^T C p`.
+the following notation 
+  
+  * For a fixed :math:`x`, let :math:`v` be the value of the minimization problem: :math:`v \equiv \min_p x^T C p = \min_j x^T C e^j` 
+  
+  * For a fixed :math:`p`, let :math:`u` be the value of the maximization problem: :math:`u \equiv \max_x x^T C p = \max_i (e^i)^T C p`
 
 Then the *max-min problem* (the game from the maximizing player’s point
 of view) can be written as the *primal* LP
@@ -728,8 +733,9 @@ of view) is the *dual* LP
 
 
 Hamburger, Thompson and Weil :cite:`hamburger1967computation` view the input-output pair of the
-economy as payoff matrices of two-player zero-sum games. Using this
-interpretation, they restate Assumption I and II as follows
+economy as payoff matrices of two-player zero-sum games. 
+
+Using this interpretation, they restate Assumption I and II as follows
 
 .. math::
 
@@ -744,16 +750,16 @@ interpretation, they restate Assumption I and II as follows
    Assumption I. \* :math:`\Leftarrow` From Assumption I and the fact
    that :math:`p>\mathbf{0}`, it follows that :math:`Bp > \mathbf{0}`.
    This implies that the maximizing player can always choose :math:`x`
-   so that :math:`x^TBp>0`, that is it must be the case
+   so that :math:`x^TBp>0` so that it must be the case
    that :math:`V(B)>0`.
 
 In order to (re)state Theorem I in terms of a particular two-player
-zero-sum game, we define the matrix for :math:`\gamma\in\mathbb{R}`
+zero-sum game, we define a matrix for :math:`\gamma\in\mathbb{R}`
 
 .. math:: M(\gamma) \equiv B - \gamma A
 
 For fixed :math:`\gamma`, treating :math:`M(\gamma)` as a matrix game,
-we can calculate the solution of the game
+calculating the solution of the game implies
 
 -  If :math:`\gamma > \alpha_0`, then for all :math:`x>0`, there
    :math:`\exists j\in\{1, \dots, n\}`, s.t.
@@ -782,12 +788,10 @@ Moreover, if :math:`x'` is optimal for the maximizing player in
 :math:`M(\gamma')` for :math:`\gamma'\in(\beta_0, \alpha_0)` and
 :math:`p''` is optimal for the minimizing player in :math:`M(\gamma'')`
 where :math:`\gamma''\in(\beta_0, \gamma')`, then :math:`(x', p'', 0)`
-is a solution for
-:math:`M(\gamma)`, :math:`\forall \gamma\in (\gamma'', \gamma')`.
+is a solution for :math:`M(\gamma)` :math:`\forall \gamma\in (\gamma'', \gamma')`.
 
-  *Proof (Sketch):* If :math:`x'` is optimal for a maximizing player in
-  game :math:`M(\gamma')`, then :math:`(x')^T M(\gamma')\geq \mathbf{0}^T`
-  and so for all :math:`\gamma<\gamma'`.
+*Proof (Sketch):* If :math:`x'` is optimal for a maximizing player in
+game :math:`M(\gamma')`, then :math:`(x')^T M(\gamma')\geq \mathbf{0}^T` and so for all :math:`\gamma<\gamma'`.
 
 .. math:: (x')^T M(\gamma) = (x')^T M(\gamma') + (x')^T(\gamma' - \gamma)A \geq \mathbf{0}^T
 
@@ -799,11 +803,10 @@ and so for all :math:`\gamma''<\gamma`
 
 hence :math:`V(M(\gamma))\leq 0`.
 
-It is clear from the above argument that :math:`\beta_0`,
-:math:`\alpha_0` are the minimal and maximal :math:`\gamma` for which
+It is clear from the above argument that :math:`\beta_0`, :math:`\alpha_0` are the minimal and maximal :math:`\gamma` for which
 :math:`V(M(\gamma))=0`.
 
-Moreover, Hamburger et al. :cite:`hamburger1967computation` show that the
+Furthermore, Hamburger et al. :cite:`hamburger1967computation` show that the
 function :math:`\gamma \mapsto V(M(\gamma))` is continuous and
 nonincreasing in :math:`\gamma`.
 
@@ -935,20 +938,18 @@ The *interest* method implements the bisection algorithm for
     print(f'p_0 = {p}')
     print(f'The corresponding x from the primal = {x}')
 
-Of course, when :math:`\gamma^*` is unique, it is irrelevant which one
-of the two methods we use.
+Of course, when :math:`\gamma^*` is unique, it is irrelevant which one of the two methods we use  -- both work.
 
 In particular, as will be shown below, in
 case of an irreducible :math:`(A,B)` (like in Example 1), the maximal
 and minimal roots of :math:`V(M(\gamma))` necessarily coincide implying
-a ‘‘full duality’’ result, i.e. :math:`\alpha_0 = \beta_0 = \gamma^*`,
-and that the expansion (and interest) rate :math:`\gamma^*` is unique.
+a ‘‘full duality’’ result, i.e. :math:`\alpha_0 = \beta_0 = \gamma^*` so that the expansion (and interest) rate :math:`\gamma^*` is unique.
 
 Uniqueness and Irreducibility
 -----------------------------
 
 As an illustration, compute first the maximal and minimal roots of
-:math:`V(M(\cdot))` for Example 2, which displays a reducible
+:math:`V(M(\cdot))` for our Example 2 that has a reducible
 input-output pair :math:`(A, B)`
 
 .. code-block:: python3
@@ -976,7 +977,7 @@ Nonetheless, Kemeny et al. (1967) show that there are at most finitely
 many economic solutions, meaning that there are only finitely many
 :math:`\gamma^*` that satisfy :math:`V(M(\gamma^*)) = 0` and
 :math:`x_0^TBp_0 > 0` and that for each such :math:`\gamma^*_i`, there
-is a self-sufficient part of the economy (a sub-economy) that in
+is a self-contained part of the economy (a sub-economy) that in
 equilibrium can expand independently with the expansion
 coefficient :math:`\gamma^*_i`.
 
@@ -984,7 +985,7 @@ The following theorem (see Theorem 9.10. in Gale :cite:`gale1989theory`) asserts
 imposing irreducibility is sufficient for uniqueness of
 :math:`(\gamma^*, x_0, p_0)`.
 
-**Theorem II:** Consider the conditions of Theorem 1. If the economy
+**Theorem II:** Adopt the conditions of Theorem 1. If the economy
 :math:`(A,B)` is irreducible, then :math:`\gamma^*=\alpha_0=\beta_0`.
 
 A Special Case
@@ -994,9 +995,13 @@ There is a special :math:`(A,B)` that allows us to simplify the solution
 method significantly by invoking the powerful Perron-Frobenius theorem
 for non-negative matrices.
 
-**Definition:** We call an economy *simple* if it satisfies 1.
-:math:`n=m` 2. Each activity produces exactly one good 3. Each good is
-produced by one and only one activity.
+**Definition:** We call an economy *simple* if it satisfies 
+
+  *  :math:`n=m` 
+  
+  *  Each activity produces exactly one good 
+
+  *  Each good is produced by one and only one activity.
 
 These assumptions imply that :math:`B=I_n`, i.e., that :math:`B` can be
 written as an identity matrix (possibly after reshuffling its rows and
@@ -1013,8 +1018,8 @@ The latter shows that :math:`1/\alpha_0` is a positive eigenvalue of
 :math:`A` and :math:`x_0` is the corresponding non-negative left
 eigenvector.
 
-The classical result of **Perron and Frobenius** implies
-that a non-negative matrix always has a non-negative
+The classic result of **Perron and Frobenius** implies
+that a non-negative matrix  has a non-negative
 eigenvalue-eigenvector pair.
 
 Moreover, if :math:`A` is irreducible, then
