@@ -20,7 +20,7 @@ else
     echo "::set-env name=BUILD_NETLIFY::true"
     RST_FILES="$RST_FILES source/rst/index_toc.rst"
     if [ "$PRIVATE_THEME" = true ]; then
-        make website THEMEPATH=theme/minimal TEMPLATEPATH=theme/minimal/templates FILES="$RST_FILES"
+        make website THEMEPATH=theme/lecture-python-advanced.theme TEMPLATEPATH=theme/lecture-python-advanced.theme/templates FILES="$RST_FILES"
     else
         make website FILES="$RST_FILES"
     fi
