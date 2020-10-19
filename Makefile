@@ -6,7 +6,7 @@ SHELL := bash
 # You can set these variables from the command line.
 SPHINXOPTS    = -c "./"
 SPHINXBUILD   = python -msphinx
-SPHINXPROJ    = lecture-python-programming
+SPHINXPROJ    = lecture-python-advanced
 SOURCEDIR     = source/rst
 BUILDDIR      = _build
 BUILDWEBSITE  = _build/website
@@ -53,7 +53,7 @@ ifneq ($(strip $(parallel)),)
 else
 	@$(SPHINXBUILD) -M jupyter "$(SOURCEDIR)" "$(BUILDCOVERAGE)" $(FILES) $(SPHINXOPTS) $(O) -D jupyter_make_coverage=1 -D jupyter_execute_notebooks=1 -D jupyter_ignore_skip_test=0 -D jupyter_theme_path="$(THEMEPATH)" -D jupyter_template_path="$(TEMPLATEPATH)" -D jupyter_template_coverage_file_path="error_report_template.html"
 endif
- 
+
 website:
 	echo "Theme: $(THEMEPATH)"
 ifneq ($(strip $(parallel)),)
