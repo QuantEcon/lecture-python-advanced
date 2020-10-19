@@ -31,13 +31,13 @@ jobs:
       # - name: Get current date
       #   id: date
       #   run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
-      - name: Check Sphinx Cache
-        id: cache
-        uses: actions/cache@v1
-        with:
-          path: _build
-          key: cache-sphinx
-          # key: cache-sphinx-${{ steps.date.outputs.date }}
+      # - name: Check Sphinx Cache
+      #   id: cache
+      #   uses: actions/cache@v1
+      #   with:
+      #     path: _build
+      #     key: cache-sphinx
+      #     # key: cache-sphinx-${{ steps.date.outputs.date }}
       - name: Build website files
         shell: bash -l {0}
         run: |
