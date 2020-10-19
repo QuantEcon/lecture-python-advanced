@@ -47,14 +47,14 @@ We study the behavior of government debt  as time :math:`t \rightarrow + \infty`
 
 We use these techniques
 
-  * simulations
+* simulations
 
-  * a regression coefficient from the tail of a long simulation that allows us to verify that  the asymptotic mean of government debt solves
-    a fiscal-risk minimization  problem
+* a regression coefficient from the tail of a long simulation that allows us to verify that  the asymptotic mean of government debt solves
+  a fiscal-risk minimization  problem
 
-  * an approximation to the mean of an ergodic distribution of government debt
+* an approximation to the mean of an ergodic distribution of government debt
 
-  * an approximation  to the rate of convergence to an ergodic distribution of government debt
+* an approximation  to the rate of convergence to an ergodic distribution of government debt
 
 
 We apply tools applicable to  more general incomplete markets economies that are presented on pages 648 - 650 in section III.D
@@ -62,11 +62,11 @@ of :cite:`BEGS1` (BEGS).
 
 We study an  :cite:`aiyagari2002optimal` economy with  three Markov states driving government expenditures.
 
- * In a :doc:`previous lecture<amss2>`, we showed that with only two Markov states, it is possible that eventually endogenous
-   interest rate fluctuations support complete markets allocations and Ramsey outcomes.
+* In a :doc:`previous lecture<amss2>`, we showed that with only two Markov states, it is possible that eventually endogenous
+  interest rate fluctuations support complete markets allocations and Ramsey outcomes.
 
- * The presence of three states  prevents the full spanning that eventually prevails in the two-state example featured in
-   :doc:`Fiscal Insurance via Fluctuating Interest Rates<amss2>`.
+* The presence of three states  prevents the full spanning that eventually prevails in the two-state example featured in
+  :doc:`Fiscal Insurance via Fluctuating Interest Rates<amss2>`.
 
 
 The lack of full spanning means that the ergodic distribution of the par value of government debt is nontrivial, in contrast to the situation
@@ -273,9 +273,9 @@ For the short samples early in our simulated sample of  102,000 observations, fl
 conceal the weak but inexorable force that the Ramsey planner puts into both series driving them toward ergodic distributions far from
 these early observations
 
-  * early observations are more influenced by the initial value of the par value of government debt than by the ergodic mean of the par value of government debt
+* early observations are more influenced by the initial value of the par value of government debt than by the ergodic mean of the par value of government debt
 
-  * much later observations are more influenced by the ergodic mean and are independent of the initial value of the par value of government debt
+* much later observations are more influenced by the ergodic mean and are independent of the initial value of the par value of government debt
 
 
 Asymptotic Mean and Rate of Convergence
@@ -283,9 +283,9 @@ Asymptotic Mean and Rate of Convergence
 
 We apply the results of :cite:`BEGS1` to interpret
 
-  * the mean of the ergodic distribution of government debt
+* the mean of the ergodic distribution of government debt
 
-  * the rate of convergence  to the ergodic distribution from an arbitrary initial government debt
+* the rate of convergence  to the ergodic distribution from an arbitrary initial government debt
 
 We begin by computing  objects required by the theory of section III.i
 of :cite:`BEGS1`.
@@ -401,7 +401,7 @@ on the right side of  formula :eq:`eq_criterion_fiscal_1` for the ergodic mean :
 
 Thus,  formula  :eq:`eq_criterion_fiscal_1` is not useful for estimating  the mean of the ergodic in advance of actually computing the ergodic distribution
 
-   *  we need to know the  ergodic distribution to compute the right side of formula :eq:`eq_criterion_fiscal_1`
+*  we need to know the  ergodic distribution to compute the right side of formula :eq:`eq_criterion_fiscal_1`
 
 So the primary use of equation :eq:`eq_criterion_fiscal_1` is how  it  confirms that
 the ergodic distribution solves a fiscal-risk minimization problem.
@@ -409,9 +409,9 @@ the ergodic distribution solves a fiscal-risk minimization problem.
 As an example, notice how we used the formula for the mean of :math:`{\mathcal B}` in the ergodic distribution of the special AMSS economy in
 :doc:`Fiscal Insurance via Fluctuating Interest Rates<amss2>`
 
-    * **first** we computed the ergodic distribution using a reverse-engineering construction
+* **first** we computed the ergodic distribution using a reverse-engineering construction
 
-    * **then** we verified that :math:`{\mathcal B}`  agrees with the mean of that distribution
+* **then** we verified that :math:`{\mathcal B}`  agrees with the mean of that distribution
 
 
 
@@ -426,11 +426,11 @@ ergodic distribution.
 To  construct the BEGS  approximation to :math:`{\mathcal B}^*`, we just follow steps set forth on pages 648 - 650 of section III.D of
 :cite:`BEGS1`
 
--  notation in BEGS might be confusing at first sight, so
-   it is important to stare and digest before computing
+- notation in BEGS might be confusing at first sight, so
+  it is important to stare and digest before computing
 
--  there are also some sign errors in the :cite:`BEGS1` text that we'll want
-   to correct
+- there are also some sign errors in the :cite:`BEGS1` text that we'll want
+  to correct
 
 
 Here is a step-by-step description of the :cite:`BEGS1` approximation procedure.
@@ -453,7 +453,7 @@ This is a nonlinear equation to be solved for
 **Typo alert:** Please note that there is a sign error in equation (42)
 of :cite:`BEGS1` -- it should be a minus rather than a plus in the middle.
 
-  * We have made the appropriate correction in the above equation.
+* We have made the appropriate correction in the above equation.
 
 **Step 2:** Knowing :math:`c_\tau(s), s=1, \ldots, S` for a given
 :math:`\tau`, we want to compute the random variables
@@ -481,7 +481,7 @@ present value of the mean effective government **surplus**.
 **Typo alert**: there is a sign error in equation (46) of :cite:`BEGS1` --the left
 side should be multiplied by :math:`-1`.
 
-  *  We have made this correction in the above equation.
+*  We have made this correction in the above equation.
 
 For a given :math:`{\mathcal B}`, let a :math:`\tau` that solves the
 above equation be called :math:`\tau(\mathcal B)`.
@@ -530,20 +530,20 @@ In the two-Markov-state AMSS economy in :doc:`Fiscal Insurance via Fluctuating I
 this formula very accurately describes a **constant** par value of government debt that
 
 
-   * supports full fiscal insurance via fluctuating interest parameters, and
+* supports full fiscal insurance via fluctuating interest parameters, and
 
-   * is the limit of government debt as :math:`t \rightarrow +\infty`
+* is the limit of government debt as :math:`t \rightarrow +\infty`
 
 In the three-Markov-state economy of this lecture, the par value of government debt fluctuates in a history-dependent way even asymptotically.
 
 In this economy, :math:`\hat b` given by the above formula approximates the mean of the ergodic distribution of  the par value of  government debt
 
-   *  this is the red vertical line plotted in the histogram of the last 100,000 observations of our simulation of the  par value of government debt plotted above
+*  this is the red vertical line plotted in the histogram of the last 100,000 observations of our simulation of the  par value of government debt plotted above
 
-   *  the approximation is fairly accurate but not perfect
+*  the approximation is fairly accurate but not perfect
 
-   *  so while the approximation circumvents the chicken and egg problem surrounding
-      the much better approximation associated with the green vertical line, it does so by enlarging the approximation error
+*  so while the approximation circumvents the chicken and egg problem surrounding
+    the much better approximation associated with the green vertical line, it does so by enlarging the approximation error
 
 Execution
 -----------
