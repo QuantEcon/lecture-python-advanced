@@ -100,9 +100,9 @@ Here
 
 * *Entropy* is a non-negative number that measures the size of a set of models surrounding the decision-maker's approximating model.
 
-    * Entropy is zero when the set includes only the approximating model, indicating that the decision-maker completely trusts the approximating model.
+  * Entropy is zero when the set includes only the approximating model, indicating that the decision-maker completely trusts the approximating model.
 
-    * Entropy is bigger, and the set of surrounding models is bigger, the less the decision-maker trusts the approximating model.
+  * Entropy is bigger, and the set of surrounding models is bigger, the less the decision-maker trusts the approximating model.
 
 The shaded region indicates that for **all** models having entropy less than or equal to the number on the horizontal axis, the value obtained will be somewhere within the indicated set of values.
 
@@ -132,9 +132,9 @@ Below we'll explain in detail how to construct these sets of values for a given 
 
 Here is a hint about the  *secret weapons* we'll use to construct these sets
 
-    *  We'll use some min problems to construct the lower bounds
+*  We'll use some min problems to construct the lower bounds
 
-    *  We'll use some max problems to construct the upper bounds
+*  We'll use some max problems to construct the upper bounds
 
 We will also describe how to choose :math:`F` to shape the sets of values.
 
@@ -540,15 +540,16 @@ In particular, the lower bound on the left side of :eq:`rob_bound` is attained w
 
 To construct the *lower bound* on the set of values associated with all perturbations :math:`{\mathbf w}` satisfying the entropy constraint :eq:`rb_dec` at a  given entropy level, we proceed as follows:
 
-    *  For a given :math:`\theta`, solve the minimization problem :eq:`rb_a2o`.
+*  For a given :math:`\theta`, solve the minimization problem :eq:`rb_a2o`.
 
-    *  Compute the minimizer :math:`R_\theta(x_0, F)` and the associated entropy using :eq:`rb_pdt22`.
+*  Compute the minimizer :math:`R_\theta(x_0, F)` and the associated entropy using :eq:`rb_pdt22`.
 
-    *  Compute the lower bound on the value function :math:`R_\theta(x_0, F) - \theta \ {\rm  ent}` and plot it against :math:`{\rm ent}`.
+*  Compute the lower bound on the value function :math:`R_\theta(x_0, F) - \theta \ {\rm  ent}` and plot it against :math:`{\rm ent}`.
 
-    *  Repeat the preceding three steps  for a range of values of :math:`\theta` to trace out the lower bound.
+*  Repeat the preceding three steps  for a range of values of :math:`\theta` to trace out the lower bound.
 
 .. note::
+
     This procedure  sweeps  out a set of separating hyperplanes indexed by different values for  the Lagrange multiplier :math:`\theta`.
 
 The Upper Bound
@@ -608,13 +609,13 @@ The upper bound on the left side of :eq:`robboundmax` is attained when
 
 To construct the *upper bound* on the set of values associated all perturbations :math:`{\mathbf w}` with a given entropy we proceed much as we did for the lower bound
 
-    *  For a given :math:`\tilde \theta`, solve the maximization problem :eq:`rba2omax`.
+*  For a given :math:`\tilde \theta`, solve the maximization problem :eq:`rba2omax`.
 
-    *  Compute the maximizer :math:`V_{\tilde \theta}(x_0, F)` and the associated entropy using :eq:`rbpdt223`.
+*  Compute the maximizer :math:`V_{\tilde \theta}(x_0, F)` and the associated entropy using :eq:`rbpdt223`.
 
-    *  Compute the upper bound on the value function :math:`V_{\tilde \theta}(x_0, F) + \tilde \theta \ {\rm ent}` and plot it against :math:`{\rm ent}`.
+*  Compute the upper bound on the value function :math:`V_{\tilde \theta}(x_0, F) + \tilde \theta \ {\rm ent}` and plot it against :math:`{\rm ent}`.
 
-    *  Repeat the preceding three steps  for a range of values of :math:`\tilde \theta` to trace out the upper bound.
+*  Repeat the preceding three steps  for a range of values of :math:`\tilde \theta` to trace out the upper bound.
 
 
 Reshaping the Set of Values
@@ -922,9 +923,9 @@ Here is a brief description of the methods of the class
 * ``robust_rule()`` and ``robust_rule_simple()`` both solve for the
   triple :math:`\hat F, \hat K, \hat P`, as described in equations :eq:`rb_oc_ih` -- :eq:`rb_kd` and the surrounding discussion
 
-    * ``robust_rule()`` is more efficient
+  * ``robust_rule()`` is more efficient
 
-    * ``robust_rule_simple()`` is more transparent and easier to follow
+  * ``robust_rule_simple()`` is more transparent and easier to follow
 
 * ``K_to_F()`` and ``F_to_K()`` solve the decision problems
   of :ref:`agent 1 <rb_a1>` and :ref:`agent 2 <rb_a2>` respectively
