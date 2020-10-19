@@ -41,6 +41,8 @@ jobs:
       - name: Build website files
         shell: bash -l {0}
         run: |
+          pwd
+          ls theme/
           bash scripts/build-website.sh "${{ steps.files.outputs.added_modified }}" "${{ github.event.pull_request.head.repo.full_name == github.repository }}"
       - name: Preview Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.0
