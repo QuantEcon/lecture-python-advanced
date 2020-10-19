@@ -599,18 +599,18 @@ following arbitrage true
     x_0^T\left(B-\gamma^{* } A\right)p_0 &= 0
     \end{aligned}
 
-..
+.. note::
 
-   *Proof (Sketch):* Assumption I and II imply that there exist :math:`(\alpha_0,
-   x_0)` and :math:`(\beta_0, p_0)` that solve the TEP and EEP, respectively. If
-   :math:`\gamma^*>\alpha_0`, then by definition of :math:`\alpha_0`, there cannot
-   exist a semi-positive :math:`x` that satisfies :math:`x^T B \geq \gamma^{* }
-   x^T A`.  Similarly, if :math:`\gamma^*<\beta_0`, there is no semi-positive
-   :math:`p` for which :math:`Bp \leq \gamma^{* } Ap`. Let :math:`\gamma^{*
-   }\in[\beta_0, \alpha_0]`, then :math:`x_0^T B \geq \alpha_0 x_0^T A \geq
-   \gamma^{* } x_0^T A`.  Moreover, :math:`Bp_0\leq \beta_0 A p_0\leq \gamma^* A
-   p_0`. These two inequalities imply :math:`x_0\left(B - \gamma^{* } A\right)p_0
-   = 0`.
+    *Proof (Sketch):* Assumption I and II imply that there exist :math:`(\alpha_0,
+    x_0)` and :math:`(\beta_0, p_0)` that solve the TEP and EEP, respectively. If
+    :math:`\gamma^*>\alpha_0`, then by definition of :math:`\alpha_0`, there cannot
+    exist a semi-positive :math:`x` that satisfies :math:`x^T B \geq \gamma^{* }
+    x^T A`.  Similarly, if :math:`\gamma^*<\beta_0`, there is no semi-positive
+    :math:`p` for which :math:`Bp \leq \gamma^{* } Ap`. Let :math:`\gamma^{*
+    }\in[\beta_0, \alpha_0]`, then :math:`x_0^T B \geq \alpha_0 x_0^T A \geq
+    \gamma^{* } x_0^T A`.  Moreover, :math:`Bp_0\leq \beta_0 A p_0\leq \gamma^* A
+    p_0`. These two inequalities imply :math:`x_0\left(B - \gamma^{* } A\right)p_0
+    = 0`.
 
 Here the constant :math:`\gamma^{*}` is both an expansion factor  and an interest
 factor (not necessarily optimal).
@@ -747,17 +747,17 @@ Using this interpretation, they restate Assumption I and II as follows
 
   V(-A) < 0\quad\quad \text{and}\quad\quad V(B)>0
 
-..
+.. note::
 
-   *Proof (Sketch)*: \* :math:`\Rightarrow` :math:`V(B)>0` implies
-   :math:`x_0^T B \gg \mathbf{0}`, where :math:`x_0` is a maximizing
-   vector. Since :math:`B` is non-negative, this requires that each
-   column of :math:`B` has at least one positive entry, which is
-   Assumption I. \* :math:`\Leftarrow` From Assumption I and the fact
-   that :math:`p>\mathbf{0}`, it follows that :math:`Bp > \mathbf{0}`.
-   This implies that the maximizing player can always choose :math:`x`
-   so that :math:`x^TBp>0` so that it must be the case
-   that :math:`V(B)>0`.
+    *Proof (Sketch)*: \* :math:`\Rightarrow` :math:`V(B)>0` implies
+    :math:`x_0^T B \gg \mathbf{0}`, where :math:`x_0` is a maximizing
+    vector. Since :math:`B` is non-negative, this requires that each
+    column of :math:`B` has at least one positive entry, which is
+    Assumption I. \* :math:`\Leftarrow` From Assumption I and the fact
+    that :math:`p>\mathbf{0}`, it follows that :math:`Bp > \mathbf{0}`.
+    This implies that the maximizing player can always choose :math:`x`
+    so that :math:`x^TBp>0` so that it must be the case
+    that :math:`V(B)>0`.
 
 In order to (re)state Theorem I in terms of a particular two-player
 zero-sum game, we define a matrix for :math:`\gamma\in\mathbb{R}`
