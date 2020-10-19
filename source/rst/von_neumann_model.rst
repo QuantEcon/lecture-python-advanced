@@ -25,11 +25,11 @@ formulated an equilibrium model of price and quantity vectors in
 balanced growth, this lecture shows how fruitfully to employ the
 following important tools:
 
--  a zero-sum two-player game
+- a zero-sum two-player game
 
--  linear programming
+- linear programming
 
--  the Perron-Frobenius theorem
+- the Perron-Frobenius theorem
 
 We'll begin with some imports:
 
@@ -353,35 +353,35 @@ Model Ingredients and Assumptions
 A pair :math:`(A,B)` of :math:`m\times n` non-negative matrices defines
 an economy.
 
--  :math:`m` is the number of *activities* (or sectors)
+- :math:`m` is the number of *activities* (or sectors)
 
--  :math:`n` is the number of *goods* (produced and/or consumed).
+- :math:`n` is the number of *goods* (produced and/or consumed).
 
--  :math:`A` is called the *input matrix*; :math:`a_{i,j}` denotes the
-   amount of good :math:`j` consumed by activity :math:`i`
+- :math:`A` is called the *input matrix*; :math:`a_{i,j}` denotes the
+  amount of good :math:`j` consumed by activity :math:`i`
 
--  :math:`B` is called the *output matrix*; :math:`b_{i,j}` represents
-   the amount of good :math:`j` produced by activity :math:`i`
+- :math:`B` is called the *output matrix*; :math:`b_{i,j}` represents
+  the amount of good :math:`j` produced by activity :math:`i`
 
 Two key assumptions restrict economy :math:`(A,B)`:
 
 - **Assumption I:** (every good that is consumed is also produced)
 
-.. math:: b_{.,j} > \mathbf{0}\hspace{5mm}\forall j=1,2,\dots,n
+  .. math:: b_{.,j} > \mathbf{0}\hspace{5mm}\forall j=1,2,\dots,n
 
 - **Assumption II:** (no free lunch)
 
-.. math:: a_{i,.} > \mathbf{0}\hspace{5mm}\forall i=1,2,\dots,m
+  .. math:: a_{i,.} > \mathbf{0}\hspace{5mm}\forall i=1,2,\dots,m
 
 A semi-positive  *intensity* :math:`m`-vector  :math:`x` denotes  levels at which
 activities are operated.
 
 Therefore,
 
--  vector :math:`x^TA` gives the total amount of *goods used in
-   production*
+- vector :math:`x^TA` gives the total amount of *goods used in
+  production*
 
--  vector :math:`x^TB` gives *total outputs*
+- vector :math:`x^TB` gives *total outputs*
 
 An economy :math:`(A,B)` is said to be *productive*, if there exists a
 non-negative intensity vector :math:`x \geq 0` such
@@ -392,9 +392,9 @@ the :math:`n` goods.
 
 The :math:`p` vector implies *cost* and *revenue* vectors
 
--  the vector :math:`Ap` tells *costs* of the vector of activities
+- the vector :math:`Ap` tells *costs* of the vector of activities
 
--  the vector :math:`Bp` tells *revenues* from the vector of activities
+- the vector :math:`Bp` tells *revenues* from the vector of activities
 
 Satisfaction or a property of an input-output pair :math:`(A,B)` called *irreducibility*
 (or indecomposability) determines whether an economy can be decomposed
@@ -477,9 +477,9 @@ These timing conventions imply the following feasibility condition:
 
 .. math::
 
-  \begin{aligned}
-  x^T_{t}B \geq x^T_{t+1} A \hspace{1cm}\forall t\geq 1
-  \end{aligned}
+    \begin{aligned}
+    x^T_{t}B \geq x^T_{t+1} A \hspace{1cm}\forall t\geq 1
+    \end{aligned}
 
 which asserts that no more goods can be used today than were produced
 yesterday.
@@ -537,10 +537,11 @@ the economy:
 and a number :math:`\alpha\in\mathbb{R}` that satisfy
 
 .. math::
-  \begin{aligned}
-    &\max_{\alpha} \hspace{2mm} \alpha\\
-    &\text{s.t. }\hspace{2mm}x^T B \geq \alpha x^T A
-    \end{aligned}
+
+    \begin{aligned}
+        &\max_{\alpha} \hspace{2mm} \alpha\\
+        &\text{s.t. }\hspace{2mm}x^T B \geq \alpha x^T A
+        \end{aligned}
 
 Theorem 9.3 of David Gale’s book :cite:`gale1989theory` asserts that if Assumptions I and II are
 both satisfied, then a maximum value of :math:`\alpha` exists and that it is
@@ -555,10 +556,11 @@ by :math:`\alpha_0`. The associated intensity vector :math:`x_0` is the
 and a number :math:`\beta\in\mathbb{R}` that satisfy
 
 .. math::
-  \begin{aligned}
-    &\min_{\beta} \hspace{2mm} \beta\\
-    &\text{s.t. }\hspace{2mm}Bp \leq \beta Ap
-    \end{aligned}
+
+    \begin{aligned}
+        &\min_{\beta} \hspace{2mm} \beta\\
+        &\text{s.t. }\hspace{2mm}Bp \leq \beta Ap
+        \end{aligned}
 
 Assumptions I and II imply existence of a minimum value
 :math:`\beta_0>0` called the *economic expansion rate*.
@@ -591,11 +593,11 @@ following arbitrage true
 
 .. math::
 
-  \begin{aligned}
-  x_0^T B &\geq \gamma^{* } x_0^T A \\
-  Bp_0 &\leq \gamma^{* } Ap_0 \\
-  x_0^T\left(B-\gamma^{* } A\right)p_0 &= 0
-  \end{aligned}
+    \begin{aligned}
+    x_0^T B &\geq \gamma^{* } x_0^T A \\
+    Bp_0 &\leq \gamma^{* } Ap_0 \\
+    x_0^T\left(B-\gamma^{* } A\right)p_0 &= 0
+    \end{aligned}
 
 ..
 
@@ -659,18 +661,19 @@ with the entries representing payoffs from the **minimizing** column
 player to the **maximizing** row player and assume that the players can
 use mixed strategies. Thus,
 
-  * the  row player chooses the :math:`m`-vector :math:`x > \mathbf{0}` subject to :math:`\iota_m^T x = 1` 
-  
-  * the column player chooses the :math:`n`-vector :math:`p > \mathbf{0}` subject to :math:`\iota_n^T p = 1`.
+* the  row player chooses the :math:`m`-vector :math:`x > \mathbf{0}` subject to :math:`\iota_m^T x = 1`
+
+* the column player chooses the :math:`n`-vector :math:`p > \mathbf{0}` subject to :math:`\iota_n^T p = 1`.
 
 **Definition:** The :math:`m\times n` matrix game :math:`C` has the
 *solution* :math:`(x^*, p^*, V(C))` in mixed strategies if
 
 .. math::
-  \begin{aligned}
-  (x^* )^T C e^j \geq V(C)\quad \forall j\in\{1, \dots, n\}\quad \quad
-  \text{and}\quad\quad (e^i)^T C p^* \leq V(C)\quad \forall i\in\{1, \dots, m\}
-  \end{aligned}
+
+    \begin{aligned}
+    (x^* )^T C e^j \geq V(C)\quad \forall j\in\{1, \dots, n\}\quad \quad
+    \text{and}\quad\quad (e^i)^T C p^* \leq V(C)\quad \forall i\in\{1, \dots, m\}
+    \end{aligned}
 
 The number :math:`V(C)` is called the *value* of the game.
 
@@ -693,7 +696,8 @@ zero-sum game.
 Moreover, von Neumann’s Minmax Theorem :cite:`neumann1928theorie` implies that
 
 .. math::
-   V(C) = \max_x \min_p \hspace{2mm} x^T C p = \min_p \max_x \hspace{2mm} x^T C p = (x^*)^T C p^*
+
+    V(C) = \max_x \min_p \hspace{2mm} x^T C p = \min_p \max_x \hspace{2mm} x^T C p = (x^*)^T C p^*
 
 
 
@@ -703,33 +707,35 @@ Connection with Linear Programming (LP)
 Nash equilibria of a finite two-player zero-sum game solve  a linear programming problem.
 
 To see this, we introduce
-the following notation 
-  
-  * For a fixed :math:`x`, let :math:`v` be the value of the minimization problem: :math:`v \equiv \min_p x^T C p = \min_j x^T C e^j` 
-  
-  * For a fixed :math:`p`, let :math:`u` be the value of the maximization problem: :math:`u \equiv \max_x x^T C p = \max_i (e^i)^T C p`
+the following notation
+
+* For a fixed :math:`x`, let :math:`v` be the value of the minimization problem: :math:`v \equiv \min_p x^T C p = \min_j x^T C e^j`
+
+* For a fixed :math:`p`, let :math:`u` be the value of the maximization problem: :math:`u \equiv \max_x x^T C p = \max_i (e^i)^T C p`
 
 Then the *max-min problem* (the game from the maximizing player’s point
 of view) can be written as the *primal* LP
 
 .. math::
-  \begin{aligned}
-  V(C) = & \max \hspace{2mm} v \\
-  \text{s.t. } \hspace{2mm} v \iota_n^T &\leq x^T C  \\
-  x &\geq \mathbf{0} \\
-  \iota_n^T x & = 1
-  \end{aligned}
+
+    \begin{aligned}
+    V(C) = & \max \hspace{2mm} v \\
+    \text{s.t. } \hspace{2mm} v \iota_n^T &\leq x^T C  \\
+    x &\geq \mathbf{0} \\
+    \iota_n^T x & = 1
+    \end{aligned}
 
 while the *min-max problem* (the game from the minimizing player’s point
 of view) is the *dual* LP
 
 .. math::
-  \begin{aligned}
-  V(C) = &\min \hspace{2mm} u \\
-  \text{s.t. } \hspace{2mm}u \iota_m &\geq Cp  \\
-  p &\geq \mathbf{0} \\
-  \iota_m^T p & = 1
-  \end{aligned}
+
+    \begin{aligned}
+    V(C) = &\min \hspace{2mm} u \\
+    \text{s.t. } \hspace{2mm}u \iota_m &\geq Cp  \\
+    p &\geq \mathbf{0} \\
+    \iota_m^T p & = 1
+    \end{aligned}
 
 
 Hamburger, Thompson and Weil :cite:`hamburger1967computation` view the input-output pair of the
@@ -761,21 +767,22 @@ zero-sum game, we define a matrix for :math:`\gamma\in\mathbb{R}`
 For fixed :math:`\gamma`, treating :math:`M(\gamma)` as a matrix game,
 calculating the solution of the game implies
 
--  If :math:`\gamma > \alpha_0`, then for all :math:`x>0`, there
-   :math:`\exists j\in\{1, \dots, n\}`, s.t.
-   :math:`[x^T M(\gamma)]_j < 0` implying
-   that :math:`V(M(\gamma)) < 0`.
--  If :math:`\gamma < \beta_0`, then for all :math:`p>0`, there
-   :math:`\exists i\in\{1, \dots, m\}`, s.t.
-   :math:`[M(\gamma)p]_i > 0` implying that :math:`V(M(\gamma)) > 0`.
--  If :math:`\gamma \in \{\beta_0, \alpha_0\}`, then (by Theorem I) the
-   optimal intensity and price vectors :math:`x_0` and :math:`p_0`
-   satisfy
+- If :math:`\gamma > \alpha_0`, then for all :math:`x>0`, there
+  :math:`\exists j\in\{1, \dots, n\}`, s.t.
+  :math:`[x^T M(\gamma)]_j < 0` implying
+  that :math:`V(M(\gamma)) < 0`.
+- If :math:`\gamma < \beta_0`, then for all :math:`p>0`, there
+  :math:`\exists i\in\{1, \dots, m\}`, s.t.
+  :math:`[M(\gamma)p]_i > 0` implying that :math:`V(M(\gamma)) > 0`.
+- If :math:`\gamma \in \{\beta_0, \alpha_0\}`, then (by Theorem I) the
+  optimal intensity and price vectors :math:`x_0` and :math:`p_0`
+  satisfy
 
 .. math::
-  \begin{aligned}
-  x_0^T M(\gamma) \geq \mathbf{0}^T \quad \quad \text{and}\quad\quad M(\gamma) p_0 \leq \mathbf{0}
-  \end{aligned}
+
+    \begin{aligned}
+    x_0^T M(\gamma) \geq \mathbf{0}^T \quad \quad \text{and}\quad\quad M(\gamma) p_0 \leq \mathbf{0}
+    \end{aligned}
 
 That is, :math:`(x_0, p_0, 0)` is a solution of the game
 :math:`M(\gamma)` so
@@ -854,30 +861,29 @@ Step 2
 
 Compute :math:`\alpha_0` and :math:`\beta_0`
 
--  Finding :math:`\alpha_0`
+- Finding :math:`\alpha_0`
 
-   1. Fix :math:`\gamma = \frac{UB + LB}{2}` and compute the solution
-      of the two-player zero-sum game associated
-      with :math:`M(\gamma)`. We can use either the primal or the dual
-      LP problem.
-   2. If :math:`V(M(\gamma)) \geq 0`, then set :math:`LB = \gamma`,
-      otherwise let :math:`UB = \gamma`.
-   3. Iterate on 1. and 2. until :math:`|UB - LB| < \epsilon`.
+  1. Fix :math:`\gamma = \frac{UB + LB}{2}` and compute the solution
+     of the two-player zero-sum game associated
+     with :math:`M(\gamma)`. We can use either the primal or the dual
+     LP problem.
+  2. If :math:`V(M(\gamma)) \geq 0`, then set :math:`LB = \gamma`,
+     otherwise let :math:`UB = \gamma`.
+  3. Iterate on 1. and 2. until :math:`|UB - LB| < \epsilon`.
 
--  Finding :math:`\beta_0`
+- Finding :math:`\beta_0`
 
-   1. Fix :math:`\gamma = \frac{UB + LB}{2}` and compute the solution
-      of the two-player zero-sum game associated.
-      with :math:`M(\gamma)`. We can use either the primal or the dual
-      LP problem.
-   2. If :math:`V(M(\gamma)) > 0`, then set :math:`LB = \gamma`,
-      otherwise let :math:`UB = \gamma`.
-   3. Iterate on 1. and 2. until :math:`|UB - LB| < \epsilon`.
+  1. Fix :math:`\gamma = \frac{UB + LB}{2}` and compute the solution
+     of the two-player zero-sum game associated.
+     with :math:`M(\gamma)`. We can use either the primal or the dual
+     LP problem.
+  2. If :math:`V(M(\gamma)) > 0`, then set :math:`LB = \gamma`,
+     otherwise let :math:`UB = \gamma`.
+  3. Iterate on 1. and 2. until :math:`|UB - LB| < \epsilon`.
 
-
-   *Existence*: Since :math:`V(M(LB))>0` and :math:`V(M(UB))<0` and
-   :math:`V(M(\cdot))` is a continuous, nonincreasing function, there is
-   at least one :math:`\gamma\in[LB, UB]`, s.t. :math:`V(M(\gamma))=0`.
+  *Existence*: Since :math:`V(M(LB))>0` and :math:`V(M(UB))<0` and
+  :math:`V(M(\cdot))` is a continuous, nonincreasing function, there is
+  at least one :math:`\gamma\in[LB, UB]`, s.t. :math:`V(M(\gamma))=0`.
 
 The *zerosum* method calculates the value and optimal strategies
 associated with a given :math:`\gamma`.
@@ -997,11 +1003,11 @@ for non-negative matrices.
 
 **Definition:** We call an economy *simple* if it satisfies 
 
-  *  :math:`n=m` 
-  
-  *  Each activity produces exactly one good 
+* :math:`n=m` 
 
-  *  Each good is produced by one and only one activity.
+* Each activity produces exactly one good 
+
+* Each good is produced by one and only one activity.
 
 These assumptions imply that :math:`B=I_n`, i.e., that :math:`B` can be
 written as an identity matrix (possibly after reshuffling its rows and
@@ -1011,8 +1017,9 @@ The simple model has the following special property (Theorem 9.11. in Gale :cite
 with :math:`(A,I_n)`, then
 
 .. math::
-  x_0^T = \alpha_0 x_0^T A\hspace{1cm}\Leftrightarrow\hspace{1cm}x_0^T
-  A=\left(\frac{1}{\alpha_0}\right)x_0^T
+
+    x_0^T = \alpha_0 x_0^T A\hspace{1cm}\Leftrightarrow\hspace{1cm}x_0^T
+    A=\left(\frac{1}{\alpha_0}\right)x_0^T
 
 The latter shows that :math:`1/\alpha_0` is a positive eigenvalue of
 :math:`A` and :math:`x_0` is the corresponding non-negative left
@@ -1032,4 +1039,5 @@ Suppose that :math:`A` is reducible with :math:`k` irreducible subsets
 associated expansion and interest factors, respectively. Then we have
 
 .. math::
-  \alpha_0 = \max_i \{\alpha_i\}\hspace{1cm}\text{and}\hspace{1cm}\beta_0 = \min_i \{\beta_i\}
+
+    \alpha_0 = \max_i \{\alpha_i\}\hspace{1cm}\text{and}\hspace{1cm}\beta_0 = \min_i \{\beta_i\}
