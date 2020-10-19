@@ -39,11 +39,11 @@ particular direction.
 
 This lecture has two sequels that offer further extensions of the Barro model
 
-  1. :doc:`How to Pay for a War: Part 2 <tax_smoothing_2>`
+1. :doc:`How to Pay for a War: Part 2 <tax_smoothing_2>`
 
-  2. :doc:`How to Pay for a War: Part 3 <tax_smoothing_3>`
+2. :doc:`How to Pay for a War: Part 3 <tax_smoothing_3>`
 
-  
+
 The extensions are modified versions of
 his 1979 model later suggested by Barro (1999 :cite:`barro1999determinants`, 2003 :cite:`barro2003religion`).
 
@@ -53,9 +53,9 @@ caused by taxes.
 
 Technical tractability induced Barro :cite:`Barro1979` to assume that
 
--  the government trades only one-period risk-free debt, and
+- the government trades only one-period risk-free debt, and
 
--  the one-period risk-free interest rate is constant
+- the one-period risk-free interest rate is constant
 
 By using  *Markov jump linear quadratic dynamic
 programming* we  can allow interest rates to move over time in
@@ -70,22 +70,22 @@ model along lines he suggested in Barro (1999 :cite:`barro1999determinants`, 200
 
 Barro (1979) :cite:`Barro1979` assumed
 
--  that a government faces an **exogenous sequence** of expenditures
-   that it must finance by a tax collection sequence whose expected
-   present value equals the initial debt it owes plus the expected
-   present value of those expenditures.
+- that a government faces an **exogenous sequence** of expenditures
+  that it must finance by a tax collection sequence whose expected
+  present value equals the initial debt it owes plus the expected
+  present value of those expenditures.
 
--  that the government wants to minimize the following measure of tax
-   distortions: :math:`E_0 \sum_{t=0}^{\infty} \beta^t T_t^2`, where :math:`T_t` are total tax collections and :math:`E_0`
-   is a mathematical expectation conditioned on time :math:`0`
-   information.
+- that the government wants to minimize the following measure of tax
+  distortions: :math:`E_0 \sum_{t=0}^{\infty} \beta^t T_t^2`, where :math:`T_t` are total tax collections and :math:`E_0`
+  is a mathematical expectation conditioned on time :math:`0`
+  information.
 
--  that the government trades only one asset, a risk-free one-period
-   bond.
+- that the government trades only one asset, a risk-free one-period
+  bond.
 
--  that the gross interest rate on the one-period bond is constant and
-   equal to :math:`\beta^{-1}`, the reciprocal of the factor
-   :math:`\beta` at which the government discounts future tax distortions.
+- that the gross interest rate on the one-period bond is constant and
+  equal to :math:`\beta^{-1}`, the reciprocal of the factor
+  :math:`\beta` at which the government discounts future tax distortions.
 
 Barro’s model can be mapped into a discounted linear quadratic dynamic
 programming problem.
@@ -94,11 +94,11 @@ Partly inspired by Barro
 (1999) :cite:`barro1999determinants` and Barro (2003) :cite:`barro2003religion`,
 our generalizations of Barro’s (1979) :cite:`Barro1979` model assume
 
--  that the government borrows or saves in the form of risk-free bonds
-   of maturities :math:`1, 2, \ldots , H`.
+- that the government borrows or saves in the form of risk-free bonds
+  of maturities :math:`1, 2, \ldots , H`.
 
--  that interest rates on those bonds are time-varying and in particular,
-   governed by a jointly stationary stochastic process.
+- that interest rates on those bonds are time-varying and in particular,
+  governed by a jointly stationary stochastic process.
 
 Our generalizations are designed to fit within a generalization of an
 ordinary linear quadratic dynamic programming problem in which matrices
@@ -108,20 +108,20 @@ function are **time-varying** and **stochastic**.
 This generalization, known as a **Markov jump linear quadratic dynamic
 program**, combines
 
--  the computational simplicity of **linear quadratic dynamic
-   programming**, and
+- the computational simplicity of **linear quadratic dynamic
+  programming**, and
 
--  the ability of **finite state Markov chains** to represent
-   interesting patterns of random variation.
+- the ability of **finite state Markov chains** to represent
+  interesting patterns of random variation.
 
 We want the stochastic time variation in the matrices defining the
 dynamic programming problem to represent variation over time in
 
--  interest rates
+- interest rates
 
--  default rates
+- default rates
 
--  roll over risks
+- roll over risks
 
 As described in :doc:`Markov Jump LQ dynamic programming <markov_jump_lq>`,
 the idea underlying **Markov jump linear quadratic dynamic programming**
@@ -139,26 +139,26 @@ Public Finance Questions
 
 Barro’s 1979 :cite:`Barro1979` model is designed to answer questions such as
 
--  Should a government finance an exogenous surge in government
-   expenditures by raising taxes or borrowing?
+- Should a government finance an exogenous surge in government
+  expenditures by raising taxes or borrowing?
 
--  How does the answer to that first question depend on the exogenous
-   stochastic process for government expenditures, for example, on
-   whether the surge in government expenditures can be expected to be
-   temporary or permanent?
+- How does the answer to that first question depend on the exogenous
+  stochastic process for government expenditures, for example, on
+  whether the surge in government expenditures can be expected to be
+  temporary or permanent?
 
 Barro’s 1999 :cite:`barro1999determinants` and 2003 :cite:`barro2003religion`
 models are designed to answer more fine-grained
 questions such as
 
--  What determines whether a government wants to issue short-term or
-   long-term debt?
+- What determines whether a government wants to issue short-term or
+  long-term debt?
 
--  How do roll-over risks affect that decision?
+- How do roll-over risks affect that decision?
 
--  How does the government’s long-short *portfolio management* decision
-   depend on features of the exogenous stochastic process for government
-   expenditures?
+- How does the government’s long-short *portfolio management* decision
+  depend on features of the exogenous stochastic process for government
+  expenditures?
 
 Thus, both the simple and the more fine-grained versions of Barro’s
 models are ways of precisely formulating the classic issue of *How to
@@ -167,9 +167,9 @@ pay for a war*.
 
 This lecture describes:
 
--  An application of Markov jump LQ dynamic programming to a model in
-   which a government faces exogenous time-varying interest rates for
-   issuing one-period risk-free debt.
+- An application of Markov jump LQ dynamic programming to a model in
+  which a government faces exogenous time-varying interest rates for
+  issuing one-period risk-free debt.
 
 A :doc:`sequel to this
 lecture <tax_smoothing_2>`
@@ -225,7 +225,7 @@ variable at time :math:`t`.
 To begin, we  assume that
 :math:`p_{t,t+1}` is constant (and equal to :math:`\beta`) 
 
-   * later  we will  extend the model to allow :math:`p_{t,t+1}` to vary over time
+* later  we will  extend the model to allow :math:`p_{t,t+1}` to vary over time
 
 To map into the LQ framework, we use
 :math:`x_t = \begin{bmatrix} b_{t-1,t} \\ z_t \end{bmatrix}` as the
@@ -267,8 +267,8 @@ To do this, we set
 
 .. math::
 
-  A_{22} = \begin{bmatrix} 1 & 0 \\ \bar G & \rho \end{bmatrix} \hspace{2mm} ,
-  \hspace{2mm} C_2 = \begin{bmatrix} 0 \\ \sigma \end{bmatrix}
+    A_{22} = \begin{bmatrix} 1 & 0 \\ \bar G & \rho \end{bmatrix} \hspace{2mm} ,
+    \hspace{2mm} C_2 = \begin{bmatrix} 0 \\ \sigma \end{bmatrix}
 
 .. code-block:: python3
 
