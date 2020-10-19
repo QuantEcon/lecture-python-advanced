@@ -25,6 +25,8 @@ In addition to what's in Anaconda, this lecture will need the following librarie
 Overview
 =============
 
+
+
 Many economic time series display persistent growth that prevents them from being  asymptotically stationary and ergodic.
 
 For example, outputs, prices, and dividends typically display  irregular but persistent growth.
