@@ -379,7 +379,7 @@ activities are operated.
 Therefore,
 
 - vector :math:`x^TA` gives the total amount of *goods used in
-   production*
+  production*
 
 - vector :math:`x^TB` gives *total outputs*
 
