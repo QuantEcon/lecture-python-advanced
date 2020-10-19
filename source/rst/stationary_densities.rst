@@ -49,13 +49,14 @@ In particular,
 
 * Is there a notion of "steady state" or "long-run equilibrium" that's applicable to the model?
 
-    * If so, how can we compute it?
+  * If so, how can we compute it?
 
 
 Answering these questions will lead us to revisit many of the topics that occupied us in the finite state case,
 such as simulation, distribution dynamics, stability, ergodicity, etc.
 
 .. note::
+
     For some people, the term "Markov chain" always refers to a process with a
     finite or discrete state space.  We follow the mainstream
     mathematical literature (e.g., :cite:`MeynTweedie2009`) in using the term to refer to any discrete **time**
@@ -228,7 +229,7 @@ Here
 
 * :math:`A_{t+1}` is a production shock
 
-    * The :math:`t+1` subscript indicates that :math:`A_{t+1}` is not visible at time :math:`t`
+  * The :math:`t+1` subscript indicates that :math:`A_{t+1}` is not visible at time :math:`t`
 
 * :math:`\delta` is a depreciation rate
 
