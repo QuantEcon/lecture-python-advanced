@@ -1351,8 +1351,8 @@ constant for all :math:`t \geq 0`.
 
 The first is :math:`b_{0} = 0`
 
-   * Here the government can't use the :math:`t=0` tax rate  to alter  the
-     value of the initial debt.
+* Here the government can't use the :math:`t=0` tax rate  to alter  the
+  value of the initial debt.
 
 The second occurs when the government enters with sufficiently large  assets
 that the Ramsey planner can achieve first best and sets :math:`\tau_t = 0`
