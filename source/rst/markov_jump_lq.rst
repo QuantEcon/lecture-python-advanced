@@ -969,8 +969,8 @@ More examples
 The following lectures describe how Markov jump linear quadratic dynamic programming can be used to extend the :cite:`Barro1979` model
 of optimal tax-smoothing and government debt in several interesting directions
 
-  1. :doc:`How to Pay for a War: Part 1 <tax_smoothing_1>`
+1. :doc:`How to Pay for a War: Part 1 <tax_smoothing_1>`
 
-  2. :doc:`How to Pay for a War: Part 2 <tax_smoothing_2>`
+2. :doc:`How to Pay for a War: Part 2 <tax_smoothing_2>`
 
-  3. :doc:`How to Pay for a War: Part 3 <tax_smoothing_3>`
+3. :doc:`How to Pay for a War: Part 3 <tax_smoothing_3>`
