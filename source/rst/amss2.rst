@@ -64,43 +64,43 @@ Nonzero Lagrange multipliers on those constraints make the Ramsey allocation for
 
 This lecture studies a special  AMSS model in which
 
-*  The exogenous state variable :math:`s_t` is governed by  a finite-state Markov chain.
+* The exogenous state variable :math:`s_t` is governed by  a finite-state Markov chain.
 
-*  With an arbitrary budget-feasible initial level of government debt, the measurability  constraints
+* With an arbitrary budget-feasible initial level of government debt, the measurability  constraints
 
-   - bind for many periods, but :math:`\ldots`.
+  - bind for many periods, but :math:`\ldots`.
 
-   - eventually, they stop binding evermore, so :math:`\ldots`.
+  - eventually, they stop binding evermore, so :math:`\ldots`.
 
-   - in the tail of the Ramsey plan, the Lagrange multipliers :math:`\gamma_t(s^t)` on the AMSS implementability constraints :eq:`TS_gov_wo4`  converge to zero.
+  - in the tail of the Ramsey plan, the Lagrange multipliers :math:`\gamma_t(s^t)` on the AMSS implementability constraints :eq:`TS_gov_wo4`  converge to zero.
 
-*  After the implementability constraints :eq:`TS_gov_wo4` no longer bind in the tail of the AMSS Ramsey plan
+* After the implementability constraints :eq:`TS_gov_wo4` no longer bind in the tail of the AMSS Ramsey plan
 
-   - history dependence of the AMSS state variable :math:`x_t` vanishes and  :math:`x_t` becomes a time-invariant function of the Markov state :math:`s_t`.
+  - history dependence of the AMSS state variable :math:`x_t` vanishes and  :math:`x_t` becomes a time-invariant function of the Markov state :math:`s_t`.
 
-   - the par value of government debt becomes **constant over time** so that :math:`b_{t+1}(s^t) = \bar b` for :math:`t \geq T` for a sufficiently large :math:`T`.
+  - the par value of government debt becomes **constant over time** so that :math:`b_{t+1}(s^t) = \bar b` for :math:`t \geq T` for a sufficiently large :math:`T`.
 
-   - :math:`\bar b <0`, so that the tail of the Ramsey plan instructs  the government always to make a constant par value of risk-free one-period loans to the private sector.
+  - :math:`\bar b <0`, so that the tail of the Ramsey plan instructs  the government always to make a constant par value of risk-free one-period loans to the private sector.
 
-   - the one-period gross interest rate :math:`R_t(s^t)` on risk-free debt  converges to a time-invariant function of the Markov state :math:`s_t`.
+  - the one-period gross interest rate :math:`R_t(s^t)` on risk-free debt  converges to a time-invariant function of the Markov state :math:`s_t`.
 
-*  For a **particular** :math:`b_0 < 0` (i.e., a positive level of initial government **loans** to the private sector), the measurability constraints **never** bind.
+* For a **particular** :math:`b_0 < 0` (i.e., a positive level of initial government **loans** to the private sector), the measurability constraints **never** bind.
 
 * In this special case
 
-   - the **par value** :math:`b_{t+1}(s_t) = \bar b`  of government debt at time :math:`t` and Markov state :math:`s_t`  is constant across time and states,
-     but :math:`\ldots`.
+  - the **par value** :math:`b_{t+1}(s_t) = \bar b`  of government debt at time :math:`t` and Markov state :math:`s_t`  is constant across time and states,
+    but :math:`\ldots`.
 
-   - the **market value** :math:`\frac{\bar b}{R_t(s_t)}` of government debt at time :math:`t`  varies as a time-invariant function of the Markov state :math:`s_t`.
+  - the **market value** :math:`\frac{\bar b}{R_t(s_t)}` of government debt at time :math:`t`  varies as a time-invariant function of the Markov state :math:`s_t`.
 
-   - fluctuations in the interest rate make gross earnings on government debt :math:`\frac{\bar b}{R_t(s_t)}` fully insure the gross-of-gross-interest-payments government budget against fluctuations in government expenditures.
+  - fluctuations in the interest rate make gross earnings on government debt :math:`\frac{\bar b}{R_t(s_t)}` fully insure the gross-of-gross-interest-payments government budget against fluctuations in government expenditures.
 
-   - the state variable :math:`x` in a recursive representation of a Ramsey plan is a time-invariant function of the Markov state for :math:`t \geq 0`.
+  - the state variable :math:`x` in a recursive representation of a Ramsey plan is a time-invariant function of the Markov state for :math:`t \geq 0`.
 
-*  In this special case, the Ramsey allocation in the AMSS model agrees with that in a :cite:`LucasStokey1983` model in which
-   the same amount of state-contingent debt falls due in all states tomorrow
+* In this special case, the Ramsey allocation in the AMSS model agrees with that in a :cite:`LucasStokey1983` model in which
+  the same amount of state-contingent debt falls due in all states tomorrow
 
-   - it is a situation in which  the Ramsey planner loses nothing from not being  able to  purchase state-contingent debt and being restricted to exchange only risk-free debt  debt.
+  - it is a situation in which  the Ramsey planner loses nothing from not being  able to  purchase state-contingent debt and being restricted to exchange only risk-free debt  debt.
 
 * This outcome emerges only when we initialize government debt at a particular :math:`b_0 < 0`.
 
@@ -656,16 +656,16 @@ of equation :eq:`eq_fiscal_risk`.
 Expressing formula :eq:`prelim_formula` in terms of  our notation tells us that :math:`\bar b` should approximately equal
 
 .. math::
-  :label: key_formula
+    :label: key_formula
 
-  \hat b = \frac{\mathcal B^*}{\beta E_t u_{c,t+1}}
+    \hat b = \frac{\mathcal B^*}{\beta E_t u_{c,t+1}}
 
 Rate of Convergence
 --------------------
 
 BEGS also derive the following  approximation to the rate of convergence to :math:`{\mathcal B}^{*}` from an arbitrary initial condition.
 
- .. math::
+.. math::
     :label: rate_of_convergence
 
     \frac{ E_t  ( {\mathcal B}_{t+1} - {\mathcal B}^{*} )} { ( {\mathcal B}_{t} - {\mathcal B}^{*} )} \approx \frac{1}{1 + \beta^2 {\rm var} ({\mathcal R} )}
