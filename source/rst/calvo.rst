@@ -41,14 +41,14 @@ The model focuses attention on intertemporal tradeoffs between
 
 The model features
 
--  rational expectations
+- rational expectations
 
--  costly government actions at all dates :math:`t \geq 1` that increase household
-   utilities at dates before :math:`t`
+- costly government actions at all dates :math:`t \geq 1` that increase household
+  utilities at dates before :math:`t`
 
--  two Bellman equations, one that expresses the private sector's  expectation of future inflation
-   as a function of current and future government actions, another that
-   describes  the value function of a  Ramsey planner
+- two Bellman equations, one that expresses the private sector's  expectation of future inflation
+  as a function of current and future government actions, another that
+  describes  the value function of a  Ramsey planner
 
 A theme of this lecture is that  timing protocols affect  outcomes.
 
@@ -276,13 +276,13 @@ Intertemporal Influences
 Criterion function :eq:`eq_old7` and the constraint system :eq:`eq_old4` exhibit the following
 structure:
 
--  Setting :math:`\mu_t \neq 0` imposes costs
-   :math:`\frac{c}{2} \mu_t^2` at time :math:`t` and at no other times;
-   but
+- Setting :math:`\mu_t \neq 0` imposes costs
+  :math:`\frac{c}{2} \mu_t^2` at time :math:`t` and at no other times;
+  but
 
--  The money growth rate :math:`\mu_t` affects the representative
-   household's one-period utilities at all dates
-   :math:`s = 0, 1, \ldots, t`.
+- The money growth rate :math:`\mu_t` affects the representative
+  household's one-period utilities at all dates
+  :math:`s = 0, 1, \ldots, t`.
 
 That settings of :math:`\mu` at one date affect household utilities at
 earlier dates sets the stage for the emergence of a time-inconsistent
@@ -297,21 +297,21 @@ Four Models of Government Policy
 
 We consider four models of policymakers that  differ in
 
--  what a policymaker is allowed to choose, either a sequence
-   :math:`\vec \mu` or just a single period  :math:`\mu_t`.
+- what a policymaker is allowed to choose, either a sequence
+  :math:`\vec \mu` or just a single period  :math:`\mu_t`.
 
--  when a policymaker chooses, either at time :math:`0` or at times
-   :math:`t \geq 0`.
+- when a policymaker chooses, either at time :math:`0` or at times
+  :math:`t \geq 0`.
 
--  what a policymaker assumes about how its choice of :math:`\mu_t`
-   affects private agents' expectations about earlier and later
-   inflation rates.
+- what a policymaker assumes about how its choice of :math:`\mu_t`
+  affects private agents' expectations about earlier and later
+  inflation rates.
 
 In two of our models, a single policymaker  chooses a sequence
 :math:`\{\mu_t\}_{t=0}^\infty` once and for all, taking into account how
 :math:`\mu_t` affects household one-period utilities at dates :math:`s = 0, 1, \ldots, t-1`
 
--  these two models  thus employ a  **Ramsey** or **Stackelberg** timing protocol.
+- these two models  thus employ a  **Ramsey** or **Stackelberg** timing protocol.
 
 In two other models, there is a sequence of policymakers, each of whom
 sets :math:`\mu_t` at one :math:`t` only
@@ -325,21 +325,21 @@ decisions.
 
 The models are
 
--  A single Ramsey planner chooses a sequence
-   :math:`\{\mu_t\}_{t=0}^\infty` once and for all at time :math:`0`.
+- A single Ramsey planner chooses a sequence
+  :math:`\{\mu_t\}_{t=0}^\infty` once and for all at time :math:`0`.
 
--  A single Ramsey planner chooses a sequence
-   :math:`\{\mu_t\}_{t=0}^\infty` once and for all at time :math:`0`
-   subject to the constraint that :math:`\mu_t = \mu` for all
-   :math:`t \geq 0`.
+- A single Ramsey planner chooses a sequence
+  :math:`\{\mu_t\}_{t=0}^\infty` once and for all at time :math:`0`
+  subject to the constraint that :math:`\mu_t = \mu` for all
+  :math:`t \geq 0`.
 
--  A sequence of separate policymakers chooses :math:`\mu_t` for :math:`t =0, 1, 2, \ldots`
+- A sequence of separate policymakers chooses :math:`\mu_t` for :math:`t =0, 1, 2, \ldots`
 
-    -  a time :math:`t` policymaker chooses :math:`\mu_t` only and forecasts that future government decisions are unaffected by its choice.
+  - a time :math:`t` policymaker chooses :math:`\mu_t` only and forecasts that future government decisions are unaffected by its choice.
 
--  A sequence of separate policymakers chooses :math:`\mu_t` for :math:`t =0, 1, 2, \ldots`
+- A sequence of separate policymakers chooses :math:`\mu_t` for :math:`t =0, 1, 2, \ldots`
 
-     - a time :math:`t` policymaker chooses  only :math:`\mu_t` but believes that its choice of :math:`\mu_t`  shapes private agents' beliefs about  future rates of money creation and inflation, and through them, future government actions.
+  - a time :math:`t` policymaker chooses  only :math:`\mu_t` but believes that its choice of :math:`\mu_t`  shapes private agents' beliefs about  future rates of money creation and inflation, and through them, future government actions.
 
 A Ramsey Planner
 ===================
@@ -456,14 +456,14 @@ inflation** equals **actual inflation**.
 The inflation rate :math:`\theta_t` that appears in the system :eq:`eq_old9` and
 equation :eq:`eq_old3` plays three roles simultaneously:
 
--  In equation :eq:`eq_old3`, :math:`\theta_t` is the actual rate of inflation
-   between :math:`t` and :math:`t+1`.
+- In equation :eq:`eq_old3`, :math:`\theta_t` is the actual rate of inflation
+  between :math:`t` and :math:`t+1`.
 
--  In equation  :eq:`eq_old2` and :eq:`eq_old3`, :math:`\theta_t` is also the public's
-   expected rate of inflation between :math:`t` and :math:`t+1`.
+- In equation  :eq:`eq_old2` and :eq:`eq_old3`, :math:`\theta_t` is also the public's
+  expected rate of inflation between :math:`t` and :math:`t+1`.
 
--  In system :eq:`eq_old9`, :math:`\theta_t` is a promised rate of inflation
-   chosen by the Ramsey planner at time :math:`0`.
+- In system :eq:`eq_old9`, :math:`\theta_t` is a promised rate of inflation
+  chosen by the Ramsey planner at time :math:`0`.
 
 
 
@@ -879,16 +879,16 @@ Time Inconsistency of Ramsey Plan
 The variation over time in :math:`\vec \mu` chosen by the Ramsey planner
 is a symptom of time inconsistency.
 
--  The Ramsey planner reaps immediate benefits from promising lower
-   inflation later to be achieved by costly distorting taxes.
+- The Ramsey planner reaps immediate benefits from promising lower
+  inflation later to be achieved by costly distorting taxes.
 
--  These benefits are intermediated by reductions in expected inflation
-   that precede the  reductions in money creation rates that rationalize them, as indicated by
-   equation :eq:`eq_old3`.
+- These benefits are intermediated by reductions in expected inflation
+  that precede the  reductions in money creation rates that rationalize them, as indicated by
+  equation :eq:`eq_old3`.
 
--  A government authority offered the opportunity to ignore effects on
-   past utilities and to reoptimize at date :math:`t \geq 1` would, if allowed, want
-   to deviate from a Ramsey plan.
+- A government authority offered the opportunity to ignore effects on
+  past utilities and to reoptimize at date :math:`t \geq 1` would, if allowed, want
+  to deviate from a Ramsey plan.
 
 **Note:** A modified Ramsey plan constructed under the restriction that
 :math:`\mu_t` must be constant over time is time consistent (see
@@ -929,20 +929,20 @@ A Fourth Model of Government Decision Making
 
 This is a model in which
 
--  The government chooses :math:`\{\mu_t\}_{t=0}^\infty` not once and
-   for all at :math:`t=0` but chooses to set :math:`\mu_t` at time :math:`t`, not before.
+- The government chooses :math:`\{\mu_t\}_{t=0}^\infty` not once and
+  for all at :math:`t=0` but chooses to set :math:`\mu_t` at time :math:`t`, not before.
 
--  private agents' forecasts of
-   :math:`\{\mu_{t+j+1}, \theta_{t+j+1}\}_{j=0}^\infty` respond to
-   whether the government at :math:`t` **confirms** or **disappoints**
-   their forecasts of :math:`\mu_t` brought into period :math:`t` from
-   period :math:`t-1`.
+- private agents' forecasts of
+  :math:`\{\mu_{t+j+1}, \theta_{t+j+1}\}_{j=0}^\infty` respond to
+  whether the government at :math:`t` **confirms** or **disappoints**
+  their forecasts of :math:`\mu_t` brought into period :math:`t` from
+  period :math:`t-1`.
 
--  the government at each time :math:`t` understands how private agents'
-   forecasts will respond to its choice of :math:`\mu_t`.
+- the government at each time :math:`t` understands how private agents'
+  forecasts will respond to its choice of :math:`\mu_t`.
 
--  at each :math:`t`, the government chooses :math:`\mu_t` to maximize
-   a continuation discounted utility of a representative household.
+- at each :math:`t`, the government chooses :math:`\mu_t` to maximize
+  a continuation discounted utility of a representative household.
 
 
 
@@ -956,31 +956,31 @@ decision makers, one for each :math:`t \geq 0`.
 We assume the following within-period and between-period timing protocol
 for each :math:`t \geq 0`:
 
--  at time :math:`t-1`, private agents expect  that the government will set
-   :math:`\mu_t = \tilde \mu_t`, and more generally that it will set
-   :math:`\mu_{t+j} = \tilde \mu_{t+j}` for all :math:`j \geq 0`.
+- at time :math:`t-1`, private agents expect  that the government will set
+  :math:`\mu_t = \tilde \mu_t`, and more generally that it will set
+  :math:`\mu_{t+j} = \tilde \mu_{t+j}` for all :math:`j \geq 0`.
 
--  The forecasts :math:`\{\tilde \mu_{t+j}\}_{j \geq 0}` determine a
-   :math:`\theta_t = \tilde \theta_t` and an associated log
-   of real balances :math:`m_t - p_t = -\alpha\tilde \theta_t` at
-   :math:`t`.
+- The forecasts :math:`\{\tilde \mu_{t+j}\}_{j \geq 0}` determine a
+  :math:`\theta_t = \tilde \theta_t` and an associated log
+  of real balances :math:`m_t - p_t = -\alpha\tilde \theta_t` at
+  :math:`t`.
 
--  Given those expectations and an associated :math:`\theta_t = \tilde \theta_t`, at
-   :math:`t` a government is free to set :math:`\mu_t \in {\bf R}`.
+- Given those expectations and an associated :math:`\theta_t = \tilde \theta_t`, at
+  :math:`t` a government is free to set :math:`\mu_t \in {\bf R}`.
 
--  If the government at :math:`t` **confirms** private agents'
-   expectations by setting :math:`\mu_t = \tilde \mu_t` at time
-   :math:`t`, private agents expect the continuation government policy
-   :math:`\{\tilde \mu_{t+j+1}\}_{j=0}^\infty` and therefore bring
-   expectation :math:`\tilde \theta_{t+1}` into period :math:`t+1`.
+- If the government at :math:`t` **confirms** private agents'
+  expectations by setting :math:`\mu_t = \tilde \mu_t` at time
+  :math:`t`, private agents expect the continuation government policy
+  :math:`\{\tilde \mu_{t+j+1}\}_{j=0}^\infty` and therefore bring
+  expectation :math:`\tilde \theta_{t+1}` into period :math:`t+1`.
 
--  If the government at :math:`t` **disappoints** private agents by setting
-   :math:`\mu_t \neq \tilde \mu_t`, private agents expect
-   :math:`\{\mu^A_j\}_{j=0}^\infty` as the
-   continuation policy for :math:`t+1`, i.e.,
-   :math:`\{\mu_{t+j+1}\} = \{\mu_j^A \}_{j=0}^\infty` and therefore
-   expect an associated :math:`\theta_0^A` for :math:`t+1`. Here :math:`\vec \mu^A = \{\mu_j^A \}_{j=0}^\infty` is
-   an alternative government plan to be described below.
+- If the government at :math:`t` **disappoints** private agents by setting
+  :math:`\mu_t \neq \tilde \mu_t`, private agents expect
+  :math:`\{\mu^A_j\}_{j=0}^\infty` as the
+  continuation policy for :math:`t+1`, i.e.,
+  :math:`\{\mu_{t+j+1}\} = \{\mu_j^A \}_{j=0}^\infty` and therefore
+  expect an associated :math:`\theta_0^A` for :math:`t+1`. Here :math:`\vec \mu^A = \{\mu_j^A \}_{j=0}^\infty` is
+  an alternative government plan to be described below.
 
 Temptation to Deviate from Plan
 --------------------------------
@@ -1029,11 +1029,11 @@ governments' purposes.
 
 This aspect of the theory means that credible plans always come in **pairs**:
 
--  a credible (continuation) plan to be followed if the government at
-   :math:`t` **confirms** private sector expectations
+- a credible (continuation) plan to be followed if the government at
+  :math:`t` **confirms** private sector expectations
 
--  a credible plan to be followed if the government at :math:`t`
-   **disappoints** private sector expectations
+- a credible plan to be followed if the government at :math:`t`
+  **disappoints** private sector expectations
 
 That credible plans come in pairs threaten to bring an explosion of plans to keep track of
 
@@ -1051,11 +1051,11 @@ Abreu's Self-Enforcing Plan
 
 A plan :math:`\vec \mu^A` (here the superscipt :math:`A` is for Abreu) is said to be **self-enforcing** if
 
--  the consequence of disappointing private agents' expectations at time
-   :math:`j` is to **restart**  plan :math:`\vec \mu^A`  at time :math:`j+1`
+- the consequence of disappointing private agents' expectations at time
+  :math:`j` is to **restart**  plan :math:`\vec \mu^A`  at time :math:`j+1`
 
--  the consequence of restarting the plan is sufficiently adverse that it forever deters all
-   deviations from the plan
+- the consequence of restarting the plan is sufficiently adverse that it forever deters all
+  deviations from the plan
 
 More precisely, a government plan :math:`\vec \mu^A` with equilibrium inflation sequence :math:`\vec \theta^A` is
 **self-enforcing** if
@@ -1124,9 +1124,9 @@ insisting that future government decision makers set :math:`\mu_t` to a value yi
 one-period utilities to the household for a long time, after which
 government  decisions thereafter  yield high one-period utilities.
 
--  Low one-period utilities early are a **stick**
+- Low one-period utilities early are a **stick**
 
--  High one-period utilities later are a **carrot**
+- High one-period utilities later are a **carrot**
 
 Consider a candidate plan :math:`\vec \mu^A` that sets
 :math:`\mu_t^A = \bar \mu` (a high positive
@@ -1317,13 +1317,13 @@ Comparison of Equilibrium Values
 
 We have computed plans for
 
--  an ordinary (unrestricted) Ramsey planner who chooses a sequence
-   :math:`\{\mu_t\}_{t=0}^\infty` at time :math:`0`
+- an ordinary (unrestricted) Ramsey planner who chooses a sequence
+  :math:`\{\mu_t\}_{t=0}^\infty` at time :math:`0`
 
--  a Ramsey planner restricted to choose a constant :math:`\mu` for all
-   :math:`t \geq 0`
+- a Ramsey planner restricted to choose a constant :math:`\mu` for all
+  :math:`t \geq 0`
 
--  a Markov perfect sequence of governments
+- a Markov perfect sequence of governments
 
 Below we compare equilibrium time zero values for these three.
 
@@ -1353,10 +1353,10 @@ of governments that choose sequentially.
 
 These include
 
--  a **self-enforcing** plan that gives a low initial value :math:`v_0`.
+- a **self-enforcing** plan that gives a low initial value :math:`v_0`.
 
--  a better plan -- possibly one that attains values associated with
-   Ramsey plan -- that is not self-enforcing.
+- a better plan -- possibly one that attains values associated with
+  Ramsey plan -- that is not self-enforcing.
 
 
 Note on Dynamic Programming Squared
@@ -1368,10 +1368,10 @@ The nickname refers to the fact that a value satisfying one Bellman equation is 
 
 Thus, our models have involved two Bellman equations:
 
--  equation :eq:`eq_old1` expresses how :math:`\theta_t` depends on :math:`\mu_t`
-   and :math:`\theta_{t+1}`
+- equation :eq:`eq_old1` expresses how :math:`\theta_t` depends on :math:`\mu_t`
+  and :math:`\theta_{t+1}`
 
--  equation :eq:`eq_old4` expresses how value :math:`v_t` depends on
-   :math:`(\mu_t, \theta_t)` and :math:`v_{t+1}`
+- equation :eq:`eq_old4` expresses how value :math:`v_t` depends on
+  :math:`(\mu_t, \theta_t)` and :math:`v_{t+1}`
 
 A value :math:`\theta` from one Bellman equation appears as an argument of a second Bellman equation for another value :math:`v`.
