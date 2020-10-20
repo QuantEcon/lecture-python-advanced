@@ -13,9 +13,9 @@
 In addition to what's in Anaconda, this lecture will need the following libraries:
 
 .. code-block:: ipython
-  :class: hide-output
+    :class: hide-output
 
-  !pip install --upgrade quantecon
+    !pip install --upgrade quantecon
 
 Overview
 ============
@@ -200,9 +200,9 @@ Formally, a discrete dynamic program consists of the following components:
 
 #. A finite set of *feasible actions* :math:`A(s)` for each state :math:`s \in S`, and a corresponding set of *feasible state-action pairs*.
 
-    .. math::
+   .. math::
 
-            \mathit{SA} := \{(s, a) \mid s \in S, \; a \in A(s)\}
+       \mathit{SA} := \{(s, a) \mid s \in S, \; a \in A(s)\}
 
 
 #. A *reward function* :math:`r\colon \mathit{SA} \to \mathbb{R}`.
@@ -314,8 +314,8 @@ Two Operators
 
 It is useful to define the following operators:
 
--  The *Bellman operator* :math:`T\colon \mathbb{R}^S \to \mathbb{R}^S`
-   is defined by
+- The *Bellman operator* :math:`T\colon \mathbb{R}^S \to \mathbb{R}^S`
+  is defined by
 
 .. math::
 
@@ -326,7 +326,7 @@ It is useful to define the following operators:
     \qquad (s \in S)
 
 
--  For any policy function :math:`\sigma \in \Sigma`, the operator :math:`T_{\sigma}\colon \mathbb{R}^S \to \mathbb{R}^S` is defined by
+- For any policy function :math:`\sigma \in \Sigma`, the operator :math:`T_{\sigma}\colon \mathbb{R}^S \to \mathbb{R}^S` is defined by
 
 .. math::
 
@@ -366,7 +366,7 @@ The Bellman Equation and the Principle of Optimality
 
 The main principle of the theory of dynamic programming is that
 
--  the optimal value function :math:`v^*` is a unique solution to the *Bellman equation*
+- the optimal value function :math:`v^*` is a unique solution to the *Bellman equation*
 
 .. math::
 
@@ -378,7 +378,7 @@ The main principle of the theory of dynamic programming is that
 
 or in other words, :math:`v^*` is the unique fixed point of :math:`T`, and
 
--  :math:`\sigma^*` is an optimal policy function if and only if it is :math:`v^*`-greedy
+- :math:`\sigma^*` is an optimal policy function if and only if it is :math:`v^*`-greedy
 
 
 By the definition of greedy policies given above, this means that
@@ -401,11 +401,11 @@ The code for solving discrete DPs is available in `ddp.py <https://github.com/Qu
 
 It implements the three most important solution methods for discrete dynamic programs, namely
 
--  value function iteration
+- value function iteration
 
--  policy function iteration
+- policy function iteration
 
--  modified policy function iteration
+- modified policy function iteration
 
 Let's briefly review these algorithms and their implementation.
 
@@ -510,14 +510,14 @@ To this end, we take
 
 * the state space to be :math:`S = \{0, \ldots, M + B\}`
 
-    * hence :math:`n = M + B + 1`
+  * hence :math:`n = M + B + 1`
 
 * the action to be the storage quantity :math:`a`
 
 
 * the set of feasible actions at :math:`s` to be :math:`A(s) = \{0, \ldots, \min\{s, M\}\}`
 
-    * hence :math:`A = \{0, \ldots, M\}` and :math:`m = M + 1`
+  * hence :math:`A = \{0, \ldots, M\}` and :math:`m = M + 1`
 
 * the reward function to be :math:`r(s, a) = u(s - a)`
 
