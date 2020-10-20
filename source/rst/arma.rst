@@ -861,11 +861,11 @@ which is at it should be.
 
 Also
 
-   * the variance  equals :math:`1 = \frac{1}{2 \pi} \int_{-\pi}^\pi 1 d \omega` as it should.
+* the variance  equals :math:`1 = \frac{1}{2 \pi} \int_{-\pi}^\pi 1 d \omega` as it should.
 
-   * the covariogram and impulse response look as they should.
+* the covariogram and impulse response look as they should.
 
-   * it is actually challenging to visualize a time series realization of white noise -- a sequence of surprises -- but this too looks pretty good.
+* it is actually challenging to visualize a time series realization of white noise -- a sequence of surprises -- but this too looks pretty good.
 
 
 To get some more examples, as our laboratory
