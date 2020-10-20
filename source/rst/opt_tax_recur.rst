@@ -11,9 +11,9 @@ Optimal Taxation with State-Contingent Debt
 In addition to what's in Anaconda, this lecture will need the following libraries:
 
 .. code-block:: ipython
-  :class: hide-output
+    :class: hide-output
 
-  !pip install --upgrade quantecon
+    !pip install --upgrade quantecon
 
 
 Overview
@@ -31,9 +31,9 @@ The model features
 
 * a government that must finance an exogenous stream of government expenditures with  either
 
-   * a flat rate tax on labor, or
+  * a flat rate tax on labor, or
 
-   * purchases and sales from a full array of Arrow state-contingent securities
+  * purchases and sales from a full array of Arrow state-contingent securities
 
 * a representative household that values consumption and leisure
 
@@ -221,7 +221,7 @@ The primal approach uses four steps:
    :eq:`TS_prefr_opt_tax` subject to  the feasibility constraints :eq:`feas1_opt_tax`
    and :eq:`TSs_techr_opt_tax`  and the implementability condition derived in step 2.
 
-   *  This optimal allocation is called the **Ramsey allocation**.
+   * This optimal allocation is called the **Ramsey allocation**.
 
 4. Use the Ramsey  allocation together with the formulas from step 1 to find
    taxes and prices.
@@ -592,12 +592,12 @@ components of the :math:`S \times 1` vectors :math:`\vec x` and
 
 Here is a computational algorithm:
 
-1.  Start with a guess for the value for :math:`\Phi`, then use the
-    first-order conditions and the feasibility conditions to compute
-    :math:`c(s_t), n(s_t)` for :math:`s \in [1,\ldots, S]` and
-    :math:`c_0(s_0,b_0)` and :math:`n_0(s_0, b_0)`, given :math:`\Phi`.
+1. Start with a guess for the value for :math:`\Phi`, then use the
+   first-order conditions and the feasibility conditions to compute
+   :math:`c(s_t), n(s_t)` for :math:`s \in [1,\ldots, S]` and
+   :math:`c_0(s_0,b_0)` and :math:`n_0(s_0, b_0)`, given :math:`\Phi`.
 
-    * these are :math:`2  (S+1)` equations in :math:`2  (S+1)` unknowns.
+   * these are :math:`2  (S+1)` equations in :math:`2  (S+1)` unknowns.
 
 2. Solve the :math:`S` equations :eq:`LSA_xsol` for the :math:`S` elements
    of :math:`\vec x`.
@@ -606,10 +606,10 @@ Here is a computational algorithm:
 
 3. Find a :math:`\Phi` that satisfies
 
-    .. math::
-        :label: Bellman2cons
-
-        u_{c,0} b_0 = u_{c,0} (n_0 - g_0) - u_{l,0} n_0  + \beta \sum_{s=1}^S \Pi(s | s_0) x(s)
+   .. math::
+       :label: Bellman2cons
+   
+       u_{c,0} b_0 = u_{c,0} (n_0 - g_0) - u_{l,0} n_0  + \beta \sum_{s=1}^S \Pi(s | s_0) x(s)
 
    by gradually raising :math:`\Phi` if the left side of :eq:`Bellman2cons`
    exceeds the right side and lowering :math:`\Phi` if the left side is less than the right side.
@@ -1086,9 +1086,9 @@ Government expenditures are known for sure in all periods except one
 
 * At :math:`t = 3` a war occurs with probability 0.5.
 
-  *  If there is war, :math:`g_3 = g_h = 0.2`
+  * If there is war, :math:`g_3 = g_h = 0.2`
 
-  *  If there is no war :math:`g_3 = g_l = 0.1`
+  * If there is no war :math:`g_3 = g_l = 0.1`
 
 We define the components of the state vector as the following six  :math:`(t,g)`
 pairs: :math:`(0,g_l),(1,g_l),(2,g_l),(3,g_l),(3,g_h), (t\geq 4,g_l)`.
@@ -1189,14 +1189,14 @@ We can now plot the Ramsey tax  under both realizations of time :math:`t = 3` go
 
 * the tax rate is constant for all  :math:`t\geq 1`
 
-      * For :math:`t \geq 1, t \neq 3`, this is a consequence of :math:`g_t`
-        being the same at all those dates.
-
-      * For :math:`t = 3`, it is a consequence of the special one-period utility
-        function that we have assumed.
-
-      * Under  other one-period utility functions, the time :math:`t=3` tax rate
-        could be either higher or lower than for dates :math:`t \geq 1, t \neq 3`.
+  * For :math:`t \geq 1, t \neq 3`, this is a consequence of :math:`g_t`
+    being the same at all those dates.
+  
+  * For :math:`t = 3`, it is a consequence of the special one-period utility
+    function that we have assumed.
+  
+  * Under  other one-period utility functions, the time :math:`t=3` tax rate
+    could be either higher or lower than for dates :math:`t \geq 1, t \neq 3`.
 
 * the tax rate is the same at :math:`t=3` for both the high :math:`g_t` outcome and the low :math:`g_t` outcome
 
@@ -1245,27 +1245,27 @@ Government Saving
 
 At time  :math:`t=0` the government evidently *dissaves* since :math:`b_1> b_0`.
 
-    * This is a consequence of it setting a *lower* tax rate at :math:`t=0`,
-      implying more consumption at :math:`t=0`.
+* This is a consequence of it setting a *lower* tax rate at :math:`t=0`,
+  implying more consumption at :math:`t=0`.
 
 At time :math:`t=1`, the government evidently *saves* since it has set the tax
 rate sufficiently high to allow it to set :math:`b_2 < b_1`.
 
-    * Its motive for doing this is that it anticipates a likely war at :math:`t=3`.
+* Its motive for doing this is that it anticipates a likely war at :math:`t=3`.
 
 At time :math:`t=2` the government trades state-contingent Arrow securities
 to hedge against  war at :math:`t=3`.
 
-   * It purchases a security that pays off when :math:`g_3 = g_h`.
+* It purchases a security that pays off when :math:`g_3 = g_h`.
 
-   * It sells a security that  pays off when :math:`g_3 = g_l`.
+* It sells a security that  pays off when :math:`g_3 = g_l`.
 
-   * These purchases are designed in such a way that regardless of whether or
-     not there is a war at :math:`t=3`, the government will begin  period
-     :math:`t=4` with the *same* government debt.
+* These purchases are designed in such a way that regardless of whether or
+  not there is a war at :math:`t=3`, the government will begin  period
+  :math:`t=4` with the *same* government debt.
 
-   * The time :math:`t=4` debt level can be serviced with revenues from the
-     constant tax rate set at times :math:`t\geq 1`.
+* The time :math:`t=4` debt level can be serviced with revenues from the
+  constant tax rate set at times :math:`t\geq 1`.
 
 At times :math:`t \geq 4` the government rolls over its debt, knowing that the
 tax rate is set at a level that raises enough revenue to pay for government purchases and interest payments
@@ -1351,8 +1351,8 @@ constant for all :math:`t \geq 0`.
 
 The first is :math:`b_{0} = 0`
 
-   * Here the government can't use the :math:`t=0` tax rate  to alter  the
-     value of the initial debt.
+* Here the government can't use the :math:`t=0` tax rate  to alter  the
+  value of the initial debt.
 
 The second occurs when the government enters with sufficiently large  assets
 that the Ramsey planner can achieve first best and sets :math:`\tau_t = 0`
