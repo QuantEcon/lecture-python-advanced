@@ -17,9 +17,9 @@ Asset Pricing II: The Lucas Asset Pricing Model
 In addition to what's in Anaconda, this lecture will need the following libraries:
 
 .. code-block:: ipython
-  :class: hide-output
+    :class: hide-output
 
-  !pip install interpolation
+    !pip install interpolation
 
 
 Overview
@@ -61,9 +61,9 @@ Lucas studied a pure exchange economy with a representative consumer (or househo
 
 * *Representative* consumer means that either
 
-    * there is a single consumer (sometimes also referred to as a household), or
+  * there is a single consumer (sometimes also referred to as a household), or
 
-    * all consumers have identical endowments and preferences
+  * all consumers have identical endowments and preferences
 
 Either way, the assumption of a representative agent means that prices adjust to eradicate desires to trade.
 
@@ -143,9 +143,9 @@ We'll price an *ex-dividend* claim, meaning that
 
 * the buyer pays :math:`p_t` today to purchase a claim on
 
-    * :math:`y_{t+1}` and
+  * :math:`y_{t+1}` and
 
-    * the right to sell the claim tomorrow at price :math:`p_{t+1}`
+  * the right to sell the claim tomorrow at price :math:`p_{t+1}`
 
 Since this is a competitive model, the first step is to pin down consumer
 behavior, taking prices as given.

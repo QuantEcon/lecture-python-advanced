@@ -961,7 +961,7 @@ The package ``scipy.signal`` expects the parameters to be passed into its functi
 
 For example, the impulse response sequence :math:`\{\psi_t\}` discussed above can be obtained using ``scipy.signal.dimpulse``, and the function call should be of the form
 
-    ``times, ψ = dimpulse((ma_poly, ar_poly, 1), n=impulse_length)``
+``times, ψ = dimpulse((ma_poly, ar_poly, 1), n=impulse_length)``
 
 where ``ma_poly`` and ``ar_poly`` correspond to the polynomials in :eq:`arma_poly` --- that is,
 
