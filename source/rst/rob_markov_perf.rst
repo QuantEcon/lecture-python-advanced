@@ -166,8 +166,8 @@ If :math:`\theta_i < _\infty`, player :math:`i` suspects that some other unspeci
 The term :math:`\theta_i v_{it}' v_{it}` is a time :math:`t` contribution to an entropy penalty that an (imaginary) loss-maximizing agent inside
 agent :math:`i`'s mind charges for distorting the law of motion in a way that harms agent :math:`i`.
 
-   * the imaginary loss-maximizing  agent helps the loss-minimizing agent by helping him construct bounds on the behavior of his decision rule over a
-     large **set** of alternative models of state transition dynamics.
+* the imaginary loss-maximizing  agent helps the loss-minimizing agent by helping him construct bounds on the behavior of his decision rule over a
+  large **set** of alternative models of state transition dynamics.
 
 
 Computing Equilibrium
