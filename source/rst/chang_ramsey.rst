@@ -245,9 +245,9 @@ Within-period timing of decisions is as follows:
 
 * first, the government chooses :math:`h_t` and :math:`x_t`;
 
-*  then given :math:`\vec q` and its expectations about future values of :math:`x`
-   and :math:`y`\ ’s, the household chooses :math:`M_t` and therefore :math:`m_t`
-   because :math:`m_t = q_t M_t`;
+* then given :math:`\vec q` and its expectations about future values of :math:`x`
+  and :math:`y`\ ’s, the household chooses :math:`M_t` and therefore :math:`m_t`
+  because :math:`m_t = q_t M_t`;
 
 * then output :math:`y_t = f(x_t)` is realized;
 
@@ -511,7 +511,7 @@ outcome to the representative household
 
 1. Find the indirect value function :math:`w(\theta)` defined as
 
-.. math:: w(\theta) = \max_{(\vec m, \vec x, \vec h) \in \Gamma(\theta)} \sum_{t=0}^\infty \beta^t \left[ u(f(x_t)) + v(m_t) \right]
+   .. math:: w(\theta) = \max_{(\vec m, \vec x, \vec h) \in \Gamma(\theta)} \sum_{t=0}^\infty \beta^t \left[ u(f(x_t)) + v(m_t) \right]
 
 2. Compute the value of the Ramsey outcome by solving :math:`\max_{\theta \in \Omega} w(\theta)`.
 
@@ -683,25 +683,25 @@ value, :math:`\theta` pairs.
 
 Define the operator
 
-   .. math:: D(Z) = \Bigl\{ (w,\theta): {\rm there \ is } \ h \in CE_\pi^0
+.. math:: D(Z) = \Bigl\{ (w,\theta): {\rm there \ is } \ h \in CE_\pi^0
 
-   .. math:: \text{ and a four-tuple } \ (m(h), x(h), w'(h), \theta'(h)) \in [0,\bar m]\times X \times Z
+.. math:: \text{ and a four-tuple } \ (m(h), x(h), w'(h), \theta'(h)) \in [0,\bar m]\times X \times Z
 
 such that
 
-   .. math:: w = u(f(x( h))) + v(m( h)) + \beta w'( h)
-      :label: eqn_chang_ramsey120
+.. math:: w = u(f(x( h))) + v(m( h)) + \beta w'( h)
+  :label: eqn_chang_ramsey120
 
-   .. math:: \theta = u'(f(x( h))) ( m( h) + x( h))
-      :label: eqn_chang_ramsey130
+.. math:: \theta = u'(f(x( h))) ( m( h) + x( h))
+  :label: eqn_chang_ramsey130
 
-   .. math:: x(h) = m(h) (h-1)
-      :label: eqn_chang_ramsey_150
+.. math:: x(h) = m(h) (h-1)
+  :label: eqn_chang_ramsey_150
 
-   .. math:: m(h) (u'(f(x(h))) - v'(m(h))) \leq \beta \theta'(h)
-      :label: eqn_chang_ramsey160
+.. math:: m(h) (u'(f(x(h))) - v'(m(h))) \leq \beta \theta'(h)
+  :label: eqn_chang_ramsey160
 
-   .. math:: \quad \quad \ \text{ with equality if } m(h) < \bar m \Bigr\}
+.. math:: \quad \quad \ \text{ with equality if } m(h) < \bar m \Bigr\}
 
 It is possible to establish.
 
@@ -792,11 +792,11 @@ The *outer hyperplane approximation algorithm* proceeds as follows:
 2. Given a set of subgradients, :math:`H`, and hyperplane levels,
    :math:`C_t`, for each subgradient :math:`h_i \in H`:
 
-   -  Solve a linear program (described below) for each action in the
-      action space.
+   - Solve a linear program (described below) for each action in the
+     action space.
 
-   -  Find the maximum and update the corresponding hyperplane level,
-      :math:`C_{i,t+1}`.
+   - Find the maximum and update the corresponding hyperplane level,
+     :math:`C_{i,t+1}`.
 
 3. If :math:`|C_{t+1}-C_t| > \epsilon`, return to 2.
 

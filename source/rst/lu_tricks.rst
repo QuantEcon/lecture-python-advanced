@@ -17,11 +17,11 @@ Overview
 In an earlier lecture `Linear Quadratic Dynamic Programming Problems <https://python-intro.quantecon.org/lqcontrol.html>`__, we have studied how to solve a special
 class of dynamic optimization and prediction problems by applying the method of dynamic programming. In this class of problems
 
-  * the objective function is **quadratic** in **states** and **controls**.
+* the objective function is **quadratic** in **states** and **controls**.
 
-  * the one-step transition function is **linear**.
+* the one-step transition function is **linear**.
 
-  * shocks are IID Gaussian or martingale differences.
+* shocks are IID Gaussian or martingale differences.
 
 In this lecture and a companion lecture :doc:`Classical Filtering with Linear Algebra<classical_filtering>`, we study the classical theory of linear-quadratic (LQ) optimal control problems.
 
@@ -29,9 +29,9 @@ The classical approach does not use the two closely related methods -- dynamic p
 
 Instead, they use either
 
- * :math:`z`-transform and lag operator methods, or
+* :math:`z`-transform and lag operator methods, or
 
- * matrix decompositions applied to linear systems of first-order conditions for optimum problems.
+* matrix decompositions applied to linear systems of first-order conditions for optimum problems.
 
 In this lecture and the sequel :doc:`Classical Filtering with Linear Algebra<classical_filtering>`, we mostly rely on  elementary linear algebra.
 

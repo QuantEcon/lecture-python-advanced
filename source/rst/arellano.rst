@@ -139,11 +139,11 @@ The bond market has the following features
 * For selling :math:`-B'` units of next period goods the seller earns :math:`- q B'` of today's
   goods.
 
-    * If :math:`B' < 0`, then :math:`-q B'` units of the good are received in the current period,
-      for a promise to repay :math:`-B'` units next period.
+  * If :math:`B' < 0`, then :math:`-q B'` units of the good are received in the current period,
+    for a promise to repay :math:`-B'` units next period.
 
-    * There is an equilibrium  price function :math:`q(B', y)` that makes :math:`q` depend on both
-      :math:`B'` and :math:`y`.
+  * There is an equilibrium  price function :math:`q(B', y)` that makes :math:`q` depend on both
+    :math:`B'` and :math:`y`.
 
 Earnings on the government portfolio are distributed (or, if negative, taxed) lump sum to
 households.
@@ -212,8 +212,8 @@ But a sovereign default has two consequences:
 
 #. Output immediately falls from :math:`y` to :math:`h(y)`, where :math:`0 \leq h(y) \leq y`.
 
-     * It returns to :math:`y` only after the country regains access to international credit
-       markets.
+   * It returns to :math:`y` only after the country regains access to international credit
+     markets.
 
 #. The country loses access to foreign credit markets.
 
@@ -254,9 +254,9 @@ To express these ideas more precisely, consider first the choices of the governm
 
 #. chooses either
 
-    #. to default, or
+   #. to default, or
 
-    #. to pay :math:`-B` and set next period's debt due to :math:`-B'`
+   #. to pay :math:`-B` and set next period's debt due to :math:`-B'`
 
 In a recursive formulation,
 

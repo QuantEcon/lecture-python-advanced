@@ -38,19 +38,19 @@ Subsequent lectures use the DLE class to implement various instances that have a
 
 
 
-  1. :doc:`Growth in Dynamic Linear Economies <growth_in_dles>`
+1. :doc:`Growth in Dynamic Linear Economies <growth_in_dles>`
 
-  2. :doc:`Lucas Asset Pricing using DLE <lucas_asset_pricing_dles>`
+2. :doc:`Lucas Asset Pricing using DLE <lucas_asset_pricing_dles>`
 
-  3. :doc:`IRFs in Hall Model <irfs_in_hall_model>`
+3. :doc:`IRFs in Hall Model <irfs_in_hall_model>`
 
-  4. :doc:`Permanent Income Using the DLE class <permanent_income_dles>`
+4. :doc:`Permanent Income Using the DLE class <permanent_income_dles>`
 
-  5. :doc:`Rosen schooling model <rosen_schooling_model>`
+5. :doc:`Rosen schooling model <rosen_schooling_model>`
 
-  6. :doc:`Cattle cycles <cattle_cycles>`
+6. :doc:`Cattle cycles <cattle_cycles>`
 
-  7. :doc:`Shock Non Invertibility <hs_invertibility_example>`
+7. :doc:`Shock Non Invertibility <hs_invertibility_example>`
 
 
 
@@ -82,20 +82,20 @@ In saying that "complete markets are all alike", Robert E. Lucas, Jr. was noting
 
 The models have **no frictions** such as :math:`\ldots`
 
--  Enforcement difficulties
+- Enforcement difficulties
 
--  Information asymmetries
+- Information asymmetries
 
--  Other forms of transactions costs
+- Other forms of transactions costs
 
--  Externalities
+- Externalities
 
 The models extensively use the  powerful ideas of
 
 
--  Indexing commodities and their prices by time (John R. Hicks).
+- Indexing commodities and their prices by time (John R. Hicks).
 
--  Indexing commodities and their prices by chance (Kenneth Arrow).
+- Indexing commodities and their prices by chance (Kenneth Arrow).
 
 
 Much of  the imperialism of complete markets models comes from applying these two tricks.
@@ -120,21 +120,21 @@ There are costs and benefits associated with the simplifications and specializat
 A variety of superficially different models are all instances of the :cite:`HS2013` class of models
 
 
--  Lucas asset pricing model
+- Lucas asset pricing model
 
--  Lucas-Prescott model of investment under uncertainty
+- Lucas-Prescott model of investment under uncertainty
 
--  Asset pricing models with habit persistence
+- Asset pricing models with habit persistence
 
--  Rosen-Topel equilibrium model of housing
+- Rosen-Topel equilibrium model of housing
 
--  Rosen schooling models
+- Rosen schooling models
 
--  Rosen-Murphy-Scheinkman model of cattle cycles
+- Rosen-Murphy-Scheinkman model of cattle cycles
 
--  Hansen-Sargent-Tallarini model of robustness and asset pricing
+- Hansen-Sargent-Tallarini model of robustness and asset pricing
 
--  Many more :math:`\ldots`
+- Many more :math:`\ldots`
 
 .. _section-1:
 
@@ -194,68 +194,68 @@ Different example economies manifest themselves simply as different settings for
 
 :cite:`HS2013` use these tools:
 
--  A theory of recursive dynamic competitive economies
+- A theory of recursive dynamic competitive economies
 
--  Linear optimal control theory
+- Linear optimal control theory
 
--  Recursive methods for estimating and interpreting vector
-   autoregressions
+- Recursive methods for estimating and interpreting vector
+  autoregressions
 
 
 The models are flexible enough to express alternative senses of a representative household
 
--  A single ‘stand-in’ household of the type used to good effect by Edward C. Prescott.
+- A single ‘stand-in’ household of the type used to good effect by Edward C. Prescott.
 
--  Heterogeneous households satisfying conditions for Gorman aggregation
-   into a representative household.
+- Heterogeneous households satisfying conditions for Gorman aggregation
+  into a representative household.
 
--  Heterogeneous household technologies that  violate conditions for Gorman
-   aggregation but are still susceptible to aggregation into a single
-   representative household via ‘non-Gorman' or 'mongrel' aggregation’.
+- Heterogeneous household technologies that  violate conditions for Gorman
+  aggregation but are still susceptible to aggregation into a single
+  representative household via ‘non-Gorman' or 'mongrel' aggregation’.
 
 These three alternative types of aggregation have different consequences in terms of how  prices and allocations can be computed.
 
 In particular, can prices and an aggregate allocation be computed before the
 equilibrium allocation to individual heterogeneous households is computed?
 
--  Answers are “Yes” for Gorman aggregation, “No” for non-Gorman
-   aggregation.
+- Answers are “Yes” for Gorman aggregation, “No” for non-Gorman
+  aggregation.
 
 
 In summary, the insights and practical benefits from economics to be introduced in this lecture
 are
 
--  Deeper understandings that come from recognizing common underlying
-   structures.
+- Deeper understandings that come from recognizing common underlying
+  structures.
 
--  Speed and ease of computation that comes from unleashing a common suite of Python programs.
+- Speed and ease of computation that comes from unleashing a common suite of Python programs.
 
 We'll use the following **mathematical tools**
 
 
--  Stochastic Difference Equations (Linear).
+- Stochastic Difference Equations (Linear).
 
--  Duality: LQ Dynamic Programming and Linear Filtering  are the same things
-   mathematically.
+- Duality: LQ Dynamic Programming and Linear Filtering  are the same things
+  mathematically.
 
--  The Spectral Factorization Identity (for understanding vector
-   autoregressions and non-Gorman aggregation).
+- The Spectral Factorization Identity (for understanding vector
+  autoregressions and non-Gorman aggregation).
 
 So here is our roadmap.
 
 We'll describe sets of matrices that pin down
 
--  Information
+- Information
 
--  Technologies
+- Technologies
 
--  Preferences
+- Preferences
 
 Then we'll describe
 
--  Equilibrium concept and computation
+- Equilibrium concept and computation
 
--  Econometric representation and estimation
+- Econometric representation and estimation
 
 .. _section-3:
 
@@ -444,11 +444,11 @@ Thus, in summary, our model of **information and shocks** is
 We can now briefly summarize other components of our economies, in particular
 
 
--  Production technologies
+- Production technologies
 
--  Household technologies
+- Household technologies
 
--  Household preferences
+- Household preferences
 
 
 
@@ -860,9 +860,9 @@ To summarize, our economic structure consists of the matrices that define the fo
 
 *Next steps:** we move on to discuss two closely connected concepts
 
--  A Planning Problem or Optimal Resource Allocation Problem
+- A Planning Problem or Optimal Resource Allocation Problem
 
--  Competitive Equilibrium
+- Competitive Equilibrium
 
 
 Optimal Resource Allocation
@@ -914,9 +914,9 @@ Thus, we require that each component of :math:`h_t` and each component of
 
 We shall compare and utilize two approaches to solving the planning problem
 
--  Lagrangian formulation
+- Lagrangian formulation
 
--  Dynamic programming
+- Dynamic programming
 
 Lagrangian Formulation
 ------------------------
@@ -1343,11 +1343,11 @@ We can now state the following.
 and an allocation :math:`\{c_t, i_t, k_t, h_t, g_t, d_t\}^\infty_{t=0}`
 that satisfy the following conditions:
 
-   * Each component of the price system and the allocation resides in the space :math:`L^2_0`.
+* Each component of the price system and the allocation resides in the space :math:`L^2_0`.
 
 
-   * Given the price system and given :math:`h_{-1},\, k_{-1}`, the allocation solves the representative household’s problem and
-     the problems of the two types of firms.
+* Given the price system and given :math:`h_{-1},\, k_{-1}`, the allocation solves the representative household’s problem and
+  the problems of the two types of firms.
 
 Versions of the two classical welfare theorems prevail under our assumptions.
 
@@ -1355,8 +1355,8 @@ We exploit that fact in our algorithm for computing a competitive equilibrium.
 
 **Step 1:** Solve the planning problem by using dynamic programming.
 
- The allocation (i.e., **quantities**) that solve the planning problem **are** the
- competitive equilibrium quantities.
+The allocation (i.e., **quantities**) that solve the planning problem **are** the
+competitive equilibrium quantities.
 
 **Step 2:** use the following formulas to compute the **equilibrium price system**
 
@@ -1502,14 +1502,14 @@ where :math:`a_t = y_t - E[y_t | y^{t-1}], E a_t a_t^\prime \equiv \Omega_t =  G
 
 Compare numbers of shocks in the two representations:
 
-  *  :math:`n_w + n_y` versus  :math:`n_y`
+* :math:`n_w + n_y` versus  :math:`n_y`
 
 Compare spaces spanned
 
 
-   * :math:`H(y^t) \subset H(w^t,v^t)`
+* :math:`H(y^t) \subset H(w^t,v^t)`
 
-   * :math:`H(y^t) = H(a^t)`
+* :math:`H(y^t) = H(a^t)`
 
 
 
@@ -1677,9 +1677,9 @@ Canonical Household Technologies
 :math:`(\Delta_h, \Theta_h, \Pi,\Lambda, U_b)` is said to be **canonical**
 if
 
-  - :math:`\color{blue}{\Pi}` is nonsingular, and
+- :math:`\color{blue}{\Pi}` is nonsingular, and
 
-  - the absolute values of the eigenvalues of :math:`\color{blue}{(\Delta_h - \Theta_h \Pi^{-1}\Lambda)}` are strictly less than :math:`1/\sqrt\beta`.
+- the absolute values of the eigenvalues of :math:`\color{blue}{(\Delta_h - \Theta_h \Pi^{-1}\Lambda)}` are strictly less than :math:`1/\sqrt\beta`.
 
 
 **Key invertibility property:** A canonical household service
@@ -1869,19 +1869,19 @@ We provide details for a number  of these examples in subsequent lectures
 
 
 
-  1. :doc:`Growth in Dynamic Linear Economies <growth_in_dles>`
+1. :doc:`Growth in Dynamic Linear Economies <growth_in_dles>`
 
-  2. :doc:`Lucas Asset Pricing using DLE <lucas_asset_pricing_dles>`
+2. :doc:`Lucas Asset Pricing using DLE <lucas_asset_pricing_dles>`
 
-  3. :doc:`IRFs in Hall Model <irfs_in_hall_model>`
+3. :doc:`IRFs in Hall Model <irfs_in_hall_model>`
 
-  4. :doc:`Permanent Income Using the DLE class <permanent_income_dles>`
+4. :doc:`Permanent Income Using the DLE class <permanent_income_dles>`
 
-  5. :doc:`Rosen schooling model <rosen_schooling_model>`
+5. :doc:`Rosen schooling model <rosen_schooling_model>`
 
-  6. :doc:`Cattle cycles <cattle_cycles>`
+6. :doc:`Cattle cycles <cattle_cycles>`
 
-  7. :doc:`Shock Non Invertibility <hs_invertibility_example>`
+7. :doc:`Shock Non Invertibility <hs_invertibility_example>`
 
 
 We'll start with an example of a **partial equilibrium** in which we posit demand and supply curves
@@ -1900,7 +1900,7 @@ Suppose that we want to capture the dynamic  demand curve:
 
 From material described earlier in this lecture, we know how to reverse engineer preferences that generate this demand system
 
-  * note how the demand equations are cast in terms of the matrices in our standard preference representation
+* note how the demand equations are cast in terms of the matrices in our standard preference representation
 
 Now let's turn to supply.
 
@@ -2064,9 +2064,9 @@ Models of Occupational Choice and Pay
 We'll describe the following pair of schooling models that view education as a time-to-build process:
 
 
--  Rosen schooling model for engineers
+- Rosen schooling model for engineers
 
--  Two-occupation model
+- Two-occupation model
 
 Market for Engineers
 ---------------------
@@ -2202,11 +2202,11 @@ Permanent Income Models
 
 We'll describe a class of permanent income models that feature
 
--  Many consumption goods and services
+- Many consumption goods and services
 
--  A single capital good with :math:`R \beta =1`
+- A single capital good with :math:`R \beta =1`
 
- - The physical production technology 
+- The physical production technology 
 
 .. math::
 
@@ -2257,9 +2257,9 @@ For more details see :doc:`Permanent Income Using the DLE class <permanent_incom
 
 We have two types of  implications of permanent income models:
 
--  Equality of present values of moving average coefficients.
+- Equality of present values of moving average coefficients.
 
--  Martingale :math:`{\mathcal M}_t^k`.
+- Martingale :math:`{\mathcal M}_t^k`.
 
 These have been tested in work by Hansen, Sargent, and Roberts (1991) :cite:`sargent1991observable`
 and by Attanasio and Pavoni (2011) :cite:`attanasio2011risk`.
@@ -2469,9 +2469,9 @@ We now describe how to extend mongrel aggregation to a dynamic setting.
 
 The key comparison is
 
--  Static: factor a covariance matrix-like object
+- Static: factor a covariance matrix-like object
 
--  Dynamic: factor a spectral-density matrix-like object
+- Dynamic: factor a spectral-density matrix-like object
 
 Programming Problem for Dynamic Mongrel Aggregation:
 

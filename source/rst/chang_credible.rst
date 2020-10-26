@@ -15,9 +15,9 @@ Credible Government Policies in a Model of Chang
 In addition to what's in Anaconda, this lecture will need the following libraries:
 
 .. code-block:: ipython
-  :class: hide-output
+   :class: hide-output
 
-  !pip install polytope
+   !pip install polytope
 
 Overview
 ============
@@ -72,9 +72,9 @@ Chang's operator :math:`\tilde D(Z)` is closely connected with the operator
 
 * It adds some additional restrictions
 
-   * these additional restrictions incorporate the idea that a plan must be *sustainable*.
+  * these additional restrictions incorporate the idea that a plan must be *sustainable*.
 
-   * *sustainable* means that the government wants to implement it at all times after all histories.
+  * *sustainable* means that the government wants to implement it at all times after all histories.
 
 
 Let's start with some standard imports:
@@ -388,15 +388,15 @@ Chang works with
   the following order that respects the within-period timing:
 
   .. math::
-   :label: chang501
+      :label: chang501
 
-   \begin{aligned}
-   \hat h_t & = h(w_t,\theta_t) \\
-   m_t & = m(h_t, w_t,\theta_t) \\
-   x_t & = x(h_t, w_t,\theta_t) \\
-   w_{t+1} & = \chi(h_t, w_t,\theta_t)  \\
-   \theta_{t+1}  & = \Psi(h_t, w_t,\theta_t)
-   \end{aligned}
+      \begin{aligned}
+      \hat h_t & = h(w_t,\theta_t) \\
+      m_t & = m(h_t, w_t,\theta_t) \\
+      x_t & = x(h_t, w_t,\theta_t) \\
+      w_{t+1} & = \chi(h_t, w_t,\theta_t)  \\
+      \theta_{t+1}  & = \Psi(h_t, w_t,\theta_t)
+      \end{aligned}
 
 
 * Here it is to be understood that :math:`\hat h_t` is the action that the
@@ -411,6 +411,7 @@ Credibility requires that the plan be such that for all possible choices of
 :math:`h_t` that are consistent with competitive equilibria,
 
 .. math::
+
    \begin{split} & u(f(x(\hat h_t, w_t,\theta_t))) + v(m(\hat h_t, w_t,\theta_t))  + \beta \chi(\hat h_t, w_t,\theta_t) \\
    &  \geq
    u(f(x( h_t, w_t,\theta_t))) + v(m(h_t, w_t,\theta_t)) + \beta \chi(h_t, w_t,\theta_t) \end{split}
@@ -684,11 +685,11 @@ our *outer hyperplane approximation algorithm* :
 3. Given :math:`H`, :math:`C_t`, and :math:`BR(S_t)`, for each
    subgradient :math:`h_i \in H`:
 
-   -  Solve a linear program (described below) for each action in the
-      action space.
+   - Solve a linear program (described below) for each action in the
+     action space.
 
-   -  Find the maximum and update the corresponding hyperplane level,
-      :math:`C_{i,t+1}`.
+   - Find the maximum and update the corresponding hyperplane level,
+     :math:`C_{i,t+1}`.
 
 4. If :math:`|C_{t+1}-C_t| > \epsilon`, return to 2.
 

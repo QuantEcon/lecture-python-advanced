@@ -861,11 +861,11 @@ which is at it should be.
 
 Also
 
-   * the variance  equals :math:`1 = \frac{1}{2 \pi} \int_{-\pi}^\pi 1 d \omega` as it should.
+* the variance  equals :math:`1 = \frac{1}{2 \pi} \int_{-\pi}^\pi 1 d \omega` as it should.
 
-   * the covariogram and impulse response look as they should.
+* the covariogram and impulse response look as they should.
 
-   * it is actually challenging to visualize a time series realization of white noise -- a sequence of surprises -- but this too looks pretty good.
+* it is actually challenging to visualize a time series realization of white noise -- a sequence of surprises -- but this too looks pretty good.
 
 
 To get some more examples, as our laboratory
@@ -961,7 +961,7 @@ The package ``scipy.signal`` expects the parameters to be passed into its functi
 
 For example, the impulse response sequence :math:`\{\psi_t\}` discussed above can be obtained using ``scipy.signal.dimpulse``, and the function call should be of the form
 
-    ``times, ψ = dimpulse((ma_poly, ar_poly, 1), n=impulse_length)``
+``times, ψ = dimpulse((ma_poly, ar_poly, 1), n=impulse_length)``
 
 where ``ma_poly`` and ``ar_poly`` correspond to the polynomials in :eq:`arma_poly` --- that is,
 
