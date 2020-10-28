@@ -57,7 +57,7 @@ Setup
 
 The economy lasts for two periods, :math:`t=0, 1`.
 
-There are unit measure continua  of two types of consumers named :math:`i=1,2`.
+There are two types of consumers named :math:`i=1,2`.
 
 A scalar random variable :math:`\epsilon` with probability density :math:`g(\epsilon)` affects both
 
