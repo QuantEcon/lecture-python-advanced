@@ -559,109 +559,109 @@ Here goes:
    Assume that only agent 2 holds debt: :math:`\xi^2 = b` and that both agents
    hold equity: :math:`0 <\theta^i < 1` for :math:`i=1,2`.
 
-7.  Set high and low bounds for equity holdings for agent 1 as  :math:`\theta^1_h` and :math:`\theta^1_l`. Guess
-    :math:`\theta^1 = \frac{1}{2}(\theta^1_h + \theta^1_l)`, and
-    :math:`\theta^2 = 1 - \theta^1`. While
-    :math:`|\theta^1_h - \theta^1_l|` is large:
+7. Set high and low bounds for equity holdings for agent 1 as  :math:`\theta^1_h` and :math:`\theta^1_l`. Guess
+   :math:`\theta^1 = \frac{1}{2}(\theta^1_h + \theta^1_l)`, and
+   :math:`\theta^2 = 1 - \theta^1`. While
+   :math:`|\theta^1_h - \theta^1_l|` is large:
 
-      * Compute agent 1’s valuation of the equity claim with a
-         fixed-point iteration:
+   * Compute agent 1’s valuation of the equity claim with a
+     fixed-point iteration:
 
-         :math:`q_1 = \beta \int \frac{u^\prime(c^1_1(\epsilon))}{u^\prime(c^1_0)} d^e(k,b;\epsilon) g(\epsilon) \ d\epsilon`
+     :math:`q_1 = \beta \int \frac{u^\prime(c^1_1(\epsilon))}{u^\prime(c^1_0)} d^e(k,b;\epsilon) g(\epsilon) \ d\epsilon`
+     
+     where
+     
+     :math:`c^1_1(\epsilon) = w^1_1(\epsilon) + \theta^1 d^e(k,b;\epsilon)`
+     
+     and
+     
+     :math:`c^1_0 = w^1_0 + \theta^1_0V - q_1\theta^1`
 
-         where
+   * Compute agent 2’s valuation of the bond claim with a
+     fixed-point iteration:
 
-         :math:`c^1_1(\epsilon) = w^1_1(\epsilon) + \theta^1 d^e(k,b;\epsilon)`
+     :math:`p = \beta \int \frac{u^\prime(c^2_1(\epsilon))}{u^\prime(c^2_0)} d^b(k,b;\epsilon) g(\epsilon) \ d\epsilon`
+     
+     where
+     
+     :math:`c^2_1(\epsilon) = w^2_1(\epsilon) + \theta^2 d^e(k,b;\epsilon) + b`
+     
+     and
+     
+     :math:`c^2_0 = w^2_0 + \theta^2_0 V - q_1 \theta^2 - pb`
 
-         and
+   * Compute agent 2’s valuation of the equity claim with a
+     fixed-point iteration:
 
-         :math:`c^1_0 = w^1_0 + \theta^1_0V - q_1\theta^1`
+     :math:`q_2 = \beta \int \frac{u^\prime(c^2_1(\epsilon))}{u^\prime(c^2_0)} d^e(k,b;\epsilon) g(\epsilon) \ d\epsilon`
+     
+     where
+     
+     :math:`c^2_1(\epsilon) = w^2_1(\epsilon) + \theta^2 d^e(k,b;\epsilon) + b`
+     
+     and
+     
+     :math:`c^2_0 = w^2_0 + \theta^2_0 V - q_2 \theta^2 - pb`
 
-      * Compute agent 2’s valuation of the bond claim with a
-         fixed-point iteration:
+   * If :math:`q_1 > q_2`, Set :math:`\theta_l = \theta^1`;
+     otherwise, set :math:`\theta_h = \theta^1`.
+   
+   * Repeat steps 6Aa through 6Ad until
+     :math:`|\theta^1_h - \theta^1_l|` is small.
 
-         :math:`p = \beta \int \frac{u^\prime(c^2_1(\epsilon))}{u^\prime(c^2_0)} d^b(k,b;\epsilon) g(\epsilon) \ d\epsilon`
-
-         where
-
-         :math:`c^2_1(\epsilon) = w^2_1(\epsilon) + \theta^2 d^e(k,b;\epsilon) + b`
-
-         and
-
-         :math:`c^2_0 = w^2_0 + \theta^2_0 V - q_1 \theta^2 - pb`
-
-      * Compute agent 2’s valuation of the equity claim with a
-         fixed-point iteration:
-
-         :math:`q_2 = \beta \int \frac{u^\prime(c^2_1(\epsilon))}{u^\prime(c^2_0)} d^e(k,b;\epsilon) g(\epsilon) \ d\epsilon`
-
-         where
-
-         :math:`c^2_1(\epsilon) = w^2_1(\epsilon) + \theta^2 d^e(k,b;\epsilon) + b`
-
-         and
-
-         :math:`c^2_0 = w^2_0 + \theta^2_0 V - q_2 \theta^2 - pb`
-
-      * If :math:`q_1 > q_2`, Set :math:`\theta_l = \theta^1`;
-         otherwise, set :math:`\theta_h = \theta^1`.
-
-      * Repeat steps 6Aa through 6Ad until
-         :math:`|\theta^1_h - \theta^1_l|` is small.
-
-8.. Set bond price as :math:`p` and equity price as  :math:`q = \max(q_1,q_2)`.
+8. Set bond price as :math:`p` and equity price as  :math:`q = \max(q_1,q_2)`.
 
 9. Compute optimal choices of consumption:
 
-.. math::
-
-          \begin{aligned}
-         c^1_0 &= w^1_0 + \theta^1_0V - q\theta^1 \\
-         c^2_0 &= w^2_0 + \theta^2_0V - q\theta^2 - pb \\
-         c^1_1(\epsilon) &= w^1_1(\epsilon) + \theta^1 d^e(k,b;\epsilon) \\
-         c^2_1(\epsilon) &= w^2_1(\epsilon) + \theta^2 d^e(k,b;\epsilon) + b
-         \end{aligned} 
+   .. math::
+   
+       \begin{aligned}
+       c^1_0 &= w^1_0 + \theta^1_0V - q\theta^1 \\
+       c^2_0 &= w^2_0 + \theta^2_0V - q\theta^2 - pb \\
+       c^1_1(\epsilon) &= w^1_1(\epsilon) + \theta^1 d^e(k,b;\epsilon) \\
+       c^2_1(\epsilon) &= w^2_1(\epsilon) + \theta^2 d^e(k,b;\epsilon) + b
+       \end{aligned}
 
 10. (Here we confess to abusing notation again, but now in a different
-   way. In step 7, we interpret frozen :math:`c^i`\ s as Big
-   :math:`C^i`. We do this to solve the firm’s problem.) Fixing the
-   values of :math:`c^i_0` and :math:`c^i_1(\epsilon)`, compute optimal
-   choices of capital :math:`k` and debt level :math:`b` using the
-   firm’s first order necessary conditions.
+    way. In step 7, we interpret frozen :math:`c^i`\ s as Big
+    :math:`C^i`. We do this to solve the firm’s problem.) Fixing the
+    values of :math:`c^i_0` and :math:`c^i_1(\epsilon)`, compute optimal
+    choices of capital :math:`k` and debt level :math:`b` using the
+    firm’s first order necessary conditions.
 
 11. Compute deviations from the firm’s FONC for capital :math:`k` as:
 
-      :math:`kfoc = \beta \alpha A k^{\alpha - 1} \left( \int \frac{u^\prime(c^2_1(\epsilon))}{u^\prime(c^2_0)}  e^\epsilon g(\epsilon) \ d\epsilon \right) - 1`
+    :math:`kfoc = \beta \alpha A k^{\alpha - 1} \left( \int \frac{u^\prime(c^2_1(\epsilon))}{u^\prime(c^2_0)}  e^\epsilon g(\epsilon) \ d\epsilon \right) - 1`
 
-      -  If :math:`kfoc > 0`, Set :math:`k_l = k`; otherwise, set
-         :math:`k_h = k`.
-      -  Repeat steps 4 through 7A until :math:`|k_h-k_l|` is small.
+    - If :math:`kfoc > 0`, Set :math:`k_l = k`; otherwise, set
+      :math:`k_h = k`.
+    - Repeat steps 4 through 7A until :math:`|k_h-k_l|` is small.
 
 12. Compute deviations from the firm’s FONC for debt level :math:`b`  as:
 
-      :math:`bfoc = \beta \left[ \int_{\epsilon^*}^\infty \left( \frac{u^\prime(c^1_1(\epsilon))}{u^\prime(c^1_0)} \right) g(\epsilon) \ d\epsilon -  \int_{\epsilon^*}^\infty \left( \frac{u^\prime(c^2_1(\epsilon))}{u^\prime(c^2_0)} \right)  g(\epsilon) \ d\epsilon \right]`
+    :math:`bfoc = \beta \left[ \int_{\epsilon^*}^\infty \left( \frac{u^\prime(c^1_1(\epsilon))}{u^\prime(c^1_0)} \right) g(\epsilon) \ d\epsilon -  \int_{\epsilon^*}^\infty \left( \frac{u^\prime(c^2_1(\epsilon))}{u^\prime(c^2_0)} \right)  g(\epsilon) \ d\epsilon \right]`
 
-      -  If :math:`bfoc > 0`, Set :math:`b_h = b`; otherwise, set
-         :math:`b_l = b`.
-      -  Repeat steps 3 through 7B until :math:`|b_h-b_l|` is small.
+    - If :math:`bfoc > 0`, Set :math:`b_h = b`; otherwise, set
+    :math:`b_l = b`.
+    - Repeat steps 3 through 7B until :math:`|b_h-b_l|` is small.
 
 13. Given prices :math:`q` and :math:`p` from step 6, and the firm
-   choices of :math:`k` and :math:`b` from step 7, compute the synthetic
-   firm value:
+    choices of :math:`k` and :math:`b` from step 7, compute the synthetic
+    firm value:
 
-   :math:`V_x = -k + q + pb`
+    :math:`V_x = -k + q + pb`
 
-   -  If :math:`V_x > V`, then set :math:`V_l = V`; otherwise, set
+    - If :math:`V_x > V`, then set :math:`V_l = V`; otherwise, set
       :math:`V_h = V`.
-   -  Repeat steps 1 through 8 until :math:`|V_x - V|` is small.
+    - Repeat steps 1 through 8 until :math:`|V_x - V|` is small.
 
 14. Ultimately, the algorithm returns  equilibrium capital
-   :math:`k^*`, debt :math:`b^*` and firm value :math:`V^*`, as well as
-   the following equilibrium values:
+    :math:`k^*`, debt :math:`b^*` and firm value :math:`V^*`, as well as
+    the following equilibrium values:
 
-   -  Equity holdings :math:`\theta^{1,*} = \theta^1(k^*,b^*)`
-   -  Prices :math:`q^*=q(k^*,b^*), \ p^*=p(k^*,b^*)`
-   -  Consumption plans
+    - Equity holdings :math:`\theta^{1,*} = \theta^1(k^*,b^*)`
+    - Prices :math:`q^*=q(k^*,b^*), \ p^*=p(k^*,b^*)`
+    - Consumption plans
       :math:`C^{1,*}_0 = c^1_0(k^*,b^*),\ C^{2,*}_0 = c^2_0(k^*,b^*),  \ C^{1,*}_1(\epsilon) = c^1_1(k^*,b^*;\epsilon),\ C^{1,*}_1(\epsilon) = c^2_1(k^*,b^*;\epsilon)`.
 
 Code
@@ -673,39 +673,39 @@ of parameter values.
 
 The class includes the following methods i.e., functions:
 
--  ``solve_eq``: solves the BCG model and returns the equilibrium values
-   of capital :math:`k`, debt :math:`b` and firm value :math:`V`, as
-   well as
+- ``solve_eq``: solves the BCG model and returns the equilibrium values
+  of capital :math:`k`, debt :math:`b` and firm value :math:`V`, as
+  well as
 
-   -  agent 1’s equity holdings :math:`\theta^{1,*}`
-   -  prices :math:`q^*, p^*`
-   -  consumption plans
-      :math:`C^{1,*}_0, C^{2,*}_0, C^{1,*}_1(\epsilon), C^{2,*}_1(\epsilon)`.
+  -  agent 1’s equity holdings :math:`\theta^{1,*}`
+  -  prices :math:`q^*, p^*`
+  -  consumption plans
+     :math:`C^{1,*}_0, C^{2,*}_0, C^{1,*}_1(\epsilon), C^{2,*}_1(\epsilon)`.
 
--  ``eq_valuation``: inputs equilibrium consumpion plans :math:`C^*` and
-   outputs the following valuations for each pair of :math:`(k,b)` in
-   the grid:
+- ``eq_valuation``: inputs equilibrium consumpion plans :math:`C^*` and
+  outputs the following valuations for each pair of :math:`(k,b)` in
+  the grid:
 
-   -  the firm :math:`V(k,b)`
-   -  the equity :math:`q(k,b)`
-   -  the bond :math:`p(k,b)`.
+  - the firm :math:`V(k,b)`
+  - the equity :math:`q(k,b)`
+  - the bond :math:`p(k,b)`.
 
 Parameters include:
 
--  :math:`\chi_1`, :math:`\chi_2`: The correlation parameter for agent 1
-   and 2. Default values are respectively 0 and 0.9.
--  :math:`w^1_0`, :math:`w^2_0`: The initial endowments. Default values
-   are respectively 0.9 and 1.1.
--  :math:`\theta^1_0`, :math:`\theta^2_0`: The initial holding of the
-   firm. Default values are 0.5.
--  :math:`\psi`: The risk parameter. The default value is 3.
--  :math:`\alpha`: The Production function parameter. The default value
-   is 0.6.
--  :math:`A`: The productivity of the firm. Default value is 2.5.
--  :math:`\mu`, :math:`\sigma`: The mean and standard deviation of the
-   shock distribution. Default values are respectively -0.025 and 0.4
--  :math:`\beta`: The discount factor. The default value is 0.96.
--  bound: The bound for truncated normal distribution. Default is 3.
+- :math:`\chi_1`, :math:`\chi_2`: The correlation parameter for agent 1
+  and 2. Default values are respectively 0 and 0.9.
+- :math:`w^1_0`, :math:`w^2_0`: The initial endowments. Default values
+  are respectively 0.9 and 1.1.
+- :math:`\theta^1_0`, :math:`\theta^2_0`: The initial holding of the
+  firm. Default values are 0.5.
+- :math:`\psi`: The risk parameter. The default value is 3.
+- :math:`\alpha`: The Production function parameter. The default value
+  is 0.6.
+- :math:`A`: The productivity of the firm. Default value is 2.5.
+- :math:`\mu`, :math:`\sigma`: The mean and standard deviation of the
+  shock distribution. Default values are respectively -0.025 and 0.4
+- :math:`\beta`: The discount factor. The default value is 0.96.
+- bound: The bound for truncated normal distribution. Default is 3.
 
 .. code-block:: ipython
 
