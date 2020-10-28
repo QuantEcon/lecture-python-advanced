@@ -690,25 +690,25 @@ Payouts from equity and bonds, respectively, are
 .. math::
 
     \begin{aligned}
-   d^e(k,B;\epsilon) &= \max \left\{ e^\epsilon A k^\alpha - B, 0 \right\} \\
-   d^b(k,B;\epsilon) &= \min \left\{ \frac{e^\epsilon A k^\alpha}{B}, 1 \right\}
+   d^e(k,b;\epsilon) &= \max \left\{ e^\epsilon A k^\alpha - b, 0 \right\} \\
+   d^b(k,b;\epsilon) &= \min \left\{ \frac{e^\epsilon A k^\alpha}{b}, 1 \right\}
    \end{aligned} 
 
 Thus, one unit of the bond pays :math:`1` unit of consumption at time
 :math:`1` in state :math:`\epsilon` if
-:math:`A k^\alpha e^\epsilon - B \geq 0`, which is true when
-:math:`\epsilon \geq \epsilon^* = \log \frac{B}{Ak^\alpha}`, and pays
-:math:`\frac{A k^\alpha e^\epsilon}{B}` units of time :math:`1`
+:math:`A k^\alpha e^\epsilon - b \geq 0`, which is true when
+:math:`\epsilon \geq \epsilon^* = \log \frac{b}{Ak^\alpha}`, and pays
+:math:`\frac{A k^\alpha e^\epsilon}{b}` units of time :math:`1`
 consumption in state :math:`\epsilon` when
 :math:`\epsilon < \epsilon^*`.
 
 The value of the firm is now the sum of equity plus the value of bonds,
 which we denote
 
-.. math::  \tilde V + B p(k,B) 
+.. math::  \tilde V + b p(k,b) 
 
-where :math:`p(k,B)` is the price of one unit of the bond when a firm
-with :math:`k` units of physical capital issues :math:`B` bonds.
+where :math:`p(k,b)` is the price of one unit of the bond when a firm
+with :math:`k` units of physical capital issues :math:`b` bonds.
 
 We continue to assume that there are complete markets in Arrow
 securities with pricing kernel :math:`q(\epsilon)`.
@@ -719,14 +719,14 @@ earlier implies that the value of equity and the price of bonds are
 .. math::
 
     \begin{aligned}
-   \tilde V & = A k^\alpha \int_{\epsilon^*}^\infty e^\epsilon q(\epsilon) d \epsilon - B \int_{\epsilon^*}^\infty  q(\epsilon) d \epsilon\cr
-   p(k, B) & =   \frac{A k^\alpha}{B} \int_{-\infty}^{\epsilon^*} e^\epsilon q(\epsilon) d \epsilon
+   \tilde V & = A k^\alpha \int_{\epsilon^*}^\infty e^\epsilon q(\epsilon) d \epsilon - b \int_{\epsilon^*}^\infty  q(\epsilon) d \epsilon\cr
+   p(k, b) & =   \frac{A k^\alpha}{B} \int_{-\infty}^{\epsilon^*} e^\epsilon q(\epsilon) d \epsilon
          + \int_{\epsilon^*}^\infty q(\epsilon) d \epsilon
    \end{aligned} 
 
 Consequently, the value of the firm is
 
-.. math::  \tilde V + p(k,B) B =  A k^\alpha \int_{-\infty}^\infty e^\epsilon q(\epsilon) d \epsilon,  
+.. math::  \tilde V + p(k,b) b =  A k^\alpha \int_{-\infty}^\infty e^\epsilon q(\epsilon) d \epsilon,  
 
 which is the same expression that we obtained above when we assumed that
 the firm issued only equity.
