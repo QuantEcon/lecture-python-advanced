@@ -397,9 +397,9 @@ not now.
 Objects appearing in a competitive equilibrium
 ----------------------------------------------
 
-We let
+Let 
 
-- :math:`a^i(\epsilon)` be consumer :math:`i`\ ’s purchases of claims
+- :math:`a^i(\epsilon)` be consumer :math:`i` \’s purchases of claims
   on time :math:`1` consumption in state :math:`\epsilon`
 
 - :math:`q(\epsilon)` be a pricing kernel for one-period Arrow
@@ -410,6 +410,9 @@ We let
 
 - :math:`\theta^i` be the fraction of the firm’s shares purchased by
   consumer :math:`i` at time :math:`t=0`
+
+- :math:`- \bar a^i(\epsilon; \theta^i)` be debt limits constraining consumer :math:`i` \' s issues of claims
+  on time :math:`1` consumption in state :math:`\epsilon`
 
 - :math:`V` be the value of the representative firm
 
@@ -469,26 +472,50 @@ We now pose a consumer’s problem in a competitive equilibrium.
 
 As a price taker, each consumer faces a given Arrow securities pricing kernel
 :math:`q(\epsilon)`, a given value of a firm :math:`V` that has chosen capital stock :math:`k`, a price of
-equity :math:`\tilde V`, and given prospective random dividends next period :math:`A k^\alpha e^\epsilon`. 
+equity :math:`\tilde V`, and given prospective random dividends next period :math:`A k^\alpha e^\epsilon`.
+
+Consumer :math:`i` also faces a state-by-state borrowing limit that restricts quantities of Arrow securities that he can issue.
+
+If we evaluate consumer :math:`i`'s time :math:`1` budget constraint at zero consumption :math:`c^i(\epsilon) = 0` and solve for :math:`-a^i(\epsilon)`
+we obtain
+
+.. math:: - \bar a^i(\epsilon;\theta^i) = w_1^i(\epsilon) +\theta^i A k^\alpha e^\epsilon 
+
+The quantity :math:`- \bar a^i(\epsilon;\theta^i)` is the maximum amount that it is feasible for  consumer :math:`i` to repay to 
+his Arrow security creditors at time :math:`1` in state :math:`\epsilon`.
+
+To implement trading with one-period Arrow securities, we must impose on agent :math:`i` the state-by-state debt limits
+
+.. math:: -a^i(\epsilon) \leq -  \bar a^i(\epsilon;\theta^i)
+
+Notice that consumer :math:`i`'s borrowing limit depends on
+
+* his endowment at time :math:`1` in state :math:`\epsilon` 
+
+* his share :math:`\theta^i` of a representive firm's dividends
+
+These are the two sources of **collateral** that back the consumer's issues of Arrow securities that pay off in state :math:`\epsilon`
 
 Consumer :math:`i` chooses a scalar :math:`c_0^i` and a function
 :math:`c_1^i(\epsilon)` to maximize
 
 .. math::  u(c_0^i) + \beta \int u(c_1^i(\epsilon)) g (\epsilon) d \epsilon 
 
-subject to time :math:`0` and time :math:`1` budget constraints
+subject to his state-by-state debt limits and the time :math:`0` and time :math:`1` budget constraints
 
 .. math::
 
     \begin{aligned}
    c_0^i & \leq w_0^i +\theta_0^i V - \int q(\epsilon) a^i(\epsilon) d \epsilon - \theta^i \tilde V \cr
-   c_1^i & \leq w_1^i(\epsilon) +\theta^i A k^\alpha e^\epsilon + a^i(\epsilon) 
+   c_1^i(\epsilon) & \leq w_1^i(\epsilon) +\theta^i A k^\alpha e^\epsilon + a^i(\epsilon) 
    \end{aligned} 
 
 Attach Lagrange multiplier :math:`\lambda_0^i` to the budget constraint
-at time :math:`0` and scaled Lagrange multiplier
+at time :math:`0`,  scaled Lagrange multiplier
 :math:`\beta \lambda_1^i(\epsilon) g(\epsilon)` to the budget constraint
-at time :math:`1` and state :math:`\epsilon` and form the Lagrangian
+at time :math:`1` and state :math:`\epsilon`, and scaled Lagrange multiplier
+:math:`\beta \phi_1^i(\epsilon) g(\epsilon)` to the debt limit  at time :math:`1` and state :math:`\epsilon`,
+then  form the Lagrangian
 
 .. math::
 
@@ -497,11 +524,12 @@ at time :math:`1` and state :math:`\epsilon` and form the Lagrangian
         & + \lambda_0^i [ w_0^i + \theta_0^i - \int q(\epsilon) a^i(\epsilon) d \epsilon -
              \theta^i \tilde V - c_0^i ] \cr
          & + \beta \int \lambda_1^i(\epsilon) [ w_1^i(\epsilon) + \theta^i A k^\alpha e^\epsilon
-              + a^i(\epsilon) c_1^i(\epsilon) g(\epsilon)] d \epsilon
+              + a^i(\epsilon) c_1^i(\epsilon) ] g(\epsilon) d \epsilon \cr
+         & + \beta \int \phi_1^i(\epsilon)  [ - \bar a^i(\epsilon; \theta^i) - a^i(\epsilon) ]    g(\epsilon) d \epsilon
    \end{aligned} 
 
-First-order necessary conditions for an optimum with respect to
-:math:`c_0^i, c_1^i(\epsilon)`, and :math:`a^i(\epsilon)` are
+Off corners, first-order necessary conditions for an optimum with respect to
+:math:`c_0^i, c_1^i(\epsilon)` and :math:`a^i(\epsilon)` are
 
 .. math::
 
@@ -519,7 +547,7 @@ plan to satisfy
 
     q(\epsilon) = \beta \left( \frac{u'(c_1^i(\epsilon))}{u'(c_0^i)} \right) g(\epsilon) 
 
-To deduce a restriction on the consumer’s choice of :math:`\theta^i` we
+To deduce a restriction on equilibrium prices,  we
 solve the period :math:`1` budget constraint to express
 :math:`a^i(\epsilon)` as
 
