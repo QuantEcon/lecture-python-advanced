@@ -81,12 +81,12 @@ There are two types of consumers named :math:`i=1,2`.
 
 A scalar random variable :math:`\epsilon` affects both
 
--  a representative firm’s physical return :math:`f(k)e^\epsilon` in
-   period :math:`1` from investing :math:`k \geq 0` in capital in period
-   :math:`0`.
+- a representative firm’s physical return :math:`f(k)e^\epsilon` in
+  period :math:`1` from investing :math:`k \geq 0` in capital in period
+  :math:`0`.
 
--  period :math:`1` endowments :math:`w_1^i(\epsilon)` of the
-   consumption good for agents :math:`i =1` and :math:`i=2`.
+- period :math:`1` endowments :math:`w_1^i(\epsilon)` of the
+  consumption good for agents :math:`i =1` and :math:`i=2`.
 
 Ownership
 ---------
@@ -178,14 +178,14 @@ Measures of agents and firms
 As in the companion lecture :doc:`BCG_complete_mkts` that studies a complete markets version of
 the model, we follow BCG in assuming that there are unit measures of
 
--  consumers of type :math:`i=1`
+- consumers of type :math:`i=1`
 
--  consumers of type :math:`i=2`
+- consumers of type :math:`i=2`
 
--  firms with access to a production technology that converts
-   :math:`k` units of time :math:`0` good into
-   :math:`A k^\alpha e^\epsilon` units of the time :math:`1` good in
-   random state :math:`\epsilon`
+- firms with access to a production technology that converts
+  :math:`k` units of time :math:`0` good into
+  :math:`A k^\alpha e^\epsilon` units of the time :math:`1` good in
+  random state :math:`\epsilon`
 
 Thus, let :math:`\omega \in [0,1]` index a particular consumer of type
 :math:`i`.
@@ -215,15 +215,15 @@ The assumption that there are equal measures of our three types of
 agents justifies our assumption that  each individual agent is a
 powerless **price taker**:
 
--  an individual consumer chooses its own (infinitesimal) part
-   :math:`c^i(\omega)` of :math:`C^i` taking prices as given
+- an individual consumer chooses its own (infinitesimal) part
+  :math:`c^i(\omega)` of :math:`C^i` taking prices as given
 
--  an individual firm chooses its own (infinitesmimal) part
-   :math:`k(\zeta)` of :math:`K` and :math:`b(\zeta)` of :math:`B`
-   taking pricing functions as given
+- an individual firm chooses its own (infinitesmimal) part
+  :math:`k(\zeta)` of :math:`K` and :math:`b(\zeta)` of :math:`B`
+  taking pricing functions as given
 
--  However, equilibrium prices depend on the ``Big K, Big B, Big C``
-   objects :math:`K`, :math:`B`, and :math:`C`
+- However, equilibrium prices depend on the ``Big K, Big B, Big C``
+  objects :math:`K`, :math:`B`, and :math:`C`
 
 The assumption about measures of agents is a powerful device for making
 a host of competitive agents take as given the equilibrium prices that
@@ -232,12 +232,12 @@ them.
 
 We call an equilibrium **symmetric** if
 
--  all type :math:`i` consumers choose the same consumption profiles so
-   that :math:`c^i(\omega) = C^i` for all :math:`\omega \in [0,1]`
+- all type :math:`i` consumers choose the same consumption profiles so
+  that :math:`c^i(\omega) = C^i` for all :math:`\omega \in [0,1]`
 
--  all firms choose the same levels of :math:`k` and :math:`b` so that
-   :math:`k(\zeta) = K`, :math:`b(\zeta) = B` for all
-   :math:`\zeta \in [0,1]`
+- all firms choose the same levels of :math:`k` and :math:`b` so that
+  :math:`k(\zeta) = K`, :math:`b(\zeta) = B` for all
+  :math:`\zeta \in [0,1]`
 
 In this lecture, we restrict ourselves to describing symmetric
 equilibria.
@@ -410,10 +410,10 @@ Attributing value maximization to the firm is a good idea because in equilibrium
 
 In the special cases studied here
 
--  consumers of both  types :math:`i=1,2` hold equity
+- consumers of both  types :math:`i=1,2` hold equity
 
--  only consumers of type :math:`i=2` hold debt; consumers of type
-   :math:`i=1` hold none.
+- only consumers of type :math:`i=2` hold debt; consumers of type
+  :math:`i=1` hold none.
 
 These outcomes occur because we follow BCG and set parameters so that a
 type 2 consumer’s stochastic endowment of the consumption good in period
@@ -521,14 +521,14 @@ little :math:`k`, little :math:`b` from the firm’s first-order
 conditions equal to the big :math:`K`, big :math:`B` at the big
 :math:`C`\ ’s that appear in the pricing functions, then
 
--  households’ Euler equations are satisfied if little :math:`c`\ ’s are
-   equated to those Big C’s
+- households’ Euler equations are satisfied if little :math:`c`\ ’s are
+  equated to those Big C’s
 
--  firms’ first-order necessary conditions for :math:`k, b` are
-   satisfied.
+- firms’ first-order necessary conditions for :math:`k, b` are
+  satisfied.
 
--  Therefore in equilibrium, :math:`\check q = q(k,b)` and
-   :math:`\check p = p(k,b)`.
+- Therefore in equilibrium, :math:`\check q = q(k,b)` and
+  :math:`\check p = p(k,b)`.
 
 Pseudo Code
 ===========
