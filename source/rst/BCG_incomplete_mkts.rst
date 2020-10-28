@@ -642,7 +642,7 @@ Here goes:
     :math:`bfoc = \beta \left[ \int_{\epsilon^*}^\infty \left( \frac{u^\prime(c^1_1(\epsilon))}{u^\prime(c^1_0)} \right) g(\epsilon) \ d\epsilon -  \int_{\epsilon^*}^\infty \left( \frac{u^\prime(c^2_1(\epsilon))}{u^\prime(c^2_0)} \right)  g(\epsilon) \ d\epsilon \right]`
 
     - If :math:`bfoc > 0`, Set :math:`b_h = b`; otherwise, set
-    :math:`b_l = b`.
+      :math:`b_l = b`.
     - Repeat steps 3 through 7B until :math:`|b_h-b_l|` is small.
 
 13. Given prices :math:`q` and :math:`p` from step 6, and the firm
@@ -677,10 +677,10 @@ The class includes the following methods i.e., functions:
   of capital :math:`k`, debt :math:`b` and firm value :math:`V`, as
   well as
 
-  -  agent 1’s equity holdings :math:`\theta^{1,*}`
-  -  prices :math:`q^*, p^*`
-  -  consumption plans
-     :math:`C^{1,*}_0, C^{2,*}_0, C^{1,*}_1(\epsilon), C^{2,*}_1(\epsilon)`.
+  - agent 1’s equity holdings :math:`\theta^{1,*}`
+  - prices :math:`q^*, p^*`
+  - consumption plans
+    :math:`C^{1,*}_0, C^{2,*}_0, C^{1,*}_1(\epsilon), C^{2,*}_1(\epsilon)`.
 
 - ``eq_valuation``: inputs equilibrium consumpion plans :math:`C^*` and
   outputs the following valuations for each pair of :math:`(k,b)` in
