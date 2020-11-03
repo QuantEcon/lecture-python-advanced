@@ -162,7 +162,7 @@ Pareto criterion and planning problem
 
 The planner’s objective function is
 
-.. math::  \textrm{obj} = \phi_1 u^1 + \phi_2 u^2 , \quad \phi_i \geq 0,  \phi_1 + \phi_2 = 1 
+.. math::  \textrm{obj} = \phi_1 u^1 + \phi_2 u^2 , \quad \phi_i \geq 0, \quad \phi_1 + \phi_2 = 1 
 
 where :math:`\phi_i \geq 0` is a Pareto weight that the planner attaches
 to a consumer of type  :math:`i`.
@@ -268,7 +268,7 @@ The associated optimal consumption allocation is
    C_1(\epsilon) & = w_1(\epsilon) + A K^\alpha e^\epsilon \cr
    c_0^1 & = \eta C_0 \cr
    c_0^2 & = (1 - \eta) C_0 \cr
-   c_1^1(\epsilon) & = \eta C^1 (\epsilon) \cr
+   c_1^1(\epsilon) & = \eta C_1 (\epsilon) \cr
    c_1^2 (\epsilon) & = (1 - \eta) C_1(\epsilon)
    \end{aligned} 
 
@@ -282,7 +282,7 @@ Remarks
 The relative Pareto weight parameter :math:`\eta` does not appear in
 equation :eq:`focke` that determines :math:`K`.
 
-Neither does it influence :math:`c_0` or :math:`c_1(\epsilon)`, which
+Neither does it influence :math:`C_0` or :math:`C_1(\epsilon)`, which
 depend solely on :math:`K`.
 
 The role of :math:`\eta` is to determine how to allocate total
@@ -298,7 +298,7 @@ specifications of consumer preferences, technology, and aggregate
 endowments that are identical to those in the preceding planning
 problem.
 
-While prices do not  appear in the planning problem – only quantities –
+While prices do not  appear in the planning problem – only  quantities do –
 prices play an important role in a competitive equilibrium.
 
 To understand how the planning economy is related to a competitive
@@ -307,7 +307,7 @@ equilibrium, we now turn to  the ``Big K, little k`` distinction.
 Measures of agents and firms
 ----------------------------
 
-We follow BCG in assuming that there are equal unit measures of
+We follow BCG in assuming that there are  unit measures of
 
 - consumers of type :math:`i=1`
 
@@ -341,16 +341,16 @@ powerless **price taker**:
 - equilibrium prices depend on the ``Big K, Big C`` objects
   :math:`K` and :math:`C`
 
-- in equilibrium, it turns out that :math:`K = k, C^i = c^i`
+Nevertheless, in equilibrium,  :math:`K = k, C^i = c^i`
 
 The assumption about measures of agents is thus a powerful device for
-making a host of competitive agents take as given the equilibrium prices
-that turn out to be determined by the decisions of hosts of agents who behave just like they do. 
+making a host of competitive agents take as given equilibrium prices
+that are determined by the independent decisions of hosts of agents who behave just like they do. 
 
 Ownership
 ^^^^^^^^^^^^^^^^^^^
 
-Consumers of type :math:`i` own the following exogenous amounts of
+Consumers of type :math:`i` own the following exogenous quantities of
 the consumption good in periods :math:`0` and :math:`1`:
 
 .. math::
@@ -372,7 +372,7 @@ where
 Consumers also own shares in  a firm that operates the technology for converging
 nonnegative amounts of the time :math:`0` consumption good one-for-one
 into a capital good :math:`k` that produces
-:math:`A k^\alpha e^\epsilon` units of time :math:`1` consumption good
+:math:`A k^\alpha e^\epsilon` units of the time :math:`1` consumption good
 in time :math:`1` state :math:`\epsilon`.
 
 Consumers of types :math:`i=1,2` are endowed with :math:`\theta_0^i`
@@ -383,15 +383,15 @@ shares of a firm and
 Asset markets
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-At time :math:`0`, consumers trade the following assets with each other
+At time :math:`0`, consumers trade the following assets with  other consumers
 and with firms:
 
-- equity issued by firms
+- equities (also known as stocks) issued by firms
 
 - one-period Arrow securities that pay one unit of consumption at time
   :math:`1` when the shock :math:`\epsilon` assumes a particular value
 
-Later, we’ll allow the firm to issue bonds in addition to equity, but
+Later, we’ll allow the firm to issue bonds too, but
 not now.
 
 Objects appearing in a competitive equilibrium
@@ -405,10 +405,10 @@ Let
 - :math:`q(\epsilon)` be a pricing kernel for one-period Arrow
   securities
 
-- :math:`\theta_0^i \geq 0` be consumer :math:`i`\ ’s intial share of
+- :math:`\theta_0^i \geq 0` be consumer :math:`i`s intial share of
   the firm, :math:`\sum_i \theta_0^i =1`
 
-- :math:`\theta^i` be the fraction of the firm’s shares purchased by
+- :math:`\theta^i` be the fraction of a firm’s shares purchased by
   consumer :math:`i` at time :math:`t=0`
 
 - :math:`- \bar a^i(\epsilon; \theta^i)` be debt limits constraining consumer :math:`i` \' s issues of claims
@@ -420,7 +420,7 @@ Let
   firm
 
 - :math:`K, C_0` be two scalars and :math:`C_1(\epsilon)` a function
-  that we use to construct a guess of an equilibrium  pricing kernel
+  that we use to construct a guess about an equilibrium  pricing kernel
   for Arrow securities
 
 We proceed  to describe constrained optimum problems faced by
@@ -430,7 +430,7 @@ A representative firm’s problem
 -------------------------------
 
 A representative firm takes Arrow security prices :math:`q(\epsilon)` as
-given and finances itself entirely by issuing equity.
+given.
 
 The firm purchases capital :math:`k \geq 0` from consumers at time
 :math:`0` and finances itself by issuing equity at time :math:`0`.
@@ -445,7 +445,7 @@ adding over all contingencies:
 
 .. math::  \tilde V = \int A k^\alpha e^\epsilon q(\epsilon) d \epsilon   
 
-Thus, the firm’s problem is to choose :math:`k` to maximize
+Owners of a firm want it  to choose :math:`k` to maximize
 
 .. math::  V = - k + \int A k^\alpha e^\epsilon q(\epsilon) d \epsilon  
 
@@ -472,36 +472,39 @@ We now pose a consumer’s problem in a competitive equilibrium.
 
 As a price taker, each consumer faces a given Arrow securities pricing kernel
 :math:`q(\epsilon)`, a given value of a firm :math:`V` that has chosen capital stock :math:`k`, a price of
-equity :math:`\tilde V`, and given prospective random dividends next period :math:`A k^\alpha e^\epsilon`.
+equity :math:`\tilde V`, and  prospective random dividends next period :math:`A k^\alpha e^\epsilon`.
 
-Consumer :math:`i` also faces a state-by-state borrowing limit that restricts quantities of Arrow securities that he can issue.
+Consumer :math:`i` also confronts a state-by-state borrowing limit that restricts quantities of Arrow securities that he can issue.
 
 If we evaluate consumer :math:`i`'s time :math:`1` budget constraint at zero consumption :math:`c^i(\epsilon) = 0` and solve for :math:`-a^i(\epsilon)`
-we obtain
+we obtain 
 
-.. math:: - \bar a^i(\epsilon;\theta^i) = w_1^i(\epsilon) +\theta^i A k^\alpha e^\epsilon 
+.. math:: 
+    :label: debtlimit
+    
+    -\bar a^i(\epsilon;\theta^i) = w_1^i(\epsilon) +\theta^i A k^\alpha e^\epsilon 
 
 The quantity :math:`- \bar a^i(\epsilon;\theta^i)` is the maximum amount that it is feasible for  consumer :math:`i` to repay to 
 his Arrow security creditors at time :math:`1` in state :math:`\epsilon`.
 
-To implement trading with one-period Arrow securities, we must impose on agent :math:`i` the state-by-state debt limits
+To arrange trading with one-period Arrow securities, we must impose on agent :math:`i` the state-by-state debt limits
 
 .. math:: -a^i(\epsilon) \leq -  \bar a^i(\epsilon;\theta^i)
 
-Notice that consumer :math:`i`'s borrowing limit depends on
+Notice that consumer :math:`i`'s borrowing limit defined in :eq:`debtlimit` depends on
 
-* his endowment at time :math:`1` in state :math:`\epsilon` 
+* his endowment :math:`w_1^i(\epsilon)` at time :math:`1` in state :math:`\epsilon` 
 
 * his share :math:`\theta^i` of a representive firm's dividends
 
-These are the two sources of **collateral** that back the consumer's issues of Arrow securities that pay off in state :math:`\epsilon`
+These constitute the two sources of **collateral** that back the consumer's issues of Arrow securities that pay off in state :math:`\epsilon`
 
 Consumer :math:`i` chooses a scalar :math:`c_0^i` and a function
 :math:`c_1^i(\epsilon)` to maximize
 
 .. math::  u(c_0^i) + \beta \int u(c_1^i(\epsilon)) g (\epsilon) d \epsilon 
 
-subject to his state-by-state debt limits and the time :math:`0` and time :math:`1` budget constraints
+subject to his state-by-state debt limits and  time :math:`0` and time :math:`1` budget constraints
 
 .. math::
 
@@ -529,7 +532,7 @@ then  form the Lagrangian
    \end{aligned} 
 
 Off corners, first-order necessary conditions for an optimum with respect to
-:math:`c_0^i, c_1^i(\epsilon)` and :math:`a^i(\epsilon)` are
+:math:`c_0^i, c_1^i(\epsilon),` and :math:`a^i(\epsilon)` are
 
 .. math::
 
@@ -564,10 +567,12 @@ constraint
     \geq c_0^i + \int c_1^i(\epsilon) q(\epsilon) d \epsilon
 
 
-The right side of equation :eq:`noarb` is the present value
+The right side of inequality :eq:`noarb` is the present value
 of consumer :math:`i`\ ’s consumption while the left side is the present
 value of consumer :math:`i`\ ’s endowment when consumer :math:`i` buys
-:math:`\theta^i` shares of equity. From this equation, we deduce two
+:math:`\theta^i` shares of equity. 
+
+From inequality :eq:`noarb`, we deduce two
 findings.
 
 **1. No arbitrage profits condition:**
@@ -579,28 +584,28 @@ Unless
 
     \tilde V =  A k^\alpha \int e^\epsilon q (\epsilon) d \epsilon 
 
-an **arbitrage** opportunity would be open to  consumers.
+an **arbitrage** opportunity would be open.
 
 If
 
 .. math::  \tilde V > A k^\alpha \int e^\epsilon q (\epsilon) d \epsilon 
 
-the consumer could sustain an arbitrarily high present value of  consumption by setting :math:`\theta^i` to an arbitrarily large **negative**
+the consumer could afford an arbitrarily high present value of  consumption by setting :math:`\theta^i` to an arbitrarily large **negative**
 number. 
   
 If
 
 .. math::  \tilde V <  A k^\alpha \int e^\epsilon q (\epsilon) d \epsilon 
 
-the consumer could sustain an arbitrarily high present value of
+the consumer could afford an arbitrarily high present value of
 consumption by setting :math:`\theta^i` to be arbitrarily large **positive**
 number.
 
-Since resources are finite, there cannot exist such arbitrage
-opportunities in a competitive equilibrium. 
+Since resources are finite, there can exist no such arbitrage
+opportunity in a competitive equilibrium. 
 
 Therefore, it must be true
-that the following no arbitrage condition prevails :eq:`tildeV20` holds:
+that the following no arbitrage condition prevails: 
 
 
 .. math::
@@ -613,9 +618,9 @@ equals the value of the state-contingent dividends
 :math:`Ak^\alpha e^\epsilon` evaluated at the Arrow security prices
 :math:`q(\epsilon; K)` that we have expressed as a function of :math:`K`. 
 
-We'll say more about this equation below.
+We'll say more about this equation later.
 
-**2. Indeterminacy of** :math:`\theta^i` **:**
+**2. Indeterminacy of** :math:`\theta^i`**:**
 
 When the no-arbitrage pricing equation :eq:`tildeV20`
 prevails, a consumer of type :math:`i`\ ’s choice :math:`\theta^i` of equity is
@@ -628,7 +633,7 @@ securities.
 Computing competitive equilibrium prices and quantities
 -------------------------------------------------------
 
-Having computed the allocation that solves the planning problem, we can
+Having computed an allocation that solves the planning problem, we can
 readily compute a competitive equilibrium via the following steps that,
 as we’ll see, relies heavily on the ``Big K, little k``,
 ``Big C, little c`` logic mentioned earlier:
@@ -636,8 +641,7 @@ as we’ll see, relies heavily on the ``Big K, little k``,
 - a competitive equilbrium allocation equals the allocation chosen by
   the planner
 
-- competitive equilibrium prices and the value of a firm’s equity can
-  be backed out from shadow prices from the planning problem that
+- competitive equilibrium prices and the value of a firm’s equity are encoded in shadow prices from the planning problem that
   depend on Big :math:`K` and Big :math:`C`.
 
 To substantiate that this procedure is valid, we proceed as follows.
@@ -646,13 +650,13 @@ With :math:`K` in hand, we make the following guess for competitive
 equilibrium Arrow securities prices
 
 .. math::
+    :label: arrowprices
 
-    q(\epsilon;K) = \beta \left( \frac{u'\left( w_1(\epsilon) + A K^\alpha e^\epsilon\right)} {u'(w_0 - K )} \right) 
+    q(\epsilon;K) = \beta \left( \frac{u'\left( w_1(\epsilon) + A K^\alpha e^\epsilon\right)} {u'(w_0 - K )} \right)^{-\gamma} 
 
-To confirm the guess, we begin by considering the consequences of this
-guess for the firm’s choice of :math:`k`.
+To confirm the guess, we begin by considering its consequences  for the firm’s choice of :math:`k`.
 
-With the Arrow securities prices that we have guessed, the firm’s
+With Arrow securities prices :eq:`arrowprices`, the firm’s
 first-order necessary condition for choosing :math:`k` becomes
 
 .. math::
@@ -670,7 +674,7 @@ equivalent with the planner’s first-order condition
 
 To pose a consumer’s problem in a competitive equilibrium, we require
 not only the above guess for the Arrow securities pricing kernel
-:math:`q(\epsilon)` but the value of equity :math:`\tilde V`.
+:math:`q(\epsilon)` but the value of equity :math:`\tilde V`:
 
 .. math::
     :label: tildeV2
@@ -678,11 +682,11 @@ not only the above guess for the Arrow securities pricing kernel
     \tilde V = \int A K^\alpha e^\epsilon q(\epsilon;K) d \epsilon  
 
 Let :math:`\tilde V` be the value of equity implied by Arrow securities
-price function :eq:`kK` and formula
+price function :eq:`arrowprices` and formula
 :eq:`tildeV2`.
 
-At the given prices :eq:`kK` and
-:eq:`tildeV2` for :math:`q(\epsilon)` and :math:`\tilde V`,
+At the Arrow securities prices :math:`q(\epsilon)` given by :eq:`arrowprices`
+and equity value :math:`\tilde V` given by :eq:`tildeV2`,
 consumer :math:`i=1,2` choose consumption allocations and portolios
 that satisfy the first-order necessary conditions
 
@@ -705,13 +709,13 @@ endowments
 
 **Remark:** Multiple arrangements of endowments
 :math:`[w_0^1, w_0^2, w_1^1(\epsilon), w_1^2(\epsilon), \theta_0^1, \theta_0^2 ]`
-associated with the same :math:`\eta`. Can you explain why?
+associated with the same distribution of wealth :math:`\eta`. Can you explain why?
 **Hint:** Think about the portfolio indeterminacy finding above.
 
 Modigliani-Miller theorem
 -------------------------
 
-Now allow a firm to issue both bonds and equity.
+We now allow a firm to issue both bonds and equity.
 
 Payouts from equity and bonds, respectively, are
 
@@ -722,7 +726,7 @@ Payouts from equity and bonds, respectively, are
    d^b(k,b;\epsilon) &= \min \left\{ \frac{e^\epsilon A k^\alpha}{b}, 1 \right\}
    \end{aligned} 
 
-Thus, one unit of the bond pays :math:`1` unit of consumption at time
+Thus, one unit of the bond pays one  unit of consumption at time
 :math:`1` in state :math:`\epsilon` if
 :math:`A k^\alpha e^\epsilon - b \geq 0`, which is true when
 :math:`\epsilon \geq \epsilon^* = \log \frac{b}{Ak^\alpha}`, and pays
@@ -748,7 +752,7 @@ earlier implies that the value of equity and the price of bonds are
 
     \begin{aligned}
    \tilde V & = A k^\alpha \int_{\epsilon^*}^\infty e^\epsilon q(\epsilon) d \epsilon - b \int_{\epsilon^*}^\infty  q(\epsilon) d \epsilon\cr
-   p(k, b) & =   \frac{A k^\alpha}{B} \int_{-\infty}^{\epsilon^*} e^\epsilon q(\epsilon) d \epsilon
+   p(k, b) & =   \frac{A k^\alpha}{b} \int_{-\infty}^{\epsilon^*} e^\epsilon q(\epsilon) d \epsilon
          + \int_{\epsilon^*}^\infty q(\epsilon) d \epsilon
    \end{aligned} 
 
@@ -767,8 +771,8 @@ about firms’ finance:
 - The value of a firm is independent the mix of equity and bonds that
   it uses to finance its physical capital.
 
-- The firms’s decision of how much physical capital to purchase does
-  not depend on whether it finances capital purchases by issuing bonds
+- The firms’s decision about how much physical capital to purchase does
+  not depend on whether it finances those purchases by issuing bonds
   or equity
 
 - The firm’s choice of whether to finance itself by issuing equity or
