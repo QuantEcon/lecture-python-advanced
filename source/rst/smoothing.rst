@@ -123,7 +123,8 @@ one-period return :math:`\beta^{-1}`.
 Linear State Space Version of Complete Markets Model
 ====================================================
 
-We'll study a complete markets model adapted to  a setting with a continuous Markov state like that in the `first lecture on the permanent income model <https://python-intro.quantecon.org/perm_income.html>`__.
+We'll study a complete markets model adapted to  a setting with a continuous Markov state like that 
+in the `first lecture on the permanent income model <https://python-intro.quantecon.org/perm_income.html>`__.
 
 In that model
 
@@ -380,8 +381,7 @@ Incomplete Markets Version
 
 
 The incomplete markets version of the model with nonfinancial income being governed by a linear state space system
-is described in  `permanent income model <https://python-intro.quantecon.org/perm_income.html>`__ and a followup
-lecture on  the `permanent income model <https://python-intro.quantecon.org/perm_income_cons.html>`__.
+is described in  `permanent income model <https://python-intro.quantecon.org/perm_income_cons.html>`__.
 
 In that incomplete markerts setting, consumption follows a random walk and the consumer's debt follows a process with a unit root.
 
@@ -486,12 +486,16 @@ state :math:`s_t` is
 where :math:`b_t` is the consumer's one-period debt that falls due at time :math:`t` and  :math:`b_{t+1}(j\,|\, s_t)` are the consumer's time
 :math:`t` sales of the  time :math:`t+1` consumption good in Markov state :math:`j`. 
 
-These are 
+Thus 
 
-*  when multiplied by :math:`q(j\,|\, s_t)`, a source of time :math:`t` **revenues** for the consumer
+*  :math:`q(j\,|\, s_t) b_{t+1}(j \, |\, s_t)` is  a source of time :math:`t` **financial income** for the consumer in Markov state :math:`s_t`
 
-*  when :math:`s_{t+1} = j`, a source of time :math:`t+1` **expenditures** for the consumer
+*  :math:`b_t \equiv b_t(j \, |\, s_{t-1})` is a source of time :math:`t` **expenditures** for the consumer when :math:`s_t = j`
 
+
+**Remark:** We are ignoring an important technicality here, namely, that the consumer's choice of :math:`b_{t+1}(j | \, s_t)` must
+respect so-called *natural debt limits* that assure that it is feasible for the consumer to repay debts due even if he consumers zero forevermore.
+We shall discuss such debt limits in another lecture. 
 
 A natural analog of Hall's assumption that the one-period risk-free gross
 interest rate is :math:`\beta^{-1}` is
@@ -502,7 +506,8 @@ interest rate is :math:`\beta^{-1}` is
     q(j \,|\, i) = \beta P_{ij}
 
 
-To understand how this is a natural analogue, observe that in state :math:`i` it costs :math:`\sum_j q(j \,|\, i)`  to purchase one unit of consumption next period *for sure*, i.e., meaning no matter what state of the world  occurs at :math:`t+1`.
+To understand how this is a natural analogue, observe that in state :math:`i` it costs :math:`\sum_j q(j \,|\, i)`  to purchase one unit of consumption next period *for sure*, i.e., meaning no matter what
+Markov state :math:`j` occurs at :math:`t+1`.
 
 Hence the **implied price** of a risk-free claim on one unit of consumption next
 period is
@@ -526,9 +531,7 @@ First-order necessary conditions for maximizing the consumer's expected utility 
         = q(s_{t+1} \,|\, s_t)
 
 
-for all :math:`s_t, s_{t+1}`
-
-or, under our assumption :eq:`cs_2` about the values taken by  Arrow security prices,
+for all :math:`s_t, s_{t+1}` or, under our assumption :eq:`cs_2` about  Arrow security prices,
 
 .. math::
     :label: cs_3
@@ -537,7 +540,7 @@ or, under our assumption :eq:`cs_2` about the values taken by  Arrow security pr
 
 
 Thus, our consumer sets :math:`c_t = \bar c` for all :math:`t \geq 0` for some value :math:`\bar c` that it is our job now to determine along with
-values for :math:`b_{t+1}(j | s_t = i)` for :math:`i=1,2` and :math:`j = 1,2`
+values for :math:`b_{t+1}(j | s_t = i)` for :math:`i=1,2` and :math:`j = 1,2`.
 
 We'll use a *guess and verify* method to determine these objects
 
@@ -812,7 +815,7 @@ Model 2 (One-Period Risk-Free Debt Only)
 ========================================
 
 
-This is a version of the original models of Hall (1978)
+This is a version of the original model of Hall (1978)
 in which the consumer's ability to substitute intertemporally is
 constrained by his ability to buy or sell only one security, a risk-free
 one-period bond bearing a constant gross interest rate that equals
@@ -846,7 +849,8 @@ For our assumed quadratic utility function this implies
 
 which for our finite-state Markov setting is Hall's (1978) conclusion that consumption follows a random walk.
 
-As we saw in our first lecture on the `permanent income model <https://python-intro.quantecon.org/perm_income.html>`__, this leads to
+As we saw in  our `first lecture on the permanent income model <https://python-intro.quantecon.org/perm_income.html>`__,
+this leads to
 
 .. math::
     :label: cs_9
@@ -880,7 +884,7 @@ Substituting :eq:`cs_10`  into the one-period budget constraint and rearranging 
 
 Now let's calculate the key term :math:`\mathbb E_t \sum_{j=0}^\infty\beta^j y_{t+j}` in our finite Markov chain setting.
 
-Define
+Define the expected discounted present value of non-financial income 
 
 .. math::
 

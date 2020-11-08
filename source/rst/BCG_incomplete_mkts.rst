@@ -63,9 +63,15 @@ A  ``Big K, little k`` analysis played an important role in the  previous lectur
 A more subtle version of a ``Big K, little k``   features in  the   BCG incomplete markets environment here.
 
 We use it to convey the heart of what BCG call a **rational conjectures** equilibrium in which conjectures are about
-equilibrium pricing functions in regions of the state space that  in equilibrium an average consumer or firm does not visit.
+equilibrium pricing functions in regions of the state space that  an average consumer or firm does not visit in equilibrium.
 
+Note that the absence of complete markets means that we can compute competitive equilibrium prices and allocations by first solving
+the simple planning problem that we did in :doc:`BCG_complete_mkts`.
 
+Instead, we compute an equilibrium by solving a system of simultaneous inequalities.
+
+(Here we do not address the interesting question of whether there is a *different* planning problem that we could use to compute a 
+competitive equlibrium allocation.)
 
 
 Setup
@@ -99,78 +105,6 @@ At the start of period :math:`0`, a consumer of type :math:`i` also owns
 :math:`\theta^i_0` shares of a representative firm.
 
 
-Aggregate Endowments
---------------------
-
-Economy-wide endowments in periods :math:`0` and :math:`1` are
-
-.. math::
-
-    \begin{aligned}
-   w_0 & = w_0^1 + w_0^2 \cr
-   w_1(\epsilon) & =  w_1^1(\epsilon) + w_1^2(\epsilon) \textrm{ in state }\epsilon
-   \end{aligned} 
-
-Feasibility:
-------------
-
-Where :math:`\alpha \in (0,1)` and :math:`A >0`
-
-.. math::
-
-    \begin{aligned}
-    c_0^1 + c_0^2 & = w_0^1 + w_0^2 - k \cr
-    c_1^1(\epsilon) + c_1^2(\epsilon) & =  w_1^1(\epsilon) + w_1^2(\epsilon) + e^\epsilon f(k), \quad k \geq 0
-   \end{aligned} 
-
-where :math:`f(k) = A k^\alpha, A >0, \alpha \in (0,1)`.
-
-
-Shock distribution:
--------------------
-
-Sometimes we assume that
-
-.. math::  \epsilon \sim g(\epsilon) = {\mathcal N}(0,1) 
-
-Other times, for compuatational purposes in our Python code, we’ll
-instead assume that :math:`g(\cdot)` is a probability mass function that
-serves as a discrete approximation to a standardized normal density.
-
-Preferences:
-------------
-
-A consumer of type :math:`i` orders period :math:`0` consumption
-:math:`c_0^i` and state :math:`\epsilon`-period :math:`1` consumption
-:math:`c^i(\epsilon)` by
-
-.. math::  u^i = u(c_0^i) + \beta \int u(c_1^i(\epsilon)) g (\epsilon) d \epsilon, \quad i = 1,2 
-
-:math:`\beta \in (0,1)` and the one-period utility function is
-
-.. math::
-
-    u(c) = \begin{cases}
-   \frac{c^{1 -\gamma}} { 1 - \gamma} & \textrm{if  } \gamma \neq 1 \\
-   \log c & \textrm{if  } \gamma = 1
-   \end{cases}
-
-
-
-Risk-sharing motives
---------------------
-
-The two types of agents’ period :math:`1` endowments have different correlations with
-the physical return on capital.
-
-Endowment differences give agents incentives to trade risks that in the
-complete market version of the model showed up in their demands for
-equity and in their demands and supplies of one-period Arrow securities.
-
-In the incomplete-markets setting under study here, these differences
-show up in differences in the two types of consumers’ demands for a
-typical firm’s bonds and equity, the only two assets that agents can now
-trade.
 
 Measures of agents and firms
 ----------------------------
@@ -242,16 +176,99 @@ We call an equilibrium **symmetric** if
 In this lecture, we restrict ourselves to describing symmetric
 equilibria.
 
+Endowments
+--------------------
+
+Per capital economy-wide endowments in periods :math:`0` and :math:`1` are
+
+.. math::
+
+    \begin{aligned}
+   w_0 & = w_0^1 + w_0^2 \cr
+   w_1(\epsilon) & =  w_1^1(\epsilon) + w_1^2(\epsilon) \textrm{ in state }\epsilon
+   \end{aligned} 
+
+Feasibility:
+------------
+
+Where :math:`\alpha \in (0,1)` and :math:`A >0`
+
+.. math::
+
+    \begin{aligned}
+    C_0^1 + C_0^2 & = w_0^1 + w_0^2 - K \cr
+    C_1^1(\epsilon) + C_1^2(\epsilon) & =  w_1^1(\epsilon) + w_1^2(\epsilon) + e^\epsilon \int_0^1 f(k(\zeta)) d \zeta, \quad k \geq 0
+   \end{aligned} 
+
+where :math:`f(k) = A k^\alpha, A >0, \alpha \in (0,1)`.
+
+ 
+
+Parameterizations
+-------------------------
+
+Following BCG, we shall employ the following parameterizations:
+
+.. math::
+
+    \begin{aligned}
+   \epsilon & \sim {\mathcal N}(\mu, \sigma^2) \cr
+   u(c) & = \frac{c^{1-\gamma}}{1 - \gamma} \cr
+   w_1^i(\epsilon) & = e^{- \chi_i \mu - .5 \chi_i^2 \sigma^2 + \chi_i \epsilon} , \quad \chi_i \in [0,1] 
+   \end{aligned} 
+
+
+Sometimes instead of asuming :math:`\epsilon \sim g(\epsilon) = {\mathcal N}(0,\sigma^2)`,
+we’ll assume that :math:`g(\cdot)` is a probability
+mass function that serves as a discrete approximation to a standardized
+normal density.  
+
+Preferences:
+------------
+
+A consumer of type :math:`i` orders period :math:`0` consumption
+:math:`c_0^i` and state :math:`\epsilon`-period :math:`1` consumption
+:math:`c^i(\epsilon)` by
+
+.. math::  u^i = u(c_0^i) + \beta \int u(c_1^i(\epsilon)) g (\epsilon) d \epsilon, \quad i = 1,2 
+
+:math:`\beta \in (0,1)` and the one-period utility function is
+
+.. math::
+
+    u(c) = \begin{cases}
+   \frac{c^{1 -\gamma}} { 1 - \gamma} & \textrm{if  } \gamma \neq 1 \\
+   \log c & \textrm{if  } \gamma = 1
+   \end{cases}
+
+
+
+Risk-sharing motives
+--------------------
+
+The two types of agents’ period :math:`1` endowments have different correlations with
+the physical return on capital.
+
+Endowment differences give agents incentives to trade risks that in the
+complete market version of the model showed up in their demands for
+equity and in their demands and supplies of one-period Arrow securities.
+
+In the incomplete-markets setting under study here, these differences
+show up in differences in the two types of consumers’ demands for a
+typical firm’s bonds and equity, the only two assets that agents can now
+trade.
+
+
 Asset Markets
 =============
 
-Markets are incomplete: {\em ex cathedra} we the model builders declare that only equities and bonds issued by representative
+Markets are incomplete: *ex cathedra* we the model builders declare that only equities and bonds issued by representative
 firms can be traded.
 
 Let :math:`\theta^i` and :math:`\xi^i` be a consumer of type
 :math:`i`\ ’s post-trade holdings of equity and bonds, respectively.
 
-The firm issues bonds promising to pay :math:`b` units of consumption at
+A firm issues bonds promising to pay :math:`b` units of consumption at
 time :math:`t=1` and purchases :math:`k` units of physical capital at
 time :math:`t=0`.
 
@@ -266,25 +283,31 @@ Payoffs to equity and debt at date 1 as functions of the productivity
 shock :math:`\epsilon` are thus
 
 .. math::
+    :label: payofffns
 
     \begin{aligned}
-   d^e(k,b;\epsilon) &= \max \left\{ e^\epsilon  A k^\alpha - b, 0 \right\} \\
-   d^b(k,b;\epsilon) &= \min \left\{ \frac{e^\epsilon  A k^\alpha}{b}, 1 \right\}
-   \end{aligned} 
+    d^e(k,b;\epsilon) &= \max \left\{ e^\epsilon  A k^\alpha - b, 0 \right\} \\
+    d^b(k,b;\epsilon) &= \min \left\{ \frac{e^\epsilon  A k^\alpha}{b}, 1 \right\}
+    \end{aligned} 
 
-The firm faces a bond price function :math:`p(k,b)` when it issues
+A firm faces a bond price function :math:`p(k,b)` when it issues
 :math:`b` bonds and purchases :math:`k` units of physical capital.
 
 A firm’s equity is worth :math:`q(k,b)` when it issues :math:`b` bonds
 and purchases :math:`k` units of physical capital.
 
-A firm regards the equity-pricing function :math:`q(k,b)` and the bond
+A firm regards an equity-pricing function :math:`q(k,b)` and a bond
 pricing function :math:`p(k,b)` as exogenous in the sense that they are
 not affected by its choices of :math:`k` and :math:`b`.
 
 Consumers face equilibrium prices :math:`\check q` and :math:`\check p`
 for bonds and equities, where :math:`\check q` and :math:`\check p` are
 both scalars.
+
+Consumers are price takers and only need to know the scalars :math:`\check q, \check p`.
+
+Firms are *price function* takers and  must know the functions :math:`q(k,b), p(k,b)` in order
+completely to pose their optimum problems. 
 
 Consumers
 ---------
@@ -301,9 +324,20 @@ determined in a rational expectations equilibrium).
 Household :math:`i` buys :math:`\theta^i` shares of equity and buys bonds
 worth :math:`\check p \xi^i` where :math:`\check p` is the bond price.
 
-Being a price-taker, the household takes :math:`V`,
-:math:`\check q`, :math:`\check p `, and :math:`K, B`
+Being a price-taker, a consumer takes :math:`V`, :math:`\check q`, :math:`\check p`, and :math:`K, B`
 as given.
+
+Consumers know that equilibrium payoff functions for bonds and equities take the form 
+
+
+.. math::
+    
+    \begin{aligned}
+   d^e(K,B;\epsilon) &= \max \left\{ e^\epsilon  A K^\alpha - B, 0 \right\} \\
+   d^b(K,B;\epsilon) &= \min \left\{ \frac{e^\epsilon  A K^\alpha}{B}, 1 \right\}
+   \end{aligned} 
+
+  
 
 Household :math:`i`\ ’s optimization problem is
 
@@ -320,9 +354,9 @@ Household :math:`i`\ ’s optimization problem is
 The last two inequalities impose that the household cannot short sell either
 equity or bonds.
 
-In a rational expectations equilibrium, :math:` \check q = q(K,B)` and :math:`\check p = p(K,B)`
+In a rational expectations equilibrium, :math:`\check q = q(K,B)` and :math:`\check p = p(K,B)`
 
-Form household :math:`i`\ ’s Lagrangian:
+We form household :math:`i`\ ’s Lagrangian:
 
 .. math::
 
@@ -381,23 +415,24 @@ satisfy
    p(k,b) = \max_i \beta \int \frac{u^\prime(C^i_1(\epsilon))}{u^\prime(C^i_0)} d^b(k,b;\epsilon) g(\epsilon) \ d\epsilon \\
    \end{aligned} 
 
+where the payoff functions are described by equations :eq:`payofffns`.
+
 Notice the appearance of big :math:`C^i`\ ’s on the right sides of these
 two equations that define equilibrium pricing functions.
 
-The two price functions are satisfied not only for equilibrium choices
+The two price functions describe outcomes not only for equilibrium choices
 :math:`K, B` of capital :math:`k` and debt :math:`b`, but also for any
 **out-of-equilibrium** pairs :math:`(k, b) \neq (K, B)`.
 
 The firm is assumed to know both price functions.
 
-This means that the firm understands that its choice of :math:`k,b` influences how markets prices is equity and debt.
+This means that the firm understands that its choice of :math:`k,b` influences how markets price its equity and debt.
 
-The package of assumptions just described is sometimes called the
-assumption of **rational conjectures** (about the price functions).
+This package of assumptions is sometimes called  **rational conjectures** (about price functions).
 
-BCG give credit to Makowski for emphasizing and clarifying how it is a component of   rational expectations equilibria.
+BCG give credit to Makowski for emphasizing and clarifying how rational conjectures are components of  rational expectations equilibria.
 
-Firm's problem
+Firms 
 ---------------
 
 The firm chooses capital :math:`k` and debt :math:`b` to maximize its
@@ -408,9 +443,9 @@ market value:
 Attributing value maximization to the firm is a good idea because in equilibrium consumers of both types
 *want* a firm to maximize its value.
 
-In the special cases studied here
+In the special quantitative examples studied here
 
-- consumers of both  types :math:`i=1,2` hold equity
+- consumers of  types :math:`i=1,2` both  hold equity
 
 - only consumers of type :math:`i=2` hold debt; consumers of type
   :math:`i=1` hold none.
@@ -464,7 +499,7 @@ and :math:`b`, respectively, are
        b: \quad &  \frac{\partial q(k,b)}{\partial b} + p(k,b) + b \frac{\partial p(k,b)}{\partial b} = 0
    \end{aligned} 
 
-To proceed, we use the Leibniz integral rule several times to arrive at
+We use the Leibniz integral rule several times to arrive at
 the following derivatives:
 
 .. math::
@@ -479,7 +514,7 @@ the following derivatives:
 .. math::  \frac{\partial p(k,b)}{\partial b} = - \beta \frac{A k^\alpha}{b^2} \int_{-\infty}^{\epsilon^*}  \frac{u'(C_1^2(\epsilon))}{u'(C_0^2)} e^\epsilon  g(\epsilon) d \epsilon   
 
 **Special case:** We confine ourselves to a special case in which both types of
-agents hold positive equities so that
+consumer hold positive equities so that
 :math:`\frac{\partial q(k,b)}{\partial k}` and
 :math:`\frac{\partial q(k,b)}{\partial b}` are related to rates of
 intertemporal substitution for both agents.
@@ -522,19 +557,19 @@ conditions equal to the big :math:`K`, big :math:`B` at the big
 :math:`C`\ ’s that appear in the pricing functions, then
 
 - households’ Euler equations are satisfied if little :math:`c`\ ’s are
-  equated to those Big C’s
+  equated to  Big C’s
 
 - firms’ first-order necessary conditions for :math:`k, b` are
   satisfied.
 
-- Therefore in equilibrium, :math:`\check q = q(k,b)` and
-  :math:`\check p = p(k,b)`.
+- :math:`\check q = q(K,B)` and
+  :math:`\check p = p(K,B)`.
 
 Pseudo Code
 ===========
 
 Before displaying our Python code for computing a BCG incomplete markets equilibrium,
-we’ll sketch some pseudo code that displays its logical flow.
+we’ll sketch some pseudo code that describes its logical flow.
 
 Here goes:
 
@@ -671,7 +706,7 @@ We create a Python class ``BCG_incomplete_markets`` to compute the
 equilibrium allocations of the incomplete market BCG model, given a set
 of parameter values.
 
-The class includes the following methods i.e., functions:
+The class includes the following methods,  i.e., functions:
 
 - ``solve_eq``: solves the BCG model and returns the equilibrium values
   of capital :math:`k`, debt :math:`b` and firm value :math:`V`, as
@@ -692,20 +727,20 @@ The class includes the following methods i.e., functions:
 
 Parameters include:
 
-- :math:`\chi_1`, :math:`\chi_2`: The correlation parameter for agent 1
+- :math:`\chi_1`, :math:`\chi_2`:  correlation parameter for agent 1
   and 2. Default values are respectively 0 and 0.9.
-- :math:`w^1_0`, :math:`w^2_0`: The initial endowments. Default values
+- :math:`w^1_0`, :math:`w^2_0`:  initial endowments. Default values
   are respectively 0.9 and 1.1.
-- :math:`\theta^1_0`, :math:`\theta^2_0`: The initial holding of the
+- :math:`\theta^1_0`, :math:`\theta^2_0`:  initial holding of the
   firm. Default values are 0.5.
-- :math:`\psi`: The risk parameter. The default value is 3.
-- :math:`\alpha`: The Production function parameter. The default value
+- :math:`\psi`:  risk parameter. Default value is 3.
+- :math:`\alpha`: Production function parameter. Default value
   is 0.6.
-- :math:`A`: The productivity of the firm. Default value is 2.5.
-- :math:`\mu`, :math:`\sigma`: The mean and standard deviation of the
+- :math:`A`: Productivity of the firm. Default value is 2.5.
+- :math:`\mu`, :math:`\sigma`: Mean and standard deviation of the
   shock distribution. Default values are respectively -0.025 and 0.4
-- :math:`\beta`: The discount factor. The default value is 0.96.
-- bound: The bound for truncated normal distribution. Default is 3.
+- :math:`\beta`: Discount factor. Default value is 0.96.
+- bound: Bound for truncated normal distribution. Default value is 3.
 
 .. code-block:: ipython
 
@@ -1207,7 +1242,7 @@ Parameters include:
 Examples
 ========
 
-Below we show some examples computed using ``BCG_incomplete markets``.
+Below we show some examples computed with the class ``BCG_incomplete markets``.
 
 First example
 -------------
@@ -1292,26 +1327,28 @@ A Modigliani-Miller theorem?
 
 The red dot in the above graph is **both** an equilibrium :math:`(b,k)`
 chosen by a representative firm **and** the equilibrium :math:`B, K`
-pair chosen by the aggregate of all firms. Thus, **in equilibrium** it
+pair chosen by the aggregate of all firms. 
+
+Thus, **in equilibrium** it
 is true that
 
 .. math::  (b,k) = (B,K)  
 
-But an individual firm named :math:`\zet \in [0,1]` neither knows nor
+But an individual firm named :math:`\zeta \in [0,1]` neither knows nor
 cares whether it sets :math:`(b(\zeta),k(\zeta)) = (B,K)`.
 
 Indeed the above graph has a ridge of :math:`b(\zeta)`\ ’s that also
 maximize the firm’s value so long as it sets :math:`k(\zeta) = K`.
 
-Here is is important that the measure of firms that deviate from setting
+Here it is important that the measure of firms that deviate from setting
 :math:`b` at the red dot is very small – measure zero – so that
 :math:`B` remains at the red dot even while one firm :math:`\zeta`
 deviates.
 
-So within this equilibrium, there is a severely qualified type of
-Modigliani-Miller theorem asserting that firm :math:`\zeta`\ ’s value is
+So within this equilibrium, there is a  *qualified* Modigliani-Miller theorem 
+that asserts that firm :math:`\zeta`\ ’s value is
 independent of how it mixes its financing between equity and bonds (so
-long as it is atypical of what other firms are doing).
+long as it is not  what other firms do on average).
 
 Thus, while an individual firm :math:`\zeta`\ ’s financial structure is
 indeterminate, the **market’s** financial structure is determinant and
@@ -1322,7 +1359,7 @@ descibed in the complete markets model in the lecture :doc:`BCG_complete_mkts`.
 
 There the **market’s** financial structure was indeterminate.
 
-These things bear some more thought and exploration.
+These subtle distinctions  bear more thought and exploration.
 
 So we will do some calculations  to ferret out a sense in which
 the equilibrium :math:`(k,b) = (K,B)` outcome at the red dot in the
@@ -1334,21 +1371,21 @@ In particular, we’ll explore the consequences of some choices of
 
 In more detail, here is what we’ll do:
 
-1. Obtain equilibrium values of capital and debt as :math:`k^*` and
-   :math:`b^*`, which is the red dot above.
-2. Now fixed :math:`k^*`, and let :math:`b^{**} = b^* - e` for some
-   :math:`e > 0`. Conjecture that big :math:`K = K^*` but big
+1. Obtain equilibrium values of capital and debt as :math:`k^*=K` and
+   :math:`b^*=B`,  the red dot above.
+2. Now fix :math:`k^*` and let :math:`b^{**} = b^* - e` for some
+   :math:`e > 0`. Conjecture that big :math:`K = k^*` but big
    :math:`B = b^{**}`.
-3. Take :math:`K` and :math:`B` and compute IMRS as we did before.
+3. Take :math:`K` and :math:`B` and compute intertermporal marginal rates of substitution (IMRS's) as we did before.
 4. Taking the **new** IMRS to the firm’s problem. Plot 3D surface for
    the valuations of the firm with this **new** IMRS.
 5. Check if the value at :math:`k^*`, :math:`b^{**}` is at the top of
    this new 3D surface.
-6. Repeat the above analyses for :math:`b^{**} = b^* + e`.
+6. Repeat these calculations for :math:`b^{**} = b^* + e`.
 
 To conduct the above procedures, we create a function ``off_eq_check``
 that inputs the BCG model instance parameters, equilibrium capital
-:math:`k^*` and debt :math:`b^*`, and a perturbation of debt :math:`e`.
+:math:`K=k^*` and debt :math:`B=b^*`, and a perturbation of debt :math:`e`.
 
 The function outputs the fixed point firm values :math:`V^{**}`, prices
 :math:`q^{**}`, :math:`p^{**}`, and consumption choices :math:`c^{**}`.
@@ -1591,14 +1628,14 @@ The function also outputs agent 1’s bond holdings :math:`\xi_1`.
 
 Here is our strategy for checking *stability* of an equilibrium.
 
-We use ``off_eq_check`` to obtain the consumption plans from both agents
-with regard to the conjectured big :math:`K` and big :math:`B`.
+We use ``off_eq_check`` to obtain  consumption plans for both agents
+at the conjectured big :math:`K` and big :math:`B`.
 
-Then we input the consumption plans into the function ``eq_valuation``
-from the BCG model class, and plot the agents’ valuations associated
+Then we input  consumption plans into the function ``eq_valuation``
+from the BCG model class and plot the agents’ valuations associated
 with different choices of :math:`k` and :math:`b`.
 
-Our hypothesis is that :math:`(k^*,b^{**})` is **not** at the top of the
+Our hunch is that :math:`(k^*,b^{**})` is **not** at the top of the
 firm valuation 3D surface so that the firm is **not** maximizing its
 value if it chooses :math:`k = K = k^*` and :math:`b = B = b^{**}`.
 
@@ -1709,8 +1746,10 @@ That incentive to deviate means that :math:`(k^*,b^*+e)` is not an
 equilibrium capital structure for the firm.
 
 Interestingly, if consumers were to anticipate that firms would
-over-issue debt, i.e. :math:`B > b^*`,then both types of agents would
-want willing to hold corporate debt. Specifically, :math:`\xi^1 > 0`:
+over-issue debt, i.e. :math:`B > b^*`, then both types of consumer would
+want to hold corporate debt. 
+
+For example,  :math:`\xi^1 > 0`:
 
 .. code-block:: python3
 
@@ -1719,7 +1758,7 @@ want willing to hold corporate debt. Specifically, :math:`\xi^1 > 0`:
 Our two *stability experiments* suggest that the equilibrium capital
 structure :math:`(k^*,b^*)` is locally unique even though **at the
 equilibrium** an individual firm would be willing to deviate from the
-equilibrium representative firms’ debt choice.
+representative firms’ equilibrium  debt choice.
 
 These experiments thus refine our discussion of the *qualified*
 Modigliani-Miller theorem that prevails in this example economy.
@@ -1807,10 +1846,10 @@ Another example economy
 
 We illustrate how the fraction of initial endowments held by agent 2,
 :math:`w^2_0/(w^1_0+w^2_0)` affects an equilibrium capital structure
-:math:`(k,b) = (K, B)` well as associated allocations.
+:math:`(k,b) = (K, B)` well as associated equilibrium allocations.
 
-We would also like to see how in equilibrium agents 1 and 2 respectively
-value equity and the bond.
+We are interested in how  agents 1 and 2 
+value equity and  bond.
 
 .. math::
 
@@ -1948,6 +1987,5 @@ agents but bond valuations are not.
 
 Agents of type 2 value bonds more highly (they want more hedging).
 
-Taken together with our earlier plot of equity holdings of type w
-agents, these graphs confirm the earlier conjecture that while both type
+Taken together with our earlier plot of equity holdings, these graphs confirm our earlier conjecture that while both type
 of agents hold equities, only agents of type 2 holds bonds.
