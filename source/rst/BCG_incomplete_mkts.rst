@@ -65,7 +65,13 @@ A more subtle version of a ``Big K, little k``   features in  the   BCG incomple
 We use it to convey the heart of what BCG call a **rational conjectures** equilibrium in which conjectures are about
 equilibrium pricing functions in regions of the state space that  an average consumer or firm does not visit in equilibrium.
 
+Note that the absence of complete markets means that we can compute competitive equilibrium prices and allocations by first solving
+the simple planning problem that we did in :doc:`BCG_complete_mkts`.
 
+Instead, we compute an equilibrium by solving a system of simultaneous inequalities.
+
+(Here we do not address the interesting question of whether there is a *different* planning problem that we could use to compute a 
+competitive equlibrium allocation.)
 
 
 Setup
@@ -196,17 +202,26 @@ Where :math:`\alpha \in (0,1)` and :math:`A >0`
 
 where :math:`f(k) = A k^\alpha, A >0, \alpha \in (0,1)`.
 
+ 
 
-Shock distribution:
--------------------
+Parameterizations
+-------------------------
 
-Sometimes we assume that
+Following BCG, we shall employ the following parameterizations:
 
-.. math::  \epsilon \sim g(\epsilon) = {\mathcal N}(0,1) 
+.. math::
 
-Other times, for compuatational purposes in our Python code, we’ll
-instead assume that :math:`g(\cdot)` is a probability mass function that
-serves as a discrete approximation to a standardized normal density.
+    \begin{aligned}
+   \epsilon & \sim {\mathcal N}(\mu, \sigma^2) \cr
+   u(c) & = \frac{c^{1-\gamma}}{1 - \gamma} \cr
+   w_1^i(\epsilon) & = e^{- \chi_i \mu - .5 \chi_i^2 \sigma^2 + \chi_i \epsilon} , \quad \chi_i \in [0,1] 
+   \end{aligned} 
+
+
+Sometimes instead of asuming :math:`\epsilon \sim g(\epsilon) = {\mathcal N}(0,\sigma^2)`,
+we’ll assume that :math:`g(\cdot)` is a probability
+mass function that serves as a discrete approximation to a standardized
+normal density.  
 
 Preferences:
 ------------
@@ -411,9 +426,9 @@ The two price functions describe outcomes not only for equilibrium choices
 
 The firm is assumed to know both price functions.
 
-This means that the firm understands that its choice of :math:`k,b` influences how markets price equity and debt.
+This means that the firm understands that its choice of :math:`k,b` influences how markets price its equity and debt.
 
-The package of assumptions just described is sometimes called  **rational conjectures** (about price functions).
+This package of assumptions is sometimes called  **rational conjectures** (about price functions).
 
 BCG give credit to Makowski for emphasizing and clarifying how rational conjectures are components of  rational expectations equilibria.
 
@@ -542,7 +557,7 @@ conditions equal to the big :math:`K`, big :math:`B` at the big
 :math:`C`\ ’s that appear in the pricing functions, then
 
 - households’ Euler equations are satisfied if little :math:`c`\ ’s are
-  equated to those Big C’s
+  equated to  Big C’s
 
 - firms’ first-order necessary conditions for :math:`k, b` are
   satisfied.
@@ -691,7 +706,7 @@ We create a Python class ``BCG_incomplete_markets`` to compute the
 equilibrium allocations of the incomplete market BCG model, given a set
 of parameter values.
 
-The class includes the following methods i.e., functions:
+The class includes the following methods,  i.e., functions:
 
 - ``solve_eq``: solves the BCG model and returns the equilibrium values
   of capital :math:`k`, debt :math:`b` and firm value :math:`V`, as
@@ -712,20 +727,20 @@ The class includes the following methods i.e., functions:
 
 Parameters include:
 
-- :math:`\chi_1`, :math:`\chi_2`: The correlation parameter for agent 1
+- :math:`\chi_1`, :math:`\chi_2`:  correlation parameter for agent 1
   and 2. Default values are respectively 0 and 0.9.
-- :math:`w^1_0`, :math:`w^2_0`: The initial endowments. Default values
+- :math:`w^1_0`, :math:`w^2_0`:  initial endowments. Default values
   are respectively 0.9 and 1.1.
-- :math:`\theta^1_0`, :math:`\theta^2_0`: The initial holding of the
+- :math:`\theta^1_0`, :math:`\theta^2_0`:  initial holding of the
   firm. Default values are 0.5.
-- :math:`\psi`: The risk parameter. The default value is 3.
-- :math:`\alpha`: The Production function parameter. The default value
+- :math:`\psi`:  risk parameter. Default value is 3.
+- :math:`\alpha`: Production function parameter. Default value
   is 0.6.
-- :math:`A`: The productivity of the firm. Default value is 2.5.
-- :math:`\mu`, :math:`\sigma`: The mean and standard deviation of the
+- :math:`A`: Productivity of the firm. Default value is 2.5.
+- :math:`\mu`, :math:`\sigma`: Mean and standard deviation of the
   shock distribution. Default values are respectively -0.025 and 0.4
-- :math:`\beta`: The discount factor. The default value is 0.96.
-- bound: The bound for truncated normal distribution. Default is 3.
+- :math:`\beta`: Discount factor. Default value is 0.96.
+- bound: Bound for truncated normal distribution. Default value is 3.
 
 .. code-block:: ipython
 

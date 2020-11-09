@@ -133,18 +133,7 @@ A consumer of type :math:`i` orders period :math:`0` consumption
    \log c & \textrm{if  } \gamma = 1
    \end{cases}
 
-Shock distribution:
--------------------
-
-Sometimes we assume that
-
-.. math::  \epsilon \sim g(\epsilon) = {\mathcal N}(0,1) 
-
-At other times, we’ll instead assume that :math:`g(\cdot)` is a probability
-mass function that serves as a discrete approximation to a standardized
-normal density.   
-
-Example parameterizations
+Parameterizations
 -------------------------
 
 Following BCG, we shall employ the following parameterizations:
@@ -154,8 +143,14 @@ Following BCG, we shall employ the following parameterizations:
     \begin{aligned}
    \epsilon & \sim {\mathcal N}(\mu, \sigma^2) \cr
    u(c) & = \frac{c^{1-\gamma}}{1 - \gamma} \cr
-   w_1^i & = e^{- \chi_i \mu - .5 \chi_i^2 \sigma^2 + \chi \epsilon} , \quad \chi_i \in [0,1] 
+   w_1^i(\epsilon) & = e^{- \chi_i \mu - .5 \chi_i^2 \sigma^2 + \chi_i \epsilon} , \quad \chi_i \in [0,1] 
    \end{aligned} 
+
+
+Sometimes instead of asuming :math:`\epsilon \sim g(\epsilon) = {\mathcal N}(0,\sigma^2)`,
+we’ll assume that :math:`g(\cdot)` is a probability
+mass function that serves as a discrete approximation to a standardized
+normal density.   
 
 Pareto criterion and planning problem
 -------------------------------------
@@ -244,7 +239,7 @@ Consequently, we can write the planner’s first-order condition for
 .. math::
 
     1 =  \beta \alpha A k^{\alpha -1} \int \left( \frac{w_1(\epsilon) + A k^\alpha e^\epsilon}
-                       {w_0 - k } \right)^{-\gamma} g(\epsilon) d \epsilon 
+                       {w_0 - k } \right)^{-\gamma} e^\epsilon g(\epsilon) d \epsilon 
 
 which is one equation to be solved for :math:`k \geq 0`.
 
@@ -256,7 +251,7 @@ that solves the preceding equation so that
     :label: focke
 
      1 =  \beta \alpha A K^{\alpha -1} \int \left( \frac{w_1(\epsilon) + A K^\alpha e^\epsilon}
-                        {w_0 - K } \right)^{-\gamma} g(\epsilon) d \epsilon
+                        {w_0 - K } \right)^{-\gamma} g(\epsilon) e^\epsilon d \epsilon
 
 
 The associated optimal consumption allocation is
@@ -319,7 +314,9 @@ We follow BCG in assuming that there are  unit measures of
   random state :math:`\epsilon`
 
 Thus, let :math:`\omega \in [0,1]` index a particular consumer of type
-:math:`i`. Then define Big :math:`C^i` as
+:math:`i`. 
+
+Then define Big :math:`C^i` as
 
 .. math::  C^i = \int_0^1 c^i(\omega) d \, \omega 
 
@@ -405,7 +402,7 @@ Let
 - :math:`q(\epsilon)` be a pricing kernel for one-period Arrow
   securities
 
-- :math:`\theta_0^i \geq 0` be consumer :math:`i`s intial share of
+- :math:`\theta_0^i \geq 0` be consumer :math:`i`\'s intial share of
   the firm, :math:`\sum_i \theta_0^i =1`
 
 - :math:`\theta^i` be the fraction of a firm’s shares purchased by
@@ -472,7 +469,7 @@ We now pose a consumer’s problem in a competitive equilibrium.
 
 As a price taker, each consumer faces a given Arrow securities pricing kernel
 :math:`q(\epsilon)`, a given value of a firm :math:`V` that has chosen capital stock :math:`k`, a price of
-equity :math:`\tilde V`, and  prospective random dividends next period :math:`A k^\alpha e^\epsilon`.
+equity :math:`\tilde V`, and  prospective next period random dividends  :math:`A k^\alpha e^\epsilon`.
 
 Consumer :math:`i` also confronts a state-by-state borrowing limit that restricts quantities of Arrow securities that he can issue.
 
@@ -528,7 +525,7 @@ then  form the Lagrangian
              \theta^i \tilde V - c_0^i ] \cr
          & + \beta \int \lambda_1^i(\epsilon) [ w_1^i(\epsilon) + \theta^i A k^\alpha e^\epsilon
               + a^i(\epsilon) c_1^i(\epsilon) ] g(\epsilon) d \epsilon \cr
-         & + \beta \int \phi_1^i(\epsilon)  [ - \bar a^i(\epsilon; \theta^i) - a^i(\epsilon) ]    g(\epsilon) d \epsilon
+         & + \beta \int \phi_1^i(\epsilon)  [ - \bar a^i(\epsilon; \theta^i) + a^i(\epsilon) ]    g(\epsilon) d \epsilon
    \end{aligned} 
 
 Off corners, first-order necessary conditions for an optimum with respect to
@@ -620,7 +617,7 @@ equals the value of the state-contingent dividends
 
 We'll say more about this equation later.
 
-**2. Indeterminacy of** :math:`\theta^i`**:**
+**2. Indeterminacy of portfolio**
 
 When the no-arbitrage pricing equation :eq:`tildeV20`
 prevails, a consumer of type :math:`i`\ ’s choice :math:`\theta^i` of equity is
@@ -802,7 +799,7 @@ It consists of 4 functions that do the following things:
   - Then for each value of capital stock in the grid, compute the left side of the planner's
     first-order necessary condition for  :math:`k`, that is,
 
-    .. math:: \beta \alpha A K^{\alpha -1} \int \left( \frac{w_1(\epsilon) + A K^\alpha e^\epsilon}{w_0 - K } \right)^{-\gamma} g(\epsilon) d \epsilon  - 1 =0
+    .. math:: \beta \alpha A K^{\alpha -1} \int \left( \frac{w_1(\epsilon) + A K^\alpha e^\epsilon}{w_0 - K } \right)^{-\gamma} e^\epsilon g(\epsilon) d \epsilon  - 1 =0
 
   -  Find :math:`k` that solves this equation.
 
