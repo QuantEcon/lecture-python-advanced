@@ -61,14 +61,14 @@ There are two types of consumers named :math:`i=1,2`.
 
 A scalar random variable :math:`\epsilon` with probability density :math:`g(\epsilon)` affects both
 
-- the physical return in period :math:`1` from investing
-  :math:`k \geq 0` in capital in period :math:`0`.
+- the  return in period :math:`1` from investing
+  :math:`k \geq 0` in physical capital in period :math:`0`.
 
 - exogenous period :math:`1` endowments of the consumption good for
   agents of types :math:`i =1` and :math:`i=2`.
 
 Type :math:`i=1` and :math:`i=2` agents’ period :math:`1` endowments are
-correlated with the physical return on capital in different ways.
+correlated with the  return on physical capital in different ways.
 
 We discuss two arrangements:
 
@@ -110,7 +110,7 @@ Where :math:`\alpha \in (0,1)` and :math:`A >0`
 .. math::
 
     \begin{aligned}
-    c_0^1 + c_0^2 & = w_0^1 + w_0^2 - k \cr
+    c_0^1 + c_0^2 + k & = w_0^1 + w_0^2  \cr
     c_1^1(\epsilon) + c_1^2(\epsilon) & =  w_1^1(\epsilon) + w_1^2(\epsilon) + e^\epsilon A k^\alpha, \quad k \geq 0
    \end{aligned} 
 
@@ -321,12 +321,12 @@ We follow BCG in assuming that there are  unit measures of
 Thus, let :math:`\omega \in [0,1]` index a particular consumer of type
 :math:`i`. Then define Big :math:`C^i` as
 
-.. math::  C^i = \int c^i(\omega) d \, \omega 
+.. math::  C^i = \int_0^1 c^i(\omega) d \, \omega 
 
 In the same spirit, let :math:`\zeta \in [0,1]` index a particular firm.
 Then define Big :math:`K` as
 
-.. math::  K = \int k(\zeta) d \, \zeta 
+.. math::  K = \int_0^1 k(\zeta) d \, \zeta 
 
 The assumption that there are continua of our three types of
 agents plays an important role making each individual agent into a
@@ -369,7 +369,7 @@ where
    \sum_i w_1^i(\epsilon) & = w_1(\epsilon)
    \end{aligned} 
 
-Consumers also own shares in  a firm that operates the technology for converging
+Consumers also own shares in  a firm that operates the technology for converting
 nonnegative amounts of the time :math:`0` consumption good one-for-one
 into a capital good :math:`k` that produces
 :math:`A k^\alpha e^\epsilon` units of the time :math:`1` consumption good
@@ -476,7 +476,7 @@ equity :math:`\tilde V`, and  prospective random dividends next period :math:`A 
 
 Consumer :math:`i` also confronts a state-by-state borrowing limit that restricts quantities of Arrow securities that he can issue.
 
-If we evaluate consumer :math:`i`'s time :math:`1` budget constraint at zero consumption :math:`c^i(\epsilon) = 0` and solve for :math:`-a^i(\epsilon)`
+If we evaluate consumer :math:`i`'s time :math:`1` budget constraint at zero consumption :math:`c^i_1(\epsilon) = 0` and solve for :math:`-a^i(\epsilon)`
 we obtain 
 
 .. math:: 
