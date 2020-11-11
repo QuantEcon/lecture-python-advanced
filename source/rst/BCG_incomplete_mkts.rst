@@ -321,7 +321,7 @@ firm, where :math:`\theta^1_0 + \theta^2_0 = 1`.
 The initial value of a representative firm is :math:`V` (an object to be
 determined in a rational expectations equilibrium).
 
-Household :math:`i` buys :math:`\theta^i` shares of equity and buys bonds
+Consumer :math:`i` buys :math:`\theta^i` shares of equity and buys bonds
 worth :math:`\check p \xi^i` where :math:`\check p` is the bond price.
 
 Being a price-taker, a consumer takes :math:`V`, :math:`\check q`, :math:`\check p`, and :math:`K, B`
@@ -339,7 +339,7 @@ Consumers know that equilibrium payoff functions for bonds and equities take the
 
   
 
-Household :math:`i`\ ’s optimization problem is
+Consumer :math:`i`\ ’s optimization problem is
 
 .. math::
 
@@ -351,12 +351,12 @@ Household :math:`i`\ ’s optimization problem is
    & \theta^i \geq 0, \xi^i \geq 0.
    \end{aligned} 
 
-The last two inequalities impose that the household cannot short sell either
+The last two inequalities impose that the consumer cannot short sell either
 equity or bonds.
 
 In a rational expectations equilibrium, :math:`\check q = q(K,B)` and :math:`\check p = p(K,B)`
 
-We form household :math:`i`\ ’s Lagrangian:
+We form consumer :math:`i`\ ’s Lagrangian:
 
 .. math::
 
@@ -366,7 +366,7 @@ We form household :math:`i`\ ’s Lagrangian:
         & +  \beta \int \lambda^i_1(\epsilon) \left[ w^i_1(\epsilon) + \theta^i d^e(K,B;\epsilon) + \xi^i d^b(K,B;\epsilon) - c^i_1(\epsilon) \right] g(\epsilon) \ d\epsilon
    \end{aligned} 
 
-Household :math:`i`\ ’s first-order necessary conditions for an optimum
+Consumer :math:`i`\ ’s first-order necessary conditions for an optimum
 include:
 
 .. math::
@@ -378,7 +378,7 @@ include:
    \xi^i:& \quad \beta \int \lambda^i_1(\epsilon) d^b(K,B;\epsilon) g(\epsilon) \ d\epsilon \leq \lambda^i_0 \check p \quad (= \ \ \text{if} \ \ b^i>0) \\
    \end{aligned} 
 
-We can combine and rearrange household :math:`i`\ ’s first-order
+We can combine and rearrange consumer :math:`i`\ ’s first-order
 conditions to become:
 
 .. math::
@@ -556,7 +556,7 @@ little :math:`k`, little :math:`b` from the firm’s first-order
 conditions equal to the big :math:`K`, big :math:`B` at the big
 :math:`C`\ ’s that appear in the pricing functions, then
 
-- households’ Euler equations are satisfied if little :math:`c`\ ’s are
+- consumers’ Euler equations are satisfied if little :math:`c`\ ’s are
   equated to  Big C’s
 
 - firms’ first-order necessary conditions for :math:`k, b` are
@@ -590,7 +590,7 @@ Here goes:
    effect temporarily treating them as Big :math:`K,B` values. Thus, in
    this step 6 little k, b are frozen at guessed at value of K, B.)
    Fixing the values of :math:`V`, :math:`b` and :math:`k`, compute
-   optimal choices of consumption :math:`c^i` with households’ FOCs.
+   optimal choices of consumption :math:`c^i` with consumers’ FOCs.
    Assume that only agent 2 holds debt: :math:`\xi^2 = b` and that both agents
    hold equity: :math:`0 <\theta^i < 1` for :math:`i=1,2`.
 
