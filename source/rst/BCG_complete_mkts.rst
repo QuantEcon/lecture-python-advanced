@@ -5,7 +5,7 @@
 .. highlight:: python3
 
 ****************************************************************
-Irrelevance of Capital Structures with Complete Markets
+Irrelevance of Capital Structure with Complete Markets
 ****************************************************************
 
 .. contents:: :depth: 2
@@ -408,8 +408,6 @@ Let
 - :math:`\theta^i` be the fraction of a firm’s shares purchased by
   consumer :math:`i` at time :math:`t=0`
 
-- :math:`- \bar a^i(\epsilon; \theta^i)` be debt limits constraining consumer :math:`i` \' s issues of claims
-  on time :math:`1` consumption in state :math:`\epsilon`
 
 - :math:`V` be the value of the representative firm
 
@@ -471,8 +469,6 @@ As a price taker, each consumer faces a given Arrow securities pricing kernel
 :math:`q(\epsilon)`, a given value of a firm :math:`V` that has chosen capital stock :math:`k`, a price of
 equity :math:`\tilde V`, and  prospective next period random dividends  :math:`A k^\alpha e^\epsilon`.
 
-Consumer :math:`i` also confronts a state-by-state borrowing limit that restricts quantities of Arrow securities that he can issue.
-
 If we evaluate consumer :math:`i`'s time :math:`1` budget constraint at zero consumption :math:`c^i_1(\epsilon) = 0` and solve for :math:`-a^i(\epsilon)`
 we obtain 
 
@@ -484,24 +480,20 @@ we obtain
 The quantity :math:`- \bar a^i(\epsilon;\theta^i)` is the maximum amount that it is feasible for  consumer :math:`i` to repay to 
 his Arrow security creditors at time :math:`1` in state :math:`\epsilon`.
 
-To arrange trading with one-period Arrow securities, we must impose on agent :math:`i` the state-by-state debt limits
-
-.. math:: -a^i(\epsilon) \leq -  \bar a^i(\epsilon;\theta^i)
-
-Notice that consumer :math:`i`'s borrowing limit defined in :eq:`debtlimit` depends on
+Notice that :math:`-\bar a^i(\epsilon;\theta^i)` defined in :eq:`debtlimit` depends on
 
 * his endowment :math:`w_1^i(\epsilon)` at time :math:`1` in state :math:`\epsilon` 
 
 * his share :math:`\theta^i` of a representive firm's dividends
 
-These constitute the two sources of **collateral** that back the consumer's issues of Arrow securities that pay off in state :math:`\epsilon`
+These constitute  two sources of **collateral** that back the consumer's issues of Arrow securities that pay off in state :math:`\epsilon`
 
 Consumer :math:`i` chooses a scalar :math:`c_0^i` and a function
 :math:`c_1^i(\epsilon)` to maximize
 
 .. math::  u(c_0^i) + \beta \int u(c_1^i(\epsilon)) g (\epsilon) d \epsilon 
 
-subject to his state-by-state debt limits and  time :math:`0` and time :math:`1` budget constraints
+subject to  time :math:`0` and time :math:`1` budget constraints
 
 .. math::
 
@@ -511,10 +503,9 @@ subject to his state-by-state debt limits and  time :math:`0` and time :math:`1`
    \end{aligned} 
 
 Attach Lagrange multiplier :math:`\lambda_0^i` to the budget constraint
-at time :math:`0`,  scaled Lagrange multiplier
+at time :math:`0` and scaled Lagrange multiplier
 :math:`\beta \lambda_1^i(\epsilon) g(\epsilon)` to the budget constraint
-at time :math:`1` and state :math:`\epsilon`, and scaled Lagrange multiplier
-:math:`\beta \phi_1^i(\epsilon) g(\epsilon)` to the debt limit  at time :math:`1` and state :math:`\epsilon`,
+at time :math:`1` and state :math:`\epsilon`,
 then  form the Lagrangian
 
 .. math::
@@ -524,8 +515,7 @@ then  form the Lagrangian
         & + \lambda_0^i [ w_0^i + \theta_0^i - \int q(\epsilon) a^i(\epsilon) d \epsilon -
              \theta^i \tilde V - c_0^i ] \cr
          & + \beta \int \lambda_1^i(\epsilon) [ w_1^i(\epsilon) + \theta^i A k^\alpha e^\epsilon
-              + a^i(\epsilon) c_1^i(\epsilon) ] g(\epsilon) d \epsilon \cr
-         & + \beta \int \phi_1^i(\epsilon)  [ - \bar a^i(\epsilon; \theta^i) + a^i(\epsilon) ]    g(\epsilon) d \epsilon
+              + a^i(\epsilon) c_1^i(\epsilon) ] g(\epsilon) d \epsilon 
    \end{aligned} 
 
 Off corners, first-order necessary conditions for an optimum with respect to
