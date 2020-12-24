@@ -21,4 +21,5 @@ These lectures look at important concepts in time series that are used in econom
     additive_functionals
     lu_tricks
     classical_filtering
+    knowing_forecasts_of_others
 
