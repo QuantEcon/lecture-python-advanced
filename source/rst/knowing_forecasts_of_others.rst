@@ -14,10 +14,10 @@ Knowing the Forecasts of Others
 
 
 :cite:`lucas75`, :cite:`kasa`, and
-:cite:`townsend` demonstrated that the assumption that
-decision makers have incentives to infer hidden persistent state
+:cite:`townsend` demonstrated that arranging for 
+decision makers to have incentives to infer hidden persistent state
 variables from equilibrium prices and quantities is a potential source
-both for additional impulses and for elongated impulse response
+of  elongated impulse response
 functions in business cycle models. :cite:`townsend`
 indicated that models that incorporate such incentives can naturally
 induce decision makers in effect to forecast the forecast of others.
@@ -26,20 +26,20 @@ decision maker’s imperfect information forces them into pursuing an
 infinite recursion of forming beliefs about the beliefs of other
 (e.g., :cite:`ams`).
 
-:cite:`lucas75` side stepped the problem of forecasting the
-forecasts of others by assuming that decision makers pool their
-information before forecasting. Because he didn’t assume such pooling,
+:cite:`lucas75` side stepped having decision makers forecast the
+forecasts of other decision makers by assuming that they simply pool their
+information before forecasting. Because he didn’t assume such pooling, :cite:`townsend`
 confronted the forecasting the forecasts of others problem. However,
-that led to what he thought was an intractable state space. That led him
+that led to what he thought was an intractable, infinite dimensional  state space. That led him
 to proposed more manageable model that he argued could do a good job of
 approximating the intractable model.
 
 By applying technical machinery of :cite:`PCL`,
-:cite:`PS2005` showed that there is a recursive
+:cite:`Pearlman_Sargent2005` showed that there is a recursive
 representation of the equilibrium of the perpetually and symmetrically
 uninformed model formulated but not completely solved in section 8 of
-:cite:`townsend`. Their computational method is recursive:
-it combines the Kalman filter with invariant subspace methods for
+:cite:`townsend`. The computational method of :cite:`Pearlman_Sargent2005` is recursive:
+it enlists the Kalman filter and invariant subspace methods for
 solving systems of Euler
 equations [#footnote1]_ . As :cite:`singleton`,
 :cite:`kasa`, and :cite:`sargent91` also
@@ -52,6 +52,9 @@ sets [#footnote2]_ . The disappearance of higher order beliefs means that
 decision makers in this model do not really face a problem of
 forecasting the forecasts of others. They know those forecasts because
 they are the same as their own.
+
+
+**Tom:** Lots of repitition here.
 
 The presence of a common hidden state variable is the only thing that
 inspires decision makers in one market to condition their decisions on
@@ -69,6 +72,10 @@ Instead he constructed another model and computed its equilibrium. To
 construct this model he assumed that after a finite number :math:`j`
 periods, the (lagged) value of the key hidden state variable is revealed
 to the decision maker.
+
+
+
+
 
 :cite:`sargent91` proposed a way to compute an equilibrium
 without making Townsend’s approximation. Extending the reasoning of
@@ -89,7 +96,7 @@ compute an equilibrium.
 Our recursive computational method, which stays in the time domain, also
 discovers the appropriate orders of the autoregressive and moving
 average pieces. In addition, by displaying equilibrium representations
-in the form of :cite:`PCL`, :cite:`PS2005`
+in the form of :cite:`PCL`, :cite:`Pearlman_Sargent2005`
 showed how the moving average piece is linked to the innovation process
 of the hidden persistent component of the demand shock. That scalar
 innovation process is the additional state variable contributed by the
@@ -194,7 +201,7 @@ observe :math:`\theta_t + \epsilon_t^{-i}`.
 Punch line
 ============
 
-Nevertheless it turns out that in the **pooling equilibrium** that
+Nevertheless it turns out that in the equilibrium that
 ultimately interests us, a firm in industry :math:`i` will be able to
 infer the composite shock :math:`\theta_t + \epsilon_t^{-i}` from the
 history of random variables that it observes at :math:`t`.
@@ -204,7 +211,7 @@ We shall proceed to establish this result and others in steps.
 Strategy
 -----------
 
-To prepare to compute a pooling equilibrium, we shall first compute
+We shall  compute
 equilibrium laws of motion for capital in industry :math:`i` under a
 sequence of assumptions about what a representative firm observes.
 
@@ -1216,9 +1223,9 @@ end of Quentin request 2
 
 .. rubric:: Footnotes
 
-.. [#footnote1]  See :cite:`AHMS1996` for an account of invariant subspace methods. :cite:`ahms`
+.. [#footnote1]  See :cite:`ahms` for an account of invariant subspace methods. 
 
-.. [#footnote2]  See :cite:`AHMS1996` for a discussion
+.. [#footnote2]  See :cite:`ahms` for a discussion
       of the information assumptions needed to create a situation
       in which higher order beliefs appear in equilibrium decision rules.  The way
       to read our findings in light of :cite:`ams` is that Townsend's
