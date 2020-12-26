@@ -13,108 +13,15 @@ Knowing the Forecasts of Others
 .. contents:: :depth: 2
 
 
-:cite:`lucas75`, :cite:`kasa`, and
-:cite:`townsend` demonstrated that arranging for 
-decision makers to have incentives to infer hidden persistent state
-variables from equilibrium prices and quantities is a potential source
-of  elongated impulse response
-functions in business cycle models. :cite:`townsend`
-indicated that models that incorporate such incentives can naturally
-induce decision makers in effect to forecast the forecast of others.
-This theme has been pursued and extended in recent analyses in which
-decision maker’s imperfect information forces them into pursuing an
-infinite recursion of forming beliefs about the beliefs of other
-(e.g., :cite:`ams`).
-
-:cite:`lucas75` side stepped having decision makers forecast the
-forecasts of other decision makers by assuming that they simply pool their
-information before forecasting. Because he didn’t assume such pooling, :cite:`townsend`
-confronted the forecasting the forecasts of others problem. However,
-that led to what he thought was an intractable, infinite dimensional  state space. That led him
-to proposed more manageable model that he argued could do a good job of
-approximating the intractable model.
-
-By applying technical machinery of :cite:`PCL`,
-:cite:`Pearlman_Sargent2005` showed that there is a recursive
-representation of the equilibrium of the perpetually and symmetrically
-uninformed model formulated but not completely solved in section 8 of
-:cite:`townsend`. The computational method of :cite:`Pearlman_Sargent2005` is recursive:
-it enlists the Kalman filter and invariant subspace methods for
-solving systems of Euler
-equations [#footnote1]_ . As :cite:`singleton`,
-:cite:`kasa`, and :cite:`sargent91` also
-found, the equilibrium is fully revealing: observed prices tell
-participants in industry :math:`i` all of the information held by
-participants in market :math:`-i` (:math:`-i` means not :math:`i`). This
-means that higher-order beliefs play no role: seeing equilibrium prices
-in effect lets decision makers pool their information
-sets [#footnote2]_ . The disappearance of higher order beliefs means that
-decision makers in this model do not really face a problem of
-forecasting the forecasts of others. They know those forecasts because
-they are the same as their own.
-
-
-**Tom:** Lots of repitition here.
-
-The presence of a common hidden state variable is the only thing that
-inspires decision makers in one market to condition their decisions on
-the history of prices in the other market.
-
-:cite:`townsend` noted that in his model with perpetually
-and symmetrically uninformed decision makers, the dimension of the state
-space seemed to explode because it seemed to be necessary for decision
-makers to keep track of an infinite history of vectors of observables.
-
-That *curse of dimensionality* deterred Townsend from characterizing or
-computing an equilibrium of that model.
-
-Instead he constructed another model and computed its equilibrium. To
-construct this model he assumed that after a finite number :math:`j`
-periods, the (lagged) value of the key hidden state variable is revealed
-to the decision maker.
-
-
-
-
-
-:cite:`sargent91` proposed a way to compute an equilibrium
-without making Townsend’s approximation. Extending the reasoning of
-:cite:`muth1960`, Sargent noticed that it is possible to
-summarize the relevant history with a low dimensional object, namely, a
-small number of current and lagged forecasting errors. Positing an
-equilibrium in a space of perceived laws of motion for endogenous
-variables that takes the form of a vector autoregressive, moving
-average, Sargent described an equilibrium as a fixed point of a mapping
-from the perceived law of motion to the actual law of motion of that
-form. Sargent worked in the time domain and had to guess and verify the
-appropriate orders of the autoregressive and moving average pieces of
-the equilibrium representation. However, by working in the frequency
-domain :cite:`kasa` showed how to discover the appropriate
-orders of the autoregressive and moving average parts, and also how to
-compute an equilibrium.
-
-Our recursive computational method, which stays in the time domain, also
-discovers the appropriate orders of the autoregressive and moving
-average pieces. In addition, by displaying equilibrium representations
-in the form of :cite:`PCL`, :cite:`Pearlman_Sargent2005`
-showed how the moving average piece is linked to the innovation process
-of the hidden persistent component of the demand shock. That scalar
-innovation process is the additional state variable contributed by the
-problem of extracting a signal from equilibrium prices that decision
-makers face in Townsend’s model.
-
-**Tom**: CONSOLIDATE AND EDIT ABOVE AND BRING SOME OF IT TO CONCLUDING
-SECTION
-
 This lecture describes a model of two industries that are linked in a
 single way: shocks to the demand curves for their products have a common
 component.
 
-We shall decompose the model into components that we shall then put
-together in several ways that help us appreciate the structure of the
-**pooling equilibrium** model that ultimately concerns us.
+We proceed by decomposing the model into components that we shall then put
+together in several ways that help us appreciate the structure of a
+**pooling equilibrium**  that ultimately concerns us.
 
-While keeping other aspects of the model the same, we shall to study
+While keeping other aspects of the model the same, we shall study
 consequences of alternative assumptions about what decision makers
 observe.
 
@@ -202,7 +109,7 @@ Punch line
 ============
 
 Nevertheless it turns out that in the equilibrium that
-ultimately interests us, a firm in industry :math:`i` will be able to
+ultimately interests us, a firm in industry :math:`i` 
 infer the composite shock :math:`\theta_t + \epsilon_t^{-i}` from the
 history of random variables that it observes at :math:`t`.
 
@@ -278,7 +185,7 @@ we call a **pooling equilibrium**
 
 We want ultimately to compare outcomes in such a *pooling equilibrium*
 with an equilibrium under the following information structure for a firm
-in industry :math:`i` that interested Townsend:
+in industry :math:`i` that interested :cite:`townsend`: 
 
 -  **Firm** :math:`i`\ ’s **noise-ridden signal on** :math:`\theta_t` **and the
    price in industry** :math:`-i`**:** At time :math:`t`, a firm in industry
@@ -286,17 +193,13 @@ in industry :math:`i` that interested Townsend:
    on :math:`\theta_t` and a history of industry :math:`-i`\ ’s price is
    observed.
 
-XXXX **Tom revise and move stuff below** match the equilibrium that we
-seek because equilibrium prices in that equilibrium completely reveal to
-firms in industry :math:`i` the noisy signal about the demand shock
-received by firms in industry :math:`-i`.
+It will turn out that   equilibrium prices and quantities in this equilibrium equal
+their counterparts in the pooling equilibrium because 
+firms in industry :math:`i` are able to infer the noisy signal about the demand shock
+received by firms in industry :math:`-i`.  
 
-In this way, we construct benchmarks against which we can interpret an
-equilibrium to under the following informatin structure:
+We shall verify this assertion eventually by computing some population projections.
 
-Townsend’s model XXX that we shall compute in section
-:eq:`PCL2` by applying the machinery of
-:cite:`PCL`.
 
 Equilibrium conditions
 =======================
@@ -677,17 +580,14 @@ signal :math:`w_t` on :math:`\theta_t` at :math:`t`, we can represent an
 equilibrium law of motion for :math:`k_t^i` as
 
 .. math::
+    :label: sol0a
 
       \begin{aligned}
-      k_{t+1}^i & =  \tilde \lambda k_t^i + {1 \over \lambda - \rho}
-      \hat \theta_{t+1} \label{sol4;a} \\
-      \hat \theta_{t+1} & =  \rho \theta_t + {\rho p \over p + \sigma_e^2} e_t
-         - {\rho \sigma_e^2 \over p + \sigma_e^2} \tilde \theta_t
-      \label{sol4;b} \\
+      k_{t+1}^i & =  \tilde \lambda k_t^i + {1 \over \lambda - \rho}   \hat \theta_{t+1}  \\
+      \hat \theta_{t+1} & =  \rho \theta_t + {\rho p \over p + \sigma_e^2} e_t - {\rho \sigma_e^2 \over p + \sigma_e^2} \tilde \theta_t  \\
       \tilde \theta_{t+1} & = { \rho \sigma_e^2 \over p + \sigma_e^2} \tilde
-         \theta_t - {p \rho \over p + \sigma_e^2} e_t + v_t
-      \label{sol4;c} \\
-      \theta_{t+1} & =  \rho \theta_t + v_t .  \label{sol4;d} \end{aligned}
+         \theta_t - {p \rho \over p + \sigma_e^2} e_t + v_t  \\
+      \theta_{t+1} & =  \rho \theta_t + v_t .  \end{aligned}
 
 Two noisy signals
 --------------------
@@ -769,22 +669,107 @@ motion for capital recursively as
       \tilde \theta_{t+1} & =  { \rho \sigma_e^2 \over 2 p + \sigma_e^2} \tilde  \theta_t - {p \rho \over 2 p + \sigma_e^2}(e_{1t}+e_{2t}) +v_t \\
       \theta_{t+1} & =  \rho \theta_t + v_t . 
        \end{aligned}
-:cite:`Pearlman_Sargent2005` verify that the above representation is equivalent
-with what one obtains by using the machinery of :cite:`PCL`.
 
-TOM REWRITE THE FOLLOWING
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We shall encounter versions of precisely these formulae again in section
-:eq:`PCL2` where we compute the equilibrium of Townsend’s
-model in which the representative firm in industry :math:`i` receives a
-second noisy signal on :math:`\theta_t` by inferring it from
-:math:`P_t^{-i}` and the other information that it has at time
-:math:`t`. By extracting signals from the endogenous state variables, it
-will turn out that the firm recovers exactly the same process for the
-key additional state variable, the state reconstruction error
-:math:`\tilde \theta_t`, that imperfect information contributes to the
-dynamics.
+Below  we shall show that outcomes in this  **pooling equilibrium** equal those in XXXXX
+
+We do this by using a sneaky guess and verify procedure.  
+
+ 
+:cite:`Pearlman_Sargent2005` verify the same claim by applying   machinery developed by  :cite:`PCL`, a topic
+that we do not take up here. 
+
+
+Related Literature
+===================
+
+:cite:`lucas75`, :cite:`kasa`, and
+:cite:`townsend` demonstrated that arranging for 
+decision makers to have incentives to infer hidden persistent state
+variables from equilibrium prices and quantities is a potential source
+of  elongated impulse response
+functions in business cycle models. :cite:`townsend`
+indicated that models that incorporate such incentives can naturally
+induce decision makers in effect to forecast the forecast of others.
+This theme has been pursued and extended in recent analyses in which
+decision maker’s imperfect information forces them into pursuing an
+infinite recursion of forming beliefs about the beliefs of other
+(e.g., :cite:`ams`).
+
+:cite:`lucas75` side stepped having decision makers forecast the
+forecasts of other decision makers by assuming that they simply pool their
+information before forecasting. Because he didn’t assume such pooling, :cite:`townsend`
+confronted the forecasting the forecasts of others problem. However,
+that led to what he thought was an intractable, infinite dimensional  state space. That led him
+to proposed more manageable model that he argued could do a good job of
+approximating the intractable model.
+
+By applying technical machinery of :cite:`PCL`,
+:cite:`Pearlman_Sargent2005` showed that there is a recursive
+representation of the equilibrium of the perpetually and symmetrically
+uninformed model formulated but not completely solved in section 8 of
+:cite:`townsend`. The computational method of :cite:`Pearlman_Sargent2005` is recursive:
+it enlists the Kalman filter and invariant subspace methods for
+solving systems of Euler
+equations [#footnote1]_ . As :cite:`singleton`,
+:cite:`kasa`, and :cite:`sargent91` also
+found, the equilibrium is fully revealing: observed prices tell
+participants in industry :math:`i` all of the information held by
+participants in market :math:`-i` (:math:`-i` means not :math:`i`). This
+means that higher-order beliefs play no role: seeing equilibrium prices
+in effect lets decision makers pool their information
+sets [#footnote2]_ . The disappearance of higher order beliefs means that
+decision makers in this model do not really face a problem of
+forecasting the forecasts of others. They know those forecasts because
+they are the same as their own.
+
+
+The presence of a common hidden state variable is the only thing that
+inspires decision makers in one market to condition their decisions on
+the history of prices in the other market.
+:cite:`townsend` noted that in his model with perpetually
+and symmetrically uninformed decision makers, the dimension of the state
+space seemed to explode because it seemed to be necessary for decision
+makers to keep track of an infinite history of vectors of observables.
+That *curse of dimensionality* deterred Townsend from characterizing or
+computing an equilibrium of that model.
+
+Instead he constructed another model and computed its equilibrium. To
+construct this model he assumed that after a finite number :math:`j`
+periods, the (lagged) value of the key hidden state variable is revealed
+to the decision maker.
+
+
+
+
+
+:cite:`sargent91` proposed a way to compute an equilibrium
+without making Townsend’s approximation. Extending the reasoning of
+:cite:`muth1960`, Sargent noticed that it is possible to
+summarize the relevant history with a low dimensional object, namely, a
+small number of current and lagged forecasting errors. Positing an
+equilibrium in a space of perceived laws of motion for endogenous
+variables that takes the form of a vector autoregressive, moving
+average, Sargent described an equilibrium as a fixed point of a mapping
+from the perceived law of motion to the actual law of motion of that
+form. Sargent worked in the time domain and had to guess and verify the
+appropriate orders of the autoregressive and moving average pieces of
+the equilibrium representation. However, by working in the frequency
+domain :cite:`kasa` showed how to discover the appropriate
+orders of the autoregressive and moving average parts, and also how to
+compute an equilibrium.
+
+Our recursive computational method, which stays in the time domain, also
+discovers the appropriate orders of the autoregressive and moving
+average pieces. In addition, by displaying equilibrium representations
+in the form of :cite:`PCL`, :cite:`Pearlman_Sargent2005`
+showed how the moving average piece is linked to the innovation process
+of the hidden persistent component of the demand shock. That scalar
+innovation process is the additional state variable contributed by the
+problem of extracting a signal from equilibrium prices that decision
+makers face in Townsend’s model.
+
+
 
 System Description
 ==================
@@ -793,12 +778,12 @@ System Description
 .. math::
 
    \begin{aligned}
-      k_{t+1}^{i} & = & \tilde{\lambda}k_{t}^{i}+\frac{1}{\lambda-\rho}\hat{\theta}_{t+1}\\
-      \hat{\theta}_{t+1} & = & \rho\theta_{t}+\frac{\rho p}{2p+\sigma_{e}^{2}}\left(e_{1,t}+e_{2,t}\right)-\frac{\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}}\tilde{\theta}_{t}\\
-      \tilde{\theta}_{t+1} & = & \frac{\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}}\tilde{\theta}_{t}-\frac{p\rho}{2p+\sigma_{e}^{2}}\left(e_{1,t}+e_{2,t}\right)+v_{t}\\
-      \theta_{t+1} & = & \rho\theta_{t}+v_{t}\\
-      e_{1,t},e_{2,t} & \sim & \mathcal{N}\left(0,\sigma_{e}^{2}\right)\\
-      v_{t} & \sim & \mathcal{N}\left(0,\sigma_{v}^{2}\right)
+      k_{t+1}^{i} & =  \tilde{\lambda}k_{t}^{i}+\frac{1}{\lambda-\rho}\hat{\theta}_{t+1}\\
+      \hat{\theta}_{t+1} & =  \rho\theta_{t}+\frac{\rho p}{2p+\sigma_{e}^{2}}\left(e_{1,t}+e_{2,t}\right)-\frac{\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}}\tilde{\theta}_{t}\\
+      \tilde{\theta}_{t+1} & =  \frac{\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}}\tilde{\theta}_{t}-\frac{p\rho}{2p+\sigma_{e}^{2}}\left(e_{1,t}+e_{2,t}\right)+v_{t}\\
+      \theta_{t+1} & =  \rho\theta_{t}+v_{t}\\
+      e_{1,t},e_{2,t} & \sim  \mathcal{N}\left(0,\sigma_{e}^{2}\right)\\
+      v_{t} & \sim  \mathcal{N}\left(0,\sigma_{v}^{2}\right)
    \end{aligned}
 
 where:
@@ -807,10 +792,10 @@ where:
 .. math::
 
    \begin{aligned}
-      \left(\tilde{\lambda}-1\right)\left(\tilde{\lambda}-\frac{1}{\beta}\right) & = & b\tilde{\lambda}\\
-      \left(\lambda-1\right)\left(\lambda-\frac{1}{\beta}\right) & = & b\lambda\\
-      \tilde{\lambda} & \leq & \lambda\\
-      p & = & \sigma_{v}^{2}+\frac{p\rho^{2}\sigma_{e}^{2}}{2p+\sigma_{e}^{2}}
+      \left(\tilde{\lambda}-1\right)\left(\tilde{\lambda}-\frac{1}{\beta}\right) & =  b\tilde{\lambda}\\
+      \left(\lambda-1\right)\left(\lambda-\frac{1}{\beta}\right) & =  b\lambda\\
+      \tilde{\lambda} & \leq  \lambda\\
+      p & =  \sigma_{v}^{2}+\frac{p\rho^{2}\sigma_{e}^{2}}{2p+\sigma_{e}^{2}}
    \end{aligned}
 
 Parameters: :math:`\beta`, :math:`\rho`, :math:`b`, :math:`\sigma_v`,
@@ -872,7 +857,7 @@ Step 3: Represent the system using ``quantecon.LinearStateSpace``
       \hat{\theta}_{t+1}\\
       \tilde{\theta}_{t+1}\\
       \theta_{t+1}
-      \end{array}\right] & = & \underbrace{\left[\begin{array}{cccc}
+      \end{array}\right] & =  \underbrace{\left[\begin{array}{cccc}
       \tilde{\lambda} & 0 & \frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & \frac{\rho}{\lambda-\rho}\\
       0 & 0 & \frac{-\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & \rho\\
       0 & 0 & \frac{\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & 0\\
@@ -892,15 +877,15 @@ Step 3: Represent the system using ``quantecon.LinearStateSpace``
       z_{2,t+1}\\
       z_{3,t+1}
       \end{array}\right]\\
-      G & = & \left[\begin{array}{cccc}
+      G & =  \left[\begin{array}{cccc}
       0 & 0 & 0 & 0\end{array}\right]\\
-      H & = & \left[\begin{array}{c}
+      H & =  \left[\begin{array}{c}
       0\end{array}\right]\\
       \left[\begin{array}{c}
       z_{1,t+1}\\
       z_{2,t+1}\\
       z_{3,t+1}
-      \end{array}\right] & \sim & \mathcal{N}\left(0,I\right)
+      \end{array}\right] & \sim  \mathcal{N}\left(0,I\right)
    \end{aligned}
 
 Initial state:
@@ -919,7 +904,7 @@ System 1
       e_{t}\\
       \tilde{\theta}_{t+1}\\
       \theta_{t+1}
-      \end{array}\right] & = & \underbrace{\left[\begin{array}{cccc}
+      \end{array}\right] & =  \underbrace{\left[\begin{array}{cccc}
       \tilde{\lambda} & 0 & \frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & \frac{\rho}{\lambda-\rho}\\
       0 & 0 & 0 & 0\\
       0 & 0 & \frac{\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & 0\\
@@ -938,14 +923,14 @@ System 1
       z_{1,t+1}\\
       z_{2,t+1}
       \end{array}\right]\\
-      G & = & \left[\begin{array}{cccc}
+      G & =  \left[\begin{array}{cccc}
       b & 1 & 0 & 1\end{array}\right]\\
-      H & = & \left[\begin{array}{c}
+      H & =  \left[\begin{array}{c}
       0\end{array}\right]\\
       \left[\begin{array}{c}
       z_{1,t+1}\\
       z_{2,t+1}
-      \end{array}\right] & \sim & \mathcal{N}\left(0,I\right)
+      \end{array}\right] & \sim  \mathcal{N}\left(0,I\right)
    \end{aligned}
 
 Initial state:
@@ -1133,8 +1118,545 @@ System 2
     G_lss = np.array([[b, 1., 0., 1. ,0.],
                       [b, 1., 0., 0., 1.]])
 
+
+Addons from Quentin sneaky calculation
+========================================
+
+
+System 1
+========
+
+.. math::
+
+    \begin{aligned}
+        \left[\begin{array}{c}
+        e_{t+1}\\
+        k_{t+1}^{i}\\
+        \tilde{\theta}_{t+1}\\
+        P_{t+1}\\
+        \theta_{t+1}\\
+        v_{t+1}
+        \end{array}\right] & = & \underbrace{\left[\begin{array}{cccccc}
+        0 & 0 & 0 & 0 & 0 & 0\\
+        \frac{1}{\lambda-\rho}\frac{\rho p}{p+\sigma_{e}^{2}} & \tilde{\lambda} & \frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{p+\sigma_{e}^{2}} & 0 & \frac{\rho}{\lambda-\rho} & 0\\
+        -\frac{\rho p}{p+\sigma_{e}^{2}} & 0 & \frac{\rho\sigma_{e}^{2}}{p+\sigma_{e}^{2}} & 0 & 0 & 1\\
+        \frac{b}{\lambda-\rho}\frac{\rho p}{p+\sigma_{e}^{2}} & b\tilde{\lambda} & b\frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{p+\sigma_{e}^{2}} & 0 & b\frac{\rho}{\lambda-\rho}+\rho & 1\\
+        0 & 0 & 0 & 0 & \rho & 1\\
+        0 & 0 & 0 & 0 & 0 & 0
+        \end{array}\right]}_{A}\left[\begin{array}{c}
+        e_{t}\\
+        k_{t}^{i}\\
+        \tilde{\theta}_{t}\\
+        P_{t}\\
+        \theta_{t}\\
+        v_{t}
+        \end{array}\right]+\underbrace{\left[\begin{array}{cc}
+        \sigma_{e} & 0\\
+        0 & 0\\
+        0 & 0\\
+        \sigma_{e} & 0\\
+        0 & 0\\
+        0 & \sigma_{v}
+        \end{array}\right]}_{C}\left[\begin{array}{c}
+        z_{1,t+1}\\
+        z_{2,t+1}
+        \end{array}\right]\\
+        G & = & \left[\begin{array}{cccccc}
+        0 & 0 & 0 & 1 & 0 & 0\\
+        1 & 0 & 0 & 0 & 1 & 0\\
+        1 & 0 & 0 & 0 & 0 & 0
+        \end{array}\right]\\
+        H & = & \left[\begin{array}{c}
+        0\\
+        0\\
+        0
+        \end{array}\right]\\
+        \left[\begin{array}{c}
+        z_{1,t+1}\\
+        z_{2,t+1}
+        \end{array}\right] & \sim & \mathcal{N}\left(0,I\right)
+    \end{aligned}
+
+.. code-block:: ipython
+
+    import numpy as np
+    import quantecon as qe
+    from plotly.subplots import make_subplots
+    import plotly.graph_objects as go
+    import plotly.express as px
+    import plotly.offline as pyo
+    from statsmodels.regression.linear_model import OLS
+    
+    
+    pyo.init_notebook_mode(connected=True)
+
+.. code-block:: python3
+
+    β = 0.9  # Discount factor
+    ρ = 0.8  # Persistence parameter for the hidden state
+    b = 1.5  # Demand curve parameter
+    σ_v = 0.5  # Standard deviation of shock to θ_t 
+    σ_e = 0.6  # Standard deviation of shocks to w_t
+
+.. code-block:: python3
+
+    # Compute λ
+    poly = np.array([1, -(1 + β + b) / β, 1 / β])
+    roots_poly = np.roots(poly)
+    λ_tilde = roots_poly.min()
+    λ = roots_poly.max()
+
+.. code-block:: python3
+
+    # Verify that λ = (βλ_tilde) ^ (-1)
+    tol = 1e-12
+    np.max(np.abs(λ - 1 / (β * λ_tilde))) < tol
+
+.. code-block:: python3
+
+    A_ricc = np.array([[ρ]])
+    B_ricc = np.array([[1.]])
+    R_ricc = np.array([[σ_e ** 2]])
+    Q_ricc = np.array([[σ_v ** 2]])
+    N_ricc = np.zeros((1, 1))
+    p = qe.solve_discrete_riccati(A_ricc, B_ricc, Q_ricc, R_ricc, N_ricc).item()
+
+.. code-block:: python3
+
+    # Verify that p = σ_v ^ 2 + p * ρ ^ 2 - (ρ * p) ^ 2 / (p + σ_e ** 2)
+    tol = 1e-12
+    np.abs(p - (σ_v ** 2 + p * ρ ** 2 - (ρ * p) ** 2 / (p + σ_e ** 2))) < tol
+
+.. code-block:: python3
+
+    term_0 = -ρ * σ_e ** 2 / (p + σ_e ** 2)
+    term_1 = ρ * p / (p + σ_e ** 2)
+    
+    A_lss = np.array([[0., 0., 0., 0., 0., 0.],
+                     [term_1 / (λ - ρ), λ_tilde, term_0 / (λ - ρ), 0., ρ / (λ - ρ), 0.],
+                     [-term_1, 0., -term_0, 0., 0., 1.],
+                     [b * term_1 / (λ - ρ) , b * λ_tilde, b * term_0 / (λ - ρ), 0., b * ρ / (λ - ρ) + ρ, 1.],
+                     [0., 0., 0., 0., ρ, 1.],
+                     [0., 0., 0., 0., 0., 0.]])
+    
+    C_lss = np.array([[σ_e, 0.],
+                     [0.,  0.],
+                     [0.,  0.],
+                     [σ_e, 0.],
+                     [0., 0.], 
+                     [0., σ_v]])
+    
+    G_lss = np.array([[0., 0., 0., 1., 0., 0.],
+                     [1., 0., 0., 0., 1., 0.],
+                     [1., 0., 0., 0., 0., 0.]])
+
+.. code-block:: python3
+
+    mu_0 = np.array([0., 0., 0., 0., 0., 0.])
+    
+    lss = qe.LinearStateSpace(A_lss, C_lss, G_lss, mu_0=mu_0)
+
+.. code-block:: python3
+
+    ts_length = 100_000
+    x, y = lss.simulate(ts_length)
+
+.. code-block:: python3
+
+    # Verify that two ways of computing P_t match
+    np.max(np.abs(np.array([[1., b, 0., 0., 1., 0.]]) @ x - x[3])) < 1e-12
+
+.. code-block:: python3
+
+    # Plot sample time path
+    t = 300
+    
+    subplot_titles = [r'$e_t$',
+                      r'$k^{i}_t$',
+                      r'$\tilde{\theta}_t$',
+                      r'$P_t$',
+                      r'$\theta_t$',
+                     r'$v_t$']
+    
+    fig = make_subplots(rows=x.shape[0], cols=1, subplot_titles=subplot_titles)
+    
+    for idx in range(x.shape[0]):
+        fig.add_trace(go.Scatter(y=x[idx, :t],
+                             legendgroup='trend'),
+                 row=idx+1,
+                 col=1)
+        
+    fig.update_layout(height=1200)    
+        
+    fig.show()
+
+.. code-block:: python3
+
+    # Plot sample time path
+    t = 300
+    
+    subplot_titles = [r'$P_t$',
+                      r'$\theta_t + e_t$',
+                      r'$e_t$']
+    
+    fig = make_subplots(rows=y.shape[0], cols=1, subplot_titles=subplot_titles)
+    
+    for idx in range(y.shape[0]):
+        fig.add_trace(go.Scatter(y=y[idx, :t],
+                             legendgroup='trend'),
+                 row=idx+1,
+                 col=1)
+        
+    fig.update_layout(height=800)    
+        
+    fig.show()
+
+.. code-block:: python3
+
+    fig = px.histogram(x[2], title=r'$\mathrm{Histogram: }\: \tilde{\theta}_{t}$')
+    fig.update_layout(height=500)   
+
+.. code-block:: python3
+
+    # Compute the mean of \tilde{\theta}
+    x[2].mean()
+
+.. code-block:: python3
+
+    xcoef, ycoef = lss.impulse_response(j=20)
+    data = np.array([xcoef])[0, :, 1, :]
+    
+    fig = go.Figure(data=go.Scatter(y=data[:, 0], name=r'$e_{t+1}$'))
+    fig.add_trace(go.Scatter(y=data[:, 1], name=r'$v_{t+1}$'))
+    fig.update_layout(title=r'Impulse Response Function',
+                       xaxis_title='Time',
+                       yaxis_title=r'$k^{i}_{t}$')
+    fig1=fig
+    fig1.show()
+
+.. code-block:: python3
+
+    _, _, Σ_x, Σ_y = lss.stationary_distributions()
+    
+    Σ_11 = Σ_x[0, 0]
+    Σ_12 = Σ_x[0, 1:4]
+    Σ_21 = Σ_x[1:4, 0]
+    Σ_22 = Σ_x[1:4, 1:4]
+    
+    reg_coeffs = Σ_12 @ np.linalg.inv(Σ_22)
+    
+    print('Regression coefficients (e_t on k_t, P_t, \\tilde{\\theta_t})')
+    print('------------------------------')
+    print(r'k_t:', reg_coeffs[0])
+    print(r'\tilde{\theta_t}:', reg_coeffs[1])
+    print(r'P_t:', reg_coeffs[2])
+
+.. code-block:: python3
+
+    # Compute R squared
+    R_squared = reg_coeffs @ Σ_x[1:4, 1:4] @ reg_coeffs  / Σ_x[0, 0]
+    R_squared
+
+.. code-block:: python3
+
+    # Verify that the computed coefficients are close to least squares estimates
+    model = OLS(x[0], x[1:4].T)
+    reg_res = model.fit()
+    np.max(np.abs(reg_coeffs - reg_res.params)) < 1e-2
+
+.. code-block:: python3
+
+    # Verify that R_squared matches least squares estimate
+    np.abs(reg_res.rsquared - R_squared) < 1e-2
+
+.. code-block:: python3
+
+    # Verify that θ_t + e_t can be recovered
+    model = OLS(y[1], x[1:4].T)
+    reg_res = model.fit()
+    np.abs(reg_res.rsquared - 1.) < 1e-6 
+
+System 2
+========
+
+.. math::
+
+    \begin{aligned}
+        \left[\begin{array}{c}
+        e_{1,t+1}\\
+        e_{2,t+1}\\
+        k_{t+1}^{i}\\
+        \tilde{\theta}_{t+1}\\
+        P_{t+1}^{1}\\
+        P_{t+1}^{2}\\
+        \theta_{t+1}\\
+        v_{t+1}
+        \end{array}\right] & = & \underbrace{\left[\begin{array}{cccccccc}
+        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+        \frac{1}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & \frac{1}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & \tilde{\lambda} & \frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & 0 & 0 & \frac{\rho}{\lambda-\rho} & 0\\
+        -\frac{\rho p}{2p+\sigma_{e}^{2}} & -\frac{\rho p}{2p+\sigma_{e}^{2}} & 0 & \frac{\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & 0 & 0 & 0 & 1\\
+        \frac{b}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & \frac{b}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & b\tilde{\lambda} & b\frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & 0 & 0 & b\frac{\rho}{\lambda-\rho}+\rho & 1\\
+        \frac{b}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & \frac{b}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & b\tilde{\lambda} & b\frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & 0 & 0 & b\frac{\rho}{\lambda-\rho}+\rho & 1\\
+        0 & 0 & 0 & 0 & 0 & 0 & \rho & 1\\
+        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+        \end{array}\right]}_{A}\left[\begin{array}{c}
+        e_{1,t}\\
+        e_{2,t}\\
+        k_{t}^{i}\\
+        \tilde{\theta}_{t}\\
+        P_{t}^{1}\\
+        P_{t}^{2}\\
+        \theta_{t}\\
+        v_{t}
+        \end{array}\right]+\underbrace{\left[\begin{array}{ccc}
+        \sigma_{e} & 0 & 0\\
+        0 & \sigma_{e} & 0\\
+        0 & 0 & 0\\
+        0 & 0 & 0\\
+        \sigma_{e} & 0 & 0\\
+        0 & \sigma_{e} & 0\\
+        0 & 0 & 0\\
+        0 & 0 & \sigma_{v}
+        \end{array}\right]}_{C}\left[\begin{array}{c}
+        z_{1,t+1}\\
+        z_{2,t+1}\\
+        z_{3,t+1}
+        \end{array}\right]\\
+        G & = & \left[\begin{array}{cccccccc}
+        0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
+        1 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\
+        0 & 1 & 0 & 0 & 0 & 0 & 1 & 0\\
+        1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+        0 & 1 & 0 & 0 & 0 & 0 & 0 & 0
+        \end{array}\right]\\
+        H & = & \left[\begin{array}{c}
+        0\\
+        0\\
+        0\\
+        0\\
+        0\\
+        0
+        \end{array}\right]\\
+        \left[\begin{array}{c}
+        z_{1,t+1}\\
+        z_{2,t+1}\\
+        z_{3,t+1}
+        \end{array}\right] & \sim & \mathcal{N}\left(0,I\right)
+    \end{aligned}
+
+.. code-block:: python3
+
+    A_ricc = np.array([[ρ]])
+    B_ricc = np.array([[np.sqrt(2)]])
+    R_ricc = np.array([[σ_e ** 2]])
+    Q_ricc = np.array([[σ_v ** 2]])
+    N_ricc = np.zeros((1, 1))
+    p = qe.solve_discrete_riccati(A_ricc, B_ricc, Q_ricc, R_ricc, N_ricc).item()
+
+.. code-block:: python3
+
+    # Verify that p = σ_v^2 + (pρ^2σ_e^2) / (2p + σ_e^2)
+    tol = 1e-12
+    np.abs(p - (σ_v ** 2 + p * ρ ** 2 * σ_e ** 2 / (2 * p + σ_e ** 2))) < tol
+
+.. code-block:: python3
+
+    term_0 = -ρ * σ_e ** 2 / (2 * p + σ_e ** 2)
+    term_1 = ρ * p / (2 * p + σ_e ** 2)
+    
+    A_lss = np.array([[0., 0., 0., 0., 0., 0., 0., 0.],
+                     [0., 0., 0., 0., 0., 0., 0., 0.],
+                     [term_1 / (λ - ρ), term_1 / (λ - ρ), λ_tilde, term_0 / (λ - ρ), 0., 0., ρ / (λ - ρ), 0.],
+                     [-term_1, -term_1, 0., -term_0, 0., 0., 0., 1.],
+                     [b * term_1 / (λ - ρ), b * term_1 / (λ - ρ), b * λ_tilde, b * term_0 / (λ - ρ), 0., 0., b * ρ / (λ - ρ) + ρ, 1.],
+                     [b * term_1 / (λ - ρ), b * term_1 / (λ - ρ), b * λ_tilde, b * term_0 / (λ - ρ), 0., 0., b * ρ / (λ - ρ) + ρ, 1.],
+                     [0., 0., 0., 0., 0., 0., ρ, 1.],
+                     [0., 0., 0., 0., 0., 0., 0., 0.]])
+    
+    C_lss = np.array([[σ_e, 0., 0.],
+                     [0., σ_e, 0.],
+                     [0., 0.,  0.],
+                     [0., 0.,  0.],
+                     [σ_e, 0., 0.],
+                     [0., σ_e, 0.],
+                     [0., 0., 0.],
+                     [0., 0., σ_v]])
+    
+    G_lss = np.array([[0., 0., 0., 0., 1., 0., 0., 0.],
+                     [0., 0, 0, 0., 0., 1., 0., 0.],
+                     [1., 0., 0., 0., 0., 0., 1., 0.],
+                     [0., 1., 0., 0., 0., 0., 1., 0.],
+                     [1., 0., 0., 0., 0., 0., 0., 0.],
+                     [0., 1., 0., 0., 0., 0., 0., 0.]])
+
+
+.. code-block:: python3
+
+    mu_0 = np.array([0., 0., 0., 0., 0., 0., 0., 0.])
+    
+    lss = qe.LinearStateSpace(A_lss, C_lss, G_lss, mu_0=mu_0)
+
+.. code-block:: python3
+
+    ts_length = 100_000
+    x, y = lss.simulate(ts_length)
+
+.. code-block:: python3
+
+    # Plot sample time path
+    t = 300
+    
+    subplot_titles = [r'$e_{1,t}$',
+                      r'$e_{2,t}$',
+                      r'$k^{i}_t$',
+                      r'$\tilde{\theta}_t$',
+                      r'$P^{1}_t$',
+                      r'$P^{2}_t$',
+                      r'$\theta_t$',
+                     r'$v_t$']
+    
+    fig = make_subplots(rows=x.shape[0], cols=1, subplot_titles=subplot_titles)
+    
+    for idx in range(x.shape[0]):
+        fig.add_trace(go.Scatter(y=x[idx, :t],
+                             legendgroup='trend'),
+                 row=idx+1,
+                 col=1)
+        
+    fig.update_layout(height=1400)    
+        
+    fig.show()
+
+.. code-block:: python3
+
+    # Plot sample time path
+    t = 300
+    
+    subplot_titles = [r'$P^{1}_t$',
+                      r'$P^{2}_t$',
+                      r'$\theta_t + e_{1,t}$',
+                      r'$\theta_t + e_{2,t}$',
+                      r'$e_{1,t}$',
+                      r'$e_{2,t}$']
+    
+    fig = make_subplots(rows=y.shape[0], cols=1, subplot_titles=subplot_titles)
+    
+    for idx in range(y.shape[0]):
+        fig.add_trace(go.Scatter(y=y[idx, :t],
+                             legendgroup='trend'),
+                 row=idx+1,
+                 col=1)
+        
+    fig.update_layout(height=1200)    
+        
+    fig.show()
+
+.. code-block:: python3
+
+    xcoef, ycoef = lss.impulse_response(j=20)
+
+.. code-block:: python3
+
+    data = np.array([xcoef])[0, :, 2, :]
+    
+    fig = go.Figure(data=go.Scatter(y=data[:, 0], name=r'$e_{1,t+1}$'))
+    fig.add_trace(go.Scatter(y=data[:, 1], name=r'$e_{2,t+1}$'))
+    fig.add_trace(go.Scatter(y=data[:, 2], name=r'$v_{t+1}$'))
+    fig.update_layout(title=r'Impulse Response Function',
+                       xaxis_title='Time',
+                       yaxis_title=r'$k^{i}_{t}$')
+    fig2=fig
+    fig2.show()
+
+
+.. code-block:: python3
+
+    _, _, Σ_x, Σ_y = lss.stationary_distributions()
+    
+    Σ_11 = Σ_x[1, 1]
+    Σ_12 = Σ_x[1, 2:5]
+    Σ_21 = Σ_x[2:5, 1]
+    Σ_22 = Σ_x[2:5, 2:5]
+    
+    reg_coeffs = Σ_12 @ np.linalg.inv(Σ_22)
+    
+    print('Regression coefficients (e_{2,t} on k_t, P^{1}_t, \\tilde{\\theta_t})')
+    print('------------------------------')
+    print(r'k_t:', reg_coeffs[0])
+    print(r'\tilde{\theta_t}:', reg_coeffs[1])
+    print(r'P_t:', reg_coeffs[2])
+
+.. code-block:: python3
+
+    # Compute R squared
+    R_squared = reg_coeffs @ Σ_x[2:5, 2:5] @ reg_coeffs  / Σ_x[1, 1]
+    R_squared
+
+.. code-block:: python3
+
+    # Verify that the computed coefficients are close to least squares estimates
+    model = OLS(x[1], x[2:5].T)
+    reg_res = model.fit()
+    np.max(np.abs(reg_coeffs - reg_res.params)) < 1e-2
+
+.. code-block:: python3
+
+    # Verify that R_squared matches least squares estimate
+    np.abs(reg_res.rsquared - R_squared) < 1e-2
+
+.. code-block:: python3
+
+    _, _, Σ_x, Σ_y = lss.stationary_distributions()
+    
+    Σ_11 = Σ_x[1, 1]
+    Σ_12 = Σ_x[1, 2:6]
+    Σ_21 = Σ_x[2:6, 1]
+    Σ_22 = Σ_x[2:6, 2:6]
+    
+    reg_coeffs = Σ_12 @ np.linalg.inv(Σ_22)
+    
+    print('Regression coefficients (e_{2,t} on k_t, P^{1}_t, P^{2}_t, \\tilde{\\theta_t})')
+    print('------------------------------')
+    print(r'k_t:', reg_coeffs[0])
+    print(r'\tilde{\theta_t}:', reg_coeffs[1])
+    print(r'P^{1}_t:', reg_coeffs[2])
+    print(r'P^{2}_t:', reg_coeffs[3])
+
+.. code-block:: python3
+
+    # Compute R squared
+    R_squared = reg_coeffs @ Σ_x[2:6, 2:6] @ reg_coeffs  / Σ_x[1, 1]
+    R_squared
+
+.. code-block:: python3
+
+    # θ_t + e^{2}_t on k^{i}_t, P^{1}_t, P^{2}_t, \\tilde{\\theta_t}
+
+.. code-block:: python3
+
+    # Verify that θ_t + e^{2}_t can be recovered
+    model = OLS(y[1], x[2:6].T)
+    reg_res = model.fit()
+    np.abs(reg_res.rsquared - 1.) < 1e-6 
+
+.. code-block:: python3
+
+    reg_res.rsquared
+
+.. code-block:: python3
+
+    fig1.show()
+
+.. code-block:: python3
+
+    fig2.show()
+
+
+
 Various inserts
----------------
+================
 
 Townsend wanted to assume that at time :math:`t` firms in industry
 :math:`i` observe :math:`k_t^i, Y_t^i, P_t^i, (P^{-i})^t`, where
