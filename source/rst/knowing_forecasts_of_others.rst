@@ -28,19 +28,16 @@ observe.
 The Setting
 ============
 
+To cast all variables in terms of deviations from means, we omit constants from inverse demand curves
+and other functions.  
+
+
+
 Firms in each of two industries :math:`i=1,2` use a single factor of
 production, capital :math:`k_t^i`, to produce output of a single good,
 :math:`y_t^i`.
 
 Firms bear quadratic costs of adjusting their capital stocks.
-
-We let capital letters denote market wide objects and lower case letters
-denote objects chosen by a representative firm.
-
-To rationalize the big :math:`K`, little :math:`k` connection, we can
-think of there being a continua of each type of firm, each indexed by
-:math:`\omega \in [0,1]` with
-:math:`K^i = \int_0^1 k^i(\omega) d \omega`.
 
 A representative firm in industry :math:`i` has production function
 :math:`y_t^i = f k_t^i`, :math:`f >0`, acts as a price taker with
@@ -85,35 +82,25 @@ with mean zero and variance :math:`\sigma_v^2`.
 To simplify notation, we’ll study a special case of the model by setting
 :math:`h=f=1`.
 
-Big K, little k connection
------------------------------
+The presence of costs of adjusting their capital stocks imparts to firms an incentives to forecast the price of the
+good that they sell.
+
+Throughout, we use the **rational expectations** equilibrium concept.
+
+We let capital letters denote market wide objects and lower case letters
+denote objects chosen by a representative firm.
+
+In each industry, a competitive equilibrium prevails. 
+
+To rationalize the big :math:`K`, little :math:`k` connection, we can
+think of there being a continua of each type of firm, each indexed by
+:math:`\omega \in [0,1]` with
+:math:`K^i = \int_0^1 k^i(\omega) d \omega`.
 
 In equilibrium, :math:`k_t^i = K_t^i`, but as usual we must distinguish
 between :math:`k_t^i` and :math:`K_t^i` when we pose the firm’s
 optimization problem.
 
-Following Townsend, we eventually want to assume that at time :math:`t`
-firms in industry :math:`i` observe
-:math:`k_t^i, Y_t^i, P_t^i, (P^{-i})^t`, where :math:`(P^{-i})^t` is the
-history of prices in the other market up to time :math:`t`.
-
-Because the representative firm :math:`i` sees the price as well as the
-aggregate state variable :math:`Y_t^i` in its own industry, it can infer
-the total demand shock :math:`\theta_t + \epsilon_{t}^i`.
-
-However, at time :math:`t`, the firm sees only :math:`P_t^{-i}` and does
-not see :math:`Y_t^{-i}`, so that firm :math:`i` does not directly
-observe :math:`\theta_t + \epsilon_t^{-i}`.
-
-Punch line
-============
-
-Nevertheless it turns out that in the equilibrium that
-ultimately interests us, a firm in industry :math:`i` 
-infer the composite shock :math:`\theta_t + \epsilon_t^{-i}` from the
-history of random variables that it observes at :math:`t`.
-
-We shall proceed to establish this result and others in steps.
 
 Strategy
 -----------
@@ -141,12 +128,12 @@ information structures:
    time :math:`t` but future values are not.
 
 -  **One noise-ridden observation on** :math:`\theta_t`: Values of
-   :math:`\{\theta_t, \epsilon_{t}^i\}` are never observed. However, at
+   :math:`\{\theta_t, \epsilon_{t}^i\}` separately are never observed. However, at
    time :math:`t`, a history :math:`w^t` of a scalar noise-ridden
    observations on :math:`\theta_t` is observed at time :math:`t`.
 
 -  **Two noise-ridden observations on** :math:`\theta_t`: Values of
-   :math:`\{\theta_t, \epsilon_{t}^i\}` are never observed. However, at
+   :math:`\{\theta_t, \epsilon_{t}^i\}` separately are never observed. However, at
    time :math:`t`, a history :math:`w^t` of *two* noise-ridden
    observations on :math:`\theta_t` is observed at time :math:`t`.
 
@@ -161,8 +148,8 @@ foresight equilibrium by replacing future values of
 expectations conditioned on :math:`\theta_t`.
 
 This provides the equilibrium when :math:`\theta_t` is observed at
-:math:`t` but future :math:`\theta_{t+j}`\ s and
-:math:`\epsilon_{t+j}^i`\ s are not observed.
+:math:`t` but future :math:`\theta_{t+j}` and
+:math:`\epsilon_{t+j}^i` are not observed.
 
 To find an equilibrium when only a history :math:`w_t` of a single noise
 ridden observations on :math:`\theta_t` is observed, we again apply a
@@ -175,16 +162,15 @@ signal on :math:`\theta_t` is observed, we replace future values of the
 random variables :math:`\theta_s, \epsilon_{s}^i, s \geq t` with their
 mathematical expectations conditioned on history :math:`w^t`.
 
-The equilibrium with two noise-ridden observations on :math:`\theta_t`
-we call a **pooling equilibrium**
+We call the equilibrium with two noise-ridden observations on :math:`\theta_t` a **pooling equilibrium**
 
 -  It corresponds to an arrangement in which at the beginning of each
    period firms in industries :math:`1` and :math:`2` somehow get
    together and share information about current values of their noisy
    signals on :math:`\theta`.
 
-We want ultimately to compare outcomes in such a *pooling equilibrium*
-with an equilibrium under the following information structure for a firm
+We want ultimately to compare outcomes in  a pooling equilibrium
+with an equilibrium under the following alternative information structure for a firm
 in industry :math:`i` that interested :cite:`townsend`: 
 
 -  **Firm** :math:`i`\ ’s **noise-ridden signal on** :math:`\theta_t` **and the
@@ -193,20 +179,28 @@ in industry :math:`i` that interested :cite:`townsend`:
    on :math:`\theta_t` and a history of industry :math:`-i`\ ’s price is
    observed.
 
-It will turn out that   equilibrium prices and quantities in this equilibrium equal
-their counterparts in the pooling equilibrium because 
+
+With this information structure, because the representative firm :math:`i` sees the price as well as the
+aggregate state variable :math:`Y_t^i` in its own industry, it can infer
+the total demand shock :math:`\theta_t + \epsilon_{t}^i`.
+
+However, at time :math:`t`, the firm sees only :math:`P_t^{-i}` and does
+not see :math:`Y_t^{-i}`, so that firm :math:`i` does not directly
+observe :math:`\theta_t + \epsilon_t^{-i}`.
+
+Nevertheless, it will turn out that   equilibrium prices and quantities in this equilibrium equal
+their counterparts in a pooling equilibrium because 
 firms in industry :math:`i` are able to infer the noisy signal about the demand shock
 received by firms in industry :math:`-i`.  
 
-We shall verify this assertion eventually by computing some population projections.
-
+We shall eventually verify this assertion  by using a guess and verify tactic.[#footnote0]_ 
+ 
 
 Equilibrium conditions
 =======================
 
-It is convenient to formulate the firm’s problem as a discrete time
-Hamiltonian by forming the Lagrangian for the problem without
-uncertainty:
+It is convenient to solve the firm’s problem without
+uncertainty  by forming the Lagrangian:
 
 .. math::
 
@@ -265,7 +259,7 @@ In addition, we have the law of motion for :math:`\theta_t`,
 :eq:`town2`.
 
 In summary, with perfect foresight, equilibrium conditions for industry
-:math:`i` consist of the following system of difference equations:
+:math:`i` include the following system of difference equations:
 
 
     
@@ -292,7 +286,7 @@ where
 :math:`x_{t+1,t}` denotes the mathematical expectation of
 :math:`x_{t+1}` conditional on information at time :math:`t`.
 
-Solution under perfect foresight
+Equilibrium under perfect foresight
 ------------------------------------
 
 Our first step is to compute the equilibrium law of motion for
@@ -303,7 +297,7 @@ operator. [#footnote3]_
 
 Equations :eq:`pcl10` and :eq:`pcl11`
 imply the second order difference equation in
-:math:`k_t^i` [#footnote4]_ .
+:math:`k_t^i`. [#footnote4]_ 
 
 
 .. math::
@@ -346,7 +340,10 @@ Solving the stable root backwards and the unstable root forwards gives
       (\epsilon_{t+1}^i + \theta_{t+1}  )
       \end{aligned}
 
-Thus, under perfect foresight the capital stock satisfies
+Recall that we have already set :math:`k^i = K^i` at the appropriate point in the argument (i.e., _after_ having derived the first-order necessary 
+conditions for a representative firm in industry :math:`i`.
+
+Thus,  under perfect foresight the equilibrium capital stock in industry :math:`i` satisfies
 
 .. math::
     :label: town5
@@ -357,11 +354,11 @@ Thus, under perfect foresight the capital stock satisfies
       \end{aligned}
 
 Next, we shall use alternative forecasting formulae in
-:eq:`town5` to compute the equilibrium decision rule
+:eq:`town5` to compute an  equilibrium law of motion for capital
 under alternative assumptions about the information available to
 decision makers in market :math:`i`.
 
-Solution with :math:`\theta_t` stochastic but observed at :math:`t`
+Equilibrium with :math:`\theta_t` stochastic but observed at :math:`t`
 ======================================================================
 
 If future :math:`\theta`\ ’s are unknown at :math:`t`, it is appropriate
@@ -374,13 +371,13 @@ For now, we assume that this information set
 where :math:`z^t` represents the infinite history of variable
 :math:`z_s` up to time :math:`t`.
 
-Later we shall give firms less information about :math:`\theta_t`.
+Later we shall give firms less information.
 
-To obtain the counterpart to :eq:`town5` under our
+To obtain the appropriate counterpart to :eq:`town5` under our
 current assumption about information, we apply a certainty equivalence
 principle.
 
-In particular, it is legitimate to take :eq:`town5` and
+In particular, it is appropriate to take :eq:`town5` and
 replace each term :math:`( \epsilon_{t+j}^i+ \theta_{t+j} )` on the
 right side with
 :math:`E[ (\epsilon_{t+j}^i+ \theta_{t+j}) \vert \theta^t ]`.
@@ -407,8 +404,8 @@ or
 
 where :math:`\lambda \equiv (\beta \tilde \lambda)^{-1}`.
 
-For future purposes, it is useful to represent the solution for
-:math:`k_t^i` recursively as
+For future purposes, it is useful to represent the equilibrium 
+:math:`\{k_t^i\}_t` process recursively as
 
 
 .. math::
@@ -426,9 +423,9 @@ Filtering
 One noisy signal
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We get closer to the model that we ultimately want to study by now
+We get closer to a model that we ultimately want to study by now
 assuming that firms in market :math:`i` do not observe :math:`\theta_t`,
-but instead observe a history of noisy signals :math:`w^t`.
+but instead observe a history  :math:`w^t` of noisy signals at time :math:`t`.
 
 In particular, assume that
 
@@ -452,7 +449,7 @@ Define
    \hat \theta_{t+1} = E(\theta_{t+1} | w^t)
    \end{aligned}
 
-where :math:`w^t` denotes the history of the :math:`w_s` process up to
+where :math:`w^t = [w_t, w_{t-1}, \ldots, w_0]` denotes the history of the :math:`w_s` process up to
 and including :math:`t`.
 
 Associated with the state-space representation
@@ -486,6 +483,10 @@ and where :math:`p` satisfies the Riccati equation
       p = \sigma_v^2   + { p \rho^2 \sigma_e^2 \over \sigma_e^2 + p}.
       \end{aligned}
 
+
+:math:`\theta`-reconstruction error:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Define the state *reconstruction error* :math:`\tilde \theta_t` by
 
 .. math::
@@ -494,8 +495,9 @@ Define the state *reconstruction error* :math:`\tilde \theta_t` by
    \tilde \theta_t = \theta_t - \hat \theta_t .
    \end{aligned}
 
-Then :math:`p = E \tilde \theta_t^2`. Equations :eq:`kf1&2`
-and :eq:`kf3&4` imply
+Then :math:`p = E \tilde \theta_t^2`.
+
+Equations :eq:`kf1&2` and :eq:`kf3&4` imply
 
 .. math::
     :label: kf7
@@ -517,8 +519,6 @@ where the first term in braces  equals
 :math:`\theta_{t+1}` and the second term in braces equals
 :math:`-\tilde \theta_{t+1}`.
 
-Additional state variable: :math:`\theta`-reconstruction error:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We can express :eq:`solution1` as
 
@@ -557,9 +557,9 @@ Simplifying equation :eq:`kf8`, we also have
       
 
 Equations :eq:`kf9`, :eq:`kf8a` describe
-the solution when :math:`w^t` is observed.
+the equilibrium when :math:`w^t` is observed.
 
-Relative to :eq:`solution1`, the solution acquires a new
+Relative to :eq:`solution1`, the equilibrium acquires a new
 state variable, namely, the :math:`\theta`–reconstruction error,
 :math:`\tilde \theta_t`.
 
@@ -656,7 +656,7 @@ Riccati equation
       p = \sigma_v^2 + {p \rho^2 \sigma_e^2 \over 2 p + \sigma_e^2}.
       \end{aligned}
 
-Thus, when the representative firm in industry :math:`i` observes *two*
+Thus, when a representative firm in industry :math:`i` observes *two*
 noisy signals on :math:`\theta_t`, we can express the equilibrium law of
 motion for capital recursively as
 
@@ -671,108 +671,91 @@ motion for capital recursively as
        \end{aligned}
 
 
-Below  we shall show that outcomes in this  **pooling equilibrium** equal those in XXXXX
-
-We do this by using a sneaky guess and verify procedure.  
-
- 
-:cite:`Pearlman_Sargent2005` verify the same claim by applying   machinery developed by  :cite:`PCL`, a topic
-that we do not take up here. 
+Below, by using a guess-and-verify tactic,  we shall show that outcomes in this  **pooling equilibrium** equal those in an equilibrium under the alternative 
+information structure that interested :cite:`townsend`. [#footnote5]_ 
 
 
-Related Literature
-===================
+Outline of guess-and-verify tactic
+===================================
 
-:cite:`lucas75`, :cite:`kasa`, and
-:cite:`townsend` demonstrated that arranging for 
-decision makers to have incentives to infer hidden persistent state
-variables from equilibrium prices and quantities is a potential source
-of  elongated impulse response
-functions in business cycle models. :cite:`townsend`
-indicated that models that incorporate such incentives can naturally
-induce decision makers in effect to forecast the forecast of others.
-This theme has been pursued and extended in recent analyses in which
-decision maker’s imperfect information forces them into pursuing an
-infinite recursion of forming beliefs about the beliefs of other
-(e.g., :cite:`ams`).
-
-:cite:`lucas75` side stepped having decision makers forecast the
-forecasts of other decision makers by assuming that they simply pool their
-information before forecasting. Because he didn’t assume such pooling, :cite:`townsend`
-confronted the forecasting the forecasts of others problem. However,
-that led to what he thought was an intractable, infinite dimensional  state space. That led him
-to proposed more manageable model that he argued could do a good job of
-approximating the intractable model.
-
-By applying technical machinery of :cite:`PCL`,
-:cite:`Pearlman_Sargent2005` showed that there is a recursive
-representation of the equilibrium of the perpetually and symmetrically
-uninformed model formulated but not completely solved in section 8 of
-:cite:`townsend`. The computational method of :cite:`Pearlman_Sargent2005` is recursive:
-it enlists the Kalman filter and invariant subspace methods for
-solving systems of Euler
-equations [#footnote1]_ . As :cite:`singleton`,
-:cite:`kasa`, and :cite:`sargent91` also
-found, the equilibrium is fully revealing: observed prices tell
-participants in industry :math:`i` all of the information held by
-participants in market :math:`-i` (:math:`-i` means not :math:`i`). This
-means that higher-order beliefs play no role: seeing equilibrium prices
-in effect lets decision makers pool their information
-sets [#footnote2]_ . The disappearance of higher order beliefs means that
-decision makers in this model do not really face a problem of
-forecasting the forecasts of others. They know those forecasts because
-they are the same as their own.
+Part 1
+--------
 
 
-The presence of a common hidden state variable is the only thing that
-inspires decision makers in one market to condition their decisions on
-the history of prices in the other market.
-:cite:`townsend` noted that in his model with perpetually
-and symmetrically uninformed decision makers, the dimension of the state
-space seemed to explode because it seemed to be necessary for decision
-makers to keep track of an infinite history of vectors of observables.
-That *curse of dimensionality* deterred Townsend from characterizing or
-computing an equilibrium of that model.
-
-Instead he constructed another model and computed its equilibrium. To
-construct this model he assumed that after a finite number :math:`j`
-periods, the (lagged) value of the key hidden state variable is revealed
-to the decision maker.
+As a preliminary step we shall take our recursive representation XXXX of an equilibrium in industry :math:`i` with one 
+noisy signal on :math:`\theta_t` and perform the following steps:
 
 
 
+-  write it in state-space form with the state being
+   :math:`k_t^i, \theta_t, \tilde \theta_t` with shock vector having
+   components :math:`e_t, v_t`
+
+-  add a *measurement equation* for
+   :math:`P_t^i = b k_t^i + \theta_t + e_t` and :math:`\theta_t + e_t`
+   and :math:`e_t`.
+
+-  note that this is a system in which the state vector transition
+   equation and the measurement equation have a common component. 
+
+-  use the quantecon linear state space program XXX to get impulse response
+   functions for :math:`k_t^i` with respect to shocks :math:`v_t, e_t`.
+
+-  use the quanecon program XXXX to compute covariance and
+   cross-covariance matrices for the state and measurement vectors.
+
+-  use formulas for multivariate normal distribution from this lecture XXXX
+   to compute the population regression (and :math:`R^2`) of :math:`e_t`
+   against :math:`P_t^i, k_t^i, \tilde \theta_t`
+
+From these calculations we shall learn:
+
+-  XXXX blah1
+
++  XXXX blah 2
+
+Part 2
+-------
+
+Take our recursive representation XXXX of an equilibrium in industry :math:`i` with __two__
+noisy signal on :math:`\theta_t` and perform the following steps:
 
 
-:cite:`sargent91` proposed a way to compute an equilibrium
-without making Townsend’s approximation. Extending the reasoning of
-:cite:`muth1960`, Sargent noticed that it is possible to
-summarize the relevant history with a low dimensional object, namely, a
-small number of current and lagged forecasting errors. Positing an
-equilibrium in a space of perceived laws of motion for endogenous
-variables that takes the form of a vector autoregressive, moving
-average, Sargent described an equilibrium as a fixed point of a mapping
-from the perceived law of motion to the actual law of motion of that
-form. Sargent worked in the time domain and had to guess and verify the
-appropriate orders of the autoregressive and moving average pieces of
-the equilibrium representation. However, by working in the frequency
-domain :cite:`kasa` showed how to discover the appropriate
-orders of the autoregressive and moving average parts, and also how to
-compute an equilibrium.
+-  write it in state-space form with the state being
+   :math:`k_t^i, \theta_t, \tilde \theta_t` with shock vector having
+   components :math:`e_{1t}, e_{2t}, v_t`
 
-Our recursive computational method, which stays in the time domain, also
-discovers the appropriate orders of the autoregressive and moving
-average pieces. In addition, by displaying equilibrium representations
-in the form of :cite:`PCL`, :cite:`Pearlman_Sargent2005`
-showed how the moving average piece is linked to the innovation process
-of the hidden persistent component of the demand shock. That scalar
-innovation process is the additional state variable contributed by the
-problem of extracting a signal from equilibrium prices that decision
-makers face in Townsend’s model.
+-  add a *measurement equation* for  :math:`P_t^i = b k_t^i + \theta_t + e_{it}` and
+   :math:`\theta_t + e_{it}` and :math:`e_{it}` for our two
+   :math:`i`, :math:`i=1,2`.
+
+-  note that this is a system in which the state vector transition
+   equation and the measurement equation have common components. 
+
+-  use a quantecon linear state space program XXXX to compute impulse response
+   functions for :math:`k_t^i` with respect to shocks
+   :math:`v_t, e_{1t} + e_{2t}`.
+
+-  use formulas from XXXX quantecon lss lecture to compute covariance and
+   cross-covariance matrices for the state and measurement vectors.
+
+-  use formulas  for the multivariate normal distribution described in this lecture XXXX
+   to compute the population regression (and :math:`R^2`) of
+   :math:`e_{-i,t}` against :math:`P_t^i, k_t^i, \tilde \theta_t` say
+   for :math:`i=1`.
 
 
+From these calculations we expect to learn
 
-System Description
+-  blah1 XXXX
+
+-  blah2 XXXX
+
+
+Computations
 ==================
+
+Let's begin by describing again the system in which a representative firm in industry :math:`i` receives __two__ noisy signals on :math:`\theta_t`.
 
 
 .. math::
@@ -786,7 +769,7 @@ System Description
       v_{t} & \sim  \mathcal{N}\left(0,\sigma_{v}^{2}\right)
    \end{aligned}
 
-where:
+where
 
 
 .. math::
@@ -801,8 +784,8 @@ where:
 Parameters: :math:`\beta`, :math:`\rho`, :math:`b`, :math:`\sigma_v`,
 and :math:`\sigma_e`
 
-Computational Strategy
-======================
+We'll use the following strategy to compute an equilibrium
+
 
 Step 1: Solve for :math:`\tilde{\lambda}` and :math:`\lambda`
 ----------------------------------------------------------------
@@ -893,8 +876,13 @@ Initial state:
 
 As usual, this representation is one of many possible representations.
 
-System 1
-========
+
+
+
+Equilibrium with one signal on :math:`\theta_t`
+===============================================
+
+__Note__: Quentin calls this __System 1__
 
 .. math::
 
@@ -1049,8 +1037,12 @@ Initial state:
     # Compute the mean of \tilde{\theta}
     x[2].mean()
 
-System 2
-========
+
+
+Equilibrium with two signals on :math:`\theta_t`
+=================================================
+
+__Note__ Quentin calls this __System 2__
 
 .. math::
 
@@ -1084,11 +1076,11 @@ System 2
       z_{2,t+1}\\
       z_{3,t+1}
       \end{array}\right]\\
-      G & = & \left[\begin{array}{ccccc}
+      G & =  \left[\begin{array}{ccccc}
       b & 1 & 0 & 1 & 0\\
       b & 1 & 0 & 0 & 1
       \end{array}\right]\\
-      H & = & \left[\begin{array}{c}
+      H & =  \left[\begin{array}{c}
       0\\
       0
       \end{array}\right]\\
@@ -1096,7 +1088,7 @@ System 2
       z_{1,t+1}\\
       z_{2,t+1}\\
       z_{3,t+1}
-      \end{array}\right] & \sim & \mathcal{N}\left(0,I\right)
+      \end{array}\right] & \sim  \mathcal{N}\left(0,I\right)
    \end{aligned}
 
 .. code-block:: python3
@@ -1119,8 +1111,8 @@ System 2
                       [b, 1., 0., 0., 1.]])
 
 
-Addons from Quentin sneaky calculation
-========================================
+Addons from Quentin least squares calculations
+================================================
 
 
 System 1
@@ -1161,12 +1153,12 @@ System 1
         z_{1,t+1}\\
         z_{2,t+1}
         \end{array}\right]\\
-        G & = & \left[\begin{array}{cccccc}
+        G & =  \left[\begin{array}{cccccc}
         0 & 0 & 0 & 1 & 0 & 0\\
         1 & 0 & 0 & 0 & 1 & 0\\
         1 & 0 & 0 & 0 & 0 & 0
         \end{array}\right]\\
-        H & = & \left[\begin{array}{c}
+        H & =  \left[\begin{array}{c}
         0\\
         0\\
         0
@@ -1174,7 +1166,7 @@ System 1
         \left[\begin{array}{c}
         z_{1,t+1}\\
         z_{2,t+1}
-        \end{array}\right] & \sim & \mathcal{N}\left(0,I\right)
+        \end{array}\right] & \sim  \mathcal{N}\left(0,I\right)
     \end{aligned}
 
 .. code-block:: ipython
@@ -1423,7 +1415,7 @@ System 2
         z_{2,t+1}\\
         z_{3,t+1}
         \end{array}\right]\\
-        G & = & \left[\begin{array}{cccccccc}
+        G & =  \left[\begin{array}{cccccccc}
         0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\
         0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
         1 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\
@@ -1431,7 +1423,7 @@ System 2
         1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
         0 & 1 & 0 & 0 & 0 & 0 & 0 & 0
         \end{array}\right]\\
-        H & = & \left[\begin{array}{c}
+        H & =  \left[\begin{array}{c}
         0\\
         0\\
         0\\
@@ -1443,7 +1435,7 @@ System 2
         z_{1,t+1}\\
         z_{2,t+1}\\
         z_{3,t+1}
-        \end{array}\right] & \sim & \mathcal{N}\left(0,I\right)
+        \end{array}\right] & \sim  \mathcal{N}\left(0,I\right)
     \end{aligned}
 
 .. code-block:: python3
@@ -1655,8 +1647,131 @@ System 2
 
 
 
-Various inserts
-================
+
+
+Related Literature
+===================
+
+:cite:`lucas75`, :cite:`kasa`, and
+:cite:`townsend` demonstrated that arranging for 
+decision makers to have incentives to infer hidden persistent state
+variables from equilibrium prices and quantities is a potential source
+of  elongated impulse response
+functions in business cycle models. 
+
+:cite:`townsend`
+indicated that models that incorporate such incentives can naturally
+induce decision makers in effect to forecast the forecast of others.
+
+This theme has been pursued and extended in recent analyses in which
+decision maker’s imperfect information forces them into pursuing an
+infinite recursion of forming beliefs about the beliefs of other
+(e.g., :cite:`ams`).
+
+:cite:`lucas75` side stepped having decision makers forecast the
+forecasts of other decision makers by assuming that they simply pool their
+information before forecasting. 
+
+Because he didn’t assume such pooling, :cite:`townsend`
+confronted the forecasting the forecasts of others problem.
+
+However,
+that led to what he thought was an intractable, infinite dimensional  state space. 
+
+That led him
+to propose a more manageable model that he argued could do a good job of
+approximating the intractable model.
+
+By applying technical machinery of :cite:`PCL`,
+:cite:`Pearlman_Sargent2005` showed that there is a recursive
+representation of the equilibrium of the perpetually and symmetrically
+uninformed model formulated but not completely solved in section 8 of
+:cite:`townsend`. 
+
+The computational method of :cite:`Pearlman_Sargent2005` is recursive:
+it enlists the Kalman filter and invariant subspace methods for
+solving systems of Euler
+equations [#footnote1]_ . 
+
+As :cite:`singleton`,
+:cite:`kasa`, and :cite:`sargent91` also
+found, the equilibrium is fully revealing: observed prices tell
+participants in industry :math:`i` all of the information held by
+participants in market :math:`-i` (:math:`-i` means not :math:`i`). 
+
+This
+means that higher-order beliefs play no role: seeing equilibrium prices
+in effect lets decision makers pool their information
+sets [#footnote2]_ . 
+
+The disappearance of higher order beliefs means that
+decision makers in this model do not really face a problem of
+forecasting the forecasts of others. They know those forecasts because
+they are the same as their own.
+
+
+
+The presence of a common hidden state variable is the only thing that
+inspires decision makers in one market to condition their decisions on
+the history of prices in the other market.
+
+
+:cite:`townsend` noted that in his model with perpetually
+and symmetrically uninformed decision makers, the dimension of the state
+space seemed to explode because it seemed to be necessary for decision
+makers to keep track of an infinite history of vectors of observables.
+
+
+That *curse of dimensionality* deterred Townsend from characterizing or
+computing an equilibrium of that model.
+
+Instead he constructed another model and computed its equilibrium. To
+construct this model he assumed that after a finite number :math:`j`
+periods, the (lagged) value of the key hidden state variable is revealed
+to the decision maker.
+
+
+:cite:`sargent91` proposed a way to compute an equilibrium
+without making Townsend’s approximation.
+
+Extending the reasoning of :cite:`muth1960`, Sargent noticed that it is possible to
+summarize the relevant history with a low dimensional object, namely, a
+small number of current and lagged forecasting errors. 
+
+Positing an
+equilibrium in a space of perceived laws of motion for endogenous
+variables that takes the form of a vector autoregressive, moving
+average, Sargent described an equilibrium as a fixed point of a mapping
+from the perceived law of motion to the actual law of motion of that
+form.
+
+Sargent worked in the time domain and had to guess and verify the
+appropriate orders of the autoregressive and moving average pieces of
+the equilibrium representation.
+
+By working in the frequency
+domain :cite:`kasa` showed how to discover the appropriate
+orders of the autoregressive and moving average parts, and also how to
+compute an equilibrium.
+
+
+
+Our recursive computational method, which stays in the time domain, also
+discovers the appropriate orders of the autoregressive and moving
+average pieces.
+
+In addition, by displaying equilibrium representations
+in the form of :cite:`PCL`, :cite:`Pearlman_Sargent2005`
+showed how the moving average piece is linked to the innovation process
+of the hidden persistent component of the demand shock. 
+
+That scalar
+innovation process is the additional state variable contributed by the
+problem of extracting a signal from equilibrium prices that decision
+makers face in Townsend’s model.
+
+Various inserts and leftovers
+===============================
 
 Townsend wanted to assume that at time :math:`t` firms in industry
 :math:`i` observe :math:`k_t^i, Y_t^i, P_t^i, (P^{-i})^t`, where
@@ -1670,80 +1785,15 @@ noisy signals received by firms in industry :math:`-i` :math:`S` periods
 ago and earlier. **TOM: ACTUALLY, I THINK HE ASSUMES THAT THEY SEE**
 :math:`\theta_{t-S}`)
 
-Request 1 for Quentin: Dec 12 2020
-----------------------------------
-
-Hi. Please take the above system and do the following things with it.
-
--  write it in state-space form with the state being
-   :math:`k_t^i, \theta_t, \tilde \theta_t` with shock vector having
-   components :math:`e_t, v_t`
-
--  add a *measurement equation* for
-   :math:`P_t^i = b k_t^i + \theta_t + e_t` and :math:`\theta_t + e_t`
-   and :math:`e_t`.
-
--  note that this is a system in which the state vector transition
-   equation and the measurement equation have a common component. This
-   is fine with the :math:`A,B,C,D` notation that LPH and I often use. I
-   can explain details on zoom if you wish.
-
--  use a quantecon linear state space program to get impulse response
-   functions for :math:`k_t^i` with respect to shocks :math:`v_t, e_t`.
-
--  use RMT5 chapter 2 page 45 or so formulas to compute covariance and
-   cross-covariance matrices for the state and measurement vectors.
-
--  use formulas for multivariate normal distribution from RMT5 chapter 2
-   to compute the population regression (and :math:`R^2`) of :math:`e_t`
-   against :math:`P_t^i, k_t^i, \tilde \theta_t`
-
-**note:** Maybe we need a helper function to compute the chapter 2
-formulas for second moments for a state space system :math:`A, B, C, D`
-– I can sketch the formulas for you. Zejin will be interested in these
-formulas too. We’ll use them in *request 2* below too.
-
-end of Quentin request 1
-------------------------
-
-Request 2 for Quentin: Dec 12 2020
-----------------------------------
-
-This request is an analogue of request 1 except for the two-noisy signal
-model. Please take the above system and do the following things with it.
-
--  write it in state-space form with the state being
-   :math:`k_t^i, \theta_t, \tilde \theta_t` with shock vector having
-   components :math:`e_{1t}, e_{2t}, v_t`
-
--  add a *measurement equation* for
-   :math:`P_t^i = b k_t^i + \theta_t + e_{it}` and
-   :math:`\theta_t + e_{it}` and :math:`e_{it}` for our two
-   :math:`i`\ s, :math:`i=1,2`.
-
--  note that this is a system in which the state vector transition
-   equation and the measurement equation have common components. This is
-   fine with the :math:`A,B,C,D` notation that LPH and I often use. I
-   can explain details on zoom if you wish.
-
--  use a quantecon linear state space program to get impulse response
-   functions for :math:`k_t^i` with respect to shocks
-   :math:`v_t, e_{1t} + e_{2t}`.
-
--  use RMT5 chapter 2 page 45 or so formulas to compute covariance and
-   cross-covariance matrices for the state and measurement vectors.
-
--  use formulas for multivariate normal distribution from RMT5 chapter 2
-   to compute the population regression (and :math:`R^2`) of
-   :math:`e_{-i,t}` against :math:`P_t^i, k_t^i, \tilde \theta_t` say
-   for :math:`i=1`.
-
-end of Quentin request 2
-------------------------
 
 
 
 .. rubric:: Footnotes
+
+.. [#footnote0] :cite:`Pearlman_Sargent2005` verified this assertion using a different tactic, namely, by constructing 
+      analytic formulas an equilibrium under the incomplete 
+      information structure and confirming that they match the pooling equilibrium formulas derived here.
+
 
 .. [#footnote1]  See :cite:`ahms` for an account of invariant subspace methods. 
 
@@ -1756,8 +1806,11 @@ end of Quentin request 2
       play a role.
 
 .. [#footnote3]  See :cite:`Sargent1987`, especially
-      chapters IX and XIV, for the methods used in this section.
+      chapters IX and XIV, for the principles  that guide solving some roots backwards and others forwards.
 
 .. [#footnote4]  As noted :cite:`Sargent1987`, this difference equation is the Euler equation for
       the planning problem   of maximizing the discounted sum of consumer plus
       producer surplus.
+
+.. [#footnote5] :cite:`Pearlman_Sargent2005` verify the same claim by applying   machinery of  :cite:`PCL`.
+ 
