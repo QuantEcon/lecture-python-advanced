@@ -227,6 +227,20 @@ class BellmanEquation:
 
             return -π[s_] @ (U(c, n) + β * Vprime)
 
+        def objf_prime(x):
+
+            epsilon = 1e-7
+            x0 = np.asfarray(x)
+            f0 = np.atleast_1d(objf(x0))
+            jac = np.zeros([len(x0), len(f0)])
+            dx = np.zeros(len(x0))
+            for i in range(len(x0)):
+                dx[i] = epsilon
+                jac[i] = (objf(x0+dx) - f0)/epsilon
+                dx[i] = 0.0
+
+            return jac.transpose()
+
         def cons(z):
             c, n, xprime, T = z[:S], z[S:2 * S], z[2 * S:3 * S], z[3 * S:]
             u_c = Uc(c, n)
@@ -243,8 +257,8 @@ class BellmanEquation:
                 [self.xbar] * S + [(0., 0.)] * S
         out, fx, _, imode, smode = fmin_slsqp(objf, self.z0[x, s_],
                                               f_eqcons=cons, bounds=bounds,
-                                              full_output=True, iprint=0,
-                                              acc=self.tol, iter=self.maxiter)
+                                              fprime=objf_prime, full_output=True,
+                                              iprint=0, acc=self.tol, iter=self.maxiter)
 
         if imode > 0:
             raise Exception(smode)
