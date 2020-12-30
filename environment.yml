@@ -1,7 +1,6 @@
 name: lecture-python-advanced
 channels:
   - default
-  - conda-forge
 dependencies:
   - pip
   - python=3.8
