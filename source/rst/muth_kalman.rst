@@ -87,7 +87,7 @@ The lecture `First Look at Kalman Filter <https://python-intro.quantecon.org/kal
 We'll use limiting versions of the Kalman filter corresponding to what are called **stationary values** in that lecture.
 
 A Process for Which Adaptive Expectations are Optimal
------------------------------------------------------
+======================================================
 
 Suppose that an observable :math:`y_t` is the sum of an unobserved
 random walk :math:`x_t` and an IID shock :math:`\epsilon_{2,t}`:
@@ -164,7 +164,7 @@ apply the quantecon ``Kalman`` class, then uses it to construct the associated "
     ssk = LinearStateSpace(Ak, Ck, Gk, Hk, mu_0=x_hat_0)
 
 Some Useful State-Space Math
-----------------------------
+=============================
 
 Now we want to map the time-invariant innovations representation :eq:`innovations` and
 the original state-space system :eq:`state-space` into a convenient form for deducing
@@ -246,7 +246,7 @@ We can now investigate how these
 variables are related by plotting some key objects.
 
 Estimates of Unobservables
---------------------------
+===========================
 
 First, let’s plot the hidden state :math:`x_t` and the filtered version
 :math:`\hat x_t` that is linear-least squares projection of :math:`x_t`
@@ -269,7 +269,7 @@ For Friedman, :math:`\hat x_t` and not :math:`x_t` is the consumer’s
 idea about her/his *permanent income*.
 
 Relation between Unobservable and Observable
---------------------------------------------
+=============================================
 
 Now let’s plot :math:`x_t` and :math:`y_t`.
 
@@ -305,7 +305,7 @@ Recall that we wrote down the innovation representation that depended on
 
 
 MA and AR Representations
--------------------------
+===========================
 
 Now we shall extract from the ``Kalman`` instance ``kmuth`` coefficients of
 
