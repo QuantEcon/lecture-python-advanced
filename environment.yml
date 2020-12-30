@@ -1,0 +1,14 @@
+name: lecture-python-advanced
+channels:
+  - default
+  - conda-forge
+dependencies:
+  - pip
+  - python=3.8
+  - anaconda=2020.07
+  - pip:
+    - jupinx
+    - sphinxcontrib-jupyter
+    - sphinxcontrib-bibtex==1.0
+    - quantecon
+    - joblib
