@@ -478,7 +478,7 @@ These graphs report outcomes for both the Lucas-Stokey economy with complete mar
     log_example.transfers = True                    # Government can use transfers
     log_sequential = SequentialAllocation(log_example)  # Solve sequential problem
     log_bellman = RecursiveAllocationAMSS(log_example, μ_grid,
-                                          tol_diff=1e-10, tol=1e-12)
+                                          tol_diff=1e-10, tol=1e-10)
 
     T = 20
     sHist = np.array([0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
