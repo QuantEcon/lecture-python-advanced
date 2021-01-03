@@ -580,7 +580,7 @@ signal :math:`w_t` on :math:`\theta_t` at :math:`t`, we can represent an
 equilibrium law of motion for :math:`k_t^i` as
 
 .. math::
-    :label: sol0a
+      :label: sol0a
 
       \begin{aligned}
       k_{t+1}^i & =  \tilde \lambda k_t^i + {1 \over \lambda - \rho}   \hat \theta_{t+1}  \\
@@ -599,13 +599,14 @@ on :math:`\theta_t`:
 
 .. math::
 
-      \begin{aligned}
-      \theta_{t+1} & =  \rho \theta_t + v_t  \label{kf20} \\
-      w_t   & =
-      \begin{bmatrix} 1 \\ 1 \end{bmatrix}
-      \theta_t
-         + \begin{bmatrix} e_{1t} \\ e_{2t} \label{kf21} \end{bmatrix}
-      \end{aligned}
+      \begin{eqnarray*}
+      \theta_{t+1} & = & \rho\theta_{t}+v_{t} \label{kf20} \\
+      w_{t} & = & \begin{bmatrix}1\\
+      1
+      \end{bmatrix}\theta_{t}+\begin{bmatrix}e_{1t} \\
+      e_{2t}
+      \end{bmatrix} \label{kf21}
+      \end{eqnarray*}
 
 To justify that we are constructing is a **pooling equilibrium** we can
 assume that
@@ -681,32 +682,29 @@ Outline of guess-and-verify tactic
 Part 1
 --------
 
+As a preliminary step we shall take our recursive representation :eq:`sol0a`
+of an equilibrium in industry :math:`i` with one noisy signal
+on :math:`\theta_t` and perform the following steps:
 
-As a preliminary step we shall take our recursive representation XXXX of an equilibrium in industry :math:`i` with one
-noisy signal on :math:`\theta_t` and perform the following steps:
+- Compute :math:`\lambda` and :math:`\tilde{\lambda}` by setting up a
+  root-finding problem and solving it using ``numpy.roots``
 
+- Compute :math:`p` by setting up a discrete Riccati equation and solving it
+  using ``quantecon.solve_discrete_riccati``
 
+- Add a *measurement equation* for
+  :math:`P_t^i = b k_t^i + \theta_t + e_t`, :math:`\theta_t + e_t`,
+  and :math:`e_t` to system :eq:`sol0a`. Write the resulting system
+  in state-space form and represent it using ``quantecon.LinearStateSpace``
 
--  write it in state-space form with the state being
-   :math:`k_t^i, \theta_t, \tilde \theta_t` with shock vector having
-   components :math:`e_t, v_t`
+- Use methods of the ``quantecon.LinearStateSpace`` to compute impulse response
+  functions for :math:`k_t^i` with respect to shocks :math:`v_t, e_t`.
 
--  add a *measurement equation* for
-   :math:`P_t^i = b k_t^i + \theta_t + e_t` and :math:`\theta_t + e_t`
-   and :math:`e_t`.
-
--  note that this is a system in which the state vector transition
-   equation and the measurement equation have a common component.
-
--  use the quantecon linear state space program XXX to get impulse response
-   functions for :math:`k_t^i` with respect to shocks :math:`v_t, e_t`.
-
--  use the quanecon program XXXX to compute covariance and
-   cross-covariance matrices for the state and measurement vectors.
-
--  use formulas for multivariate normal distribution from this lecture XXXX
-   to compute the population regression (and :math:`R^2`) of :math:`e_t`
-   against :math:`P_t^i, k_t^i, \tilde \theta_t`
+- Use methods of the ``quantecon.LinearStateSpace`` to compute the stationary
+  covariance matrices for the state and measurement vectors. Use formulas
+  for multivariate normal distribution from this lecture XXXX
+  to compute the population regression (and :math:`R^2`) of :math:`e_t`
+  against :math:`P_t^i, k_t^i, \tilde \theta_t`
 
 From these calculations we shall learn:
 
@@ -717,75 +715,12 @@ From these calculations we shall learn:
 Part 2
 -------
 
-Take our recursive representation XXXX of an equilibrium in industry :math:`i` with __two__
-noisy signal on :math:`\theta_t` and perform the following steps:
+In part 2, we repeat the computations of part 1 for the two noise signal
+structure by making appropriate modifications.
 
 
--  write it in state-space form with the state being
-   :math:`k_t^i, \theta_t, \tilde \theta_t` with shock vector having
-   components :math:`e_{1t}, e_{2t}, v_t`
-
--  add a *measurement equation* for  :math:`P_t^i = b k_t^i + \theta_t + e_{it}` and
-   :math:`\theta_t + e_{it}` and :math:`e_{it}` for our two
-   :math:`i`, :math:`i=1,2`.
-
--  note that this is a system in which the state vector transition
-   equation and the measurement equation have common components.
-
--  use a quantecon linear state space program XXXX to compute impulse response
-   functions for :math:`k_t^i` with respect to shocks
-   :math:`v_t, e_{1t} + e_{2t}`.
-
--  use formulas from XXXX quantecon lss lecture to compute covariance and
-   cross-covariance matrices for the state and measurement vectors.
-
--  use formulas  for the multivariate normal distribution described in this lecture XXXX
-   to compute the population regression (and :math:`R^2`) of
-   :math:`e_{-i,t}` against :math:`P_t^i, k_t^i, \tilde \theta_t` say
-   for :math:`i=1`.
-
-
-From these calculations we expect to learn
-
--  blah1 XXXX
-
--  blah2 XXXX
-
-
-Computations
-==================
-
-Let's begin by describing again the system in which a representative firm in industry :math:`i` receives __two__ noisy signals on :math:`\theta_t`.
-
-
-.. math::
-
-   \begin{aligned}
-      k_{t+1}^{i} & =  \tilde{\lambda}k_{t}^{i}+\frac{1}{\lambda-\rho}\hat{\theta}_{t+1}\\
-      \hat{\theta}_{t+1} & =  \rho\theta_{t}+\frac{\rho p}{2p+\sigma_{e}^{2}}\left(e_{1,t}+e_{2,t}\right)-\frac{\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}}\tilde{\theta}_{t}\\
-      \tilde{\theta}_{t+1} & =  \frac{\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}}\tilde{\theta}_{t}-\frac{p\rho}{2p+\sigma_{e}^{2}}\left(e_{1,t}+e_{2,t}\right)+v_{t}\\
-      \theta_{t+1} & =  \rho\theta_{t}+v_{t}\\
-      e_{1,t},e_{2,t} & \sim  \mathcal{N}\left(0,\sigma_{e}^{2}\right)\\
-      v_{t} & \sim  \mathcal{N}\left(0,\sigma_{v}^{2}\right)
-   \end{aligned}
-
-where
-
-
-.. math::
-
-   \begin{aligned}
-      \left(\tilde{\lambda}-1\right)\left(\tilde{\lambda}-\frac{1}{\beta}\right) & =  b\tilde{\lambda}\\
-      \left(\lambda-1\right)\left(\lambda-\frac{1}{\beta}\right) & =  b\lambda\\
-      \tilde{\lambda} & \leq  \lambda\\
-      p & =  \sigma_{v}^{2}+\frac{p\rho^{2}\sigma_{e}^{2}}{2p+\sigma_{e}^{2}}
-   \end{aligned}
-
-Parameters: :math:`\beta`, :math:`\rho`, :math:`b`, :math:`\sigma_v`,
-and :math:`\sigma_e`
-
-We'll use the following strategy to compute an equilibrium
-
+Equilibrium with one signal on :math:`\theta_t`
+===============================================
 
 Step 1: Solve for :math:`\tilde{\lambda}` and :math:`\lambda`
 ----------------------------------------------------------------
@@ -815,358 +750,83 @@ Note that:
 
 .. math::
 
-   \begin{aligned}
-      A & = & \left[\begin{array}{c}
-      \rho\end{array}\right]\\
-      B & = & \left[\begin{array}{c}
-      \sqrt{2}\end{array}\right]\\
-      R & = & \left[\begin{array}{c}
-      \sigma_{e}^{2}\end{array}\right]\\
-      Q & = & \left[\begin{array}{c}
-      \sigma_{v}^{2}\end{array}\right]\\
-      N & = & \left[\begin{array}{c}
-      0\end{array}\right]
-   \end{aligned}
+  \begin{aligned}
+     A & = & \left[\begin{array}{c}
+     \rho\end{array}\right]\\
+     B & = & \left[\begin{array}{c}
+     \sqrt{2}\end{array}\right]\\
+     R & = & \left[\begin{array}{c}
+     \sigma_{e}^{2}\end{array}\right]\\
+     Q & = & \left[\begin{array}{c}
+     \sigma_{v}^{2}\end{array}\right]\\
+     N & = & \left[\begin{array}{c}
+     0\end{array}\right]
+  \end{aligned}
 
 Step 3: Represent the system using ``quantecon.LinearStateSpace``
 -------------------------------------------------------------------
 
-.. math::
-
-
-   \begin{aligned}
-      \left[\begin{array}{c}
-      k_{t+1}^{i}\\
-      \hat{\theta}_{t+1}\\
-      \tilde{\theta}_{t+1}\\
-      \theta_{t+1}
-      \end{array}\right] & =  \underbrace{\left[\begin{array}{cccc}
-      \tilde{\lambda} & 0 & \frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & \frac{\rho}{\lambda-\rho}\\
-      0 & 0 & \frac{-\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & \rho\\
-      0 & 0 & \frac{\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & 0\\
-      0 & 0 & 0 & \rho
-      \end{array}\right]}_{A}\left[\begin{array}{c}
-      k_{t}^{i}\\
-      \hat{\theta}_{t}\\
-      \tilde{\theta}_{t}\\
-      \theta_{t}
-      \end{array}\right]+\underbrace{\left[\begin{array}{ccc}
-      \frac{\sigma_{e}}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & \frac{\sigma_{e}}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & 0\\
-      \sigma_{e}\frac{\rho p}{2p+\sigma_{e}^{2}} & \sigma_{e}\frac{\rho p}{2p+\sigma_{e}^{2}} & 0\\
-      -\sigma_{e}\frac{\rho p}{2p+\sigma_{e}^{2}} & -\sigma_{e}\frac{\rho p}{2p+\sigma_{e}^{2}} & \sigma_{v}\\
-      0 & 0 & \sigma_{v}
-      \end{array}\right]}_{C}\left[\begin{array}{c}
-      z_{1,t+1}\\
-      z_{2,t+1}\\
-      z_{3,t+1}
-      \end{array}\right]\\
-      G & =  \left[\begin{array}{cccc}
-      0 & 0 & 0 & 0\end{array}\right]\\
-      H & =  \left[\begin{array}{c}
-      0\end{array}\right]\\
-      \left[\begin{array}{c}
-      z_{1,t+1}\\
-      z_{2,t+1}\\
-      z_{3,t+1}
-      \end{array}\right] & \sim  \mathcal{N}\left(0,I\right)
-   \end{aligned}
-
-Initial state:
-:math:`\left[\begin{array}{ccccc} 0 & 0 & 0 & 0 \end{array}\right]'`
-
-As usual, this representation is one of many possible representations.
-
-
-
-
-Equilibrium with one signal on :math:`\theta_t`
-===============================================
-
-__Note__: Quentin calls this __System 1__
+We use the following representation for constructing the
+``quantecon.LinearStateSpace`` instance.
 
 .. math::
 
-   \begin{aligned}
-      \left[\begin{array}{c}
-      k_{t+1}^{i}\\
-      e_{t}\\
-      \tilde{\theta}_{t+1}\\
-      \theta_{t+1}
-      \end{array}\right] & =  \underbrace{\left[\begin{array}{cccc}
-      \tilde{\lambda} & 0 & \frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & \frac{\rho}{\lambda-\rho}\\
-      0 & 0 & 0 & 0\\
-      0 & 0 & \frac{\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & 0\\
-      0 & 0 & 0 & \rho
-      \end{array}\right]}_{A}\left[\begin{array}{c}
-      k_{t}^{i}\\
-      e_{t-1}\\
-      \tilde{\theta}_{t}\\
-      \theta_{t}
-      \end{array}\right]+\underbrace{\left[\begin{array}{cc}
-      \frac{\sigma_{e}}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & 0\\
-      \sigma_{e} & 0\\
-      -\sigma_{e}\frac{\rho p}{2p+\sigma_{e}^{2}} & \sigma_{v}\\
-      0 & \sigma_{v}
-      \end{array}\right]}_{C}\left[\begin{array}{c}
-      z_{1,t+1}\\
-      z_{2,t+1}
-      \end{array}\right]\\
-      G & =  \left[\begin{array}{cccc}
-      b & 1 & 0 & 1\end{array}\right]\\
-      H & =  \left[\begin{array}{c}
-      0\end{array}\right]\\
-      \left[\begin{array}{c}
-      z_{1,t+1}\\
-      z_{2,t+1}
-      \end{array}\right] & \sim  \mathcal{N}\left(0,I\right)
-   \end{aligned}
-
-Initial state:
-:math:`\left[\begin{array}{ccccc} 0 & 0 & 0 & 0 \end{array}\right]'`
-
-.. code-block:: ipython
-
-    import numpy as np
-    import quantecon as qe
-    from plotly.subplots import make_subplots
-    import plotly.graph_objects as go
-    import plotly.express as px
-    import plotly.offline as pyo
-    from IPython.display import Latex, display
-
-
-    pyo.init_notebook_mode(connected=True)
-
-.. code-block:: python3
-
-    β = 0.9  # Discount factor
-    ρ = 0.8  # Persistence parameter for the hidden state
-    b = 0.5  # Demand curve parameter
-    σ_v = 0.5  # Standard deviation of shock to θ_t
-    σ_e = 0.6  # Standard deviation of shocks to w_t
-
-.. code-block:: python3
-
-    # Compute λ
-    poly = np.array([1, -(1 + β + b) / β, 1 / β])
-    roots_poly = np.roots(poly)
-    λ_tilde = roots_poly.min()
-    λ = roots_poly.max()
-
-.. code-block:: python3
-
-    # Verify that λ = (βλ_tilde) ^ (-1)
-    tol = 1e-12
-    np.max(np.abs(λ - 1 / (β * λ_tilde))) < tol
-
-.. code-block:: python3
-
-    A_ricc = np.array([[ρ]])
-    B_ricc = np.array([[np.sqrt(2)]])
-    R_ricc = np.array([[σ_e ** 2]])
-    Q_ricc = np.array([[σ_v ** 2]])
-    N_ricc = np.zeros((1, 1))
-    p = qe.solve_discrete_riccati(A_ricc, B_ricc, Q_ricc, R_ricc, N_ricc).item()
-
-.. code-block:: python3
-
-    # Verify that p = σ_v^2 + (pρ^2σ_e^2) / (2p + σ_e^2)
-    tol = 1e-12
-    np.abs(p - (σ_v ** 2 + p * ρ ** 2 * σ_e ** 2 / (2 * p + σ_e ** 2))) < tol
-
-.. code-block:: python3
-
-    term_0 = -ρ * σ_e ** 2 / (2 * p + σ_e ** 2)
-    term_1 = ρ * p / (2 * p + σ_e ** 2)
-
-    A_lss = np.array([[λ_tilde, 0., term_0 / (λ - ρ), ρ / (λ - ρ)],
-                     [0., 0., 0., 0.],
-                     [0., 0., -term_0, 0.,],
-                     [0., 0., 0., ρ],])
-
-    C_lss = np.array([[term_1 * σ_e / (λ - ρ),  0.],
-                     [σ_e, 0.],
-                     [-term_1 * σ_e,  σ_v],
-                     [0., σ_v]])
-
-    G_lss = np.array([[b, 1., 0., 1.]])
-
-.. code-block:: python3
-
-    mu_0 = np.array([0., 0., 0., 0.])
-
-    lss = qe.LinearStateSpace(A_lss, C_lss, G_lss, mu_0=mu_0)
-
-.. code-block:: python3
-
-    ts_length = 100_000
-    x, y = lss.simulate(ts_length)
-
-
-.. code-block:: python3
-
-    fig = px.histogram(x[2], title=r'$\mathrm{Histogram: }\: \tilde{\theta}_{t}$')
-    fig.update_layout(height=500)
-
-.. code-block:: python3
-
-    # Compute the mean of \tilde{\theta}
-    x[2].mean()
-
-
-
-Equilibrium with two signals on :math:`\theta_t`
-=================================================
-
-__Note__ Quentin calls this __System 2__
-
-.. math::
-
-   \begin{aligned}
-      \left[\begin{array}{c}
-      k_{t+1}^{i}\\
-      e_{1,t}\\
-      e_{2,t}\\
-      \tilde{\theta}_{t+1}\\
-      \theta_{t+1}
-      \end{array}\right] & = & \underbrace{\left[\begin{array}{ccccc}
-      \tilde{\lambda} & 0 & 0 & \frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & \frac{\rho}{\lambda-\rho}\\
-      0 & 0 & 0 & 0 & 0\\
-      0 & 0 & 0 & 0 & 0\\
-      0 & 0 & 0 & \frac{\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & 0\\
-      0 & 0 & 0 & 0 & \rho
-      \end{array}\right]}_{A}\left[\begin{array}{c}
-      k_{t}^{i}\\
-      e_{1,t-1}\\
-      e_{2,t-1}\\
-      \tilde{\theta}_{t}\\
-      \theta_{t}
-      \end{array}\right]+\underbrace{\left[\begin{array}{ccc}
-      \frac{\sigma_{e}}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & \frac{\sigma_{e}}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & 0\\
-      \sigma_{e} & 0 & 0\\
-      0 & \sigma_{e} & 0\\
-      -\sigma_{e}\frac{\rho p}{2p+\sigma_{e}^{2}} & -\sigma_{e}\frac{\rho p}{2p+\sigma_{e}^{2}} & \sigma_{v}\\
-      0 & 0 & \sigma_{v}
-      \end{array}\right]}_{C}\left[\begin{array}{c}
-      z_{1,t+1}\\
-      z_{2,t+1}\\
-      z_{3,t+1}
-      \end{array}\right]\\
-      G & =  \left[\begin{array}{ccccc}
-      b & 1 & 0 & 1 & 0\\
-      b & 1 & 0 & 0 & 1
-      \end{array}\right]\\
-      H & =  \left[\begin{array}{c}
-      0\\
-      0
-      \end{array}\right]\\
-      \left[\begin{array}{c}
-      z_{1,t+1}\\
-      z_{2,t+1}\\
-      z_{3,t+1}
-      \end{array}\right] & \sim  \mathcal{N}\left(0,I\right)
-   \end{aligned}
-
-.. code-block:: python3
-
-    term_0 = -ρ * σ_e ** 2 / (2 * p + σ_e ** 2)
-    term_1 = ρ * p / (2 * p + σ_e ** 2)
-
-    A_lss = np.array([[λ_tilde, 0., 0., term_0 / (λ - ρ), ρ / (λ - ρ)],
-                     [0., 0., 0., 0., 0.],
-                     [0., 0., 0., -term_0, 0.,],
-                     [0., 0., 0., 0., ρ],])
-
-    C_lss = np.array([[term_1 * σ_e / (λ - ρ), term_1 * σ_e / (λ - ρ), 0.],
-                     [σ_e, 0., 0.],
-                    [0., σ_e, 0.],
-                     [-term_1 * σ_e, -term_1 * σ_e, σ_v],
-                     [0., 0., σ_v]])
-
-    G_lss = np.array([[b, 1., 0., 1. ,0.],
-                      [b, 1., 0., 0., 1.]])
-
-
-Addons from Quentin least squares calculations
-================================================
-
-
-System 1
-========
-
-.. math::
-
-    \begin{aligned}
-        \left[\begin{array}{c}
-        e_{t+1}\\
-        k_{t+1}^{i}\\
-        \tilde{\theta}_{t+1}\\
-        P_{t+1}\\
-        \theta_{t+1}\\
-        v_{t+1}
-        \end{array}\right] & = & \underbrace{\left[\begin{array}{cccccc}
-        0 & 0 & 0 & 0 & 0 & 0\\
-        \frac{1}{\lambda-\rho}\frac{\rho p}{p+\sigma_{e}^{2}} & \tilde{\lambda} & \frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{p+\sigma_{e}^{2}} & 0 & \frac{\rho}{\lambda-\rho} & 0\\
-        -\frac{\rho p}{p+\sigma_{e}^{2}} & 0 & \frac{\rho\sigma_{e}^{2}}{p+\sigma_{e}^{2}} & 0 & 0 & 1\\
-        \frac{b}{\lambda-\rho}\frac{\rho p}{p+\sigma_{e}^{2}} & b\tilde{\lambda} & b\frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{p+\sigma_{e}^{2}} & 0 & b\frac{\rho}{\lambda-\rho}+\rho & 1\\
-        0 & 0 & 0 & 0 & \rho & 1\\
-        0 & 0 & 0 & 0 & 0 & 0
-        \end{array}\right]}_{A}\left[\begin{array}{c}
-        e_{t}\\
-        k_{t}^{i}\\
-        \tilde{\theta}_{t}\\
-        P_{t}\\
-        \theta_{t}\\
-        v_{t}
-        \end{array}\right]+\underbrace{\left[\begin{array}{cc}
-        \sigma_{e} & 0\\
-        0 & 0\\
-        0 & 0\\
-        \sigma_{e} & 0\\
-        0 & 0\\
-        0 & \sigma_{v}
-        \end{array}\right]}_{C}\left[\begin{array}{c}
-        z_{1,t+1}\\
-        z_{2,t+1}
-        \end{array}\right]\\
-        G & =  \left[\begin{array}{cccccc}
-        0 & 0 & 0 & 1 & 0 & 0\\
-        1 & 0 & 0 & 0 & 1 & 0\\
-        1 & 0 & 0 & 0 & 0 & 0
-        \end{array}\right]\\
-        H & =  \left[\begin{array}{c}
-        0\\
-        0\\
-        0
-        \end{array}\right]\\
-        \left[\begin{array}{c}
-        z_{1,t+1}\\
-        z_{2,t+1}
-        \end{array}\right] & \sim  \mathcal{N}\left(0,I\right)
-    \end{aligned}
+    \begin{eqnarray*}
+    \left[\begin{array}{c}
+    e_{t+1}\\
+    k_{t+1}^{i}\\
+    \tilde{\theta}_{t+1}\\
+    P_{t+1}\\
+    \theta_{t+1}\\
+    v_{t+1}
+    \end{array}\right] & = & \underbrace{\left[\begin{array}{cccccc}
+    0 & 0 & 0 & 0 & 0 & 0\\
+    \frac{1}{\lambda-\rho}\frac{\rho p}{p+\sigma_{e}^{2}} & \tilde{\lambda} & \frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{p+\sigma_{e}^{2}} & 0 & \frac{\rho}{\lambda-\rho} & 0\\
+    -\frac{\rho p}{p+\sigma_{e}^{2}} & 0 & \frac{\rho\sigma_{e}^{2}}{p+\sigma_{e}^{2}} & 0 & 0 & 1\\
+    \frac{b}{\lambda-\rho}\frac{\rho p}{p+\sigma_{e}^{2}} & b\tilde{\lambda} & b\frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{p+\sigma_{e}^{2}} & 0 & b\frac{\rho}{\lambda-\rho}+\rho & 1\\
+    0 & 0 & 0 & 0 & \rho & 1\\
+    0 & 0 & 0 & 0 & 0 & 0
+    \end{array}\right]}_{A}\left[\begin{array}{c}
+    e_{t}\\
+    k_{t}^{i}\\
+    \tilde{\theta}_{t}\\
+    P_{t}\\
+    \theta_{t}\\
+    v_{t}
+    \end{array}\right]+\underbrace{\left[\begin{array}{cc}
+    \sigma_{e} & 0\\
+    0 & 0\\
+    0 & 0\\
+    \sigma_{e} & 0\\
+    0 & 0\\
+    0 & \sigma_{v}
+    \end{array}\right]}_{C}\left[\begin{array}{c}
+    z_{1,t+1}\\
+    z_{2,t+1}
+    \end{array}\right]\\
+    G & = & \left[\begin{array}{cccccc}
+    0 & 0 & 0 & 1 & 0 & 0\\
+    1 & 0 & 0 & 0 & 1 & 0\\
+    1 & 0 & 0 & 0 & 0 & 0
+    \end{array}\right]\\
+    H & = & \left[\begin{array}{c}
+    0\\
+    0\\
+    0
+    \end{array}\right]\\
+    \left[\begin{array}{c}
+    z_{1,t+1}\\
+    z_{2,t+1}
+    \end{array}\right] & \sim & \mathcal{N}\left(0,I\right)
+    \end{eqnarray*}
 
 You may notice that this representation has some extraneous variables in the
-state vector such as :math:`P_{t}`. The advantage is that it allows us to compute
-the cross-variance of these variables with other components of the state vector by leveraging
-the ``stationary_distributions`` method of the ``LinearStateSpace`` class.
+state vector such as :math:`P_{t}`. As we will see later, the advantage is that
+it allows us to compute the cross-variance of these variables with other
+components of the state vector (step 5) by leveraging the ``stationary_distributions`` method of the ``LinearStateSpace`` class.
 As such, we avoid “re-inventing the wheel” because with a parsimonious
 representation, we would need to implement the computation of
-this cross-variance ourselves. By appropriately decomposing the stationary
-covariance matrix of the state vector, we obtain the ingredients
-that we need for computing population regression coefficients.
-
-.. math::
-
-  \Sigma_{x}=\left[\begin{array}{cc}
-  \Sigma_{11} & \Sigma_{12}\\
-  \Sigma_{21} & \Sigma_{22}
-  \end{array}\right]
-
-where :math:`\Sigma_{11}` is the covariance matrix of dependent variables and :math:`\Sigma_{22}` is the covariance matrix of independent variables.
-
-The regression coefficients are then given by :math:`\beta=\Sigma_{21}\Sigma_{22}^{-1}`.
-
-To verify our computation, we simulate the state vector and use the ordinary least-squares estimator to estimate :math:`\beta`.
+this cross-variance ourselves.
 
 .. code-block:: ipython
 
@@ -1177,6 +837,7 @@ To verify our computation, we simulate the state vector and use the ordinary lea
     import plotly.express as px
     import plotly.offline as pyo
     from statsmodels.regression.linear_model import OLS
+    from IPython.display import display, Latex
 
 
     pyo.init_notebook_mode(connected=True)
@@ -1271,6 +932,12 @@ To verify our computation, we simulate the state vector and use the ordinary lea
     # Compute the mean of \tilde{\theta}
     x[2].mean()
 
+Step 4: Compute impulse response functions
+-------------------------------------------------------------------
+
+For this step, we leverage the ``impulse_response`` method of the
+``quantecon.LinearStateSpace`` class, and plot the result.
+
 .. code-block:: python3
 
     xcoef, ycoef = lss.impulse_response(j=20)
@@ -1283,6 +950,28 @@ To verify our computation, we simulate the state vector and use the ordinary lea
                        yaxis_title=r'$k^{i}_{t}$')
     fig1=fig
     fig1.show()
+
+Step 5: Compute stationary covariance matrices and population regressions
+-------------------------------------------------------------------------
+
+The computation of stationary covariance matrices step only requires
+a simple call to the ``stationary_distributions`` method of
+the ``quantecon.LinearStateSpace`` class. By appropriately decomposing
+the resulting covariance matrix of the state vector, we obtain the ingredients
+that we need for computing population regression coefficients.
+
+.. math::
+
+  \Sigma_{x}=\left[\begin{array}{cc}
+  \Sigma_{11} & \Sigma_{12}\\
+  \Sigma_{21} & \Sigma_{22}
+  \end{array}\right]
+
+where :math:`\Sigma_{11}` is the covariance matrix of dependent variables and :math:`\Sigma_{22}` is the covariance matrix of independent variables.
+
+The regression coefficients are then given by :math:`\beta=\Sigma_{21}\Sigma_{22}^{-1}`.
+
+To verify our computation, we simulate the state vector and use the ordinary least-squares estimator to estimate :math:`\beta`.
 
 .. code-block:: python3
 
@@ -1326,75 +1015,79 @@ To verify our computation, we simulate the state vector and use the ordinary lea
     reg_res = model.fit()
     np.abs(reg_res.rsquared - 1.) < 1e-6
 
-System 2
-========
+Equilibrium with two signals on :math:`\theta_t`
+=================================================
+
+Steps 1, 4, and 5 are identical to the case with one signal on :math:`\theta_t` and step
+2 only requires a straightforward modification. As such, we leave the details
+aside. For step 3, we use the following representation:
 
 .. math::
 
-    \begin{aligned}
-        \left[\begin{array}{c}
-        e_{1,t+1}\\
-        e_{2,t+1}\\
-        k_{t+1}^{i}\\
-        \tilde{\theta}_{t+1}\\
-        P_{t+1}^{1}\\
-        P_{t+1}^{2}\\
-        \theta_{t+1}\\
-        v_{t+1}
-        \end{array}\right] & = & \underbrace{\left[\begin{array}{cccccccc}
-        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
-        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
-        \frac{1}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & \frac{1}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & \tilde{\lambda} & \frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & 0 & 0 & \frac{\rho}{\lambda-\rho} & 0\\
-        -\frac{\rho p}{2p+\sigma_{e}^{2}} & -\frac{\rho p}{2p+\sigma_{e}^{2}} & 0 & \frac{\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & 0 & 0 & 0 & 1\\
-        \frac{b}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & \frac{b}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & b\tilde{\lambda} & b\frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & 0 & 0 & b\frac{\rho}{\lambda-\rho}+\rho & 1\\
-        \frac{b}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & \frac{b}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & b\tilde{\lambda} & b\frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & 0 & 0 & b\frac{\rho}{\lambda-\rho}+\rho & 1\\
-        0 & 0 & 0 & 0 & 0 & 0 & \rho & 1\\
-        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
-        \end{array}\right]}_{A}\left[\begin{array}{c}
-        e_{1,t}\\
-        e_{2,t}\\
-        k_{t}^{i}\\
-        \tilde{\theta}_{t}\\
-        P_{t}^{1}\\
-        P_{t}^{2}\\
-        \theta_{t}\\
-        v_{t}
-        \end{array}\right]+\underbrace{\left[\begin{array}{ccc}
-        \sigma_{e} & 0 & 0\\
-        0 & \sigma_{e} & 0\\
-        0 & 0 & 0\\
-        0 & 0 & 0\\
-        \sigma_{e} & 0 & 0\\
-        0 & \sigma_{e} & 0\\
-        0 & 0 & 0\\
-        0 & 0 & \sigma_{v}
-        \end{array}\right]}_{C}\left[\begin{array}{c}
-        z_{1,t+1}\\
-        z_{2,t+1}\\
-        z_{3,t+1}
-        \end{array}\right]\\
-        G & =  \left[\begin{array}{cccccccc}
-        0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\
-        0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
-        1 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\
-        0 & 1 & 0 & 0 & 0 & 0 & 1 & 0\\
-        1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
-        0 & 1 & 0 & 0 & 0 & 0 & 0 & 0
-        \end{array}\right]\\
-        H & =  \left[\begin{array}{c}
-        0\\
-        0\\
-        0\\
-        0\\
-        0\\
-        0
-        \end{array}\right]\\
-        \left[\begin{array}{c}
-        z_{1,t+1}\\
-        z_{2,t+1}\\
-        z_{3,t+1}
-        \end{array}\right] & \sim  \mathcal{N}\left(0,I\right)
-    \end{aligned}
+  \begin{eqnarray*}
+  \left[\begin{array}{c}
+  e_{1,t+1}\\
+  e_{2,t+1}\\
+  k_{t+1}^{i}\\
+  \tilde{\theta}_{t+1}\\
+  P_{t+1}^{1}\\
+  P_{t+1}^{2}\\
+  \theta_{t+1}\\
+  v_{t+1}
+  \end{array}\right] & = & \underbrace{\left[\begin{array}{cccccccc}
+  0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+  0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+  \frac{1}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & \frac{1}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & \tilde{\lambda} & \frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & 0 & 0 & \frac{\rho}{\lambda-\rho} & 0\\
+  -\frac{\rho p}{2p+\sigma_{e}^{2}} & -\frac{\rho p}{2p+\sigma_{e}^{2}} & 0 & \frac{\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & 0 & 0 & 0 & 1\\
+  \frac{b}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & \frac{b}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & b\tilde{\lambda} & b\frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & 0 & 0 & b\frac{\rho}{\lambda-\rho}+\rho & 1\\
+  \frac{b}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & \frac{b}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & b\tilde{\lambda} & b\frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & 0 & 0 & b\frac{\rho}{\lambda-\rho}+\rho & 1\\
+  0 & 0 & 0 & 0 & 0 & 0 & \rho & 1\\
+  0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+  \end{array}\right]}_{A}\left[\begin{array}{c}
+  e_{1,t}\\
+  e_{2,t}\\
+  k_{t}^{i}\\
+  \tilde{\theta}_{t}\\
+  P_{t}^{1}\\
+  P_{t}^{2}\\
+  \theta_{t}\\
+  v_{t}
+  \end{array}\right]+\underbrace{\left[\begin{array}{ccc}
+  \sigma_{e} & 0 & 0\\
+  0 & \sigma_{e} & 0\\
+  0 & 0 & 0\\
+  0 & 0 & 0\\
+  \sigma_{e} & 0 & 0\\
+  0 & \sigma_{e} & 0\\
+  0 & 0 & 0\\
+  0 & 0 & \sigma_{v}
+  \end{array}\right]}_{C}\left[\begin{array}{c}
+  z_{1,t+1}\\
+  z_{2,t+1}\\
+  z_{3,t+1}
+  \end{array}\right]\\
+  G & = & \left[\begin{array}{cccccccc}
+  0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\
+  0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
+  1 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\
+  0 & 1 & 0 & 0 & 0 & 0 & 1 & 0\\
+  1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+  0 & 1 & 0 & 0 & 0 & 0 & 0 & 0
+  \end{array}\right]\\
+  H & = & \left[\begin{array}{c}
+  0\\
+  0\\
+  0\\
+  0\\
+  0\\
+  0
+  \end{array}\right]\\
+  \left[\begin{array}{c}
+  z_{1,t+1}\\
+  z_{2,t+1}\\
+  z_{3,t+1}
+  \end{array}\right] & \sim & \mathcal{N}\left(0,I\right)
+  \end{eqnarray*}
 
 .. code-block:: python3
 
@@ -1549,19 +1242,20 @@ System 2
 
     reg_res.rsquared
 
-.. code-block:: python3
-
-    fig1.show()
-
-.. code-block:: python3
-
-    fig2.show()
-
-
 Comparison of the two signal structures
 ======================================================================
 
-We can compare the reconstruction error variances for the two signal
+First, we can plot the two impulse response functions side-by-side.
+
+.. code-block:: python3
+
+  fig_comb = go.Figure(data=[*fig1.data,
+                             *fig2.update_traces(xaxis='x2', yaxis='y2').data]).set_subplots(1, 2,
+                                                                                             subplot_titles=("One shock structure", "Two shock structures"),
+                                                                                             horizontal_spacing=0.1)
+  fig_comb.show()
+
+We can also compare the reconstruction error variances for the two signal
 structures. We compute these below.
 
 .. code-block:: python3
