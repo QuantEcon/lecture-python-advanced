@@ -58,8 +58,7 @@ backward recursion  on  two sets of equations
 
 * a pair of Bellman equations, one for each agent.
 
-* a pair of equations that express linear decision rules for each agent as functions of that agent's  continuation value function as well as parameters of
-preferences and state transition matrices.
+* a pair of equations that express linear decision rules for each agent as functions of that agent's  continuation value function as well as parameters of preferences and state transition matrices.
 
 
 This lecture shows how  a similar equilibrium concept and similar computational  procedures
@@ -660,7 +659,7 @@ The function's code is as follows
                 break
 
         else:
-            raise ValueError(f'No convergence: Iteration limit of {maxiter} \
+            raise ValueError(f'No convergence: Iteration limit of {max_iter} \
                 reached in nnash')
 
         return F1, F2, P1, P2
