@@ -12,18 +12,36 @@ Knowing the Forecasts of Others
 
 .. contents:: :depth: 2
 
+Introduction
+=============
 
-This lecture describes a model of two industries that are linked in a
+This lecture describes  a sequence of models of two industries that are linked in a
 single way: shocks to the demand curves for their products have a common
 component.
 
-We proceed by decomposing the model into components that we shall then put
+The models are variations on a model of  :cite:`townsend`.
+
+Townsend's is a model of a rational expectations equilibrium in which firms confront
+the problem  __forecasting the forecasts of others__.
+
+In Townsend's model, firms condition  their forecasts on observed endogenous variables whose equilibrium laws of motion
+are determined by their own forecasting functions.
+
+
+
+We proceed by describing components that we shall then put
 together in several ways that help us appreciate the structure of a
 **pooling equilibrium**  that ultimately concerns us.
 
 While keeping other aspects of the model the same, we shall study
 consequences of alternative assumptions about what decision makers
 observe.
+
+Technically, this lecture deploys concepts and tools that appear 
+in  `First Look at Kalman Filter <https://python-intro.quantecon.org/kalman.html>`__ and
+`Rational Expectations Equilibrium <https://python-intro.quantecon.org/rational_expectations.html>`__.
+
+
 
 The Setting
 ============
@@ -85,7 +103,8 @@ To simplify notation, we’ll study a special case of the model by setting
 The presence of costs of adjusting their capital stocks imparts to firms an incentives to forecast the price of the
 good that they sell.
 
-Throughout, we use the **rational expectations** equilibrium concept.
+Throughout, we use the **rational expectations** equilibrium concept presented
+in `Rational Expectations Equilibrium <https://python-intro.quantecon.org/rational_expectations.html>`__.
 
 We let capital letters denote market wide objects and lower case letters
 denote objects chosen by a representative firm.
@@ -162,7 +181,7 @@ signal on :math:`\theta_t` is observed, we replace future values of the
 random variables :math:`\theta_s, \epsilon_{s}^i, s \geq t` with their
 mathematical expectations conditioned on history :math:`w^t`.
 
-We call the equilibrium with two noise-ridden observations on :math:`\theta_t` a **pooling equilibrium**
+We call the equilibrium with two noise-ridden observations on :math:`\theta_t` a **pooling equilibrium**.
 
 -  It corresponds to an arrangement in which at the beginning of each
    period firms in industries :math:`1` and :math:`2` somehow get
@@ -180,8 +199,10 @@ in industry :math:`i` that interested :cite:`townsend`:
    observed.
 
 
-With this information structure, because the representative firm :math:`i` sees the price as well as the
-aggregate state variable :math:`Y_t^i` in its own industry, it can infer
+With this information structure,  the representative firm :math:`i` sees the price as well as the
+aggregate state variable :math:`Y_t^i` in its own industry.
+
+That allows it to  infer
 the total demand shock :math:`\theta_t + \epsilon_{t}^i`.
 
 However, at time :math:`t`, the firm sees only :math:`P_t^{-i}` and does
@@ -193,7 +214,7 @@ their counterparts in a pooling equilibrium because
 firms in industry :math:`i` are able to infer the noisy signal about the demand shock
 received by firms in industry :math:`-i`.
 
-We shall eventually verify this assertion  by using a guess and verify tactic.[#footnote0]_
+We shall eventually verify this assertion  by using a guess and verify tactic. [#footnote0]_
 
 
 Equilibrium conditions
@@ -244,7 +265,7 @@ where we define :math:`g_t^i` by
 
       g_t^i = \beta^{-1} (k_t^i - k_{t-1}^i)
 
-We can write the Euler equation :eq:`town4` in terms of :math:`g_t^i`:
+We can write  Euler equation :eq:`town4` as:
 
 
 .. math::
@@ -353,8 +374,10 @@ Thus,  under perfect foresight the equilibrium capital stock in industry :math:`
       (\epsilon_{t+j}^i +  \theta_{t+j}) .
       \end{aligned}
 
-Next, we shall use alternative forecasting formulae in
-:eq:`town5` to compute an  equilibrium law of motion for capital
+Next, we shall investigate consequences of replacing future  values of 
+:math:`(\epsilon_{t+j}^i +  \theta_{t+j})` in equation :eq:`town5`  with alternative forecasting schemes.
+
+In particular, we shall compute   equilibrium laws of motion for capital
 under alternative assumptions about the information available to
 decision makers in market :math:`i`.
 
@@ -373,7 +396,7 @@ where :math:`z^t` represents the infinite history of variable
 
 Later we shall give firms less information.
 
-To obtain the appropriate counterpart to :eq:`town5` under our
+To obtain an appropriate counterpart to :eq:`town5` under our
 current assumption about information, we apply a certainty equivalence
 principle.
 
@@ -820,13 +843,17 @@ We use the following representation for constructing the
     \end{array}\right] & \sim & \mathcal{N}\left(0,I\right)
     \end{eqnarray*}
 
-You may notice that this representation has some extraneous variables in the
-state vector such as :math:`P_{t}`. As we will see later, the advantage is that
+__Quentin__: I have  a question or two for you from   here on. Please let's discuss these and other things on zoom soon.
+
+This representation has some extraneous variables in the
+state vector such as :math:`P_{t}`.
+
+We formulate things this way because 
 it allows us to compute the cross-variance of these variables with other
 components of the state vector (step 5) by leveraging the ``stationary_distributions`` method of the ``LinearStateSpace`` class.
-As such, we avoid “re-inventing the wheel” because with a parsimonious
-representation, we would need to implement the computation of
-this cross-variance ourselves.
+
+Doing it this way allows us to avoid _re-inventing the wheel_
+  *  if we were to use a more parsimonious representation, we would need to implement computation of this cross-variance ourselves.
 
 .. code-block:: ipython
 
@@ -1251,7 +1278,7 @@ First, we can plot the two impulse response functions side-by-side.
 
   fig_comb = go.Figure(data=[*fig1.data,
                              *fig2.update_traces(xaxis='x2', yaxis='y2').data]).set_subplots(1, 2,
-                                                                                             subplot_titles=("One shock structure", "Two shock structures"),
+                                                                                             subplot_titles=("One shock structure", "Two shock structure"),
                                                                                              horizontal_spacing=0.1)
   fig_comb.show()
 
