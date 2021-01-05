@@ -195,7 +195,7 @@ interrelated Bellman equations
       \\
       &
        \left[
-         x'R_i x + u' Q_i u + 2 u' W_i x -
+         x'R_i x + u' Q_i u + 2 u' W_i x +
                  \beta \sum_j \Pi_{ij}E ((A_i x + B_i u + C_i w)' P_j
                  (A_i x + B_i u + C_i w) x + \rho_j)
        \right]
