@@ -46,10 +46,11 @@ an exogenous and time-invariant gross interest rate on one period risk-free debt
 :math:`\beta^{-1}`, where :math:`\beta \in (0,1)` is also a consumer's
 intertemporal discount factor.
 
-This is equivalent to saying that  it costs :math:`\beta^{-1}` of  time :math:`t` consumption to buy one unit of consumption at time :math:`t+1` for sure.
+This is equivalent to saying that  it costs :math:`\beta` of  time :math:`t` consumption to buy one unit of
+consumption at time :math:`t+1` for sure.
 
 
-So :math:`\beta^{-1}` is the price of a one-period risk-free claim to consumption next period.
+So :math:`\beta` is the price of a one-period risk-free claim to consumption next period.
 
 We maintain Hall's assumption about the interest rate when we describe an
 incomplete markets version of our model.

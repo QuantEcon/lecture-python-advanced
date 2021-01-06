@@ -1,7 +1,6 @@
 name: lecture-python-advanced
 channels:
   - default
-  - conda-forge
 dependencies:
   - pip
   - python=3.8
@@ -9,6 +8,6 @@ dependencies:
   - pip:
     - jupinx
     - sphinxcontrib-jupyter
-    - sphinxcontrib-bibtex
+    - sphinxcontrib-bibtex==1.0
     - quantecon
     - joblib
