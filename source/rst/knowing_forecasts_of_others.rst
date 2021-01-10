@@ -318,7 +318,7 @@ operator. [#footnote3]_
 
 Equations :eq:`pcl10` and :eq:`pcl11`
 imply the second order difference equation in
-:math:`k_t^i`. [#footnote4]_
+:math:`k_t^i`: [#footnote4]_
 
 
 .. math::
@@ -358,7 +358,7 @@ Solving the stable root backwards and the unstable root forwards gives
       \begin{aligned}
       k_{t+1}^i = \tilde \lambda k_t^i + {\tilde \lambda \beta \over 1 -\tilde
       \lambda \beta L^{-1}}
-      (\epsilon_{t+1}^i + \theta_{t+1}  )
+      (\epsilon_{t+1}^i + \theta_{t+1}  ) .
       \end{aligned}
 
 Recall that we have already set :math:`k^i = K^i` at the appropriate point in the argument (i.e., _after_ having derived the first-order necessary
@@ -699,47 +699,45 @@ Below, by using a guess-and-verify tactic,  we shall show that outcomes in this 
 information structure that interested :cite:`townsend`. [#footnote5]_
 
 
-Outline of guess-and-verify tactic
+Guess-and-verify tactic
 ===================================
-
-Part 1
---------
 
 As a preliminary step we shall take our recursive representation :eq:`sol0a`
 of an equilibrium in industry :math:`i` with one noisy signal
 on :math:`\theta_t` and perform the following steps:
 
-- Compute :math:`\lambda` and :math:`\tilde{\lambda}` by setting up a
-  root-finding problem and solving it using ``numpy.roots``
+- Compute :math:`\lambda` and :math:`\tilde{\lambda}` by posing a
+  root-finding problem and then solving it using ``numpy.roots``
 
-- Compute :math:`p` by setting up a discrete Riccati equation and solving it
+- Compute :math:`p` by forming the appropriate  discrete Riccati equation and then solving it
   using ``quantecon.solve_discrete_riccati``
 
 - Add a *measurement equation* for
   :math:`P_t^i = b k_t^i + \theta_t + e_t`, :math:`\theta_t + e_t`,
   and :math:`e_t` to system :eq:`sol0a`. Write the resulting system
-  in state-space form and represent it using ``quantecon.LinearStateSpace``
+  in state-space form and encode it using ``quantecon.LinearStateSpace``
 
 - Use methods of the ``quantecon.LinearStateSpace`` to compute impulse response
   functions for :math:`k_t^i` with respect to shocks :math:`v_t, e_t`.
 
 - Use methods of the ``quantecon.LinearStateSpace`` to compute the stationary
   covariance matrices for the state and measurement vectors. Use formulas
-  for multivariate normal distribution from this lecture XXXX
+  for multivariate normal distribution from `Multivariate Normal Distribution <https://python.quantecon.org/multivariate_normal.html>`
   to compute the population regression (and :math:`R^2`) of :math:`e_t`
   against :math:`P_t^i, k_t^i, \tilde \theta_t`
 
-From these calculations we shall learn:
 
--  XXXX blah1
+After analyzing the one noisy signal structure in this way,  by making appropriate modifications
+we analyze the two-noisy-signal
+structure.
 
-+  XXXX blah 2
 
-Part 2
--------
+TOM: ADD KEY REGRESSIONS AND WHAT WE'LL CONCLUDE FROM THEM HERE.
 
-In part 2, we repeat the computations of part 1 for the two noise signal
-structure by making appropriate modifications.
+In this way, we construct linear state-space respresentations for both the t
+
+
+We proceed to analyze first the one-noisy-signal structure and then the two-noisy-signal structure.
 
 
 Equilibrium with one signal on :math:`\theta_t`
@@ -843,17 +841,13 @@ We use the following representation for constructing the
     \end{array}\right] & \sim & \mathcal{N}\left(0,I\right)
     \end{eqnarray*}
 
-__Quentin__: I have  a question or two for you from   here on. Please let's discuss these and other things on zoom soon.
+This representation includes extraneous variables  such as :math:`P_{t}` in the
+state vector.
 
-This representation has some extraneous variables in the
-state vector such as :math:`P_{t}`.
+We formulate things in this way because 
+it allows us easily to compute covariances of these variables with other
+components of the state vector (step 5 above) by using the ``stationary_distributions`` method of the ``LinearStateSpace`` class.
 
-We formulate things this way because 
-it allows us to compute the cross-variance of these variables with other
-components of the state vector (step 5) by leveraging the ``stationary_distributions`` method of the ``LinearStateSpace`` class.
-
-Doing it this way allows us to avoid _re-inventing the wheel_
-  *  if we were to use a more parsimonious representation, we would need to implement computation of this cross-variance ourselves.
 
 .. code-block:: ipython
 
@@ -962,8 +956,8 @@ Doing it this way allows us to avoid _re-inventing the wheel_
 Step 4: Compute impulse response functions
 -------------------------------------------------------------------
 
-For this step, we leverage the ``impulse_response`` method of the
-``quantecon.LinearStateSpace`` class, and plot the result.
+For this step, we use the ``impulse_response`` method of the
+``quantecon.LinearStateSpace`` class and plot the result.
 
 .. code-block:: python3
 
@@ -981,11 +975,12 @@ For this step, we leverage the ``impulse_response`` method of the
 Step 5: Compute stationary covariance matrices and population regressions
 -------------------------------------------------------------------------
 
-The computation of stationary covariance matrices step only requires
-a simple call to the ``stationary_distributions`` method of
-the ``quantecon.LinearStateSpace`` class. By appropriately decomposing
-the resulting covariance matrix of the state vector, we obtain the ingredients
-that we need for computing population regression coefficients.
+Computing stationary covariance matrices is accomplshed by  
+calling the ``stationary_distributions`` method of
+the ``quantecon.LinearStateSpace`` class.
+
+By appropriately decomposing the covariance matrix of the state vector, we obtain the ingredients
+that we need to compute the population regression coefficients that we seek.
 
 .. math::
 
@@ -996,7 +991,7 @@ that we need for computing population regression coefficients.
 
 where :math:`\Sigma_{11}` is the covariance matrix of dependent variables and :math:`\Sigma_{22}` is the covariance matrix of independent variables.
 
-The regression coefficients are then given by :math:`\beta=\Sigma_{21}\Sigma_{22}^{-1}`.
+The regression coefficients are  :math:`\beta=\Sigma_{21}\Sigma_{22}^{-1}`.
 
 To verify our computation, we simulate the state vector and use the ordinary least-squares estimator to estimate :math:`\beta`.
 
@@ -1042,12 +1037,13 @@ To verify our computation, we simulate the state vector and use the ordinary lea
     reg_res = model.fit()
     np.abs(reg_res.rsquared - 1.) < 1e-6
 
-Equilibrium with two signals on :math:`\theta_t`
+Equilibrium with two noisy signals on :math:`\theta_t`
 =================================================
 
-Steps 1, 4, and 5 are identical to the case with one signal on :math:`\theta_t` and step
-2 only requires a straightforward modification. As such, we leave the details
-aside. For step 3, we use the following representation:
+Steps 1, 4, and 5 are identical to those for the  one-noisy-signal structure and step
+2 only requires a straightforward modification. 
+
+For step 3, we use the following representation:
 
 .. math::
 
@@ -1272,33 +1268,44 @@ aside. For step 3, we use the following representation:
 Comparison of the two signal structures
 ======================================================================
 
-First, we can plot the two impulse response functions side-by-side.
+It is enlightening to  plot the two impulse response functions side by side.
 
 .. code-block:: python3
 
   fig_comb = go.Figure(data=[*fig1.data,
                              *fig2.update_traces(xaxis='x2', yaxis='y2').data]).set_subplots(1, 2,
-                                                                                             subplot_titles=("One shock structure", "Two shock structure"),
+                                                                                             subplot_titles=("One-signal structure", "Two-signal structure"),
                                                                                              horizontal_spacing=0.1)
   fig_comb.show()
 
-We can also compare the reconstruction error variances for the two signal
-structures. We compute these below.
+
+The  graphs above show that 
+
+  * the response to  shocks :math:`v_t` to the hidden Markov demand state :math:`\theta_t` process  is **larger** in the two-signal structure
+  * the response to idiosyncratic *own-market* or  noise-shocks :math:`e_t` is **smaller** in the two-signal structure
+ 
+
+Taken together, these  findings in turn can be shown to imply that time series correlations and coherences between outputs in
+the two industries are higher in the two-signal or **pooling** model.
+
+The enhanced influence of the shocks :math:`v_t` to the hidden Markov demand state :math:`\theta_t` process
+emerge from the two-signal model relative to the one-signal model are symptoms of a lower 
+equilibrium hidden-state  reconstruction error variance in the two-signal model: 
 
 .. code-block:: python3
 
     display(Latex('$\\textbf{Reconstruction error variances}$'))
-    display(Latex(f'One shock structure: ${round(p_one, 6)}$'))
-    display(Latex(f'Two shocks structure: ${round(p_two, 6)}$'))
+    display(Latex(f'One-noise structure: ${round(p_one, 6)}$'))
+    display(Latex(f'Two-noise structure: ${round(p_two, 6)}$'))
 
-Another object of interest is the Kalman gain. We compute it for both signal
-structures as well below.
+Kalman gains  for the two  
+structures are
 
 .. code-block:: python3
 
     display(Latex('$\\textbf{Kalman Gains}$'))
-    display(Latex(f'One shock structure: ${round(k_one, 6)}$'))
-    display(Latex(f'Two shocks structure: ${round(k_two, 6)}$'))
+    display(Latex(f'One-signal structure: ${round(k_one, 6)}$'))
+    display(Latex(f'Two-signal structure: ${round(k_two, 6)}$'))
 
 
 Related Literature
@@ -1331,8 +1338,23 @@ However,
 that led to what he thought was an intractable, infinite dimensional  state space.
 
 That led him
-to propose a more manageable model that he argued could do a good job of
-approximating the intractable model.
+to propose a more manageable model that revealed the hidden Markov component of the demand shock
+after a fixed number of periods.
+
+Thus, 
+
+  * Townsend wanted to assume that at time :math:`t` firms in industry :math:`i` observe 
+    :math:`k_t^i, Y_t^i, P_t^i, (P^{-i})^t`, where :math:`(P^{-i})^t` is the history of prices in
+    the other market up to time :math:`t`.
+
+  * Because that turned out to be too challenging, Townsend made an
+    alternative assumption that eased his calculations: that after a large
+    number :math:`S` of periods, firms in industry :math:`i` observe the
+    hidden Markov component of the demand shock :math:`\theta_{t-S}`.
+
+Townsend argued that the more manageable model  could do a good job of
+approximating the intractable model in which the Markov component of the demand shock remains unobserved
+for ever.
 
 By applying technical machinery of :cite:`PCL`,
 :cite:`Pearlman_Sargent2005` showed that there is a recursive
@@ -1422,20 +1444,7 @@ innovation process is the additional state variable contributed by the
 problem of extracting a signal from equilibrium prices that decision
 makers face in Townsend’s model.
 
-Various inserts and leftovers
-===============================
 
-Townsend wanted to assume that at time :math:`t` firms in industry
-:math:`i` observe :math:`k_t^i, Y_t^i, P_t^i, (P^{-i})^t`, where
-:math:`(P^{-i})^t` is the history of prices in the other market up to
-time :math:`t`.
-
-(Because that turned out to be too challenging, Townsend made an
-alternative assumption that eased his calculations: that after a large
-number :math:`S` of periods, firms in industry :math:`i` observe the
-noisy signals received by firms in industry :math:`-i` :math:`S` periods
-ago and earlier. **TOM: ACTUALLY, I THINK HE ASSUMES THAT THEY SEE**
-:math:`\theta_{t-S}`)
 
 
 
