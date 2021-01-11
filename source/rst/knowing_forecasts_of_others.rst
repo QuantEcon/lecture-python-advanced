@@ -37,7 +37,7 @@ While keeping other aspects of the model the same, we shall study
 consequences of alternative assumptions about what decision makers
 observe.
 
-Technically, this lecture deploys concepts and tools that appear 
+Technically, this lecture deploys concepts and tools that appear
 in  `First Look at Kalman Filter <https://python-intro.quantecon.org/kalman.html>`__ and
 `Rational Expectations Equilibrium <https://python-intro.quantecon.org/rational_expectations.html>`__.
 
@@ -374,7 +374,7 @@ Thus,  under perfect foresight the equilibrium capital stock in industry :math:`
       (\epsilon_{t+j}^i +  \theta_{t+j}) .
       \end{aligned}
 
-Next, we shall investigate consequences of replacing future  values of 
+Next, we shall investigate consequences of replacing future  values of
 :math:`(\epsilon_{t+j}^i +  \theta_{t+j})` in equation :eq:`town5`  with alternative forecasting schemes.
 
 In particular, we shall compute   equilibrium laws of motion for capital
@@ -793,28 +793,28 @@ We use the following representation for constructing the
 .. math::
 
     \begin{eqnarray*}
-    \left[\begin{array}{c}
+    \underbrace{\left[\begin{array}{c}
     e_{t+1}\\
     k_{t+1}^{i}\\
     \tilde{\theta}_{t+1}\\
     P_{t+1}\\
     \theta_{t+1}\\
     v_{t+1}
-    \end{array}\right] & = & \underbrace{\left[\begin{array}{cccccc}
+    \end{array}\right]}_{x_{t+1}} & = & \underbrace{\left[\begin{array}{cccccc}
     0 & 0 & 0 & 0 & 0 & 0\\
-    \frac{1}{\lambda-\rho}\frac{\rho p}{p+\sigma_{e}^{2}} & \tilde{\lambda} & \frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{p+\sigma_{e}^{2}} & 0 & \frac{\rho}{\lambda-\rho} & 0\\
-    -\frac{\rho p}{p+\sigma_{e}^{2}} & 0 & \frac{\rho\sigma_{e}^{2}}{p+\sigma_{e}^{2}} & 0 & 0 & 1\\
-    \frac{b}{\lambda-\rho}\frac{\rho p}{p+\sigma_{e}^{2}} & b\tilde{\lambda} & b\frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{p+\sigma_{e}^{2}} & 0 & b\frac{\rho}{\lambda-\rho}+\rho & 1\\
+    \frac{\kappa}{\lambda-\rho} & \tilde{\lambda} & \frac{-1}{\lambda-\rho}\frac{\kappa\sigma_{e}^{2}}{p} & 0 & \frac{\rho}{\lambda-\rho} & 0\\
+    -\kappa & 0 & \frac{\kappa\sigma_{e}^{2}}{p} & 0 & 0 & 1\\
+    \frac{b\kappa}{\lambda-\rho} & b\tilde{\lambda} & \frac{-b}{\lambda-\rho}\frac{\kappa\sigma_{e}^{2}}{p} & 0 & \frac{b\rho}{\lambda-\rho}+\rho & 1\\
     0 & 0 & 0 & 0 & \rho & 1\\
     0 & 0 & 0 & 0 & 0 & 0
-    \end{array}\right]}_{A}\left[\begin{array}{c}
+    \end{array}\right]}_{A}\underbrace{\left[\begin{array}{c}
     e_{t}\\
     k_{t}^{i}\\
     \tilde{\theta}_{t}\\
     P_{t}\\
     \theta_{t}\\
     v_{t}
-    \end{array}\right]+\underbrace{\left[\begin{array}{cc}
+    \end{array}\right]}_{x_{t}}+\underbrace{\left[\begin{array}{cc}
     \sigma_{e} & 0\\
     0 & 0\\
     0 & 0\\
@@ -825,26 +825,38 @@ We use the following representation for constructing the
     z_{1,t+1}\\
     z_{2,t+1}
     \end{array}\right]\\
-    G & = & \left[\begin{array}{cccccc}
+    \underbrace{\left[\begin{array}{c}
+    P_{t}\\
+    e_{t}+\theta_{t}\\
+    e_{t}
+    \end{array}\right]}_{y_{t}} & = & \underbrace{\left[\begin{array}{cccccc}
     0 & 0 & 0 & 1 & 0 & 0\\
     1 & 0 & 0 & 0 & 1 & 0\\
     1 & 0 & 0 & 0 & 0 & 0
-    \end{array}\right]\\
-    H & = & \left[\begin{array}{c}
+    \end{array}\right]}_{G}\underbrace{\left[\begin{array}{c}
+    e_{t}\\
+    k_{t}^{i}\\
+    \tilde{\theta}_{t}\\
+    P_{t}\\
+    \theta_{t}\\
+    v_{t}
+    \end{array}\right]}_{x_{t}}+\underbrace{\left[\begin{array}{c}
     0\\
     0\\
     0
-    \end{array}\right]\\
+    \end{array}\right]}_{H}w_{t+1}\\
     \left[\begin{array}{c}
     z_{1,t+1}\\
-    z_{2,t+1}
-    \end{array}\right] & \sim & \mathcal{N}\left(0,I\right)
+    z_{2,t+1}\\
+    w_{t+1}
+    \end{array}\right] & \sim & \mathcal{N}\left(0,I\right)\\
+    \kappa & = & \frac{\rho p}{p+\sigma_{e}^{2}}
     \end{eqnarray*}
 
 This representation includes extraneous variables  such as :math:`P_{t}` in the
 state vector.
 
-We formulate things in this way because 
+We formulate things in this way because
 it allows us easily to compute covariances of these variables with other
 components of the state vector (step 5 above) by using the ``stationary_distributions`` method of the ``LinearStateSpace`` class.
 
@@ -904,15 +916,15 @@ components of the state vector (step 5 above) by using the ``stationary_distribu
 
 .. code-block:: python3
 
-    term_0 = -ρ * σ_e ** 2 / (p + σ_e ** 2)
-    term_1 = ρ * p / (p + σ_e ** 2)
+    κ = ρ * p / (p + σ_e ** 2)
+    κ_prod = κ * σ_e ** 2 / p
 
-    k_one = term_1  # Save for comparison later
+    κ_one = κ  # Save for comparison later
 
     A_lss = np.array([[0., 0., 0., 0., 0., 0.],
-                     [term_1 / (λ - ρ), λ_tilde, term_0 / (λ - ρ), 0., ρ / (λ - ρ), 0.],
-                     [-term_1, 0., -term_0, 0., 0., 1.],
-                     [b * term_1 / (λ - ρ) , b * λ_tilde, b * term_0 / (λ - ρ), 0., b * ρ / (λ - ρ) + ρ, 1.],
+                     [κ / (λ - ρ), λ_tilde, -κ_prod / (λ - ρ), 0., ρ / (λ - ρ), 0.],
+                     [-κ, 0., κ_prod, 0., 0., 1.],
+                     [b * κ / (λ - ρ) , b * λ_tilde, -b * κ_prod / (λ - ρ), 0., b * ρ / (λ - ρ) + ρ, 1.],
                      [0., 0., 0., 0., ρ, 1.],
                      [0., 0., 0., 0., 0., 0.]])
 
@@ -936,22 +948,12 @@ components of the state vector (step 5 above) by using the ``stationary_distribu
 .. code-block:: python3
 
     ts_length = 100_000
-    x, y = lss.simulate(ts_length)
+    x, y = lss.simulate(ts_length, random_state=1)
 
 .. code-block:: python3
 
     # Verify that two ways of computing P_t match
     np.max(np.abs(np.array([[1., b, 0., 0., 1., 0.]]) @ x - x[3])) < 1e-12
-
-.. code-block:: python3
-
-    fig = px.histogram(x[2], title=r'$\mathrm{Histogram: }\: \tilde{\theta}_{t}$')
-    fig.update_layout(height=500)
-
-.. code-block:: python3
-
-    # Compute the mean of \tilde{\theta}
-    x[2].mean()
 
 Step 4: Compute impulse response functions
 -------------------------------------------------------------------
@@ -961,11 +963,11 @@ For this step, we use the ``impulse_response`` method of the
 
 .. code-block:: python3
 
-    xcoef, ycoef = lss.impulse_response(j=20)
+    xcoef, ycoef = lss.impulse_response(j=21)
     data = np.array([xcoef])[0, :, 1, :]
 
-    fig = go.Figure(data=go.Scatter(y=data[:, 0], name=r'$e_{t+1}$'))
-    fig.add_trace(go.Scatter(y=data[:, 1], name=r'$v_{t+1}$'))
+    fig = go.Figure(data=go.Scatter(y=data[:-1, 0], name=r'$e_{t+1}$'))
+    fig.add_trace(go.Scatter(y=data[1:, 1], name=r'$v_{t+1}$'))
     fig.update_layout(title=r'Impulse Response Function',
                        xaxis_title='Time',
                        yaxis_title=r'$k^{i}_{t}$')
@@ -975,7 +977,7 @@ For this step, we use the ``impulse_response`` method of the
 Step 5: Compute stationary covariance matrices and population regressions
 -------------------------------------------------------------------------
 
-Computing stationary covariance matrices is accomplshed by  
+Computing stationary covariance matrices is accomplshed by
 calling the ``stationary_distributions`` method of
 the ``quantecon.LinearStateSpace`` class.
 
@@ -1041,76 +1043,93 @@ Equilibrium with two noisy signals on :math:`\theta_t`
 =================================================
 
 Steps 1, 4, and 5 are identical to those for the  one-noisy-signal structure and step
-2 only requires a straightforward modification. 
+2 only requires a straightforward modification.
 
 For step 3, we use the following representation:
 
 .. math::
 
-  \begin{eqnarray*}
-  \left[\begin{array}{c}
-  e_{1,t+1}\\
-  e_{2,t+1}\\
-  k_{t+1}^{i}\\
-  \tilde{\theta}_{t+1}\\
-  P_{t+1}^{1}\\
-  P_{t+1}^{2}\\
-  \theta_{t+1}\\
-  v_{t+1}
-  \end{array}\right] & = & \underbrace{\left[\begin{array}{cccccccc}
-  0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
-  0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
-  \frac{1}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & \frac{1}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & \tilde{\lambda} & \frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & 0 & 0 & \frac{\rho}{\lambda-\rho} & 0\\
-  -\frac{\rho p}{2p+\sigma_{e}^{2}} & -\frac{\rho p}{2p+\sigma_{e}^{2}} & 0 & \frac{\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & 0 & 0 & 0 & 1\\
-  \frac{b}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & \frac{b}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & b\tilde{\lambda} & b\frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & 0 & 0 & b\frac{\rho}{\lambda-\rho}+\rho & 1\\
-  \frac{b}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & \frac{b}{\lambda-\rho}\frac{\rho p}{2p+\sigma_{e}^{2}} & b\tilde{\lambda} & b\frac{1}{\lambda-\rho}\frac{-\rho\sigma_{e}^{2}}{2p+\sigma_{e}^{2}} & 0 & 0 & b\frac{\rho}{\lambda-\rho}+\rho & 1\\
-  0 & 0 & 0 & 0 & 0 & 0 & \rho & 1\\
-  0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
-  \end{array}\right]}_{A}\left[\begin{array}{c}
-  e_{1,t}\\
-  e_{2,t}\\
-  k_{t}^{i}\\
-  \tilde{\theta}_{t}\\
-  P_{t}^{1}\\
-  P_{t}^{2}\\
-  \theta_{t}\\
-  v_{t}
-  \end{array}\right]+\underbrace{\left[\begin{array}{ccc}
-  \sigma_{e} & 0 & 0\\
-  0 & \sigma_{e} & 0\\
-  0 & 0 & 0\\
-  0 & 0 & 0\\
-  \sigma_{e} & 0 & 0\\
-  0 & \sigma_{e} & 0\\
-  0 & 0 & 0\\
-  0 & 0 & \sigma_{v}
-  \end{array}\right]}_{C}\left[\begin{array}{c}
-  z_{1,t+1}\\
-  z_{2,t+1}\\
-  z_{3,t+1}
-  \end{array}\right]\\
-  G & = & \left[\begin{array}{cccccccc}
-  0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\
-  0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
-  1 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\
-  0 & 1 & 0 & 0 & 0 & 0 & 1 & 0\\
-  1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
-  0 & 1 & 0 & 0 & 0 & 0 & 0 & 0
-  \end{array}\right]\\
-  H & = & \left[\begin{array}{c}
-  0\\
-  0\\
-  0\\
-  0\\
-  0\\
-  0
-  \end{array}\right]\\
-  \left[\begin{array}{c}
-  z_{1,t+1}\\
-  z_{2,t+1}\\
-  z_{3,t+1}
-  \end{array}\right] & \sim & \mathcal{N}\left(0,I\right)
-  \end{eqnarray*}
+    \begin{eqnarray*}
+    \underbrace{\left[\begin{array}{c}
+    e_{1,t+1}\\
+    e_{2,t+1}\\
+    k_{t+1}^{i}\\
+    \tilde{\theta}_{t+1}\\
+    P_{t+1}^{1}\\
+    P_{t+1}^{2}\\
+    \theta_{t+1}\\
+    v_{t+1}
+    \end{array}\right]}_{x_{t+1}} & = & \underbrace{\left[\begin{array}{cccccccc}
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    \frac{\kappa}{\lambda-\rho} & \frac{\kappa}{\lambda-\rho} & \tilde{\lambda} & \frac{-1}{\lambda-\rho}\frac{\kappa\sigma_{e}^{2}}{p} & 0 & 0 & \frac{\rho}{\lambda-\rho} & 0\\
+    -\kappa & -\kappa & 0 & \frac{\kappa\sigma_{e}^{2}}{p} & 0 & 0 & 0 & 1\\
+    \frac{b\kappa}{\lambda-\rho} & \frac{b\kappa}{\lambda-\rho} & b\tilde{\lambda} & \frac{-b}{\lambda-\rho}\frac{\kappa\sigma_{e}^{2}}{p} & 0 & 0 & \frac{b\rho}{\lambda-\rho}+\rho & 1\\
+    \frac{b\kappa}{\lambda-\rho} & \frac{b\kappa}{\lambda-\rho} & b\tilde{\lambda} & \frac{-b}{\lambda-\rho}\frac{\kappa\sigma_{e}^{2}}{p} & 0 & 0 & \frac{b\rho}{\lambda-\rho}+\rho & 1\\
+    0 & 0 & 0 & 0 & 0 & 0 & \rho & 1\\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+    \end{array}\right]}_{A}\underbrace{\left[\begin{array}{c}
+    e_{1,t}\\
+    e_{2,t}\\
+    k_{t}^{i}\\
+    \tilde{\theta}_{t}\\
+    P_{t}^{1}\\
+    P_{t}^{2}\\
+    \theta_{t}\\
+    v_{t}
+    \end{array}\right]}_{x_{t}}+\underbrace{\left[\begin{array}{ccc}
+    \sigma_{e} & 0 & 0\\
+    0 & \sigma_{e} & 0\\
+    0 & 0 & 0\\
+    0 & 0 & 0\\
+    \sigma_{e} & 0 & 0\\
+    0 & \sigma_{e} & 0\\
+    0 & 0 & 0\\
+    0 & 0 & \sigma_{v}
+    \end{array}\right]}_{C}\left[\begin{array}{c}
+    z_{1,t+1}\\
+    z_{2,t+1}\\
+    z_{3,t+1}
+    \end{array}\right]\\
+    \underbrace{\left[\begin{array}{c}
+    P_{t}^{1}\\
+    P_{t}^{2}\\
+    e_{1,t}+\theta_{t}\\
+    e_{2,t}+\theta_{t}\\
+    e_{1,t}\\
+    e_{2,t}
+    \end{array}\right]}_{y_{t}} & = & \underbrace{\left[\begin{array}{cccccccc}
+    0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\
+    0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
+    1 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\
+    0 & 1 & 0 & 0 & 0 & 0 & 1 & 0\\
+    1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    0 & 1 & 0 & 0 & 0 & 0 & 0 & 0
+    \end{array}\right]}_{G}\underbrace{\left[\begin{array}{c}
+    e_{1,t}\\
+    e_{2,t}\\
+    k_{t}^{i}\\
+    \tilde{\theta}_{t}\\
+    P_{t}^{1}\\
+    P_{t}^{2}\\
+    \theta_{t}\\
+    v_{t}
+    \end{array}\right]}_{x_{t}}+\underbrace{\left[\begin{array}{c}
+    0\\
+    0\\
+    0\\
+    0\\
+    0\\
+    0
+    \end{array}\right]}_{H}w_{t+1}\\
+    \left[\begin{array}{c}
+    z_{1,t+1}\\
+    z_{2,t+1}\\
+    z_{3,t+1}\\
+    w_{t+1}
+    \end{array}\right] & \sim & \mathcal{N}\left(0,I\right)\\
+    \kappa & = & \frac{\rho p}{2p+\sigma_{e}^{2}}
+    \end{eqnarray*}
 
 .. code-block:: python3
 
@@ -1131,17 +1150,17 @@ For step 3, we use the following representation:
 
 .. code-block:: python3
 
-    term_0 = -ρ * σ_e ** 2 / (2 * p + σ_e ** 2)
-    term_1 = ρ * p / (2 * p + σ_e ** 2)
+    κ = ρ * p / (2 * p + σ_e ** 2)
+    κ_prod = κ * σ_e ** 2 / p
 
-    k_two = term_1  # Save for comparison later
+    κ_two = κ  # Save for comparison later
 
     A_lss = np.array([[0., 0., 0., 0., 0., 0., 0., 0.],
                      [0., 0., 0., 0., 0., 0., 0., 0.],
-                     [term_1 / (λ - ρ), term_1 / (λ - ρ), λ_tilde, term_0 / (λ - ρ), 0., 0., ρ / (λ - ρ), 0.],
-                     [-term_1, -term_1, 0., -term_0, 0., 0., 0., 1.],
-                     [b * term_1 / (λ - ρ), b * term_1 / (λ - ρ), b * λ_tilde, b * term_0 / (λ - ρ), 0., 0., b * ρ / (λ - ρ) + ρ, 1.],
-                     [b * term_1 / (λ - ρ), b * term_1 / (λ - ρ), b * λ_tilde, b * term_0 / (λ - ρ), 0., 0., b * ρ / (λ - ρ) + ρ, 1.],
+                     [κ / (λ - ρ), κ / (λ - ρ), λ_tilde, -κ_prod / (λ - ρ), 0., 0., ρ / (λ - ρ), 0.],
+                     [-κ, -κ, 0., κ_prod, 0., 0., 0., 1.],
+                     [b * κ / (λ - ρ), b * κ / (λ - ρ), b * λ_tilde, -b * κ_prod / (λ - ρ), 0., 0., b * ρ / (λ - ρ) + ρ, 1.],
+                     [b * κ / (λ - ρ), b * κ / (λ - ρ), b * λ_tilde, -b * κ_prod / (λ - ρ), 0., 0., b * ρ / (λ - ρ) + ρ, 1.],
                      [0., 0., 0., 0., 0., 0., ρ, 1.],
                      [0., 0., 0., 0., 0., 0., 0., 0.]])
 
@@ -1171,7 +1190,7 @@ For step 3, we use the following representation:
 .. code-block:: python3
 
     ts_length = 100_000
-    x, y = lss.simulate(ts_length)
+    x, y = lss.simulate(ts_length, random_state=1)
 
 .. code-block:: python3
 
@@ -1181,9 +1200,9 @@ For step 3, we use the following representation:
 
     data = np.array([xcoef])[0, :, 2, :]
 
-    fig = go.Figure(data=go.Scatter(y=data[:, 0], name=r'$e_{1,t+1}$'))
-    fig.add_trace(go.Scatter(y=data[:, 1], name=r'$e_{2,t+1}$'))
-    fig.add_trace(go.Scatter(y=data[:, 2], name=r'$v_{t+1}$'))
+    fig = go.Figure(data=go.Scatter(y=data[:-1, 0], name=r'$e_{1,t+1}$'))
+    fig.add_trace(go.Scatter(y=data[:-1, 1], name=r'$e_{2,t+1}$'))
+    fig.add_trace(go.Scatter(y=data[1:, 2], name=r'$v_{t+1}$'))
     fig.update_layout(title=r'Impulse Response Function',
                        xaxis_title='Time',
                        yaxis_title=r'$k^{i}_{t}$')
@@ -1274,23 +1293,24 @@ It is enlightening to  plot the two impulse response functions side by side.
 
   fig_comb = go.Figure(data=[*fig1.data,
                              *fig2.update_traces(xaxis='x2', yaxis='y2').data]).set_subplots(1, 2,
-                                                                                             subplot_titles=("One-signal structure", "Two-signal structure"),
-                                                                                             horizontal_spacing=0.1)
+                                                                                             subplot_titles=("One shock structure", "Two shock structures"),
+                                                                                             horizontal_spacing=0.1,
+                                                                                             shared_yaxes=True)
   fig_comb.show()
 
 
-The  graphs above show that 
+The  graphs above show that
 
   * the response to  shocks :math:`v_t` to the hidden Markov demand state :math:`\theta_t` process  is **larger** in the two-signal structure
   * the response to idiosyncratic *own-market* or  noise-shocks :math:`e_t` is **smaller** in the two-signal structure
- 
+
 
 Taken together, these  findings in turn can be shown to imply that time series correlations and coherences between outputs in
 the two industries are higher in the two-signal or **pooling** model.
 
 The enhanced influence of the shocks :math:`v_t` to the hidden Markov demand state :math:`\theta_t` process
-emerge from the two-signal model relative to the one-signal model are symptoms of a lower 
-equilibrium hidden-state  reconstruction error variance in the two-signal model: 
+emerge from the two-signal model relative to the one-signal model are symptoms of a lower
+equilibrium hidden-state  reconstruction error variance in the two-signal model:
 
 .. code-block:: python3
 
@@ -1298,14 +1318,14 @@ equilibrium hidden-state  reconstruction error variance in the two-signal model:
     display(Latex(f'One-noise structure: ${round(p_one, 6)}$'))
     display(Latex(f'Two-noise structure: ${round(p_two, 6)}$'))
 
-Kalman gains  for the two  
+Kalman gains  for the two
 structures are
 
 .. code-block:: python3
 
     display(Latex('$\\textbf{Kalman Gains}$'))
-    display(Latex(f'One-signal structure: ${round(k_one, 6)}$'))
-    display(Latex(f'Two-signal structure: ${round(k_two, 6)}$'))
+    display(Latex(f'One shock structure: ${round(κ_one, 6)}$'))
+    display(Latex(f'Two shocks structure: ${round(κ_two, 6)}$'))
 
 
 Related Literature
@@ -1341,9 +1361,9 @@ That led him
 to propose a more manageable model that revealed the hidden Markov component of the demand shock
 after a fixed number of periods.
 
-Thus, 
+Thus,
 
-  * Townsend wanted to assume that at time :math:`t` firms in industry :math:`i` observe 
+  * Townsend wanted to assume that at time :math:`t` firms in industry :math:`i` observe
     :math:`k_t^i, Y_t^i, P_t^i, (P^{-i})^t`, where :math:`(P^{-i})^t` is the history of prices in
     the other market up to time :math:`t`.
 
