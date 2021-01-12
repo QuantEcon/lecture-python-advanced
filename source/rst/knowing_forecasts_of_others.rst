@@ -104,7 +104,7 @@ The presence of costs of adjusting their capital stocks imparts to firms an ince
 good that they sell.
 
 Throughout, we use the **rational expectations** equilibrium concept presented
-in `Rational Expectations Equilibrium <https://python-intro.quantecon.org/rational_expectations.html>`__.
+in this lecture `Rational Expectations Equilibrium <https://python-intro.quantecon.org/rational_expectations.html>`__.
 
 We let capital letters denote market wide objects and lower case letters
 denote objects chosen by a representative firm.
@@ -722,19 +722,18 @@ on :math:`\theta_t` and perform the following steps:
 
 - Use methods of the ``quantecon.LinearStateSpace`` to compute the stationary
   covariance matrices for the state and measurement vectors. Use formulas
-  for multivariate normal distribution from `Multivariate Normal Distribution <https://python.quantecon.org/multivariate_normal.html>`
+  for multivariate normal distribution from  this lecture `<https://python.quantecon.org/multivariate_normal.html>`
   to compute the population regression (and :math:`R^2`) of :math:`e_t`
   against :math:`P_t^i, k_t^i, \tilde \theta_t`
 
 
-After analyzing the one noisy signal structure in this way,  by making appropriate modifications
-we analyze the two-noisy-signal
+After analyzing the one-noisy-signal structure in this way,  by making appropriate modifications
+we shall analyze the two-noisy-signal
 structure.
 
 
 TOM: ADD KEY REGRESSIONS AND WHAT WE'LL CONCLUDE FROM THEM HERE.
 
-In this way, we construct linear state-space respresentations for both the t
 
 
 We proceed to analyze first the one-noisy-signal structure and then the two-noisy-signal structure.
@@ -977,7 +976,7 @@ For this step, we use the ``impulse_response`` method of the
 Step 5: Compute stationary covariance matrices and population regressions
 -------------------------------------------------------------------------
 
-Computing stationary covariance matrices is accomplshed by
+We compute stationary covariance matrices  by
 calling the ``stationary_distributions`` method of
 the ``quantecon.LinearStateSpace`` class.
 
