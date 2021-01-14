@@ -15,22 +15,64 @@ Knowing the Forecasts of Others
 Introduction
 =============
 
-This lecture describes  a sequence of models of two industries that are linked in a
+===============
+
+Robert E. Lucas, Jr. :cite:`lucas75`, Kenneth Kasa  :cite:`kasa`, and Robert Townsend
+:cite:`townsend` demonstrated that providing decision makers with incentives to infer hidden persistent state
+variables from equilibrium prices and quantities is  potentially a way to 
+elongate and amplify impulse responses to aggregate 
+shocks in business cycle models.
+
+Townsend :cite:`townsend`
+noted  that  such incentives can naturally
+induce decision makers to want  to forecast the forecast of others.
+
+This theme has been pursued and extended in analyses in which
+decision makers' imperfect information forces them into pursuing an
+infinite recursion of forming beliefs about the beliefs of other
+(e.g., :cite:`ams`).
+
+Lucas :cite:`lucas75` side stepped having decision makers forecast the
+forecasts of other decision makers by assuming that they simply pool their
+information before forecasting.
+
+A **pooling equilibrium** like Lucas's plays a prominent role in this lecture.
+
+Because he didn’t assume such pooling, :cite:`townsend`
+confronted the forecasting the forecasts of others problem.
+
+However, because he  thought that to analyze that model required an intractable, infinite dimensional  state space,
+Townsend proposed a more manageable approximating model in which the hidden Markov component of the demand shock is
+revealed to all firms after a fixed number of periods. 
+
+In this lecture, as yet another instance of the theme that *finding the state is an art*, we show that we can formulate Townsend's original model with a low-dimensional state space and that doing so ends 
+up generating the outcomes that would prevail in a pooling equilibrium.  
+
+This finding emerged from a line of research on Townsend's model culminating in  
+:cite:`Pearlman_Sargent2005` that built on :cite:`PCL`.
+
+However, rather than deploying the :cite:`PCL` machinery here, we shall rely instead on a sneaky
+*guess-and-verify* strategy.
+
+
+A Sequence of Models 
+----------------------
+
+We proceed by describing  a sequence of models of two industries that are linked in a
 single way: shocks to the demand curves for their products have a common
 component.
 
-The models are variations on a model of  :cite:`townsend`.
+The models are variations  of Townsend's  :cite:`townsend`.
 
 Townsend's is a model of a rational expectations equilibrium in which firms confront
-the problem  __forecasting the forecasts of others__.
+the problem  **forecasting the forecasts of others**.
 
 In Townsend's model, firms condition  their forecasts on observed endogenous variables whose equilibrium laws of motion
 are determined by their own forecasting functions.
 
 
 
-We proceed by describing components that we shall then put
-together in several ways that help us appreciate the structure of a
+We start with model  components that we shall later assemble in several ways that help us appreciate the structure of a
 **pooling equilibrium**  that ultimately concerns us.
 
 While keeping other aspects of the model the same, we shall study
@@ -122,7 +164,7 @@ optimization problem.
 
 
 Strategy
------------
+===========
 
 We shall  compute
 equilibrium laws of motion for capital in industry :math:`i` under a
@@ -382,7 +424,7 @@ under alternative assumptions about the information available to
 decision makers in market :math:`i`.
 
 Equilibrium with :math:`\theta_t` stochastic but observed at :math:`t`
-======================================================================
+=======================================================================
 
 If future :math:`\theta`\ ’s are unknown at :math:`t`, it is appropriate
 to replace all random variables on the right side of
@@ -740,7 +782,7 @@ We proceed to analyze first the one-noisy-signal structure and then the two-nois
 
 
 Equilibrium with one signal on :math:`\theta_t`
-===============================================
+================================================
 
 Step 1: Solve for :math:`\tilde{\lambda}` and :math:`\lambda`
 ----------------------------------------------------------------
@@ -1039,7 +1081,7 @@ To verify our computation, we simulate the state vector and use the ordinary lea
     np.abs(reg_res.rsquared - 1.) < 1e-6
 
 Equilibrium with two noisy signals on :math:`\theta_t`
-=================================================
+=========================================================
 
 Steps 1, 4, and 5 are identical to those for the  one-noisy-signal structure and step
 2 only requires a straightforward modification.
@@ -1327,38 +1369,12 @@ structures are
     display(Latex(f'Two shocks structure: ${round(κ_two, 6)}$'))
 
 
-Related Literature
-===================
+Notes on History of the Problem
+=================================
 
-:cite:`lucas75`, :cite:`kasa`, and
-:cite:`townsend` demonstrated that arranging for
-decision makers to have incentives to infer hidden persistent state
-variables from equilibrium prices and quantities is a potential source
-of  elongated impulse response
-functions in business cycle models.
-
-:cite:`townsend`
-indicated that models that incorporate such incentives can naturally
-induce decision makers in effect to forecast the forecast of others.
-
-This theme has been pursued and extended in recent analyses in which
-decision maker’s imperfect information forces them into pursuing an
-infinite recursion of forming beliefs about the beliefs of other
-(e.g., :cite:`ams`).
-
-:cite:`lucas75` side stepped having decision makers forecast the
-forecasts of other decision makers by assuming that they simply pool their
-information before forecasting.
-
-Because he didn’t assume such pooling, :cite:`townsend`
-confronted the forecasting the forecasts of others problem.
-
-However,
-that led to what he thought was an intractable, infinite dimensional  state space.
-
-That led him
-to propose a more manageable model that revealed the hidden Markov component of the demand shock
-after a fixed number of periods.
+To truncate what he saw as an intractable, infinite dimensional  state space,
+Townsend constructed an approximating model in which the common hidden Markov demand shock
+is revealed to all firms  after a fixed number of periods.
 
 Thus,
 
@@ -1381,6 +1397,12 @@ representation of the equilibrium of the perpetually and symmetrically
 uninformed model formulated but not completely solved in section 8 of
 :cite:`townsend`.
 
+A reader of :cite:`Pearlman_Sargent2005` will notice that their representation of the equilibrium of 
+Townsend's model exactly matches that of the  **pooling equilibrium** presented here.  
+
+We have structured  our notation in  this lecture to faciliate comparison of the **pooling equilibrium**
+constructed here with the equilibrium of Townsend's model reported in  :cite:`Pearlman_Sargent2005`.
+
 The computational method of :cite:`Pearlman_Sargent2005` is recursive:
 it enlists the Kalman filter and invariant subspace methods for
 solving systems of Euler
@@ -1399,30 +1421,13 @@ sets [#footnote2]_ .
 
 The disappearance of higher order beliefs means that
 decision makers in this model do not really face a problem of
-forecasting the forecasts of others. They know those forecasts because
+forecasting the forecasts of others. 
+
+They know those forecasts because
 they are the same as their own.
 
-
-
-The presence of a common hidden state variable is the only thing that
-inspires decision makers in one market to condition their decisions on
-the history of prices in the other market.
-
-
-:cite:`townsend` noted that in his model with perpetually
-and symmetrically uninformed decision makers, the dimension of the state
-space seemed to explode because it seemed to be necessary for decision
-makers to keep track of an infinite history of vectors of observables.
-
-
-That *curse of dimensionality* deterred Townsend from characterizing or
-computing an equilibrium of that model.
-
-Instead he constructed another model and computed its equilibrium. To
-construct this model he assumed that after a finite number :math:`j`
-periods, the (lagged) value of the key hidden state variable is revealed
-to the decision maker.
-
+Further historical remarks
+--------------------------
 
 :cite:`sargent91` proposed a way to compute an equilibrium
 without making Townsend’s approximation.
@@ -1447,10 +1452,8 @@ domain :cite:`kasa` showed how to discover the appropriate
 orders of the autoregressive and moving average parts, and also how to
 compute an equilibrium.
 
-
-
-Our recursive computational method, which stays in the time domain, also
-discovers the appropriate orders of the autoregressive and moving
+The  :cite:`Pearlman_Sargent2005` recursive computational method, which stays in the time domain, also
+discovered appropriate orders of the autoregressive and moving
 average pieces.
 
 In addition, by displaying equilibrium representations
