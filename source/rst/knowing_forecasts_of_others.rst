@@ -18,8 +18,8 @@ Introduction
 ===============
 
 Robert E. Lucas, Jr. :cite:`lucas75`, Kenneth Kasa  :cite:`kasa`, and Robert Townsend
-:cite:`townsend` demonstrated that providing decision makers with incentives to infer hidden persistent state
-variables from equilibrium prices and quantities is  potentially a way to 
+:cite:`townsend` showed that giving decision makers  incentives to infer persistent hidden  state
+variables from equilibrium prices and quantities can
 elongate and amplify impulse responses to aggregate 
 shocks in business cycle models.
 
@@ -41,18 +41,47 @@ A **pooling equilibrium** like Lucas's plays a prominent role in this lecture.
 Because he didn’t assume such pooling, :cite:`townsend`
 confronted the forecasting the forecasts of others problem.
 
-However, because he  thought that to analyze that model required an intractable, infinite dimensional  state space,
-Townsend proposed a more manageable approximating model in which the hidden Markov component of the demand shock is
-revealed to all firms after a fixed number of periods. 
+To formulate the  problem recursively required that Townsend define  decision maker's **state** vector.
 
-In this lecture, as yet another instance of the theme that *finding the state is an art*, we show that we can formulate Townsend's original model with a low-dimensional state space and that doing so ends 
-up generating the outcomes that would prevail in a pooling equilibrium.  
+Townsend concluded that his original  model required an intractable infinite dimensional  state space. 
 
-This finding emerged from a line of research on Townsend's model culminating in  
+Therefore, he constructed a more manageable approximating model in which the hidden Markov component of 
+the demand shock is
+revealed to all firms after a fixed and finite number of periods. 
+
+In this lecture, as yet another instance of the theme that **finding the state is an art**, 
+we show how to formulate Townsend's original model in terms of a low-dimensional state space.
+
+By doing so, we show that Townsend's model shares equilibrium prices and quantities with those   that 
+prevail in a pooling equilibrium.  
+
+That finding emerged from a line of research about  Townsend's model that  culminated in  
 :cite:`Pearlman_Sargent2005` that built on :cite:`PCL`.
 
 However, rather than deploying the :cite:`PCL` machinery here, we shall rely instead on a sneaky
-*guess-and-verify* strategy.
+**guess-and-verify** tactic.
+
+ * We compute a pooling equilibrium and represent it as an instance of  a linear  state-space system provided by 
+   the Python class ``quantecon.LinearStateSpace``.
+
+ * Leaving the state-transition equation for the pooling equilibrium unaltered, we alter the observation vector 
+   for a firm to what it in in Townsend's original model. So rather than directly observing the signal received by 
+   firms in the other industry, a firm sees the equilibrium price
+   of the good produced by the other industry.
+
+ * We compute a population linear least squares regression of the noisy signal that firms in the other 
+   industry receive in a pooling equilibrium on time :math:`t` information that a firm receives in Townsend's 
+   original model. The :math:`R^2` in this regression equals :math:`1`.  That verifies that a firm's information 
+   set in Townsend's original model equals its information set in a pooling equilibrium. Therefore, equilibrium
+   prices and quantities in Townsend's original model equal those in a pooling equilibrium. 
+
+
+
+
+   
+
+
+  
 
 
 A Sequence of Models 
@@ -62,7 +91,7 @@ We proceed by describing  a sequence of models of two industries that are linked
 single way: shocks to the demand curves for their products have a common
 component.
 
-The models are variations  of Townsend's  :cite:`townsend`.
+The models are simplified versions   of Townsend's  :cite:`townsend`.
 
 Townsend's is a model of a rational expectations equilibrium in which firms confront
 the problem  **forecasting the forecasts of others**.
@@ -72,7 +101,7 @@ are determined by their own forecasting functions.
 
 
 
-We start with model  components that we shall later assemble in several ways that help us appreciate the structure of a
+We start with model  components that we shall progressively assemble in  ways that can help us to appreciate the structure of a
 **pooling equilibrium**  that ultimately concerns us.
 
 While keeping other aspects of the model the same, we shall study
@@ -88,7 +117,9 @@ in  `First Look at Kalman Filter <https://python-intro.quantecon.org/kalman.html
 The Setting
 ============
 
-To cast all variables in terms of deviations from means, we omit constants from inverse demand curves
+We cast all variables in terms of deviations from means.
+
+Therefore,  we omit constants from inverse demand curves
 and other functions.
 
 
@@ -163,7 +194,7 @@ between :math:`k_t^i` and :math:`K_t^i` when we pose the firm’s
 optimization problem.
 
 
-Strategy
+Tactics
 ===========
 
 We shall  compute
@@ -760,23 +791,11 @@ on :math:`\theta_t` and perform the following steps:
   in state-space form and encode it using ``quantecon.LinearStateSpace``
 
 - Use methods of the ``quantecon.LinearStateSpace`` to compute impulse response
-  functions for :math:`k_t^i` with respect to shocks :math:`v_t, e_t`.
-
-- Use methods of the ``quantecon.LinearStateSpace`` to compute the stationary
-  covariance matrices for the state and measurement vectors. Use formulas
-  for multivariate normal distribution from  this lecture `<https://python.quantecon.org/multivariate_normal.html>`
-  to compute the population regression (and :math:`R^2`) of :math:`e_t`
-  against :math:`P_t^i, k_t^i, \tilde \theta_t`
-
+  functions of :math:`k_t^i` with respect to shocks :math:`v_t, e_t`.
 
 After analyzing the one-noisy-signal structure in this way,  by making appropriate modifications
 we shall analyze the two-noisy-signal
 structure.
-
-
-TOM: ADD KEY REGRESSIONS AND WHAT WE'LL CONCLUDE FROM THEM HERE.
-
-
 
 We proceed to analyze first the one-noisy-signal structure and then the two-noisy-signal structure.
 
@@ -999,7 +1018,7 @@ components of the state vector (step 5 above) by using the ``stationary_distribu
 Step 4: Compute impulse response functions
 -------------------------------------------------------------------
 
-For this step, we use the ``impulse_response`` method of the
+To compute impulse response functions of :math:`k_t^i`, we use the ``impulse_response`` method of the
 ``quantecon.LinearStateSpace`` class and plot the result.
 
 .. code-block:: python3
@@ -1022,8 +1041,8 @@ We compute stationary covariance matrices  by
 calling the ``stationary_distributions`` method of
 the ``quantecon.LinearStateSpace`` class.
 
-By appropriately decomposing the covariance matrix of the state vector, we obtain the ingredients
-that we need to compute the population regression coefficients that we seek.
+By appropriately decomposing the covariance matrix of the state vector, we obtain ingredients
+of some population regression coefficients.
 
 .. math::
 
@@ -1034,9 +1053,12 @@ that we need to compute the population regression coefficients that we seek.
 
 where :math:`\Sigma_{11}` is the covariance matrix of dependent variables and :math:`\Sigma_{22}` is the covariance matrix of independent variables.
 
-The regression coefficients are  :math:`\beta=\Sigma_{21}\Sigma_{22}^{-1}`.
+Regression coefficients are  :math:`\beta=\Sigma_{21}\Sigma_{22}^{-1}`.
 
-To verify our computation, we simulate the state vector and use the ordinary least-squares estimator to estimate :math:`\beta`.
+To verify an instance of a law of large numbers computation, we construct a long  simulation of 
+the state vector and for the resulting sample compute
+the ordinary least-squares estimator  of :math:`\beta` that we shall compare to the corresponding population regression
+coefficients.
 
 .. code-block:: python3
 
@@ -1083,10 +1105,16 @@ To verify our computation, we simulate the state vector and use the ordinary lea
 Equilibrium with two noisy signals on :math:`\theta_t`
 =========================================================
 
-Steps 1, 4, and 5 are identical to those for the  one-noisy-signal structure and step
-2 only requires a straightforward modification.
+Steps 1, 4, and 5 are identical to those for the  one-noisy-signal structure.
 
-For step 3, we use the following representation:
+Step 2  requires only a straightforward modification.
+
+For step 3, we use construct the  following state-space representation so that we can get our hands on 
+all of the random processes that we require in order  to compute a regression of the noisy signal about 
+:math:`\theta` from the other industry that a firm receives directly in a pooling equilibrium on the information that
+a firm receives in Townsend's original model.
+
+For this purpose, we include  equilibrium goods prices from  both industries appear in the state vector:
 
 .. math::
 
@@ -1310,13 +1338,28 @@ For step 3, we use the following representation:
     R_squared = reg_coeffs @ Σ_x[2:6, 2:6] @ reg_coeffs  / Σ_x[1, 1]
     R_squared
 
-.. code-block:: python3
 
-    # θ_t + e^{2}_t on k^{i}_t, P^{1}_t, P^{2}_t, \\tilde{\\theta_t}
+## Key step
+
+Now we come to the key step of verifying that equilibrium outcomes for prices and quantities are identical 
+in the pooling equilibrium and Townsend's original model.
+
+We accomplish this by  compute a population linear least squares regression of the noisy signal that firms in the other 
+industry receive in a pooling equilibrium on time :math:`t` information that a firm receives in Townsend's 
+original model.
+
+Let's compute the regression and stare at the :math:`R^2`: 
+
+
+
 
 .. code-block:: python3
 
     # Verify that θ_t + e^{2}_t can be recovered
+
+    # θ_t + e^{2}_t on k^{i}_t, P^{1}_t, P^{2}_t, \\tilde{\\theta_t}
+ 
+
     model = OLS(y[1], x[2:6].T)
     reg_res = model.fit()
     np.abs(reg_res.rsquared - 1.) < 1e-6
@@ -1325,32 +1368,47 @@ For step 3, we use the following representation:
 
     reg_res.rsquared
 
+
+
+The :math:`R^2` in this regression equals :math:`1`. 
+
+That verifies that a firm's information 
+set in Townsend's original model equals its information set in a pooling equilibrium. 
+
+Therefore, equilibrium prices and quantities in Townsend's original model equal those in a pooling equilibrium. 
+
+
 Comparison of the two signal structures
 ======================================================================
 
-It is enlightening to  plot the two impulse response functions side by side.
+It is enlightening side by side to  plot impulse response functions for capital in an industry for the two
+information noisy-signal information structures.
+
+Please remember that the two-signal structure corresponds to the **pooling equilibrium** and also
+**Townsend's original model**.
 
 .. code-block:: python3
 
   fig_comb = go.Figure(data=[*fig1.data,
                              *fig2.update_traces(xaxis='x2', yaxis='y2').data]).set_subplots(1, 2,
-                                                                                             subplot_titles=("One shock structure", "Two shock structures"),
+                                                                                             subplot_titles=("One noisy-signal structure", "Two noisy-signal structure"),
                                                                                              horizontal_spacing=0.1,
                                                                                              shared_yaxes=True)
   fig_comb.show()
 
 
-The  graphs above show that
+The graphs above show that
 
-  * the response to  shocks :math:`v_t` to the hidden Markov demand state :math:`\theta_t` process  is **larger** in the two-signal structure
-  * the response to idiosyncratic *own-market* or  noise-shocks :math:`e_t` is **smaller** in the two-signal structure
+* the response of :math:`k_t^i` to  shocks :math:`v_t` to the hidden Markov demand state :math:`\theta_t` process  is **larger** in 
+  the two-noisy=signal structure
+* the response of :math:`k_t^i` to idiosyncratic *own-market*   noise-shocks :math:`e_t` is **smaller** in the two-noisy-signal structure
 
 
 Taken together, these  findings in turn can be shown to imply that time series correlations and coherences between outputs in
-the two industries are higher in the two-signal or **pooling** model.
+the two industries are higher in the two-noisy-signals or **pooling** model.
 
-The enhanced influence of the shocks :math:`v_t` to the hidden Markov demand state :math:`\theta_t` process
-emerge from the two-signal model relative to the one-signal model are symptoms of a lower
+The enhanced influence of the shocks :math:`v_t` to the hidden Markov demand state :math:`\theta_t` process that
+emerges from the two-noisy-signal model relative to the one-noisy-signal model is a  symptom of a lower
 equilibrium hidden-state  reconstruction error variance in the two-signal model:
 
 .. code-block:: python3
@@ -1365,8 +1423,8 @@ structures are
 .. code-block:: python3
 
     display(Latex('$\\textbf{Kalman Gains}$'))
-    display(Latex(f'One shock structure: ${round(κ_one, 6)}$'))
-    display(Latex(f'Two shocks structure: ${round(κ_two, 6)}$'))
+    display(Latex(f'One noisy-signal structure: ${round(κ_one, 6)}$'))
+    display(Latex(f'Two noisy-signals structure: ${round(κ_two, 6)}$'))
 
 
 Notes on History of the Problem
