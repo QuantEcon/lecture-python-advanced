@@ -599,7 +599,7 @@ Define the matrices
         x_{nK}
     \end{array}
     \right)
-    = \text{ :math:`n`-th obs on all regressors}
+    = n\text{-th obs on all regressors}
 
 
 and
