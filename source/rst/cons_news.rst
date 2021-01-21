@@ -165,7 +165,7 @@ Using calculations in the :doc:`quantecon lecture<classical_filtering>`, where
 :math:`z \in C` is a complex variable, the covariance generating
 function :math:`g (z) =
 \sum_{j=-\infty}^\infty g_j z^j`
-of the :math:`\{(y_t - y_{t-1})\}` process equals
+of the :math:`\{y_t - y_{t-1}\}` process equals
 
 .. math::
 
