@@ -846,17 +846,17 @@ We accomplish this in the following steps.
    integer :math:`\epsilon_t = \sigma_\epsilon v_t`, :math:`v_t` is a
    standard normal scalar, :math:`y_0 =100`, and
 
-.. math::
+    .. math::
 
-    y_{t+1} - y_t =-\beta^{-1} \epsilon_t + \epsilon_{t+1} . 
+        y_{t+1} - y_t =-\beta^{-1} \epsilon_t + \epsilon_{t+1} . 
 
 2. We take the **same** :math:`\{y_t\}` realization generated in step 1
    and form an innovation process :math:`\{a_t\}` from the formulas
 
-.. math:: 
+    .. math:: 
 
-    \begin{aligned} a_0 & = 0 \cr 
-    a_t & = \sum_{j=0}^{t-1} \beta^j (y_{t-j} - y_{t-j-1}) + \beta^t a_0, \quad t \geq 1 \end{aligned}
+        \begin{aligned} a_0 & = 0 \cr 
+        a_t & = \sum_{j=0}^{t-1} \beta^j (y_{t-j} - y_{t-j-1}) + \beta^t a_0, \quad t \geq 1 \end{aligned}
 
 3. We throw away the first :math:`S` observations and form the sample
    :math:`\{y_t, \epsilon_t, a_t\}_{S+1}^T` as the realization that
