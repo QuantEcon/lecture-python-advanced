@@ -30,7 +30,7 @@ Overview
 
 This lecture describes two types of consumption-smoothing models.
 
-* one is in the **complete markets** tradition of `Kenneth Arrow <https://en.wikipedia.org/wiki/Kenneth_Arrow>`
+* one is in the **complete markets** tradition of `Kenneth Arrow <https://en.wikipedia.org/wiki/Kenneth_Arrow>`__
 
 * the other is in the **incomplete markets** tradition  of Hall :cite:`Hall1978` 
 
