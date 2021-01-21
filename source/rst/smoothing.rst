@@ -83,9 +83,9 @@ Let's start with some imports:
 Relationship to Other Lectures
 ------------------------------
 
-This lecture can be viewed as a followup to `Optimal Savings II: LQ Techniques <https://python-intro.quantecon.org/perm_income_cons.html>`__ 
+This lecture can be viewed as a followup to `Optimal Savings II: LQ Techniques <https://python-intro.quantecon.org/perm_income_cons.html>`__.
 
-This lecture is also a prologomenon to a lecture on tax-smoothing :doc:`smoothing_tax`
+This lecture is also a prologomenon to a :doc:`lecture on tax-smoothing <smoothing_tax>`.
 
 
 Background
