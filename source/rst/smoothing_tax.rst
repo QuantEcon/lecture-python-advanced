@@ -109,7 +109,7 @@ To exploit the isomorphism between consumption-smoothing and tax-smoothing model
 Code
 ----
 
-Among other things, this code contains a function called `consumption_complete()`.
+Among other things, this code contains a function called ``consumption_complete()``.
 
 This function computes :math:`\{ b(i) \}_{i=1}^{N}, \bar c` as outcomes given a set of parameters for the general case with :math:`N` Markov states
 under the assumption of complete markets
@@ -245,7 +245,7 @@ under the assumption of complete markets
 Revisiting the consumption-smoothing model 
 ---------------------------------------------
 
-The code above also contains a function called `consumption_incomplete()` that uses :eq:`cs_12` and :eq:`cs_13` to
+The code above also contains a function called ``consumption_incomplete()`` that uses :eq:`cs_12` and :eq:`cs_13` to
 
 *  simulate paths of :math:`y_t, c_t, b_{t+1}`
 
