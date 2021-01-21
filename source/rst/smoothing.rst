@@ -663,7 +663,7 @@ consumption :math:`\bar c` and indicated how that level depends on the underlyin
 Code
 ----
 
-Here's some code that, among other things, contains a function called `consumption_complete()`.
+Here's some code that, among other things, contains a function called ``consumption_complete()``.
 
 This function computes :math:`\{ b(i) \}_{i=1}^{N}, \bar c` as outcomes given a set of parameters for the general case with :math:`N` Markov states
 under the assumption of complete markets
@@ -968,7 +968,7 @@ The Incomplete Markets Model
 ----------------------------
 
 
-The code above also contains a function called `consumption_incomplete()` that uses :eq:`cs_12` and :eq:`cs_13` to
+The code above also contains a function called ``consumption_incomplete()`` that uses :eq:`cs_12` and :eq:`cs_13` to
 
 *  simulate paths of :math:`y_t, c_t, b_{t+1}`
 
