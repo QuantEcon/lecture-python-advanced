@@ -768,7 +768,7 @@ absorbing state and consequently
 
 But when :math:`\lambda \rightarrow 1`, the Markov transition matrix
 becomes more nearly periodic, so the optimum decision rules target more
-at the optimal k level in the other state in order to enjoy higher
+at the optimal :math:`k` level in the other state in order to enjoy higher
 expected payoff in the next period.
 
 The switch happens at :math:`\lambda = 0.5` when both states are equally
