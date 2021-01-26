@@ -788,17 +788,17 @@ Thus, we set :math:`\Delta_h = 0, \Theta_h = 1`
 
 .. math:: -{1 \over 2} \beta^t (\Pi c_t - b_t)^\prime (\Pi c_t - b_t)
 
-.. math:: mu_t= - \beta^t [\Pi^\prime \Pi\, c_t - \Pi^\prime\, b_t]
+.. math:: \mu_t= - \beta^t [\Pi^\prime \Pi\, c_t - \Pi^\prime\, b_t]
 
 .. math::
 
-   c_t = - (\Pi^\prime \Pi)^{-1} \beta^{-t} mu_t + (\Pi^\prime \Pi)^{-1}
+   c_t = - (\Pi^\prime \Pi)^{-1} \beta^{-t} \mu_t + (\Pi^\prime \Pi)^{-1}
    \Pi^\prime b_t
 
 This is called the **Frisch demand function** for consumption.
 
 
-We can think of the vector :math:`mu_t` as playing the role of prices,
+We can think of the vector :math:`\mu_t` as playing the role of prices,
 up to a common factor, for all dates and states.
 
 The scale factor is
@@ -858,7 +858,7 @@ To summarize, our economic structure consists of the matrices that define the fo
    b_t) \cdot ( s_t - b_t) + \ell_t^2 ] \bigl| J_0 , \ 0 < \beta < 1
 
 
-*Next steps:** we move on to discuss two closely connected concepts
+**Next steps:** we move on to discuss two closely connected concepts
 
 - A Planning Problem or Optimal Resource Allocation Problem
 
