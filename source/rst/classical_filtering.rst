@@ -240,7 +240,7 @@ It follows that
 Implementation
 ----------------
 
-Here's the code that computes solutions to LQ control and filtering problems using the methods described here and in :doc: `lu_tricks`.
+Here's the code that computes solutions to LQ control and filtering problems using the methods described here and in :doc:`lu_tricks`.
 
 .. literalinclude:: /_static/lecture_specific/lu_tricks/control_and_filter.py
 
