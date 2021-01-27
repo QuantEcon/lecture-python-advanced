@@ -1064,7 +1064,7 @@ Recursive Implementation
 
 
 
-The above steps are implemented in a class called `RecursiveAllocation`
+The above steps are implemented in a class called ``RecursiveAllocation``.
 
 .. literalinclude:: /_static/lecture_specific/opt_tax_recur/recursive_allocation.py
 
@@ -1126,7 +1126,7 @@ and set  :math:`\sigma = 2`, :math:`\gamma = 2`, and the  discount factor :math:
 Note: For convenience in terms of matching our code, we have expressed
 utility as a function of :math:`n` rather than leisure :math:`l`.
 
-This utility function is implemented in the class `CRRAutility`
+This utility function is implemented in the class ``CRRAutility``.
 
 .. literalinclude:: /_static/lecture_specific/opt_tax_recur/crra_utility.py
 
