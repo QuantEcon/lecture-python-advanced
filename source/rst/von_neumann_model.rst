@@ -551,7 +551,7 @@ The maximal value is called the *technological expansion rate* and is denoted
 by :math:`\alpha_0`. The associated intensity vector :math:`x_0` is the
 *optimal intensity vector*.
 
-**Definition:** The economic expansion problem* (EEP) for
+**Definition:** The economic expansion problem (EEP) for
 :math:`(A,B)` is to find a semi-positive :math:`n`-vector :math:`p>0`
 and a number :math:`\beta\in\mathbb{R}` that satisfy
 
@@ -625,7 +625,7 @@ requirements that if any good grows at a rate larger than
 must be zero; and that if any activity provides negative profit, it must
 be unused.
 
-Therefore, the conditions staed in Theorem I ex encode all equilibrium conditions.
+Therefore, the conditions stated in Theorem I ex encode all equilibrium conditions.
 
 So  Theorem I essentially states that under Assumptions I and II there
 always exists an equilibrium :math:`\left(\gamma^{*}, x_0, p_0\right)`
