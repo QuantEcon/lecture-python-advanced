@@ -207,7 +207,7 @@ The code below provides the ``Neumann`` class
               b_eq = 1
 
               res = linprog(c, A_ub=A_iq, b_ub=b_iq, A_eq=A_eq, b_eq=b_eq,
-                            bounds=bounds, options=dict(bland=True, tol=1e-7))
+                            bounds=bounds)
 
           else:
               # Solve the dual LP (for details see the description)
@@ -225,7 +225,7 @@ The code below provides the ``Neumann`` class
               b_eq = 1
 
               res = linprog(c, A_ub=A_iq, b_ub=b_iq, A_eq=A_eq, b_eq=b_eq,
-                            bounds=bounds, options=dict(bland=True, tol=1e-7))
+                            bounds=bounds)
 
           if res.status != 0:
               print(res.message)
