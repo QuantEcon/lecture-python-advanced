@@ -147,8 +147,8 @@ The code below provides the ``Neumann`` class
           f = lambda α: ((B - α * A) @ np.ones((n, 1))).max()
           g = lambda β: (np.ones((1, m)) @ (B - β * A)).min()
 
-          UB = np.asscalar(fsolve(f, 1))  # Upper bound for α, β
-          LB = np.asscalar(fsolve(g, 2))  # Lower bound for α, β
+          UB = fsolve(f, 1).item()  # Upper bound for α, β
+          LB = fsolve(g, 2).item()  # Lower bound for α, β
 
           return LB, UB
 
