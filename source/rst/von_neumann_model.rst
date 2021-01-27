@@ -749,11 +749,13 @@ Using this interpretation, they restate Assumption I and II as follows
 
 .. note::
 
-    *Proof (Sketch)*: \* :math:`\Rightarrow` :math:`V(B)>0` implies
+    *Proof (Sketch)*: 
+    \* :math:`\Rightarrow` :math:`V(B)>0` implies
     :math:`x_0^T B \gg \mathbf{0}`, where :math:`x_0` is a maximizing
     vector. Since :math:`B` is non-negative, this requires that each
     column of :math:`B` has at least one positive entry, which is
-    Assumption I. \* :math:`\Leftarrow` From Assumption I and the fact
+    Assumption I. 
+    \* :math:`\Leftarrow` From Assumption I and the fact
     that :math:`p>\mathbf{0}`, it follows that :math:`Bp > \mathbf{0}`.
     This implies that the maximizing player can always choose :math:`x`
     so that :math:`x^TBp>0` so that it must be the case
