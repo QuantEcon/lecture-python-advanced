@@ -279,7 +279,7 @@ setting :math:`d = r`, generating an instance of `LQFilter`, then invoking perti
 
 
 
-The Wold representation is computed by `example.coefficients_of_c()`.
+The Wold representation is computed by ``example.coeffs_of_c()``.
 
 Let's check that it "flips roots" as required
 
