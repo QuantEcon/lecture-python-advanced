@@ -121,7 +121,7 @@ and the matrix :math:`F` in the decision rule for :math:`u_t` satisfies
 With the preceding formulas in mind, we are ready to approach Markov Jump linear quadratic dynamic programming.
 
 
-Linked Ricatti equations for Markov LQ dynamic programming
+Linked Riccati equations for Markov LQ dynamic programming
 ==========================================================
 
 The key idea is to make the matrices :math:`A, B, C, R, Q, W` fixed
