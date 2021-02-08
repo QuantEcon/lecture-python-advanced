@@ -938,7 +938,7 @@ components of the state vector (step 5 above) by using the ``stationary_distribu
     import plotly.express as px
     import plotly.offline as pyo
     from statsmodels.regression.linear_model import OLS
-    from IPython.display import display, Latex
+    from IPython.display import display, Latex, Image
 
 
     pyo.init_notebook_mode(connected=True)
