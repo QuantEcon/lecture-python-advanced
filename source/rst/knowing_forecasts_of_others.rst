@@ -12,6 +12,14 @@ Knowing the Forecasts of Others
 
 .. contents:: :depth: 2
 
+In addition to what's in Anaconda, this lecture will need the following libraries:
+
+.. code-block:: ipython
+    :class: hide-output
+
+    !pip install --upgrade quantecon
+    !conda install -y -c plotly plotly-orca
+
 Introduction
 =============
 
@@ -1031,8 +1039,11 @@ To compute impulse response functions of :math:`k_t^i`, we use the ``impulse_res
     fig.update_layout(title=r'Impulse Response Function',
                        xaxis_title='Time',
                        yaxis_title=r'$k^{i}_{t}$')
-    fig1=fig
-    fig1.show()
+    fig = fig1
+    # Export to PNG file
+    Image(fig1.to_image(format="png"))
+    # fig1.show() will provide interactive plot when running
+    # notebook locally
 
 Step 5: Compute stationary covariance matrices and population regressions
 -------------------------------------------------------------------------
@@ -1276,7 +1287,10 @@ For this purpose, we include  equilibrium goods prices from  both industries app
                        xaxis_title='Time',
                        yaxis_title=r'$k^{i}_{t}$')
     fig2=fig
-    fig2.show()
+    # Export to PNG file
+    Image(fig2.to_image(format="png"))
+    # fig2.show() will provide interactive plot when running
+    # notebook locally
 
 
 .. code-block:: python3
@@ -1389,12 +1403,15 @@ Please remember that the two-signal structure corresponds to the **pooling equil
 
 .. code-block:: python3
 
-  fig_comb = go.Figure(data=[*fig1.data,
+    fig_comb = go.Figure(data=[*fig1.data,
                              *fig2.update_traces(xaxis='x2', yaxis='y2').data]).set_subplots(1, 2,
                                                                                              subplot_titles=("One noisy-signal structure", "Two noisy-signal structure"),
                                                                                              horizontal_spacing=0.1,
                                                                                              shared_yaxes=True)
-  fig_comb.show()
+    # Export to PNG file
+    Image(fig_comb.to_image(format="png"))
+    # fig_comb.show() will provide interactive plot when running
+    # notebook locally
 
 
 The graphs above show that
