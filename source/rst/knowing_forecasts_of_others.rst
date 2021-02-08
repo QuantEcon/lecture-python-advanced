@@ -18,12 +18,10 @@ In addition to what's in Anaconda, this lecture will need the following librarie
     :class: hide-output
 
     !pip install --upgrade quantecon
-    !conda install -y -c plotly plotly-orca
+    !conda install -y -c plotly plotly plotly-orca
 
 Introduction
 =============
-
-===============
 
 Robert E. Lucas, Jr. :cite:`lucas75`, Kenneth Kasa  :cite:`kasa`, and Robert Townsend
 :cite:`townsend` showed that giving decision makers  incentives to infer persistent hidden  state
@@ -69,31 +67,23 @@ That finding emerged from a line of research about  Townsend's model that  culmi
 However, rather than deploying the :cite:`PCL` machinery here, we shall rely instead on a sneaky
 **guess-and-verify** tactic.
 
- * We compute a pooling equilibrium and represent it as an instance of  a linear  state-space system provided by 
-   the Python class ``quantecon.LinearStateSpace``.
+* We compute a pooling equilibrium and represent it as an instance of  a linear  state-space system provided by 
+  the Python class ``quantecon.LinearStateSpace``.
 
- * Leaving the state-transition equation for the pooling equilibrium unaltered, we alter the observation vector 
-   for a firm to what it in in Townsend's original model. So rather than directly observing the signal received by 
-   firms in the other industry, a firm sees the equilibrium price
-   of the good produced by the other industry.
+* Leaving the state-transition equation for the pooling equilibrium unaltered, we alter the observation vector 
+  for a firm to what it in in Townsend's original model. So rather than directly observing the signal received by 
+  firms in the other industry, a firm sees the equilibrium price
+  of the good produced by the other industry.
 
- * We compute a population linear least squares regression of the noisy signal that firms in the other 
-   industry receive in a pooling equilibrium on time :math:`t` information that a firm receives in Townsend's 
-   original model. The :math:`R^2` in this regression equals :math:`1`.  That verifies that a firm's information 
-   set in Townsend's original model equals its information set in a pooling equilibrium. Therefore, equilibrium
-   prices and quantities in Townsend's original model equal those in a pooling equilibrium. 
-
-
+* We compute a population linear least squares regression of the noisy signal that firms in the other 
+  industry receive in a pooling equilibrium on time :math:`t` information that a firm receives in Townsend's 
+  original model. The :math:`R^2` in this regression equals :math:`1`.  That verifies that a firm's information 
+  set in Townsend's original model equals its information set in a pooling equilibrium. Therefore, equilibrium
+  prices and quantities in Townsend's original model equal those in a pooling equilibrium. 
 
 
-   
-
-
-  
-
-
-A Sequence of Models 
-----------------------
+A Sequence of Models
+--------------------
 
 We proceed by describing  a sequence of models of two industries that are linked in a
 single way: shocks to the demand curves for their products have a common
@@ -106,8 +96,6 @@ the problem  **forecasting the forecasts of others**.
 
 In Townsend's model, firms condition  their forecasts on observed endogenous variables whose equilibrium laws of motion
 are determined by their own forecasting functions.
-
-
 
 We start with model  components that we shall progressively assemble in  ways that can help us to appreciate the structure of a
 **pooling equilibrium**  that ultimately concerns us.
@@ -129,8 +117,6 @@ We cast all variables in terms of deviations from means.
 
 Therefore,  we omit constants from inverse demand curves
 and other functions.
-
-
 
 Firms in each of two industries :math:`i=1,2` use a single factor of
 production, capital :math:`k_t^i`, to produce output of a single good,
@@ -939,7 +925,6 @@ components of the state vector (step 5 above) by using the ``stationary_distribu
     import plotly.offline as pyo
     from statsmodels.regression.linear_model import OLS
     from IPython.display import display, Latex, Image
-
 
     pyo.init_notebook_mode(connected=True)
 
