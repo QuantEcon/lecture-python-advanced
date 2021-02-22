@@ -1852,7 +1852,8 @@ Apply the following version of a factorization identity:
    &= [\hat\Pi + \beta^{1/2} L^{-1} \hat\Lambda
    (I - \beta^{1/2} L^{-1} \Delta_h)^{-1} \Theta_h]^\prime
    [\hat\Pi + \beta^{1/2} L \hat\Lambda
-   (I - \beta^{1/2} L \Delta_h)^{-1} \Theta_h]\end{aligned}
+   (I - \beta^{1/2} L \Delta_h)^{-1} \Theta_h]
+   \end{aligned}
 
 The factorization identity guarantees that the
 :math:`[\hat \Lambda, \hat \Pi]` representation satisfies both
