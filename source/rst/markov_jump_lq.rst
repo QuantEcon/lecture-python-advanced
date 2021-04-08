@@ -121,7 +121,7 @@ and the matrix :math:`F` in the decision rule for :math:`u_t` satisfies
 With the preceding formulas in mind, we are ready to approach Markov Jump linear quadratic dynamic programming.
 
 
-Linked Ricatti equations for Markov LQ dynamic programming
+Linked Riccati equations for Markov LQ dynamic programming
 ==========================================================
 
 The key idea is to make the matrices :math:`A, B, C, R, Q, W` fixed
@@ -768,7 +768,7 @@ absorbing state and consequently
 
 But when :math:`\lambda \rightarrow 1`, the Markov transition matrix
 becomes more nearly periodic, so the optimum decision rules target more
-at the optimal k level in the other state in order to enjoy higher
+at the optimal :math:`k` level in the other state in order to enjoy higher
 expected payoff in the next period.
 
 The switch happens at :math:`\lambda = 0.5` when both states are equally

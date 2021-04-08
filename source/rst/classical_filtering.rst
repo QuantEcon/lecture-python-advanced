@@ -240,7 +240,7 @@ It follows that
 Implementation
 ----------------
 
-Here's the code that computes solutions to LQ control and filtering problems using the methods described here and in :doc: `lu_tricks`.
+Here's the code that computes solutions to LQ control and filtering problems using the methods described here and in :doc:`lu_tricks`.
 
 .. literalinclude:: /_static/lecture_specific/lu_tricks/control_and_filter.py
 
@@ -279,7 +279,7 @@ setting :math:`d = r`, generating an instance of `LQFilter`, then invoking perti
 
 
 
-The Wold representation is computed by `example.coefficients_of_c()`.
+The Wold representation is computed by ``example.coeffs_of_c()``.
 
 Let's check that it "flips roots" as required
 

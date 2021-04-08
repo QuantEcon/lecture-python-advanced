@@ -8,26 +8,6 @@ Fiscal Risk and Government Debt
 
 .. contents:: :depth: 2
 
-----
-
-**Software Requirement:**
-
-This lecture requires the use of some older software versions to run. If
-you would like to execute this lecture please download the following
-:download:`amss_environment.yml <_static/downloads/amss_environment.yml>`
-file. This specifies the software required and an environment can be
-created using `conda <https://docs.conda.io/en/latest/>`__:
-
-Open a `terminal`:
-
-.. code-block:: bash
-   :class: no-execute
-
-   conda env create --file amss_environment.yml
-   conda activate amss
-
-----
-
 In addition to what's in Anaconda, this lecture will need the following libraries:
 
 .. code-block:: ipython

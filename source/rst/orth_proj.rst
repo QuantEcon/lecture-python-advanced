@@ -146,7 +146,7 @@ The Orthogonal Projection Theorem
 
 What vector within a linear subspace of :math:`\mathbb R^n`  best approximates a given vector in :math:`\mathbb R^n`?
 
-The next theorem provides answer to this question.
+The next theorem answers this question.
 
 **Theorem** (OPT) Given :math:`y \in \mathbb R^n` and linear subspace :math:`S \subset \mathbb R^n`,
 there exists a unique solution to the minimization problem
@@ -325,7 +325,7 @@ Combining this result with :eq:`pob` verifies the claim.
 Projection onto an Orthonormal Basis
 ------------------------------------
 
-When the subspace onto which are projecting is orthonormal, computing the projection simplifies:
+When a subspace onto which we project is orthonormal, computing the projection simplifies:
 
 **Theorem** If :math:`\{u_1, \ldots, u_k\}` is an orthonormal basis for :math:`S`, then
 
@@ -343,7 +343,8 @@ Clearly, :math:`P y \in S`.
 
 We claim that :math:`y - P y \perp S` also holds.
 
-It sufficies to show that :math:`y - P y \perp` any basis vector :math:`u_i` (why?).
+It sufficies to show that :math:`y - P y \perp` any basis vector :math:`u_i`.
+
 
 This is true because
 
@@ -354,7 +355,10 @@ This is true because
     \langle u_i, u_j  \rangle = 0
 
 
-Projection Using Matrix Algebra
+(Why is this sufficient to establish the claim that :math:`y - P y \perp S`?)    
+
+
+Projection Via Matrix Algebra
 ===============================
 
 
@@ -393,7 +397,7 @@ Claim 1 is true because
 
 
 An expression of the form :math:`X a` is precisely a linear combination of the
-columns of :math:`X`, and hence an element of :math:`S`.
+columns of :math:`X` and hence an element of :math:`S`.
 
 Claim 2 is equivalent to the statement
 
@@ -404,7 +408,7 @@ Claim 2 is equivalent to the statement
     b \in \mathbb R^K
 
 
-This is true: If :math:`b \in \mathbb R^K`, then
+To verify this, notice that if :math:`b \in \mathbb R^K`, then
 
 .. math::
 
@@ -471,9 +475,9 @@ basis.
 Application: Overdetermined Systems of Equations
 ------------------------------------------------
 
-Let :math:`y \in \mathbb R^n` and let :math:`X` is :math:`n \times k` with linearly independent columns.
+Let :math:`y \in \mathbb R^n` and let :math:`X` be :math:`n \times k` with linearly independent columns.
 
-Given :math:`X` and :math:`y`, we seek :math:`b \in \mathbb R^k` satisfying the system of linear equations :math:`X b = y`.
+Given :math:`X` and :math:`y`, we seek :math:`b \in \mathbb R^k` that  satisfies the system of linear equations :math:`X b = y`.
 
 If :math:`n > k` (more equations than unknowns), then :math:`b` is said to be **overdetermined**.
 
@@ -485,9 +489,9 @@ The best approach here is to
 
 * Look instead for an approximate solution.
 
-By approximate solution, we mean a :math:`b \in \mathbb R^k` such that :math:`X b` is as close to :math:`y` as possible.
+By approximate solution, we mean a :math:`b \in \mathbb R^k` such that :math:`X b` is  close to :math:`y`.
 
-The next theorem shows that the solution is well defined and unique.
+The next theorem shows that a best approximation is well defined and unique.
 
 The proof uses the OPT.
 
@@ -561,7 +565,7 @@ The set :math:`\mathcal{F}` is sometimes called the hypothesis space.
 
 The theory of statistical learning tells us that to prevent overfitting we should take the set :math:`\mathcal{F}` to be relatively simple.
 
-If we let :math:`\mathcal{F}` be the class of linear functions :math:`1/N`, the problem is
+If we let :math:`\mathcal{F}` be the class of linear functions, the problem is
 
 .. math::
 
@@ -599,7 +603,7 @@ Define the matrices
         x_{nK}
     \end{array}
     \right)
-    = \text{ :math:`n`-th obs on all regressors}
+    = n\text{-th obs on all regressors}
 
 
 and
@@ -767,7 +771,7 @@ Some rearranging gives :math:`X = Q R`.
 Linear Regression via QR Decomposition
 --------------------------------------
 
-For matrices :math:`X` and :math:`y` that overdetermine :math:`beta` in the linear
+For matrices :math:`X` and :math:`y` that overdetermine :math:`\beta` in the linear
 equation system :math:`y = X \beta`, we found  the least squares approximator :math:`\hat \beta = (X' X)^{-1} X' y`.
 
 Using the QR decomposition :math:`X = Q R` gives
@@ -844,7 +848,7 @@ Exercise 1
 ----------
 
 If :math:`x \in S` and :math:`x \in S^\perp`, then we have in particular
-that :math:`\langle x, x \rangle = 0`, ut then :math:`x = 0`.
+that :math:`\langle x, x \rangle = 0`, but then :math:`x = 0`.
 
 Exercise 2
 ----------
