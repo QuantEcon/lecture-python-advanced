@@ -199,9 +199,18 @@ Please note that
 
 .. math::
 
-    E_t b_{t+1} = \int \phi_{t+1}(x_{t+1} | A x_t, C C') b_{t+1}(x_{t+1}) d x_{t+1}
+    \beta E_t b_{t+1} = \beta \int \phi_{t+1}(x_{t+1} | A x_t, C C') b_{t+1}(x_{t+1}) d x_{t+1}
 
-which verifies that :math:`E_t b_{t+1}` is the **value** of time :math:`t+1` state-contingent claims on time :math:`t+1` consumption issued by the consumer at time :math:`t`
+or 
+
+
+.. math::
+
+    \beta E_t b_{t+1} = \int   q_{t+1}(x_{t+1}| x_t) b_{t+1}(x_{t+1})  d x_{t+1}
+
+
+
+which verifies that :math:`\beta E_t b_{t+1}` is the **value** of time :math:`t+1` state-contingent claims on time :math:`t+1` consumption issued by the consumer at time :math:`t`
 
 
 We can solve the time :math:`t` budget constraint forward to obtain
@@ -230,7 +239,7 @@ became
 
 But in the complete markets version, it is tractable to assume a more general utility function that satisfies :math:`u' > 0` and :math:`u'' < 0`.
 
-The first-order conditions for the consumer's problem with complete
+First-order conditions for the consumer's problem with complete
 markets and our assumption about Arrow securities prices are
 
 .. math::
