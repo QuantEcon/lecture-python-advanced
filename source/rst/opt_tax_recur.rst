@@ -557,7 +557,7 @@ That means that we can express equation :eq:`LSA_budget` as
 where :math:`s'` denotes a next period value of :math:`s` and
 :math:`x'(s')` denotes a next period value of :math:`x`.
 
-Given :math:`n(s)` for :math:`s = `1, \ldots, S`, equation :eq:`LSA_budget2` is easy to solve for :math:`x(s)` for
+Given :math:`n(s)` for :math:`s = 1, \ldots , S`, equation :eq:`LSA_budget2` is easy to solve for :math:`x(s)` for
 :math:`s = 1, \ldots , S`.
 
 If we let :math:`\vec n, \vec g, \vec x`
@@ -912,7 +912,7 @@ continuation Ramsey planners.
 
 The value function :math:`V(x_t, s_t)` of the time :math:`t`
 continuation Ramsey planner equals
-:math:`E_t \sum_{\tau = t}^\infty \beta^{\tau - t} u(c_t, l_t)`, where
+:math:`E_t \sum_{\tau = t}^\infty \beta^{\tau - t} u(c_\tau, l_\tau)`, where
 consumption and leisure processes are evaluated along the original
 time :math:`0` Ramsey plan.
 
