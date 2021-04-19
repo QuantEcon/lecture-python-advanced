@@ -200,7 +200,6 @@ and :math:`\tau_0` is the time :math:`t=0` tax rate.
 In equation :eq:`eqn_AMSS2_10`, it is understood that
 
 .. math::
-    :nowrap:
 
     \begin{aligned}
     \tau_0 = 1 - \frac{u_{l,0}}{u_{c,0}} \\
