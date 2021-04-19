@@ -1058,7 +1058,7 @@ coefficients.
 
 .. code-block:: python3
 
-    _, _, Σ_x, Σ_y = lss.stationary_distributions()
+    _, _, Σ_x, Σ_y, Σ_yx = lss.stationary_distributions()
 
     Σ_11 = Σ_x[0, 0]
     Σ_12 = Σ_x[0, 1:4]
@@ -1280,7 +1280,7 @@ For this purpose, we include  equilibrium goods prices from  both industries app
 
 .. code-block:: python3
 
-    _, _, Σ_x, Σ_y = lss.stationary_distributions()
+    _, _, Σ_x, Σ_y, Σ_yx = lss.stationary_distributions()
 
     Σ_11 = Σ_x[1, 1]
     Σ_12 = Σ_x[1, 2:5]
@@ -1315,7 +1315,7 @@ For this purpose, we include  equilibrium goods prices from  both industries app
 
 .. code-block:: python3
 
-    _, _, Σ_x, Σ_y = lss.stationary_distributions()
+    _, _, Σ_x, Σ_y, Σ_yx = lss.stationary_distributions()
 
     Σ_11 = Σ_x[1, 1]
     Σ_12 = Σ_x[1, 2:6]
