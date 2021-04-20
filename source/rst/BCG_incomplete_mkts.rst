@@ -557,7 +557,7 @@ conditions equal to the big :math:`K`, big :math:`B` at the big
 :math:`C`\ ’s that appear in the pricing functions, then
 
 - consumers’ Euler equations are satisfied if little :math:`c`\ ’s are
-  equated to  Big C’s
+  equated to  Big :math:`C`\ ’s
 
 - firms’ first-order necessary conditions for :math:`k, b` are
   satisfied.
@@ -588,7 +588,7 @@ Here goes:
 
 6. (In this step we abuse notation by freezing :math:`V, k, b` and in
    effect temporarily treating them as Big :math:`K,B` values. Thus, in
-   this step 6 little k, b are frozen at guessed at value of K, B.)
+   this step 6 little :math:`k, b` are frozen at guessed at value of :math:`K, B`.)
    Fixing the values of :math:`V`, :math:`b` and :math:`k`, compute
    optimal choices of consumption :math:`c^i` with consumers’ FOCs.
    Assume that only agent 2 holds debt: :math:`\xi^2 = b` and that both agents
