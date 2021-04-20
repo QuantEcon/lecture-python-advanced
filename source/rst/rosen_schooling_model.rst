@@ -101,7 +101,7 @@ k+1 matrix, and :math:`\Theta_h` is a k+1 x 1 matrix.
 This specification sets :math:`N_t = h_{1t-1}`, :math:`n_t = c_t`,
 :math:`h_{\tau+1,t-1} = n_{t-(k-\tau)}` for :math:`\tau = 1,...,k`.
 
-Below we set things up so that the number of years of education, k, can
+Below we set things up so that the number of years of education, :math:`k`, can
 be varied.
 
 Technology
@@ -214,8 +214,8 @@ To begin, we set :math:`k = 4` and :math:`\alpha_d = 0.1`
 We create three other instances by:
 
 1. Raising :math:`\alpha_d` to 2
-2. Raising k to 7
-3. Raising k to 10
+2. Raising :math:`k` to 7
+3. Raising :math:`k` to 10
 
 .. code-block:: python3
 
@@ -314,7 +314,7 @@ and :math:`N_t` (on the right) to a positive demand shock, for
     plt.show()
 
 
-Both panels in the above figure show that raising k lowers the effect of
+Both panels in the above figure show that raising :math:`k` lowers the effect of
 a positive demand shock on entry into the engineering profession.
 
 Increasing the number of periods of schooling lowers

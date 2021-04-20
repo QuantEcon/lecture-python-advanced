@@ -66,6 +66,8 @@ Let's start with some standard imports:
 A Competitive Equilibrium with Distorting Taxes
 ===============================================
 
+At time :math:`t \geq 0` a random variable :math:`s_t` belongs to a time-invariant 
+set :math:`{\cal S} = [1, 2, \ldots, S]`.
 
 For :math:`t \geq 0`, a history :math:`s^t = [s_t, s_{t-1}, \ldots, s_0]` of an
 exogenous state :math:`s_t` has joint probability density :math:`\pi_t(s^t)`.
@@ -275,6 +277,8 @@ Equation :eq:`LS101` implies that the Arrow-Debreu price system satisfies
                                 {u_c(s^{t})  \over u_c(s^0)}
 
 
+(The stochastic process :math:`\{q_t^0(s^t)\}` is an instance of what finance economists call a *stochastic discount factor* process.)
+
 Using the first-order conditions :eq:`LSA_taxr` and :eq:`LS101` to eliminate
 taxes and prices from :eq:`TS_bcPV2`, we derive the *implementability condition*
 
@@ -331,7 +335,7 @@ multipliers on the feasible conditions :eq:`TSs_techr_opt_tax`.
 
 Given an initial government debt :math:`b_0`,  we want to maximize :math:`J`
 with respect to :math:`\{c_t(s^t), n_t(s^t); \forall s^t \}_{t\geq0}`   and to minimize with respect
-to :math:`\{\theta(s^t); \forall s^t \}_{t\geq0}`.
+to :math:`\Phi` and with respect to :math:`\{\theta(s^t); \forall s^t \}_{t\geq0}`.
 
 The first-order conditions for the Ramsey problem for periods :math:`t \geq 1` and :math:`t=0`, respectively, are
 
@@ -388,7 +392,7 @@ For convenience, we suppress the time subscript and the index :math:`s^t` and ob
 where we have imposed conditions :eq:`feas1_opt_tax` and :eq:`TSs_techr_opt_tax`.
 
 Equation :eq:`TS_barg` is one equation that can be solved to express the
-unknown :math:`c` as a function of the  exogenous variable :math:`g`.
+unknown :math:`c` as a function of the  exogenous variable :math:`g` and the Lagrange multiplier :math:`\Phi`.
 
 
 We also know that  time :math:`t=0` quantities :math:`c_0` and :math:`n_0` satisfy
@@ -405,13 +409,13 @@ We also know that  time :math:`t=0` quantities :math:`c_0` and :math:`n_0` satis
     \end{aligned}
 
 Notice that a counterpart to :math:`b_0` does *not* appear
-in :eq:`TS_barg`, so :math:`c` does not depend on it for :math:`t \geq 1`.
+in :eq:`TS_barg`, so :math:`c` does not *directly* depend on it for :math:`t \geq 1`.
 
 But things are different for time :math:`t=0`.
 
 An analogous argument for the :math:`t=0` equations :eq:`eqFONCRamsey0` leads
 to one equation that can be solved for :math:`c_0` as a function of the
-pair :math:`(g(s_0), b_0)`.
+pair :math:`(g(s_0), b_0)` and the Lagrange multiplier :math:`\Phi`.
 
 These outcomes mean that the following statement would be  true even when
 government purchases are history-dependent functions :math:`g_t(s^t)` of the
@@ -456,9 +460,12 @@ influences :math:`c_0` and :math:`n_0`, there appears no analogous
 variable :math:`b_t` that influences :math:`c_t` and :math:`n_t` for
 :math:`t \geq 1`.
 
-The absence of :math:`b_t` as a determinant of the  Ramsey allocation for
+The absence of :math:`b_t` as a direct determinant of the  Ramsey allocation for
 :math:`t \geq 1` and its presence for :math:`t=0` is a symptom of the
 *time-inconsistency* of a Ramsey plan.
+
+Of course, :math:`b_0` affects the Ramsey allocation for :math:`t \geq 1` *indirectly* through 
+its effect on :math:`\Phi`.
 
 :math:`\Phi` has to take a value that assures that
 the household and the government’s budget constraints are both
@@ -485,8 +492,8 @@ Also, assume that government purchases :math:`g` are an exact time-invariant fun
 We maintain these assumptions throughout the remainder of this lecture.
 
 
-Determining the Multiplier
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Determining the Lagrange Multiplier
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We complete the Ramsey plan by computing the Lagrange multiplier :math:`\Phi`
 on the implementability constraint :eq:`TSs_cham1`.
@@ -533,7 +540,7 @@ Hence the equation shares much of the structure of a simple asset pricing equati
 :math:`x_t` being analogous to the price of the asset at time :math:`t`.
 
 We learned earlier that for a Ramsey allocation
-:math:`c_t(s^t), n_t(s^t)` and :math:`b_t(s_t|s^{t-1})`, and therefore
+:math:`c_t(s^t), n_t(s^t)`, and :math:`b_t(s_t|s^{t-1})`, and therefore
 also :math:`x_t(s^t)`, are each functions of :math:`s_t` only,  being
 independent of the history :math:`s^{t-1}` for :math:`t \geq 1`.
 
@@ -550,7 +557,7 @@ That means that we can express equation :eq:`LSA_budget` as
 where :math:`s'` denotes a next period value of :math:`s` and
 :math:`x'(s')` denotes a next period value of :math:`x`.
 
-Equation :eq:`LSA_budget2` is easy to solve for :math:`x(s)` for
+Given :math:`n(s)` for :math:`s = 1, \ldots , S`, equation :eq:`LSA_budget2` is easy to solve for :math:`x(s)` for
 :math:`s = 1, \ldots , S`.
 
 If we let :math:`\vec n, \vec g, \vec x`
@@ -620,7 +627,7 @@ Here is a computational algorithm:
 
 In summary, when :math:`g_t` is a time-invariant function of a Markov state
 :math:`s_t`, a Ramsey plan can be constructed by solving :math:`3S +3`
-equations in :math:`S` components each of :math:`\vec c`, :math:`\vec n`, and
+equations for :math:`S` components each of :math:`\vec c`, :math:`\vec n`, and
 :math:`\vec x` together with :math:`n_0, c_0`, and :math:`\Phi`.
 
 
@@ -660,10 +667,10 @@ Specification with CRRA Utility
 
 
 
-In our calculations below and in a :doc:`subsequent lecture <amss>` based on an extension of the Lucas-Stokey model
+In our calculations below and in a :doc:`subsequent lecture <amss>` based on an *extension* of the Lucas-Stokey model
 by  Aiyagari, Marcet, Sargent, and Seppälä (2002) :cite:`aiyagari2002optimal`, we shall modify the one-period utility function assumed above.
 
-(We adopted the preceding utility specification because it was the one used in  the original :cite:`LucasStokey1983` paper)
+(We adopted the preceding utility specification because it was the one used in  the original Lucas-Stokey paper :cite:`LucasStokey1983`. We shall soon  revert to that specification in a subsequent section.)
 
 We will  modify their specification by instead assuming that the  representative agent has  utility function
 
@@ -724,10 +731,9 @@ In addition, the time :math:`t=0` budget constraint is satisfied at :math:`c_0` 
 .. math::
     :label: opt_tax_eqn_10
 
-    b_0 + g_0 = \tau_0 (c_0 + g_0) + \frac{\bar b}{R_0}
-
-where :math:`R_0` is the gross interest rate for the Markov state :math:`s_0` that is assumed to prevail at time :math:`t =0`
-and :math:`\tau_0` is the time :math:`t=0` tax rate.
+    b_0 + g_0 = \tau_0 (c_0 + g_0) + \beta  \sum_{s=1}^S \Pi(s | s_0) \frac{u_c(s)}{u_{c,0}} b_1(s)  
+    
+where :math:`\tau_0` is the time :math:`t=0` tax rate.
 
 
 In equation :eq:`opt_tax_eqn_10`, it is understood that
@@ -736,8 +742,7 @@ In equation :eq:`opt_tax_eqn_10`, it is understood that
     :nowrap:
 
     \begin{aligned}
-    \tau_0 = 1 - \frac{u_{l,0}}{u_{c,0}} \\
-    R_0 =  \beta  \sum_{s=1}^S \Pi(s | s_0) \frac{u_c(s)}{u_{c,0}}
+    \tau_0 = 1 - \frac{u_{l,0}}{u_{c,0}} 
     \end{aligned}
 
 
@@ -756,11 +761,14 @@ The above steps are implemented in a class called `SequentialAllocation`
 Recursive Formulation of the Ramsey Problem
 ===========================================
 
-:math:`x_t(s^t) = u_c(s^t) b_t(s_t | s^{t-1})` in equation :eq:`LSA_budget`
+We now temporarily revert to Lucas and Stokey's specification.
+
+We start by noting that :math:`x_t(s^t) = u_c(s^t) b_t(s_t | s^{t-1})` in equation :eq:`LSA_budget`
 appears to be a purely “forward-looking” variable.
 
-But :math:`x_t(s^t)` is a also a  natural candidate for a state variable in
-a recursive formulation of the Ramsey problem.
+But :math:`x_t(s^t)` is  a  natural candidate for a state variable in
+a recursive formulation of the Ramsey problem, one that records history-dependence and so is
+``backward-looking''. 
 
 Intertemporal Delegation
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -769,8 +777,8 @@ To express a Ramsey plan recursively, we imagine that a time :math:`0`
 Ramsey planner is followed by a sequence of continuation Ramsey planners
 at times :math:`t = 1, 2, \ldots`.
 
-A “continuation Ramsey planner” at times :math:`t \geq 1` has a
-different objective function and faces different constraints and state variabls than does the
+A “continuation Ramsey planner” at time :math:`t \geq 1` has a
+different objective function and faces different constraints and state variables than does the
 Ramsey planner at time :math:`t =0`.
 
 A key step in representing a Ramsey plan recursively is
@@ -798,12 +806,12 @@ Furthermore, the Ramsey planner cares about :math:`(c_0(s_0), \ell_0(s_0))`, whi
 continuation Ramsey planners do not.
 
 The time :math:`0` Ramsey planner
-hands a state-contingent function that make :math:`x_1` a function of :math:`s_1` to a time :math:`1`
+hands a state-contingent function that make :math:`x_1` a function of :math:`s_1` to a time :math:`1`, state :math:`s_1`
 continuation Ramsey planner.
 
 These lines of delegated authorities and
 responsibilities across time express the continuation Ramsey planners’
-obligations to implement their parts of the original Ramsey plan,
+obligations to implement their parts of an original Ramsey plan that had been
 designed once-and-for-all at time :math:`0`.
 
 Two Bellman Equations
@@ -817,7 +825,7 @@ variables confronting the time :math:`t` **continuation Ramsey planner** are
 
 * Let :math:`W(b, s)` be the value of a **Ramsey plan** at time :math:`0` at :math:`b_0=b` and :math:`s_0 = s`.
 
-We work backward by presenting a Bellman equation for
+We work backward by preparing a Bellman equation for
 :math:`V(x,s)` first, then a Bellman equation for :math:`W(b,s)`.
 
 The Continuation Ramsey Problem
@@ -834,7 +842,7 @@ planner is
 
 where maximization over :math:`n` and the :math:`S` elements of
 :math:`x'(s')` is subject to the single implementability constraint for
-:math:`t \geq 1`.
+:math:`t \geq 1`:
 
 .. math::
     :label: LSA_Bellman1cons
@@ -863,7 +871,7 @@ are :math:`S+1` time-invariant policy functions
 The Ramsey Problem
 ^^^^^^^^^^^^^^^^^^
 
-The Bellman equation for the time :math:`0` Ramsey planner is
+The Bellman equation of  the time :math:`0` Ramsey planner is
 
 .. math::
     :label: LSA_Bellman2
@@ -904,8 +912,8 @@ continuation Ramsey planners.
 
 The value function :math:`V(x_t, s_t)` of the time :math:`t`
 continuation Ramsey planner equals
-:math:`E_t \sum_{\tau = t}^\infty \beta^{\tau - t} u(c_t, l_t)`, where
-the consumption and leisure processes are evaluated along the original
+:math:`E_t \sum_{\tau = t}^\infty \beta^{\tau - t} u(c_\tau, l_\tau)`, where
+consumption and leisure processes are evaluated along the original
 time :math:`0` Ramsey plan.
 
 First-Order Conditions
@@ -914,7 +922,7 @@ First-Order Conditions
 Attach a Lagrange multiplier :math:`\Phi_1(x,s)` to constraint :eq:`LSA_Bellman1cons` and a
 Lagrange multiplier :math:`\Phi_0` to constraint :eq:`Bellman2cons`.
 
-Time :math:`t \geq 1`: the first-order conditions for the time :math:`t \geq 1` constrained
+Time :math:`t \geq 1`: First-order conditions for the time :math:`t \geq 1` constrained
 maximization problem on the right side of the continuation Ramsey
 planner’s Bellman equation :eq:`LSA_Bellman1` are
 
@@ -993,7 +1001,7 @@ formulated the Ramsey plan in the space of sequences.
 State Variable Degeneracy
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Equations :eq:`LSAx0` and :eq:`LSAn0` imply that :math:`\Phi_0 = \Phi_1`
+Equations :eq:`LSAenv` and :eq:`LSAx0` imply that :math:`\Phi_0 = \Phi_1`
 and that
 
 .. math::
@@ -1064,7 +1072,7 @@ Recursive Implementation
 
 
 
-The above steps are implemented in a class called `RecursiveAllocation`
+The above steps are implemented in a class called ``RecursiveAllocation``.
 
 .. literalinclude:: /_static/lecture_specific/opt_tax_recur/recursive_allocation.py
 
@@ -1074,6 +1082,8 @@ The above steps are implemented in a class called `RecursiveAllocation`
 
 Examples
 ========
+
+We return to the setup with CRRA preferences described above.  
 
 Anticipated One-Period War
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1126,7 +1136,7 @@ and set  :math:`\sigma = 2`, :math:`\gamma = 2`, and the  discount factor :math:
 Note: For convenience in terms of matching our code, we have expressed
 utility as a function of :math:`n` rather than leisure :math:`l`.
 
-This utility function is implemented in the class `CRRAutility`
+This utility function is implemented in the class ``CRRAutility``.
 
 .. literalinclude:: /_static/lecture_specific/opt_tax_recur/crra_utility.py
 

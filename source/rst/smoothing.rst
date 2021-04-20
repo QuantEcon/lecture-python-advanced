@@ -30,7 +30,7 @@ Overview
 
 This lecture describes two types of consumption-smoothing models.
 
-* one is in the **complete markets** tradition of `Kenneth Arrow <https://en.wikipedia.org/wiki/Kenneth_Arrow>`
+* one is in the **complete markets** tradition of `Kenneth Arrow <https://en.wikipedia.org/wiki/Kenneth_Arrow>`__
 
 * the other is in the **incomplete markets** tradition  of Hall :cite:`Hall1978` 
 
@@ -199,9 +199,18 @@ Please note that
 
 .. math::
 
-    E_t b_{t+1} = \int \phi_{t+1}(x_{t+1} | A x_t, C C') b_{t+1}(x_{t+1}) d x_{t+1}
+    \beta E_t b_{t+1} = \beta \int \phi_{t+1}(x_{t+1} | A x_t, C C') b_{t+1}(x_{t+1}) d x_{t+1}
 
-which verifies that :math:`E_t b_{t+1}` is the **value** of time :math:`t+1` state-contingent claims on time :math:`t+1` consumption issued by the consumer at time :math:`t`
+or 
+
+
+.. math::
+
+    \beta E_t b_{t+1} = \int   q_{t+1}(x_{t+1}| x_t) b_{t+1}(x_{t+1})  d x_{t+1}
+
+
+
+which verifies that :math:`\beta E_t b_{t+1}` is the **value** of time :math:`t+1` state-contingent claims on time :math:`t+1` consumption issued by the consumer at time :math:`t`
 
 
 We can solve the time :math:`t` budget constraint forward to obtain
@@ -230,7 +239,7 @@ became
 
 But in the complete markets version, it is tractable to assume a more general utility function that satisfies :math:`u' > 0` and :math:`u'' < 0`.
 
-The first-order conditions for the consumer's problem with complete
+First-order conditions for the consumer's problem with complete
 markets and our assumption about Arrow securities prices are
 
 .. math::
@@ -663,7 +672,7 @@ consumption :math:`\bar c` and indicated how that level depends on the underlyin
 Code
 ----
 
-Here's some code that, among other things, contains a function called `consumption_complete()`.
+Here's some code that, among other things, contains a function called ``consumption_complete()``.
 
 This function computes :math:`\{ b(i) \}_{i=1}^{N}, \bar c` as outcomes given a set of parameters for the general case with :math:`N` Markov states
 under the assumption of complete markets
@@ -968,7 +977,7 @@ The Incomplete Markets Model
 ----------------------------
 
 
-The code above also contains a function called `consumption_incomplete()` that uses :eq:`cs_12` and :eq:`cs_13` to
+The code above also contains a function called ``consumption_incomplete()`` that uses :eq:`cs_12` and :eq:`cs_13` to
 
 *  simulate paths of :math:`y_t, c_t, b_{t+1}`
 

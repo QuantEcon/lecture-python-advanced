@@ -345,15 +345,15 @@ We replicate their Figure 3 below
     econ3.irf(ts_length=25, shock=shock_demand)
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
-    ax1.plot(econ1.c_irf, label='$\\rho=0.6$')
-    ax1.plot(econ2.c_irf, label='$\\rho=1$')
-    ax1.plot(econ3.c_irf, label='$\\rho=0$')
+    ax1.plot(econ1.c_irf, label=r'$\rho=0.6$')
+    ax1.plot(econ2.c_irf, label=r'$\rho=1$')
+    ax1.plot(econ3.c_irf, label=r'$\rho=0$')
     ax1.set_title('Consumption response to demand shock')
     ax1.legend()
 
-    ax2.plot(econ1.k_irf[:, 0], label='$\\rho=0.6$')
-    ax2.plot(econ2.k_irf[:, 0], label='$\\rho=1$')
-    ax2.plot(econ3.k_irf[:, 0], label='$\\rho=0$')
+    ax2.plot(econ1.k_irf[:, 0], label=r'$\rho=0.6$')
+    ax2.plot(econ2.k_irf[:, 0], label=r'$\rho=1$')
+    ax2.plot(econ3.k_irf[:, 0], label=r'$\rho=0$')
     ax2.set_title('Breeding stock response to demand shock')
     ax2.legend()
     plt.show()
@@ -383,11 +383,11 @@ We replicate their Figure 4 below
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
     ax1.plot(econ1.k_irf[:, 0], label='Breeding Stock')
     ax1.plot(total1_irf, label='Total Stock')
-    ax1.set_title('$\\rho=0.6$')
+    ax1.set_title(r'$\rho=0.6$')
 
     ax2.plot(econ3.k_irf[:, 0], label='Breeding Stock')
     ax2.plot(total3_irf, label='Total Stock')
-    ax2.set_title('$\\rho=0$')
+    ax2.set_title(r'$\rho=0$')
     plt.show()
 
 

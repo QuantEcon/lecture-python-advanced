@@ -12,10 +12,16 @@ Knowing the Forecasts of Others
 
 .. contents:: :depth: 2
 
+In addition to what's in Anaconda, this lecture will need the following libraries:
+
+.. code-block:: ipython
+    :class: hide-output
+
+    !pip install --upgrade quantecon
+    !conda install -y -c plotly plotly plotly-orca
+
 Introduction
 =============
-
-===============
 
 Robert E. Lucas, Jr. :cite:`lucas75`, Kenneth Kasa  :cite:`kasa`, and Robert Townsend
 :cite:`townsend` showed that giving decision makers  incentives to infer persistent hidden  state
@@ -61,31 +67,23 @@ That finding emerged from a line of research about  Townsend's model that  culmi
 However, rather than deploying the :cite:`PCL` machinery here, we shall rely instead on a sneaky
 **guess-and-verify** tactic.
 
- * We compute a pooling equilibrium and represent it as an instance of  a linear  state-space system provided by 
-   the Python class ``quantecon.LinearStateSpace``.
+* We compute a pooling equilibrium and represent it as an instance of  a linear  state-space system provided by 
+  the Python class ``quantecon.LinearStateSpace``.
 
- * Leaving the state-transition equation for the pooling equilibrium unaltered, we alter the observation vector 
-   for a firm to what it in in Townsend's original model. So rather than directly observing the signal received by 
-   firms in the other industry, a firm sees the equilibrium price
-   of the good produced by the other industry.
+* Leaving the state-transition equation for the pooling equilibrium unaltered, we alter the observation vector 
+  for a firm to what it in in Townsend's original model. So rather than directly observing the signal received by 
+  firms in the other industry, a firm sees the equilibrium price
+  of the good produced by the other industry.
 
- * We compute a population linear least squares regression of the noisy signal that firms in the other 
-   industry receive in a pooling equilibrium on time :math:`t` information that a firm receives in Townsend's 
-   original model. The :math:`R^2` in this regression equals :math:`1`.  That verifies that a firm's information 
-   set in Townsend's original model equals its information set in a pooling equilibrium. Therefore, equilibrium
-   prices and quantities in Townsend's original model equal those in a pooling equilibrium. 
-
-
+* We compute a population linear least squares regression of the noisy signal that firms in the other 
+  industry receive in a pooling equilibrium on time :math:`t` information that a firm receives in Townsend's 
+  original model. The :math:`R^2` in this regression equals :math:`1`.  That verifies that a firm's information 
+  set in Townsend's original model equals its information set in a pooling equilibrium. Therefore, equilibrium
+  prices and quantities in Townsend's original model equal those in a pooling equilibrium. 
 
 
-   
-
-
-  
-
-
-A Sequence of Models 
-----------------------
+A Sequence of Models
+--------------------
 
 We proceed by describing  a sequence of models of two industries that are linked in a
 single way: shocks to the demand curves for their products have a common
@@ -98,8 +96,6 @@ the problem  **forecasting the forecasts of others**.
 
 In Townsend's model, firms condition  their forecasts on observed endogenous variables whose equilibrium laws of motion
 are determined by their own forecasting functions.
-
-
 
 We start with model  components that we shall progressively assemble in  ways that can help us to appreciate the structure of a
 **pooling equilibrium**  that ultimately concerns us.
@@ -121,8 +117,6 @@ We cast all variables in terms of deviations from means.
 
 Therefore,  we omit constants from inverse demand curves
 and other functions.
-
-
 
 Firms in each of two industries :math:`i=1,2` use a single factor of
 production, capital :math:`k_t^i`, to produce output of a single good,
@@ -930,8 +924,7 @@ components of the state vector (step 5 above) by using the ``stationary_distribu
     import plotly.express as px
     import plotly.offline as pyo
     from statsmodels.regression.linear_model import OLS
-    from IPython.display import display, Latex
-
+    from IPython.display import display, Latex, Image
 
     pyo.init_notebook_mode(connected=True)
 
@@ -1031,8 +1024,11 @@ To compute impulse response functions of :math:`k_t^i`, we use the ``impulse_res
     fig.update_layout(title=r'Impulse Response Function',
                        xaxis_title='Time',
                        yaxis_title=r'$k^{i}_{t}$')
-    fig1=fig
-    fig1.show()
+    fig1 = fig
+    # Export to PNG file
+    Image(fig1.to_image(format="png"))
+    # fig1.show() will provide interactive plot when running
+    # notebook locally
 
 Step 5: Compute stationary covariance matrices and population regressions
 -------------------------------------------------------------------------
@@ -1062,7 +1058,7 @@ coefficients.
 
 .. code-block:: python3
 
-    _, _, Σ_x, Σ_y = lss.stationary_distributions()
+    _, _, Σ_x, Σ_y, Σ_yx = lss.stationary_distributions()
 
     Σ_11 = Σ_x[0, 0]
     Σ_12 = Σ_x[0, 1:4]
@@ -1276,12 +1272,15 @@ For this purpose, we include  equilibrium goods prices from  both industries app
                        xaxis_title='Time',
                        yaxis_title=r'$k^{i}_{t}$')
     fig2=fig
-    fig2.show()
+    # Export to PNG file
+    Image(fig2.to_image(format="png"))
+    # fig2.show() will provide interactive plot when running
+    # notebook locally
 
 
 .. code-block:: python3
 
-    _, _, Σ_x, Σ_y = lss.stationary_distributions()
+    _, _, Σ_x, Σ_y, Σ_yx = lss.stationary_distributions()
 
     Σ_11 = Σ_x[1, 1]
     Σ_12 = Σ_x[1, 2:5]
@@ -1316,7 +1315,7 @@ For this purpose, we include  equilibrium goods prices from  both industries app
 
 .. code-block:: python3
 
-    _, _, Σ_x, Σ_y = lss.stationary_distributions()
+    _, _, Σ_x, Σ_y, Σ_yx = lss.stationary_distributions()
 
     Σ_11 = Σ_x[1, 1]
     Σ_12 = Σ_x[1, 2:6]
@@ -1389,12 +1388,15 @@ Please remember that the two-signal structure corresponds to the **pooling equil
 
 .. code-block:: python3
 
-  fig_comb = go.Figure(data=[*fig1.data,
+    fig_comb = go.Figure(data=[*fig1.data,
                              *fig2.update_traces(xaxis='x2', yaxis='y2').data]).set_subplots(1, 2,
                                                                                              subplot_titles=("One noisy-signal structure", "Two noisy-signal structure"),
                                                                                              horizontal_spacing=0.1,
                                                                                              shared_yaxes=True)
-  fig_comb.show()
+    # Export to PNG file
+    Image(fig_comb.to_image(format="png"))
+    # fig_comb.show() will provide interactive plot when running
+    # notebook locally
 
 
 The graphs above show that
