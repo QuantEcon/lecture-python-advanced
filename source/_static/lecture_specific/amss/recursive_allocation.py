@@ -6,7 +6,7 @@ from quantecon import MarkovChain
 
 class RecursiveAllocationAMSS:
 
-    def __init__(self, model, μgrid, tol_diff=1e-4, tol=1e-4):
+    def __init__(self, model, μgrid, tol_diff=1e-7, tol=1e-7):
 
         self.β, self.π, self.G = model.β, model.π, model.G
         self.mc, self.S = MarkovChain(self.π), len(model.π)  # Number of states

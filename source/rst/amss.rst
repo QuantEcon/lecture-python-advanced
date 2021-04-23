@@ -809,7 +809,7 @@ triangle denote war.
 .. code-block:: python3
 
     # Initialize μgrid for value function iteration
-    μ_grid = np.linspace(-0.7, 0.01, 200)
+    μ_grid = np.linspace(-0.7, 0.01, 300)
 
     time_example = CRRAutility()
 
