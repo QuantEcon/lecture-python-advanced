@@ -34,10 +34,10 @@ for the AMSS model be **measurable** with respect to time :math:`t-1` informatio
 The  measurability constraints imposed by the AMSS model are inherited from the   restriction that  only one-period risk-free bonds
 can be traded.
 
-Differences between the  Ramsey allocations in the two models   indicate that at least some of the measurability constraints of the AMSS model of
+Differences between the  Ramsey allocations in the two models   indicate that at least some of the **implementability constraints** of the AMSS model of
 :doc:`optimal taxation without state-contingent debt<amss>` are violated at the Ramsey allocation of a corresponding  :cite:`LucasStokey1983` model with state-contingent debt.
 
-Another way to say this is that differences between the Ramsey allocations of the two models indicate that some of the measurability constraints of the
+Another way to say this is that differences between the Ramsey allocations of the two models indicate that some of the **measurability constraints** imposed by the
 AMSS model are violated at the  Ramsey allocation of the Lucas-Stokey model.
 
 Nonzero Lagrange multipliers on those constraints make the Ramsey allocation for the AMSS model differ from the Ramsey allocation for the Lucas-Stokey model.
@@ -50,9 +50,9 @@ This lecture studies a special  AMSS model in which
 
   - bind for many periods, but :math:`\ldots`.
 
-  - eventually, they stop binding evermore, so :math:`\ldots`.
+  - eventually, they stop binding evermore, so that :math:`\ldots`
 
-  - in the tail of the Ramsey plan, the Lagrange multipliers :math:`\gamma_t(s^t)` on the AMSS implementability constraints :eq:`TS_gov_wo4`  converge to zero.
+  - in the tail of the Ramsey plan, the Lagrange multipliers :math:`\gamma_t(s^t)` on the AMSS implementability constraints :eq:`TS_gov_wo4`  are zero.
 
 * After the implementability constraints :eq:`TS_gov_wo4` no longer bind in the tail of the AMSS Ramsey plan
 
@@ -60,7 +60,7 @@ This lecture studies a special  AMSS model in which
 
   - the par value of government debt becomes **constant over time** so that :math:`b_{t+1}(s^t) = \bar b` for :math:`t \geq T` for a sufficiently large :math:`T`.
 
-  - :math:`\bar b <0`, so that the tail of the Ramsey plan instructs  the government always to make a constant par value of risk-free one-period loans to the private sector.
+  - :math:`\bar b <0`, so that the tail of the Ramsey plan instructs  the government always to make a constant par value of risk-free one-period loans **to** the private sector.
 
   - the one-period gross interest rate :math:`R_t(s^t)` on risk-free debt  converges to a time-invariant function of the Markov state :math:`s_t`.
 
@@ -77,10 +77,10 @@ This lecture studies a special  AMSS model in which
 
   - the state variable :math:`x` in a recursive representation of a Ramsey plan is a time-invariant function of the Markov state for :math:`t \geq 0`.
 
-* In this special case, the Ramsey allocation in the AMSS model agrees with that in a :cite:`LucasStokey1983` model in which
+* In this special case, the Ramsey allocation in the AMSS model agrees with that in a Lucas-Stokey :cite:`LucasStokey1983` complete markets model in which
   the same amount of state-contingent debt falls due in all states tomorrow
 
-  - it is a situation in which  the Ramsey planner loses nothing from not being  able to  purchase state-contingent debt and being restricted to exchange only risk-free debt  debt.
+  - it is a situation in which  the Ramsey planner loses nothing from not being  able to  trade state-contingent debt and being restricted to exchange only risk-free debt  debt.
 
 * This outcome emerges only when we initialize government debt at a particular :math:`b_0 < 0`.
 
@@ -100,7 +100,7 @@ Let's start with some imports:
 Forces at Work
 ===============
 
-The forces  driving asymptotic  outcomes here are examples of dynamics present in a more general class  incomplete markets models analyzed in :cite:`BEGS1` (BEGS).
+The forces  driving asymptotic  outcomes here are examples of dynamics present in a more general class of incomplete markets models analyzed in :cite:`BEGS1` (BEGS).
 
 BEGS provide conditions under which government debt under a Ramsey plan converges to an invariant distribution.
 
@@ -108,15 +108,15 @@ BEGS  construct approximations to that asymptotically invariant  distribution  o
 
 BEGS also compute an approximation to a Ramsey plan's rate of convergence  to that limiting invariant distribution.
 
-We  shall use the BEGS approximating limiting distribution and the approximating  rate of convergence   to help interpret  outcomes here.
+We  shall use the BEGS approximating limiting distribution and their approximating  rate of convergence   to help interpret  outcomes here.
 
 For a long time, the Ramsey plan puts a nontrivial martingale-like component into the par value of  government debt as part of the way that the Ramsey plan imperfectly
 smooths distortions from the labor tax rate across  time and Markov states.
 
-But BEGS show that binding implementability constraints slowly push government debt in a direction designed to let the government use fluctuations in equilibrium interest
-rate  rather than fluctuations in  par values of debt to insure against shocks to government expenditures.
+But BEGS show that binding implementability constraints slowly push government debt in a direction designed to let the government use fluctuations in  equilibrium interest
+rates  rather than fluctuations in  par values of debt to insure against shocks to government expenditures.
 
-- This is a **weak** (but unrelenting) force that, starting from an initial debt level, for a long time is dominated by the stochastic martingale-like component of debt
+- This is a **weak** (but unrelenting) force that, starting from a positive initial debt level, for a long time is dominated by the stochastic martingale-like component of debt
   dynamics that the Ramsey planner uses to facilitate imperfect tax-smoothing across time and states.
 
 - This weak force slowly drives the par value of government **assets** to a **constant** level at which the government can completely insure against government expenditure shocks while
@@ -153,7 +153,7 @@ Equations from Lucas-Stokey (1983) Model
 Although we are studying an AMSS :cite:`aiyagari2002optimal` economy,  a Lucas-Stokey :cite:`LucasStokey1983` economy plays
 an important  role in the reverse-engineering calculation to be described below.
 
-For that reason, it is helpful  to have readily available some key equations underlying a Ramsey plan for the Lucas-Stokey economy.
+For that reason, it is helpful  to have key equations underlying a Ramsey plan for the Lucas-Stokey economy readily available.
 
 Recall first-order conditions for a Ramsey allocation for the Lucas-Stokey economy.
 
@@ -172,7 +172,7 @@ For :math:`t \geq 1`, these take the form
 
 There is one such equation for each value of the Markov state :math:`s_t`.
 
-In addition, given an initial Markov state, the time :math:`t=0` quantities :math:`c_0` and :math:`b_0` satisfy
+Given an initial Markov state, the time :math:`t=0` quantities :math:`c_0` and :math:`b_0` satisfy
 
 .. math::
     :label: TS_barg11b
@@ -186,7 +186,7 @@ In addition, given an initial Markov state, the time :math:`t=0` quantities :mat
     \end{aligned}
 
 In addition, the time :math:`t=0` budget constraint is satisfied at :math:`c_0` and initial government debt
-:math:`b_0`:
+:math:`b_0`
 
 .. math::
     :label: eqn_AMSS2_10
@@ -501,7 +501,7 @@ However, output and labor supply are both nontrivial time-invariant functions of
 Long Simulation
 =================
 
-The following graph shows the par value of government debt and the flat rate tax on labor income  for a long simulation for our sample economy.
+The following graph shows the par value of government debt and the flat-rate tax on labor income  for a long simulation for our sample economy.
 
 For the **same** realization of a government expenditure path, the graph reports outcomes for two economies
 
@@ -521,7 +521,7 @@ For the AMSS incomplete markets economy, the government debt plotted is :math:`b
 
 - Notice that the limiting value :math:`\bar b < 0` so that asymptotically the government makes a constant level of risk-free loans to the public\.
 
-- In the simulation displayed as well as  other simulations we have run, the par value of government debt converges to about :math:`1.07` afters between 1400 to 2000 periods.
+- In the simulation displayed as well as  other simulations we have run, the par value of government debt converges to about :math:`1.07` after between 1400 to 2000 periods.
 
 For the AMSS incomplete markets economy, the marginal tax rate on labor income  :math:`\tau_t` converges to a constant
 
@@ -567,9 +567,9 @@ We  now describe how to find such an initial level of government debt.
 BEGS Approximations of Limiting Debt and Convergence Rate
 ===========================================================
 
-It is useful to link the outcome of our reverse engineering exercise to limiting approximations constructed by :cite:`BEGS1`.
+It is useful to link the outcome of our reverse engineering exercise to limiting approximations constructed by BEGS :cite:`BEGS1`.
 
-:cite:`BEGS1` used a slightly different notation to represent a generalization of the AMSS model.
+BEGS :cite:`BEGS1` used a slightly different notation to represent a generalization of the AMSS model.
 
 We'll introduce a version of their notation so that readers can quickly relate notation that appears in their key formulas to the notation
 that we have used.
@@ -789,3 +789,5 @@ Now let's compute the implied meantime to get to within 0.01 of the limit
 
 The slow rate of convergence and the implied time of getting within one percent of the limiting value do a good job of approximating
 our long simulation above.
+
+In :doc:`a subsequent lecture<amss3>` we shall study an extension of the model in which the force highlighted in this lecture causes  government debt to  converge to a nontrivial distribution instead of the single debt level discovered here. 

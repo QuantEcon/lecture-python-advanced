@@ -403,7 +403,7 @@ in a Lucas-Stokey economy with state-contingent government debt.
     * This term reflects the constraint that
       beginning-of-period government indebtedness must be the same across all
       realizations of next period’s state, a constraint that would  not be present if
-      government debt could be state contingent.
+      government debt could be state-contingent.
 
 2. The Lagrange multiplier :math:`\Psi_t(s^t)` in the first-order condition
    :eq:`AMSS_foc;a` may change over time in response to realizations of the state,
@@ -729,7 +729,7 @@ We will first build some useful functions for solving the model
 Anticipated One-Period War
 ----------------------------------
 
-In our lecture on :doc:`optimal taxation with state contingent debt <opt_tax_recur>`
+In our lecture on :doc:`optimal taxation with state-contingent debt <opt_tax_recur>`
 we studied how the government manages uncertainty in a simple setting.
 
 As in that lecture, we assume the one-period utility function
@@ -745,7 +745,7 @@ As in that lecture, we assume the one-period utility function
 
 
 We consider the same government expenditure process studied in the lecture on
-:doc:`optimal taxation with state contingent debt <opt_tax_recur>`.
+:doc:`optimal taxation with state-contingent debt <opt_tax_recur>`.
 
 Government expenditures are known for sure in all periods except one.
 
@@ -798,7 +798,7 @@ This utility function is implemented in the following class.
 The following figure plots the Ramsey plan under both complete and incomplete
 markets for both possible realizations of the state at time :math:`t=3`.
 
-Optimal policies when  the government has  access to state contingent debt are
+Optimal policies when  the government has  access to state-contingent debt are
 represented by black lines, while the optimal policies when there is only a risk-free bond are in red.
 
 Paths with circles are histories in which there is peace, while those with
@@ -879,7 +879,7 @@ If it is able to trade state-contingent debt, then at time :math:`t=2`
 
 This pattern facilities smoothing tax rates across  states.
 
-The government without state contingent debt cannot do this.
+The government without state-contingent debt cannot do this.
 
 Instead, it must enter   time :math:`t=3` with the same level of debt falling due whether there is peace or war at :math:`t=3`.
 
@@ -889,19 +889,20 @@ To finance a war it raises taxes and issues more debt.
 
 To service the additional debt burden, it raises taxes in all future periods.
 
-The absence of state contingent debt leads to an important difference in the
+The absence of state-contingent debt leads to an important difference in the
 optimal tax policy.
 
-When the Ramsey planner has access to state contingent debt, the optimal tax
+When the Ramsey planner has access to state-contingent debt, the optimal tax
 policy is history independent
 
 * the tax rate is a function  of the current level of government spending only,
   given the Lagrange multiplier on the implementability constraint
 
-Without state contingent debt, the optimal tax rate is history dependent.
+Without state-contingent debt, the optimal tax rate is history dependent.
 
-* A war at time :math:`t=3` causes a permanent increase in the tax rate.
+* A war at time :math:`t=3` causes a permanent **increase** in the tax rate.
 
+* Peace at time :math:`t=3` causes a permanent **reduction** in the tax rate. 
 
 
 Perpetual War Alert
@@ -930,7 +931,7 @@ With these preferences, Ramsey tax rates will vary even in the Lucas-Stokey
 model with state-contingent debt.
 
 The figure below plots optimal tax policies for both the economy with
-state contingent debt (circles) and the economy with only a risk-free bond
+state-contingent debt (circles) and the economy with only a risk-free bond
 (triangles).
 
 
@@ -977,15 +978,19 @@ state contingent debt (circles) and the economy with only a risk-free bond
 
 
 When the government experiences a prolonged period of peace, it is able to reduce
-government debt and set permanently lower tax rates.
+government debt and set persistently lower tax rates.
 
 However, the government  finances a long war by borrowing and raising taxes.
 
-This results in a drift away from  policies with state contingent debt that
+This results in a drift away from  policies with state-contingent debt that
 depends on the history of shocks.
 
 This is even more evident in the following figure that plots the evolution of
 the two policies over 200 periods.
+
+This outcome reflects the presence of a force for **precautionary saving** that the incomplete markets structure imparts to the Ramsey plan.
+
+In :doc:`this subsequent lecture<amss2>` and  :doc:`this subsequent lecture<amss3>`, some ultimate consequences of that force are explored.
 
 
 
