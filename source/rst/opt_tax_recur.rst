@@ -14,6 +14,7 @@ In addition to what's in Anaconda, this lecture will need the following librarie
     :class: hide-output
 
     !pip install --upgrade quantecon
+    !pip install interpolation
 
 
 Overview
