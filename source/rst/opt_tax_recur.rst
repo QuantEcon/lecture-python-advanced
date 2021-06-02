@@ -757,7 +757,7 @@ Sequence Implementation
 
 
 
-The above steps are implemented in a class called `SequentialAllocation`
+The above steps are implemented in a class called `SequentialLS`
 
 .. literalinclude:: /_static/lecture_specific/opt_tax_recur/sequential_allocation.py
 
@@ -1078,7 +1078,7 @@ Recursive Implementation
 
 
 
-The above steps are implemented in a class called ``RecursiveAllocation``.
+The above steps are implemented in a class called ``RecursiveLS``.
 
 .. literalinclude:: /_static/lecture_specific/opt_tax_recur/recursive_allocation.py
 
@@ -1169,7 +1169,7 @@ We can now plot the Ramsey tax  under both realizations of time :math:`t = 3` go
     crra_pref = CRRAutility()
 
     # Solve sequential problem
-    seq = SequentialAllocation(crra_pref, π=π, g=g)
+    seq = SequentialLS(crra_pref, π=π, g=g)
     sHist_h = np.array([0, 1, 2, 3, 5, 5, 5])
     sHist_l = np.array([0, 1, 2, 4, 5, 5, 5])
     sim_seq_h = seq.simulate(1, 0, 7, sHist_h)
@@ -1311,7 +1311,7 @@ above)
 
 .. code-block:: python3
 
-    tax_seq = SequentialAllocation(CRRAutility(), g=np.array([0.15]), π=np.ones((1, 1)))
+    tax_seq = SequentialLS(CRRAutility(), g=np.array([0.15]), π=np.ones((1, 1)))
 
     n = 100
     tax_policy = np.empty((n, 2))
@@ -1384,7 +1384,7 @@ time :math:`t=0` tax rate
 
 .. code-block:: python3
 
-    tax_seq = SequentialAllocation(CRRAutility(), g=np.array([0.15]), π=np.ones((1, 1)))
+    tax_seq = SequentialLS(CRRAutility(), g=np.array([0.15]), π=np.ones((1, 1)))
 
     n = 100
     tax_policy = np.empty((n, 2))
@@ -1458,13 +1458,13 @@ The figure below plots a sample path of the Ramsey tax rate
 
     log_example = LogUtility()
     # Solve sequential problem
-    seq_log = SequentialAllocation(log_example)
+    seq_log = SequentialLS(log_example)
 
     # Initialize grid for value function iteration and solve
     x_grid = np.linspace(-3., 3., 200)
 
     # Solve recursive problem
-    rec_log = RecursiveAllocation(log_example, x_grid)
+    rec_log = RecursiveLS(log_example, x_grid)
 
     T_length = 20
     sHist = np.array([0, 0, 0, 0, 0,

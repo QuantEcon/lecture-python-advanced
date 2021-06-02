@@ -1,4 +1,4 @@
-class RecursiveAllocation:
+class RecursiveLS:
 
     '''
     Compute the planner's allocation by solving Bellman

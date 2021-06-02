@@ -1,4 +1,4 @@
-class SequentialAllocation:
+class SequentialLS:
 
     '''
     Class that takes a preference object, state transition matrix,
