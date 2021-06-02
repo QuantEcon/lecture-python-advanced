@@ -61,7 +61,13 @@ Let's start with some standard imports:
     import numpy as np
     import matplotlib.pyplot as plt
     %matplotlib inline
-    
+    from scipy.optimize import root
+    from quantecon import MarkovChain
+    from quantecon.optimize.nelder_mead import nelder_mead
+    from interpolation import interp
+    from numba import njit, prange, float64
+    from numba.experimental import jitclass
+
 
 A Competitive Equilibrium with Distorting Taxes
 ===============================================
@@ -1151,39 +1157,31 @@ We can now plot the Ramsey tax  under both realizations of time :math:`t = 3` go
 
 .. code-block:: python3
 
-    time_π = np.array([[0, 1, 0,   0,   0,  0],
-                       [0, 0, 1,   0,   0,  0],
-                       [0, 0, 0, 0.5, 0.5,  0],
-                       [0, 0, 0,   0,   0,  1],
-                       [0, 0, 0,   0,   0,  1],
-                       [0, 0, 0,   0,   0,  1]])
+    π = np.array([[0, 1, 0,   0,   0,  0],
+                  [0, 0, 1,   0,   0,  0],
+                  [0, 0, 0, 0.5, 0.5,  0],
+                  [0, 0, 0,   0,   0,  1],
+                  [0, 0, 0,   0,   0,  1],
+                  [0, 0, 0,   0,   0,  1]])
 
-    time_G = np.array([0.1, 0.1, 0.1, 0.2, 0.1, 0.1])
-    # Θ can in principle be random
-    time_Θ = np.ones(6)
-    time_example = CRRAutility(π=time_π, G=time_G, Θ=time_Θ)
+    g = np.array([0.1, 0.1, 0.1, 0.2, 0.1, 0.1])
+    crra_pref = CRRAutility()
 
     # Solve sequential problem
-    time_allocation = SequentialAllocation(time_example)
+    seq = SequentialAllocation(crra_pref, π=π, g=g)
     sHist_h = np.array([0, 1, 2, 3, 5, 5, 5])
     sHist_l = np.array([0, 1, 2, 4, 5, 5, 5])
-    sim_seq_h = time_allocation.simulate(1, 0, 7, sHist_h)
-    sim_seq_l = time_allocation.simulate(1, 0, 7, sHist_l)
-
-    # Government spending paths
-    sim_seq_l[4] = time_example.G[sHist_l]
-    sim_seq_h[4] = time_example.G[sHist_h]
-
-    # Output paths
-    sim_seq_l[5] = time_example.Θ[sHist_l] * sim_seq_l[1]
-    sim_seq_h[5] = time_example.Θ[sHist_h] * sim_seq_h[1]
+    sim_seq_h = seq.simulate(1, 0, 7, sHist_h)
+    sim_seq_l = seq.simulate(1, 0, 7, sHist_l)
 
     fig, axes = plt.subplots(3, 2, figsize=(14, 10))
     titles = ['Consumption', 'Labor Supply', 'Government Debt',
               'Tax Rate', 'Government Spending', 'Output']
 
     for ax, title, sim_l, sim_h in zip(axes.flatten(),
-            titles, sim_seq_l, sim_seq_h):
+                                       titles,
+                                       sim_seq_l[:6],
+                                       sim_seq_h[:6]):
         ax.set(title=title)
         ax.plot(sim_l, '-ok', sim_h, '-or', alpha=0.7)
         ax.grid()
@@ -1312,9 +1310,7 @@ above)
 
 .. code-block:: python3
 
-    tax_sequence = SequentialAllocation(CRRAutility(G=0.15,
-                                                    π=np.ones((1, 1)),
-                                                    Θ=np.ones(1)))
+    tax_seq = SequentialAllocation(CRRAutility(), g=np.array([0.15]), π=np.ones((1, 1)))
 
     n = 100
     tax_policy = np.empty((n, 2))
@@ -1322,8 +1318,8 @@ above)
     gov_debt = np.linspace(-1.5, 1, n)
 
     for i in range(n):
-        tax_policy[i] = tax_sequence.simulate(gov_debt[i], 0, 2)[3]
-        interest_rate[i] = tax_sequence.simulate(gov_debt[i], 0, 3)[-1]
+        tax_policy[i] = tax_seq.simulate(gov_debt[i], 0, 2)[3]
+        interest_rate[i] = tax_seq.simulate(gov_debt[i], 0, 3)[-1]
 
     fig, axes = plt.subplots(2, 1, figsize=(10,8), sharex=True)
     titles = ['Tax Rate', 'Gross Interest Rate']
@@ -1387,9 +1383,7 @@ time :math:`t=0` tax rate
 
 .. code-block:: python3
 
-    tax_sequence = SequentialAllocation(CRRAutility(G=0.15,
-                                                    π=np.ones((1, 1)),
-                                                    Θ=np.ones(1)))
+    tax_seq = SequentialAllocation(CRRAutility(), g=np.array([0.15]), π=np.ones((1, 1)))
 
     n = 100
     tax_policy = np.empty((n, 2))
@@ -1397,8 +1391,8 @@ time :math:`t=0` tax rate
     gov_debt = np.linspace(-1.5, 1, n)
 
     for i in range(n):
-        tax_policy[i] = tax_sequence.simulate(gov_debt[i], 0, 2)[3]
-        τ_reset[i] = tax_sequence.simulate(gov_debt[i], 0, 1)[3]
+        tax_policy[i] = tax_seq.simulate(gov_debt[i], 0, 2)[3]
+        τ_reset[i] = tax_seq.simulate(gov_debt[i], 0, 1)[3]
 
     fig, ax = plt.subplots(figsize=(10, 6))
     ax.plot(gov_debt, tax_policy[:, 1], gov_debt, τ_reset, lw=2)
@@ -1466,35 +1460,29 @@ The figure below plots a sample path of the Ramsey tax rate
     seq_log = SequentialAllocation(log_example)
 
     # Initialize grid for value function iteration and solve
-    μ_grid = np.linspace(-0.6, 0.0, 200)
-    # Solve recursive problem
-    bel_log = RecursiveAllocation(log_example, μ_grid)
+    x_grid = np.linspace(-3., 3., 200)
 
-    T = 20
-    sHist = np.array([0, 0, 0, 0, 0, 0, 0,
-                      0, 1, 1, 0, 0, 0, 1,
-                      1, 1, 1, 1, 1, 0])
+    # Solve recursive problem
+    rec_log = RecursiveAllocation(log_example, x_grid)
+
+    T_length = 20
+    sHist = np.array([0, 0, 0, 0, 0,
+                      0, 0, 0, 1, 1,
+                      0, 0, 0, 1, 1,
+                      1, 1, 1, 1, 0])
 
     # Simulate
-    sim_seq = seq_log.simulate(0.5, 0, T, sHist)
-    sim_bel = bel_log.simulate(0.5, 0, T, sHist)
-
-    # Government spending paths
-    sim_seq[4] = log_example.G[sHist]
-    sim_bel[4] = log_example.G[sHist]
-
-    # Output paths
-    sim_seq[5] = log_example.Θ[sHist] * sim_seq[1]
-    sim_bel[5] = log_example.Θ[sHist] * sim_bel[1]
+    sim_seq = seq_log.simulate(0.5, 0, T_length, sHist)
+    sim_rec = rec_log.simulate(0.5, 0, T_length, sHist)
 
     fig, axes = plt.subplots(3, 2, figsize=(14, 10))
     titles = ['Consumption', 'Labor Supply', 'Government Debt',
               'Tax Rate', 'Government Spending', 'Output']
 
-    for ax, title, sim_s, sim_b in zip(axes.flatten(), titles, sim_seq, sim_bel):
-        ax.plot(sim_s, '-ob', sim_b, '-xk', alpha=0.7)
-        ax.set(title=title)
-        ax.grid()
+    for ax, title, sim_s, sim_b in zip(axes.flatten(), titles, sim_seq[:6], sim_rec[:6]):
+                                       ax.plot(sim_s, '-ob', sim_b, '-xk', alpha=0.7)
+                                       ax.set(title=title)
+                                       ax.grid()
 
     axes.flatten()[0].legend(('Sequential', 'Recursive'))
     fig.tight_layout()
