@@ -16,6 +16,9 @@ class CRRAutility:
 
     # Utility function
     def U(self, c, l):
+        # Note: `l` should not be interpreted as labor, it is an auxiliary
+        # variable used to conveniently match the code and the equations
+        # in the lecture
         σ = self.σ
         if σ == 1.:
             U = np.log(c)
