@@ -1,31 +1,36 @@
-import numpy as np
+log_util_data = [
+    ('β', float64),
+    ('ψ', float64)
+]
 
+@jitclass(log_util_data)
 class LogUtility:
 
     def __init__(self,
                  β=0.9,
-                 ψ=0.69,
-                 π=0.5*np.ones((2, 2)),
-                 G=np.array([0.1, 0.2]),
-                 Θ=np.ones(2),
-                 transfers=False):
+                 ψ=0.69):
 
-        self.β, self.ψ, self.π = β, ψ, π
-        self.G, self.Θ, self.transfers = G, Θ, transfers
+        self.β, self.ψ = β, ψ
 
     # Utility function
-    def U(self, c, n):
-        return np.log(c) + self.ψ * np.log(1 - n)
+    def U(self, c, l):
+        return np.log(c) + self.ψ * np.log(l)
 
     # Derivatives of utility function
-    def Uc(self, c, n):
+    def Uc(self, c, l):
         return 1 / c
 
-    def Ucc(self, c, n):
+    def Ucc(self, c, l):
         return -c**(-2)
 
-    def Un(self, c, n):
-        return -self.ψ / (1 - n)
+    def Ul(self, c, l):
+        return self.ψ / l
 
-    def Unn(self, c, n):
-        return -self.ψ / (1 - n)**2
+    def Ull(self, c, l):
+        return -self.ψ / l**2
+
+    def Ucl(self, c, l):
+        return 0
+
+    def Ulc(self, c, l):
+        return 0
