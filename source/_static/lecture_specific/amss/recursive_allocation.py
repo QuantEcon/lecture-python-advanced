@@ -1,298 +1,212 @@
-import numpy as np
-from scipy.optimize import fmin_slsqp
-from scipy.optimize import root
-from quantecon import MarkovChain
+class AMSS:
+    # WARNING: THE CODE IS EXTREMELY SENSITIVE TO CHOCIES OF PARAMETERS.
+    # DO NOT CHANGE THE PARAMETERS AND EXPECT IT TO WORK
 
+    def __init__(self, pref, β, Π, g, x_grid, bounds_v):
+        self.β, self.Π, self.g = β, Π, g
+        self.x_grid = x_grid
+        self.n = x_grid[0][2]
+        self.S = len(Π)
+        self.bounds = bounds_v
+        self.pref = pref
 
-class RecursiveAllocationAMSS:
+        self.T_v, self.T_w = bellman_operator_factory(Π, β, x_grid, g,
+                                                      bounds_v)
 
-    def __init__(self, model, μgrid, tol_diff=1e-7, tol=1e-7):
+        self.V_solved = False
+        self.W_solved = False
 
-        self.β, self.π, self.G = model.β, model.π, model.G
-        self.mc, self.S = MarkovChain(self.π), len(model.π)  # Number of states
-        self.Θ, self.model, self.μgrid = model.Θ, model, μgrid
-        self.tol_diff, self.tol = tol_diff, tol
+    def compute_V(self, V, σ_v_star, tol_vfi, maxitr, print_itr):
 
-        # Find the first best allocation
-        self.solve_time1_bellman()
-        self.T.time_0 = True  # Bellman equation now solves time 0 problem
+        T_v = self.T_v
 
-    def solve_time1_bellman(self):
-        '''
-        Solve the time  1 Bellman equation for calibration model and
-        initial grid μgrid0
-        '''
-        model, μgrid0 = self.model, self.μgrid
-        π = model.π
-        S = len(model.π)
+        self.success = False
 
-        # First get initial fit from Lucas Stokey solution.
-        # Need to change things to be ex ante
-        pp = SequentialAllocation(model)
-        interp = interpolator_factory(2, None)
+        V_new = np.zeros_like(V)
 
-        def incomplete_allocation(μ_, s_):
-            c, n, x, V = pp.time1_value(μ_)
-            return c, n, π[s_] @ x, π[s_] @ V
-        cf, nf, xgrid, Vf, xprimef = [], [], [], [], []
-        for s_ in range(S):
-            c, n, x, V = zip(*map(lambda μ: incomplete_allocation(μ, s_), μgrid0))
-            c, n = np.vstack(c).T, np.vstack(n).T
-            x, V = np.hstack(x), np.hstack(V)
-            xprimes = np.vstack([x] * S)
-            cf.append(interp(x, c))
-            nf.append(interp(x, n))
-            Vf.append(interp(x, V))
-            xgrid.append(x)
-            xprimef.append(interp(x, xprimes))
-        cf, nf, xprimef = fun_vstack(cf), fun_vstack(nf), fun_vstack(xprimef)
-        Vf = fun_hstack(Vf)
-        policies = [cf, nf, xprimef]
+        Δ = 1.0
+        for itr in range(maxitr):
+            T_v(V, V_new, σ_v_star, self.pref)
 
-        # Create xgrid
-        x = np.vstack(xgrid).T
-        xbar = [x.min(0).max(), x.max(0).min()]
-        xgrid = np.linspace(xbar[0], xbar[1], len(μgrid0))
-        self.xgrid = xgrid
+            Δ = np.max(np.abs(V_new - V))
 
-        # Now iterate on Bellman equation
-        T = BellmanEquation(model, xgrid, policies, tol=self.tol)
-        diff = 1
-        while diff > self.tol_diff:
-            PF = T(Vf)
+            if Δ < tol_vfi:
+                self.V_solved = True
+                print('Successfully completed VFI after %i iterations'
+                      % (itr+1))
+                break
 
-            Vfnew, policies = self.fit_policy_function(PF)
-            diff = np.abs((Vf(xgrid) - Vfnew(xgrid)) / Vf(xgrid)).max()
+            if (itr + 1) % print_itr == 0:
+                print('Error at iteration %i : ' % (itr + 1), Δ)
 
-            print(diff)
-            Vf = Vfnew
+            V[:] = V_new[:]
 
-        # Store value function policies and Bellman Equations
-        self.Vf = Vf
-        self.policies = policies
-        self.T = T
+        self.V = V
+        self.σ_v_star = σ_v_star
 
-    def fit_policy_function(self, PF):
-        '''
-        Fits the policy functions
-        '''
-        S, xgrid = len(self.π), self.xgrid
-        interp = interpolator_factory(3, 0)
-        cf, nf, xprimef, Tf, Vf = [], [], [], [], []
-        for s_ in range(S):
-            PFvec = np.vstack([PF(x, s_) for x in self.xgrid]).T
-            Vf.append(interp(xgrid, PFvec[0, :]))
-            cf.append(interp(xgrid, PFvec[1:1 + S]))
-            nf.append(interp(xgrid, PFvec[1 + S:1 + 2 * S]))
-            xprimef.append(interp(xgrid, PFvec[1 + 2 * S:1 + 3 * S]))
-            Tf.append(interp(xgrid, PFvec[1 + 3 * S:]))
-        policies = fun_vstack(cf), fun_vstack(
-            nf), fun_vstack(xprimef), fun_vstack(Tf)
-        Vf = fun_hstack(Vf)
-        return Vf, policies
+        return V, σ_v_star
 
-    def Τ(self, c, n):
-        '''
-        Computes Τ given c and n
-        '''
-        model = self.model
-        Uc, Un = model.Uc(c, n), model.Un(c, n)
+    def compute_W(self, b_0, W, σ_w_star):
+        T_w = self.T_w
+        V = self.V
 
-        return 1 + Un / (self.Θ * Uc)
+        T_w(W, σ_w_star, V, b_0, self.pref)
 
-    def time0_allocation(self, B_, s0):
-        '''
-        Finds the optimal allocation given initial government debt B_ and
-        state s_0
-        '''
-        PF = self.T(self.Vf)
-        z0 = PF(B_, s0)
-        c0, n0, xprime0, T0 = z0[1:]
-        return c0, n0, xprime0, T0
+        self.W = W
+        self.σ_w_star = σ_w_star
+        self.W_solved = True
+        print('Succesfully solved the time 0 problem.')
 
-    def simulate(self, B_, s_0, T, sHist=None):
-        '''
-        Simulates planners policies for T periods
-        '''
-        model, π = self.model, self.π
-        Uc = model.Uc
-        cf, nf, xprimef, Tf = self.policies
+        return W, σ_w_star
 
-        if sHist is None:
-            sHist = simulate_markov(π, s_0, T)
+    def solve(self, V, σ_v_star,  b_0, W, σ_w_star, tol_vfi=1e-7,
+              maxitr=1000, print_itr=10):
+        print("===============")
+        print("Solve time 1 problem")
+        print("===============")
+        self.compute_V(V, σ_v_star, tol_vfi, maxitr, print_itr)
+        print("===============")
+        print("Solve time 0 problem")
+        print("===============")
+        self.compute_W(b_0, W, σ_w_star)
 
-        cHist, nHist, Bhist, xHist, ΤHist, THist, μHist = np.zeros((7, T))
-        # Time 0
-        cHist[0], nHist[0], xHist[0], THist[0] = self.time0_allocation(B_, s_0)
-        ΤHist[0] = self.Τ(cHist[0], nHist[0])[s_0]
-        Bhist[0] = B_
-        μHist[0] = self.Vf[s_0](xHist[0])
+    def simulate(self, s_hist, b_0):
+        if not (self.V_solved and self.W_solved):
+            msg = "V and W need to be successfully computed before simulation."
+            raise ValueError(msg)
 
-        # Time 1 onward
-        for t in range(1, T):
-            s_, x, s = sHist[t - 1], xHist[t - 1], sHist[t]
-            c, n, xprime, T = cf[s_, :](x), nf[s_, :](
-                x), xprimef[s_, :](x), Tf[s_, :](x)
+        pref = self.pref
+        x_grid, g, β, S = self.x_grid, self.g, self.β, self.S
+        σ_v_star, σ_w_star = self.σ_v_star, self.σ_w_star
 
-            Τ = self.Τ(c, n)[s]
-            u_c = Uc(c, n)
-            Eu_c = π[s_, :] @ u_c
+        T = len(s_hist)
+        s_0 = s_hist[0]
 
-            μHist[t] = self.Vf[s](xprime[s])
+        # Pre-allocate
+        n_hist = np.zeros(T)
+        x_hist = np.zeros(T)
+        c_hist = np.zeros(T)
+        τ_hist = np.zeros(T)
+        b_hist = np.zeros(T)
+        g_hist = np.zeros(T)
 
-            cHist[t], nHist[t], Bhist[t], ΤHist[t] = c[s], n[s], x / Eu_c, Τ
-            xHist[t], THist[t] = xprime[s], T[s]
-        return np.array([cHist, nHist, Bhist, ΤHist, THist, μHist, sHist, xHist])
+        # Compute t = 0
+        l_0, T_0 = σ_w_star[s_0]
+        c_0 = (1 - l_0) - g[s_0]
+        x_0 = (-pref.Uc(c_0, l_0) * (c_0 - T_0 - b_0) +
+               pref.Ul(c_0, l_0) * (1 - l_0))
 
+        n_hist[0] = (1 - l_0)
+        x_hist[0] = x_0
+        c_hist[0] = c_0
+        τ_hist[0] = 1 - pref.Ul(c_0, l_0) / pref.Uc(c_0, l_0)
+        b_hist[0] = b_0
+        g_hist[0] = g[s_0]
 
-class BellmanEquation:
-    '''
-    Bellman equation for the continuation of the Lucas-Stokey Problem
-    '''
-
-    def __init__(self, model, xgrid, policies0, tol, maxiter=1000):
-
-        self.β, self.π, self.G = model.β, model.π, model.G
-        self.S = len(model.π)  # Number of states
-        self.Θ, self.model, self.tol = model.Θ, model, tol
-        self.maxiter = maxiter
-
-        self.xbar = [min(xgrid), max(xgrid)]
-        self.time_0 = False
-
-        self.z0 = {}
-        cf, nf, xprimef = policies0
-
-        for s_ in range(self.S):
-            for x in xgrid:
-                self.z0[x, s_] = np.hstack([cf[s_, :](x),
-                                            nf[s_, :](x),
-                                            xprimef[s_, :](x),
-                                            np.zeros(self.S)])
-
-        self.find_first_best()
-
-    def find_first_best(self):
-        '''
-        Find the first best allocation
-        '''
-        model = self.model
-        S, Θ, Uc, Un, G = self.S, self.Θ, model.Uc, model.Un, self.G
-
-        def res(z):
-            c = z[:S]
-            n = z[S:]
-            return np.hstack([Θ * Uc(c, n) + Un(c, n), Θ * n - c - G])
-
-        res = root(res, 0.5 * np.ones(2 * S))
-        if not res.success:
-            raise Exception('Could not find first best')
-
-        self.cFB = res.x[:S]
-        self.nFB = res.x[S:]
-        IFB = Uc(self.cFB, self.nFB) * self.cFB + \
-            Un(self.cFB, self.nFB) * self.nFB
-
-        self.xFB = np.linalg.solve(np.eye(S) - self.β * self.π, IFB)
-
-        self.zFB = {}
-        for s in range(S):
-            self.zFB[s] = np.hstack(
-                [self.cFB[s], self.nFB[s], self.π[s] @ self.xFB, 0.])
-
-    def __call__(self, Vf):
-        '''
-        Given continuation value function next period return value function this
-        period return T(V) and optimal policies
-        '''
-        if not self.time_0:
-            def PF(x, s): return self.get_policies_time1(x, s, Vf)
-        else:
-            def PF(B_, s0): return self.get_policies_time0(B_, s0, Vf)
-        return PF
-
-    def get_policies_time1(self, x, s_, Vf):
-        '''
-        Finds the optimal policies 
-        '''
-        model, β, Θ, G, S, π = self.model, self.β, self.Θ, self.G, self.S, self.π
-        U, Uc, Un = model.U, model.Uc, model.Un
-
-        def objf(z):
-            c, n, xprime = z[:S], z[S:2 * S], z[2 * S:3 * S]
-
-            Vprime = np.empty(S)
+        # Compute t > 0
+        for t in range(T - 1):
+            x_ = x_hist[t]
+            s_ = s_hist[t]
+            l = np.zeros(S)
+            T = np.zeros(S)
             for s in range(S):
-                Vprime[s] = Vf[s](xprime[s])
+                x_arr = np.array([x_])
+                l[s] = eval_linear(x_grid, σ_v_star[s_, :, s], x_arr)
+                T[s] = eval_linear(x_grid, σ_v_star[s_, :, S+s], x_arr)
 
-            return -π[s_] @ (U(c, n) + β * Vprime)
+            c = (1 - l) - g
+            u_c = pref.Uc(c, l)
+            Eu_c = Π[s_] @ u_c
 
-        def objf_prime(x):
+            x = u_c * x_ / (β * Eu_c) - u_c * (c - T) + pref.Ul(c, l) * (1 - l)
 
-            epsilon = 1e-7
-            x0 = np.asfarray(x)
-            f0 = np.atleast_1d(objf(x0))
-            jac = np.zeros([len(x0), len(f0)])
-            dx = np.zeros(len(x0))
-            for i in range(len(x0)):
-                dx[i] = epsilon
-                jac[i] = (objf(x0+dx) - f0)/epsilon
-                dx[i] = 0.0
+            c_next = c[s_hist[t+1]]
+            l_next = l[s_hist[t+1]]
 
-            return jac.transpose()
+            x_hist[t+1] = x[s_hist[t+1]]
+            n_hist[t+1] = 1 - l_next
+            c_hist[t+1] = c_next
+            τ_hist[t+1] = 1 - pref.Ul(c_next, l_next) / pref.Uc(c_next, l_next)
+            b_hist[t+1] = x_ / (β * Eu_c)
+            g_hist[t+1] = g[s_hist[t+1]]
 
-        def cons(z):
-            c, n, xprime, T = z[:S], z[S:2 * S], z[2 * S:3 * S], z[3 * S:]
-            u_c = Uc(c, n)
-            Eu_c = π[s_] @ u_c
-            return np.hstack([
-                x * u_c / Eu_c - u_c * (c - T) - Un(c, n) * n - β * xprime,
-                Θ * n - c - G])
+        return c_hist, n_hist, b_hist, τ_hist, g_hist, n_hist
 
-        if model.transfers:
-            bounds = [(0., 100)] * S + [(0., 100)] * S + \
-                [self.xbar] * S + [(0., 100.)] * S
-        else:
-            bounds = [(0., 100)] * S + [(0., 100)] * S + \
-                [self.xbar] * S + [(0., 0.)] * S
-        out, fx, _, imode, smode = fmin_slsqp(objf, self.z0[x, s_],
-                                              f_eqcons=cons, bounds=bounds,
-                                              fprime=objf_prime, full_output=True,
-                                              iprint=0, acc=self.tol, iter=self.maxiter)
 
-        if imode > 0:
-            raise Exception(smode)
+def obj_factory(Π, β, x_grid, g):
+    S = len(Π)
 
-        self.z0[x, s_] = out
-        return np.hstack([-fx, out])
+    @njit
+    def obj_V(σ, state, V, pref):
+        # Unpack state
+        s_, x_ = state
 
-    def get_policies_time0(self, B_, s0, Vf):
-        '''
-        Finds the optimal policies 
-        '''
-        model, β, Θ, G = self.model, self.β, self.Θ, self.G
-        U, Uc, Un = model.U, model.Uc, model.Un
+        l = σ[:S]
+        T = σ[S:]
 
-        def objf(z):
-            c, n, xprime = z[:-1]
+        c = (1 - l) - g
+        u_c = pref.Uc(c, l)
+        Eu_c = Π[s_] @ u_c
+        x = u_c * x_ / (β * Eu_c) - u_c * (c - T) + pref.Ul(c, l) * (1 - l)
 
-            return -(U(c, n) + β * Vf[s0](xprime))
+        V_next = np.zeros(S)
 
-        def cons(z):
-            c, n, xprime, T = z
-            return np.hstack([
-                -Uc(c, n) * (c - B_ - T) - Un(c, n) * n - β * xprime,
-                (Θ * n - c - G)[s0]])
+        for s in range(S):
+            V_next[s] = eval_linear(x_grid, V[s], np.array([x[s]]))
 
-        if model.transfers:
-            bounds = [(0., 100), (0., 100), self.xbar, (0., 100.)]
-        else:
-            bounds = [(0., 100), (0., 100), self.xbar, (0., 0.)]
-        out, fx, _, imode, smode = fmin_slsqp(objf, self.zFB[s0], f_eqcons=cons,
-                                              bounds=bounds, full_output=True,
-                                              iprint=0)
+        out = Π[s_] @ (pref.U(c, l) + β * V_next)
 
-        if imode > 0:
-            raise Exception(smode)
+        return out
 
-        return np.hstack([-fx, out])
+    @njit
+    def obj_W(σ, state, V, pref):
+        # Unpack state
+        s_, b_0 = state
+        l, T = σ
+
+        c = (1 - l) - g[s_]
+        x = -pref.Uc(c, l) * (c - T - b_0) + pref.Ul(c, l) * (1 - l)
+
+        V_next = eval_linear(x_grid, V[s_], np.array([x]))
+
+        out = pref.U(c, l) + β * V_next
+
+        return out
+
+    return obj_V, obj_W
+
+
+def bellman_operator_factory(Π, β, x_grid, g, bounds_v):
+    obj_V, obj_W = obj_factory(Π, β, x_grid, g)
+    n = x_grid[0][2]
+    S = len(Π)
+    x_nodes = nodes(x_grid)
+
+    @njit(parallel=True)
+    def T_v(V, V_new, σ_star, pref):
+        for s_ in prange(S):
+            for x_i in prange(n):
+                state = (s_, x_nodes[x_i])
+                x0 = σ_star[s_, x_i]
+                res = optimize.nelder_mead(obj_V, x0, bounds=bounds_v,
+                                           args=(state, V, pref))
+
+                if res.success:
+                    V_new[s_, x_i] = res.fun
+                    σ_star[s_, x_i] = res.x
+                else:
+                    print("Optimization routine failed.")
+
+    bounds_w = np.array([[-9.0, 1.0], [0., 10.]])
+
+    def T_w(W, σ_star, V, b_0, pref):
+        for s_ in prange(S):
+            state = (s_, b_0)
+            x0 = σ_star[s_]
+            res = optimize.nelder_mead(obj_W, x0, bounds=bounds_w,
+                                       args=(state, V, pref))
+
+            W[s_] = res.fun
+            σ_star[s_] = res.x
+
+    return T_v, T_w
