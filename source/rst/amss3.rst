@@ -113,7 +113,7 @@ We set preference parameters
 
 The following Python code sets up the economy
 
-.. literalinclude:: /_static/lecture_specific/opt_tax_recur/crra_utility.py
+.. literalinclude:: /_static/lecture_specific/amss2/crra_utility.py
 
 
 First and Second Moments
@@ -150,13 +150,13 @@ We begin by showing the code that we used in earlier lectures on the AMSS model.
 
 Here it is
 
-.. literalinclude:: /_static/lecture_specific/opt_tax_recur/sequential_allocation.py
+.. literalinclude:: /_static/lecture_specific/amss2/sequential_allocation.py
     :class: collapse
 
-.. literalinclude:: /_static/lecture_specific/amss/recursive_allocation.py
+.. literalinclude:: /_static/lecture_specific/amss2/recursive_allocation.py
     :class: collapse
 
-.. literalinclude:: /_static/lecture_specific/amss/utilities.py
+.. literalinclude:: /_static/lecture_specific/amss2/utilities.py
     :class: collapse
 
 Next, we show the code that we use to generate a very long simulation starting from initial
@@ -215,7 +215,7 @@ We obtain the following graph for the histogram of the last 100,000 observations
 .. figure:: /_static/lecture_specific/amss3/amss3_g3.png
 
 The  black vertical line denotes the sample mean for the last 100,000 observations included in the histogram; the  green vertical line denotes the
-value of :math:`\frac{ {\mathcal B}^*}{E u_c}`, associated with a sample from our approximation to 
+value of :math:`\frac{ {\mathcal B}^*}{E u_c}`, associated with a sample from our approximation to
 the ergodic distribution where :math:`{\mathcal B}^*` is a regression coefficient to be described below;  the red vertical line denotes an approximation by :cite:`BEGS1` to the mean of the ergodic
 distribution that can be computed **before**  the ergodic distribution has been approximated, as described below.
 
@@ -315,7 +315,7 @@ BEGS interpret random variations in the right side of :eq:`eq_fiscal_risk_1`  as
 Asymptotic Mean
 ----------------
 
-BEGS give conditions under which the ergodic mean of :math:`{\mathcal B}_t` is approximated by 
+BEGS give conditions under which the ergodic mean of :math:`{\mathcal B}_t` is approximated by
 
 .. math::
    :label: prelim_formula_1
@@ -339,7 +339,7 @@ of equation :eq:`eq_fiscal_risk_1`.
 
 
 Expressing formula :eq:`prelim_formula_1` in terms of  our notation tells us that the ergodic mean of the par value :math:`b` of government debt in the
-AMSS model should be approximately 
+AMSS model should be approximately
 
 .. math::
   :label: key_formula_1
@@ -577,7 +577,7 @@ But because we are studying an IID case, :math:`\pi` has identical
 rows and we need only  to compute objects for one row of :math:`\pi`.
 
 This explains why at some places below we set :math:`s=0` just to pick
-off the first row of :math:`\pi`.  
+off the first row of :math:`\pi`.
 
 
 Running the code

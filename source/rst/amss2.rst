@@ -263,7 +263,7 @@ In equation :eq:`amss2_TS_barg10`, it is understood that :math:`c` and :math:`g`
 
 The CRRA utility function is represented in the following class.
 
-.. literalinclude:: /_static/lecture_specific/opt_tax_recur/crra_utility.py
+.. literalinclude:: /_static/lecture_specific/amss2/crra_utility.py
 
 
 Example Economy
@@ -295,14 +295,14 @@ The code is  mostly taken or adapted from the earlier lectures :doc:`optimal tax
 :doc:`optimal taxation with state-contingent debt<opt_tax_recur>`.
 
 
-.. literalinclude:: /_static/lecture_specific/opt_tax_recur/sequential_allocation.py
+.. literalinclude:: /_static/lecture_specific/amss2/sequential_allocation.py
     :class: collapse
 
-.. literalinclude:: /_static/lecture_specific/amss/recursive_allocation.py
+.. literalinclude:: /_static/lecture_specific/amss2/recursive_allocation.py
     :class: collapse
 
 
-.. literalinclude:: /_static/lecture_specific/amss/utilities.py
+.. literalinclude:: /_static/lecture_specific/amss2/utilities.py
     :class: collapse
 
 
@@ -433,7 +433,7 @@ To solve the equations for :math:`c_0, b_0`, we use SciPy's fsolve function
 
 .. code-block:: python3
 
-    c0, b0 = fsolve(solve_cb, np.array([1., -1.], dtype='float64'), 
+    c0, b0 = fsolve(solve_cb, np.array([1., -1.], dtype='float64'),
                     args=(Φ_star, b[0], 1), xtol=1.0e-12)
     c0, b0
 
@@ -790,4 +790,4 @@ Now let's compute the implied meantime to get to within 0.01 of the limit
 The slow rate of convergence and the implied time of getting within one percent of the limiting value do a good job of approximating
 our long simulation above.
 
-In :doc:`a subsequent lecture<amss3>` we shall study an extension of the model in which the force highlighted in this lecture causes  government debt to  converge to a nontrivial distribution instead of the single debt level discovered here. 
+In :doc:`a subsequent lecture<amss3>` we shall study an extension of the model in which the force highlighted in this lecture causes  government debt to  converge to a nontrivial distribution instead of the single debt level discovered here.
