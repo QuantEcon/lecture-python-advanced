@@ -774,7 +774,7 @@ appears to be a purely “forward-looking” variable.
 
 But :math:`x_t(s^t)` is  a  natural candidate for a state variable in
 a recursive formulation of the Ramsey problem, one that records history-dependence and so is
-``backward-looking''. 
+``backward-looking``. 
 
 Intertemporal Delegation
 ^^^^^^^^^^^^^^^^^^^^^^^^
