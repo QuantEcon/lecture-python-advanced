@@ -14,6 +14,7 @@ In addition to what's in Anaconda, this lecture will need the following librarie
   :class: hide-output
 
   !pip install --upgrade quantecon
+  !pip install interpolation
 
 Overview
 ========
@@ -22,13 +23,15 @@ Let's start with following imports:
 
 .. code-block:: ipython
 
-    import numpy as np
-    import matplotlib.pyplot as plt
-    %matplotlib inline
-    from scipy.optimize import root, fmin_slsqp
-    from scipy.interpolate import UnivariateSpline
-    from quantecon import MarkovChain
+  import numpy as np
+  import matplotlib.pyplot as plt
+  from scipy.optimize import root
+  from interpolation.splines import eval_linear, UCGrid, nodes
+  from quantecon import optimize, MarkovChain
+  from numba import njit, prange, float64
+  from numba.experimental import jitclass
 
+  %matplotlib inline
 
 In :doc:`an earlier lecture<opt_tax_recur>`, we described a model of
 optimal taxation with state-contingent debt due to
@@ -170,7 +173,7 @@ yields:
     b_t(s^{t-1}) =  z_t(s^t) + \beta  \sum_{s^{t+1}\vert s^t}  \pi_{t+1}(s^{t+1} | s^t)
                            { u_c(s^{t+1}) \over u_c(s^{t}) } \; b_{t+1}(s^t)
 
-Components of :math:`z_t(s^t)` on the right side depend on :math:`s^t`, but the left side is required to depend only 
+Components of :math:`z_t(s^t)` on the right side depend on :math:`s^t`, but the left side is required to depend only
 on :math:`s^{t-1}` .
 
 **This is what it means for one-period government debt to be risk-free**.
@@ -717,14 +720,6 @@ Examples
 We now turn to some examples.
 
 
-
-We will first build some useful functions for solving the model
-
-.. literalinclude:: /_static/lecture_specific/amss/utilities.py
-
-
-
-
 Anticipated One-Period War
 ----------------------------------
 
@@ -804,66 +799,88 @@ Paths with circles are histories in which there is peace, while those with
 triangle denote war.
 
 
+.. code-block:: python3
+
+    # WARNING: DO NOT EXPECT THE CODE TO WORK IF YOU CHANGE PARAMETERS
+    σ = 2
+    γ = 2
+    β = 0.9
+    Π = np.array([[0, 1, 0,   0,   0,  0],
+                  [0, 0, 1,   0,   0,  0],
+                  [0, 0, 0, 0.5, 0.5,  0],
+                  [0, 0, 0,   0,   0,  1],
+                  [0, 0, 0,   0,   0,  1],
+                  [0, 0, 0,   0,   0,  1]])
+    g = np.array([0.1, 0.1, 0.1, 0.2, 0.1, 0.1])
+
+    x_min = -1.5555
+    x_max = 17.339
+    x_num = 300
+
+    x_grid = UCGrid((x_min, x_max, x_num))
+
+    crra_pref = CRRAutility(β=β, σ=σ, γ=γ)
+
+    S = len(Π)
+    bounds_v = np.vstack([np.hstack([np.ones(S) * -10., np.zeros(S)]),
+                          np.hstack([np.ones(S) - g, np.ones(S) * 10])]).T
+
+    amss_model = AMSS(crra_pref, β, Π, g, x_grid, bounds_v)
+
 
 .. code-block:: python3
 
-    # Initialize μgrid for value function iteration
-    μ_grid = np.linspace(-0.7, 0.01, 300)
+    # WARNING: DO NOT EXPECT THE CODE TO WORK IF YOU CHANGE PARAMETERS
+    V = np.zeros((len(Π), x_num))
+    V[:] = -nodes(x_grid).T ** 2
 
-    time_example = CRRAutility()
+    σ_v_star = np.ones((S, x_num, S * 2))
+    σ_v_star[:, :, :S] = 0.0
 
-    time_example.π = np.array([[0, 1, 0,   0,   0,  0],
-                               [0, 0, 1,   0,   0,  0],
-                               [0, 0, 0, 0.5, 0.5,  0],
-                               [0, 0, 0,   0,   0,  1],
-                               [0, 0, 0,   0,   0,  1],
-                               [0, 0, 0,   0,   0,  1]])
+    W = np.empty(len(Π))
+    b_0 = 1.0
+    σ_w_star = np.ones((S, 2))
+    σ_w_star[:, 0] = -0.05
 
-    time_example.G = np.array([0.1, 0.1, 0.1, 0.2, 0.1, 0.1])
-    time_example.Θ = np.ones(6)  # Θ can in principle be random
+.. code-block:: python3
 
-    time_example.transfers = True             # Government can use transfers
-    # Solve sequential problem
-    time_sequential = SequentialAllocation(time_example)
-    # Solve recursive problem
-    time_bellman = RecursiveAllocationAMSS(time_example, μ_grid)
+    %%time
 
-    sHist_h = np.array([0, 1, 2, 3, 5, 5, 5])
-    sHist_l = np.array([0, 1, 2, 4, 5, 5, 5])
+    amss_model.solve(V, σ_v_star, b_0, W, σ_w_star)
 
-    sim_seq_h = time_sequential.simulate(1, 0, 7, sHist_h)
-    sim_bel_h = time_bellman.simulate(1, 0, 7, sHist_h)
-    sim_seq_l = time_sequential.simulate(1, 0, 7, sHist_l)
-    sim_bel_l = time_bellman.simulate(1, 0, 7, sHist_l)
 
-    # Government spending paths
-    sim_seq_l[4] = time_example.G[sHist_l]
-    sim_seq_h[4] = time_example.G[sHist_h]
-    sim_bel_l[4] = time_example.G[sHist_l]
-    sim_bel_h[4] = time_example.G[sHist_h]
+.. code-block:: python3
 
-    # Output paths
-    sim_seq_l[5] = time_example.Θ[sHist_l] * sim_seq_l[1]
-    sim_seq_h[5] = time_example.Θ[sHist_h] * sim_seq_h[1]
-    sim_bel_l[5] = time_example.Θ[sHist_l] * sim_bel_l[1]
-    sim_bel_h[5] = time_example.Θ[sHist_h] * sim_bel_h[1]
+    # Solve the LS model
+    ls_model = SequentialLS(crra_pref, g=g, π=Π)
 
+
+.. code-block:: python3
+
+    # WARNING: DO NOT EXPECT THE CODE TO WORK IF YOU CHANGE PARAMETERS
+    s_hist_h = np.array([0, 1, 2, 3, 5, 5, 5])
+    s_hist_l = np.array([0, 1, 2, 4, 5, 5, 5])
+
+    sim_h_amss = amss_model.simulate(s_hist_h, b_0)
+    sim_l_amss = amss_model.simulate(s_hist_l, b_0)
+
+    sim_h_ls = ls_model.simulate(b_0, 0, 7, s_hist_h)
+    sim_l_ls = ls_model.simulate(b_0, 0, 7, s_hist_l)
 
     fig, axes = plt.subplots(3, 2, figsize=(14, 10))
     titles = ['Consumption', 'Labor Supply', 'Government Debt',
               'Tax Rate', 'Government Spending', 'Output']
 
-    for ax, title, sim_l, sim_h, bel_l, bel_h in zip(axes.flatten(), titles,
-                                                     sim_seq_l, sim_seq_h,
-                                                     sim_bel_l, sim_bel_h):
-        ax.plot(sim_l, '-ok', sim_h, '-^k', bel_l, '-or', bel_h, '-^r', alpha=0.7)
+    for ax, title, ls_l, ls_h, amss_l, amss_h in zip(axes.flatten(), titles,
+                                                     sim_l_ls, sim_h_ls,
+                                                     sim_l_amss, sim_h_amss):
+        ax.plot(ls_l, '-ok', ls_h, '-^k', amss_l, '-or', amss_h, '-^r',
+                alpha=0.7)
         ax.set(title=title)
         ax.grid()
 
     plt.tight_layout()
     plt.show()
-
-
 
 
 How a Ramsey planner responds to  war depends on the structure of the asset market.
@@ -904,7 +921,7 @@ Without state-contingent debt, the optimal tax rate is history dependent.
 
 * A war at time :math:`t=3` causes a permanent **increase** in the tax rate.
 
-* Peace at time :math:`t=3` causes a permanent **reduction** in the tax rate. 
+* Peace at time :math:`t=3` causes a permanent **reduction** in the tax rate.
 
 
 Perpetual War Alert
@@ -937,37 +954,65 @@ state-contingent debt (circles) and the economy with only a risk-free bond
 (triangles).
 
 
+.. code-block:: python3
+
+    # WARNING: DO NOT EXPECT THE CODE TO WORK IF YOU CHANGE PARAMETERS
+    ψ = 0.69
+    Π = 0.5 * np.ones((2, 2))
+    β = 0.9
+    g = np.array([0.1, 0.2])
+
+    x_min = -3.4107
+    x_max = 3.709
+    x_num = 300
+
+    x_grid = UCGrid((x_min, x_max, x_num))
+    log_pref = LogUtility(β=β, ψ=ψ)
+
+    S = len(Π)
+    bounds_v = np.vstack([np.zeros(2 * S), np.hstack([1 - g, np.ones(S)]) ]).T
+
+    V = np.zeros((len(Π), x_num))
+    V[:] = -(nodes(x_grid).T + x_max) ** 2 / 14
+
+    σ_v_star = 1 - np.ones((S, x_num, S * 2)) * 0.55
+
+    W = np.empty(len(Π))
+    b_0 = 0.5
+    σ_w_star = 1 - np.ones((S, 2)) * 0.55
+
+    amss_model = AMSS(log_pref, β, Π, g, x_grid, bounds_v)
+
 
 .. code-block:: python3
 
-    log_example = LogUtility()
-    log_example.transfers = True                    # Government can use transfers
-    log_sequential = SequentialAllocation(log_example)  # Solve sequential problem
-    log_bellman = RecursiveAllocationAMSS(log_example, μ_grid)
+    %%time
 
-    T = 20
-    sHist = np.array([0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
-                      0, 0, 0, 1, 1, 1, 1, 1, 1, 0])
+    amss_model.solve(V, σ_v_star, b_0, W, σ_w_star, tol_vfi=3e-5, maxitr=3000,
+                     print_itr=100)
 
-    # Simulate
-    sim_seq = log_sequential.simulate(0.5, 0, T, sHist)
-    sim_bel = log_bellman.simulate(0.5, 0, T, sHist)
+.. code-block:: python3
+
+    ls_model = SequentialLS(log_pref, g=g, π=Π)  # Solve sequential problem
+
+.. code-block:: python3
+
+    # WARNING: DO NOT EXPECT THE CODE TO WORK IF YOU CHANGE PARAMETERS
+    s_hist = np.array([0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
+                       0, 0, 0, 1, 1, 1, 1, 1, 1, 0])
+
+    T = len(s_hist)
+
+    sim_amss = amss_model.simulate(s_hist, b_0)
+    sim_ls = ls_model.simulate(0.5, 0, T, s_hist)
 
     titles = ['Consumption', 'Labor Supply', 'Government Debt',
               'Tax Rate', 'Government Spending', 'Output']
 
-    # Government spending paths
-    sim_seq[4] = log_example.G[sHist]
-    sim_bel[4] = log_example.G[sHist]
-
-    # Output paths
-    sim_seq[5] = log_example.Θ[sHist] * sim_seq[1]
-    sim_bel[5] = log_example.Θ[sHist] * sim_bel[1]
-
     fig, axes = plt.subplots(3, 2, figsize=(14, 10))
 
-    for ax, title, seq, bel in zip(axes.flatten(), titles, sim_seq, sim_bel):
-        ax.plot(seq, '-ok', bel, '-^b')
+    for ax, title, ls, amss in zip(axes.flatten(), titles, sim_ls, sim_amss):
+        ax.plot(ls, '-ok', amss, '-^b')
         ax.set(title=title)
         ax.grid()
 
@@ -995,30 +1040,28 @@ This outcome reflects the presence of a force for **precautionary saving** that 
 In :doc:`this subsequent lecture<amss2>` and  :doc:`this subsequent lecture<amss3>`, some ultimate consequences of that force are explored.
 
 
+.. code-block:: python3
+
+    T = 200
+    s_0 = 0
+    mc = MarkovChain(Π)
+
+    s_hist_long = mc.simulate(T, init=s_0, random_state=5)
 
 .. code-block:: python3
 
-    T = 200  # Set T to 200 periods
-    sim_seq_long = log_sequential.simulate(0.5, 0, T)
-    sHist_long = sim_seq_long[-3]
-    sim_bel_long = log_bellman.simulate(0.5, 0, T, sHist_long)
+    sim_amss = amss_model.simulate(s_hist_long, b_0)
+    sim_ls = ls_model.simulate(0.5, 0, T, s_hist_long)
 
     titles = ['Consumption', 'Labor Supply', 'Government Debt',
               'Tax Rate', 'Government Spending', 'Output']
 
-    # Government spending paths
-    sim_seq_long[4] = log_example.G[sHist_long]
-    sim_bel_long[4] = log_example.G[sHist_long]
-
-    # Output paths
-    sim_seq_long[5] = log_example.Θ[sHist_long] * sim_seq_long[1]
-    sim_bel_long[5] = log_example.Θ[sHist_long] * sim_bel_long[1]
 
     fig, axes = plt.subplots(3, 2, figsize=(14, 10))
 
-    for ax, title, seq, bel in zip(axes.flatten(), titles, sim_seq_long, \
-            sim_bel_long):
-        ax.plot(seq, '-k', bel, '-.b', alpha=0.5)
+    for ax, title, ls, amss in zip(axes.flatten(), titles, sim_ls, \
+            sim_amss):
+        ax.plot(ls, '-k', amss, '-.b', alpha=0.5)
         ax.set(title=title)
         ax.grid()
 
